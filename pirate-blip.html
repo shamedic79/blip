@@ -7,7 +7,6 @@
 <title>Pirate Blip | Blip Archive</title>
 
 <style>
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,12 +19,10 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-
   background:
     radial-gradient(circle at 72% 20%, rgba(91,72,255,.18), transparent 30%),
     radial-gradient(circle at 20% 65%, rgba(0,150,255,.07), transparent 30%),
     linear-gradient(180deg,#070910 0%,#0b1020 55%,#05070d 100%);
-
   color: white;
   min-height: 100vh;
 }
@@ -34,23 +31,16 @@ a {
   color: inherit;
 }
 
-
-/* HEADER */
-
 header {
   position: sticky;
   top: 0;
   z-index: 50;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 18px 6%;
-
   background: rgba(5,7,13,.80);
   backdrop-filter: blur(14px);
-
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
@@ -75,9 +65,6 @@ nav a:hover {
   color: white;
 }
 
-
-/* BACK */
-
 .back-wrap {
   padding: 45px 6% 0;
 }
@@ -92,35 +79,22 @@ nav a:hover {
   color: white;
 }
 
-
-/* RELEASE */
-
 .release {
   padding: 55px 6% 100px;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 75px;
-
   align-items: center;
 }
 
-
-/* ART */
-
 .release-art {
   min-height: 650px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
-
   border-radius: 38px;
-
   border: 1px solid rgba(255,255,255,.09);
-
   background:
     radial-gradient(circle at center,
       rgba(91,78,255,.24),
@@ -130,35 +104,24 @@ nav a:hover {
 
 .release-art::before {
   content: "";
-
   position: absolute;
-
   width: 70%;
   height: 70%;
-
   border-radius: 50%;
-
   background: rgba(80,89,255,.10);
-
   filter: blur(70px);
 }
 
 .release-art img {
   position: relative;
   z-index: 2;
-
   width: 82%;
   max-height: 590px;
-
   object-fit: contain;
-
   filter:
     drop-shadow(0 0 25px rgba(71,112,255,.30))
     drop-shadow(0 30px 50px rgba(0,0,0,.35));
 }
-
-
-/* INFO */
 
 .release-info {
   max-width: 650px;
@@ -166,135 +129,117 @@ nav a:hover {
 
 .kicker {
   color: #8793ff;
-
   font-size: .78rem;
   font-weight: 700;
-
   letter-spacing: .18em;
   text-transform: uppercase;
-
   margin-bottom: 15px;
 }
 
 .release-info h1 {
   font-size: clamp(3.4rem,6vw,6.5rem);
   line-height: .95;
-
   margin-bottom: 20px;
 }
 
 .tagline {
   font-size: 1.3rem;
   font-weight: 700;
-
   margin-bottom: 25px;
 }
 
 .description {
   color: #b9bfcd;
-
   font-size: 1.05rem;
   line-height: 1.75;
-
   max-width: 580px;
 }
 
 .status {
   display: inline-block;
-
   margin-top: 28px;
-
   padding: 8px 13px;
-
   border-radius: 999px;
-
   border: 1px solid rgba(135,147,255,.30);
-
   background: rgba(135,147,255,.08);
-
   color: #aab4ff;
-
   font-size: .75rem;
   font-weight: 700;
-
   letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-
-/* COLLECTOR CONTROL */
-
 .collector-box {
   margin-top: 24px;
-
   padding: 22px;
-
   border-radius: 20px;
-
   border: 1px solid rgba(255,255,255,.10);
-
   background: rgba(255,255,255,.035);
 }
 
 .collector-label {
   color: #8d96a8;
-
   font-size: .72rem;
-
   text-transform: uppercase;
   letter-spacing: .14em;
-
   margin-bottom: 12px;
 }
 
-.collection-button {
+.collector-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.collection-button,
+.wishlist-button {
   width: 100%;
-
   padding: 15px 18px;
-
-  border: 1px solid rgba(255,255,255,.18);
-
   border-radius: 14px;
-
-  background: white;
-  color: #090c14;
-
-  font-size: .95rem;
+  font-size: .9rem;
   font-weight: 800;
-
   cursor: pointer;
-
   transition: .2s ease;
 }
 
-.collection-button:hover {
-  transform: translateY(-2px);
+.collection-button {
+  border: 1px solid rgba(255,255,255,.18);
+  background: white;
+  color: #090c14;
 }
 
 .collection-button.owned {
   color: white;
-
   background:
-    linear-gradient(
-      135deg,
-      rgba(74,89,255,.9),
-      rgba(121,69,255,.9)
-    );
-
+    linear-gradient(135deg,
+      rgba(74,89,255,.95),
+      rgba(121,69,255,.95));
   border-color: rgba(160,150,255,.5);
+}
+
+.wishlist-button {
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.04);
+  color: white;
+}
+
+.wishlist-button.wanted {
+  background: rgba(255,91,168,.14);
+  border-color: rgba(255,120,185,.45);
+  color: #ffb6d7;
+}
+
+.collection-button:hover,
+.wishlist-button:hover {
+  transform: translateY(-2px);
 }
 
 .collection-link {
   display: block;
-
   margin-top: 12px;
-
   text-align: center;
-
   color: #aab4ff;
-
   text-decoration: none;
-
   font-size: .85rem;
 }
 
@@ -302,32 +247,23 @@ nav a:hover {
   color: white;
 }
 
-
-/* DETAILS */
-
 .details {
   margin-top: 40px;
-
   border-top: 1px solid rgba(255,255,255,.09);
 }
 
 .detail-row {
   display: grid;
   grid-template-columns: 160px 1fr;
-
   gap: 20px;
-
   padding: 17px 0;
-
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .detail-label {
   color: #747d8e;
-
   font-size: .78rem;
   font-weight: 700;
-
   text-transform: uppercase;
   letter-spacing: .10em;
 }
@@ -336,14 +272,9 @@ nav a:hover {
   color: #d6dae4;
 }
 
-
-/* STORY */
-
 .story {
   padding: 100px 6%;
-
   border-top: 1px solid rgba(255,255,255,.06);
-
   background: rgba(255,255,255,.018);
 }
 
@@ -354,72 +285,52 @@ nav a:hover {
 
 .story-kicker {
   color: #8793ff;
-
   font-size: .78rem;
   font-weight: 700;
-
   letter-spacing: .18em;
   text-transform: uppercase;
-
   margin-bottom: 15px;
 }
 
 .story h2 {
   font-size: clamp(2.4rem,4vw,4rem);
-
   margin-bottom: 25px;
 }
 
 .story p {
   color: #b9bfcd;
-
   font-size: 1.08rem;
   line-height: 1.85;
-
   margin-bottom: 20px;
 }
 
-
-/* RETURN */
-
 .next-release {
   padding: 90px 6%;
-
   text-align: center;
 }
 
 .next-release span {
   display: block;
-
   color: #747d8e;
-
   font-size: .75rem;
-
   letter-spacing: .16em;
   text-transform: uppercase;
-
   margin-bottom: 12px;
 }
 
 .next-release h3 {
   font-size: clamp(2rem,4vw,3.5rem);
-
   margin-bottom: 25px;
 }
 
 .archive-button {
   display: inline-block;
-
   padding: 14px 22px;
-
   border-radius: 999px;
-
   background: white;
   color: #080b13;
-
   text-decoration: none;
   font-weight: 700;
-
   transition: .2s;
 }
 
@@ -427,29 +338,17 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-
-/* FOOTER */
-
 footer {
   padding: 42px 6%;
-
   border-top: 1px solid rgba(255,255,255,.08);
-
   color: #7f8796;
-
   display: flex;
   justify-content: space-between;
-
   gap: 20px;
-
   flex-wrap: wrap;
 }
 
-
-/* RESPONSIVE */
-
 @media(max-width:950px) {
-
   .release {
     grid-template-columns: 1fr;
     gap: 45px;
@@ -458,11 +357,9 @@ footer {
   .release-art {
     min-height: 520px;
   }
-
 }
 
 @media(max-width:620px) {
-
   header {
     padding: 15px 5%;
   }
@@ -496,6 +393,10 @@ footer {
     font-size: 3.4rem;
   }
 
+  .collector-actions {
+    grid-template-columns: 1fr;
+  }
+
   .detail-row {
     grid-template-columns: 110px 1fr;
   }
@@ -503,18 +404,13 @@ footer {
   .story {
     padding: 70px 5%;
   }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
 <header>
-
   <a class="header-logo" href="index.html">
     <img src="blip-logo.png" alt="Blip">
   </a>
@@ -525,34 +421,24 @@ footer {
     <a href="pins.html">Pins</a>
     <a href="collection.html">My Collection</a>
   </nav>
-
 </header>
-
 
 <main>
 
-
 <div class="back-wrap">
-
   <a class="back" href="pins.html">
     ← Back to Enamel Pins
   </a>
-
 </div>
-
 
 <section class="release">
 
-
   <div class="release-art">
-
     <img
       src="images/pirate-blip.png"
       alt="Pirate Blip"
     >
-
   </div>
-
 
   <div class="release-info">
 
@@ -578,22 +464,31 @@ footer {
       Enamel Pin
     </span>
 
-
-    <!-- COLLECTOR BUTTON -->
-
     <div class="collector-box">
 
       <div class="collector-label">
         Your Blip Collection
       </div>
 
-      <button
-        id="collectionButton"
-        class="collection-button"
-        onclick="toggleCollection()"
-      >
-        + Add to my collection
-      </button>
+      <div class="collector-actions">
+
+        <button
+          id="collectionButton"
+          class="collection-button"
+          onclick="toggleCollection()"
+        >
+          + Add to my collection
+        </button>
+
+        <button
+          id="wishlistButton"
+          class="wishlist-button"
+          onclick="toggleWishlist()"
+        >
+          ♡ Want this
+        </button>
+
+      </div>
 
       <a
         href="collection.html"
@@ -603,7 +498,6 @@ footer {
       </a>
 
     </div>
-
 
     <div class="details">
 
@@ -648,7 +542,6 @@ footer {
 
 </section>
 
-
 <section class="story">
 
   <div class="story-inner">
@@ -679,7 +572,6 @@ footer {
 
 </section>
 
-
 <section class="next-release">
 
   <span>
@@ -696,9 +588,7 @@ footer {
 
 </section>
 
-
 </main>
-
 
 <footer>
 
@@ -712,18 +602,12 @@ footer {
 
 </footer>
 
-
 <script>
-
-/* =====================================================
-   BLIP COLLECTION STORAGE
-===================================================== */
 
 const BLIP_ID = "pirate-blip";
 
-function getCollection() {
-
-  const saved = localStorage.getItem("blipCollection");
+function getSavedArray(key) {
+  const saved = localStorage.getItem(key);
 
   if (!saved) {
     return [];
@@ -734,77 +618,140 @@ function getCollection() {
   } catch {
     return [];
   }
-
 }
 
-
-function saveCollection(collection) {
-
+function saveArray(key, data) {
   localStorage.setItem(
-    "blipCollection",
-    JSON.stringify(collection)
+    key,
+    JSON.stringify(data)
   );
-
 }
-
 
 function isOwned() {
-
-  const collection = getCollection();
-
-  return collection.includes(BLIP_ID);
-
+  return getSavedArray("blipCollection")
+    .includes(BLIP_ID);
 }
 
+function isWanted() {
+  return getSavedArray("blipWishlist")
+    .includes(BLIP_ID);
+}
 
-function updateButton() {
+function updateButtons() {
 
-  const button = document.getElementById("collectionButton");
+  const collectionButton =
+    document.getElementById("collectionButton");
+
+  const wishlistButton =
+    document.getElementById("wishlistButton");
 
   if (isOwned()) {
+    collectionButton.textContent =
+      "✓ In my collection";
 
-    button.textContent = "✓ In my collection";
-
-    button.classList.add("owned");
-
+    collectionButton.classList.add("owned");
   } else {
+    collectionButton.textContent =
+      "+ Add to my collection";
 
-    button.textContent = "+ Add to my collection";
+    collectionButton.classList.remove("owned");
+  }
 
-    button.classList.remove("owned");
+  if (isWanted()) {
+    wishlistButton.textContent =
+      "♥ On my wishlist";
 
+    wishlistButton.classList.add("wanted");
+  } else {
+    wishlistButton.textContent =
+      "♡ Want this";
+
+    wishlistButton.classList.remove("wanted");
   }
 
 }
 
-
 function toggleCollection() {
 
-  let collection = getCollection();
+  let collection =
+    getSavedArray("blipCollection");
+
+  let wishlist =
+    getSavedArray("blipWishlist");
 
   if (collection.includes(BLIP_ID)) {
 
-    collection = collection.filter(
-      id => id !== BLIP_ID
-    );
+    collection =
+      collection.filter(
+        id => id !== BLIP_ID
+      );
 
   } else {
 
     collection.push(BLIP_ID);
 
+    wishlist =
+      wishlist.filter(
+        id => id !== BLIP_ID
+      );
+
   }
 
-  saveCollection(collection);
+  saveArray(
+    "blipCollection",
+    collection
+  );
 
-  updateButton();
+  saveArray(
+    "blipWishlist",
+    wishlist
+  );
 
+  updateButtons();
 }
 
+function toggleWishlist() {
 
-updateButton();
+  let wishlist =
+    getSavedArray("blipWishlist");
+
+  let collection =
+    getSavedArray("blipCollection");
+
+  if (wishlist.includes(BLIP_ID)) {
+
+    wishlist =
+      wishlist.filter(
+        id => id !== BLIP_ID
+      );
+
+  } else {
+
+    wishlist.push(BLIP_ID);
+
+    collection =
+      collection.filter(
+        id => id !== BLIP_ID
+      );
+
+  }
+
+  saveArray(
+    "blipWishlist",
+    wishlist
+  );
+
+  saveArray(
+    "blipCollection",
+    collection
+  );
+
+  updateButtons();
+}
+
+updateButtons();
 
 </script>
-
 
 </body>
 </html>
