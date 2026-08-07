@@ -104,7 +104,6 @@ nav a:hover {
 
 .filters {
   margin-top: 34px;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -113,15 +112,10 @@ nav a:hover {
 
 .filter-pill {
   padding: 9px 14px;
-
   border-radius: 999px;
-
   border: 1px solid rgba(255,255,255,.12);
-
   background: rgba(255,255,255,.03);
-
   color: #c6ccda;
-
   font-size: .8rem;
 }
 
@@ -139,21 +133,15 @@ nav a:hover {
 
 .pin-card {
   overflow: hidden;
-
   border-radius: 28px;
-
   background: rgba(255,255,255,.035);
-
   border: 1px solid rgba(255,255,255,.09);
-
   transition: .25s ease;
 }
 
 .pin-card:hover {
   transform: translateY(-7px);
-
   border-color: rgba(255,255,255,.2);
-
   box-shadow: 0 20px 50px rgba(0,0,0,.28);
 }
 
@@ -163,13 +151,17 @@ nav a:hover {
     rgba(255,255,255,.035);
 }
 
+.pin-card.shark {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(63,124,255,.20), transparent 55%),
+    rgba(255,255,255,.035);
+}
+
 .pin-image {
   height: 330px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background:
     radial-gradient(circle, rgba(82,96,255,.20), transparent 58%);
 }
@@ -178,11 +170,9 @@ nav a:hover {
   width: 82%;
   height: 82%;
   object-fit: contain;
-
   filter:
     drop-shadow(0 0 20px rgba(70,118,255,.30))
     drop-shadow(0 0 45px rgba(120,70,255,.14));
-
   transition: .3s ease;
 }
 
@@ -192,11 +182,8 @@ nav a:hover {
 
 .placeholder {
   color: rgba(255,255,255,.30);
-
   text-transform: uppercase;
-
   letter-spacing: .13em;
-
   font-size: .75rem;
 }
 
@@ -206,15 +193,10 @@ nav a:hover {
 
 .pin-type {
   display: block;
-
   color: #8793ff;
-
   font-size: .72rem;
-
   text-transform: uppercase;
-
   letter-spacing: .14em;
-
   margin-bottom: 9px;
 }
 
@@ -230,32 +212,24 @@ nav a:hover {
 
 .meta {
   margin-top: 18px;
-
   display: flex;
   flex-wrap: wrap;
-
   gap: 8px;
 }
 
 .meta span {
   padding: 6px 9px;
-
   border-radius: 999px;
-
   border: 1px solid rgba(255,255,255,.10);
-
   color: #aeb6c5;
-
   font-size: .72rem;
 }
 
 .discover-link {
   display: inline-block;
   margin-top: 18px;
-
   text-decoration: none;
   font-weight: 700;
-
   color: white;
 }
 
@@ -267,32 +241,23 @@ nav a:hover {
 
 footer {
   padding: 42px 6%;
-
   border-top: 1px solid rgba(255,255,255,.08);
-
   color: #7f8796;
-
   display: flex;
-
   justify-content: space-between;
-
   gap: 20px;
-
   flex-wrap: wrap;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:950px) {
-
   .pin-grid {
     grid-template-columns: repeat(2,1fr);
   }
-
 }
 
 @media(max-width:620px) {
-
   nav {
     display: none;
   }
@@ -320,7 +285,6 @@ footer {
   .pin-image {
     height: 300px;
   }
-
 }
 
 </style>
@@ -338,7 +302,7 @@ footer {
     <a href="index.html">Home</a>
     <a href="index.html#adventures">Adventures</a>
     <a href="index.html#collection">Collection</a>
-    <a href="index.html#gallery">Gallery</a>
+    <a href="collection.html">My Collection</a>
   </nav>
 
 </header>
@@ -361,13 +325,11 @@ footer {
   </p>
 
   <div class="filters">
-
     <span class="filter-pill">Classic</span>
     <span class="filter-pill">Adventure</span>
     <span class="filter-pill">Event</span>
     <span class="filter-pill">Special Edition</span>
     <span class="filter-pill">Vaulted</span>
-
   </div>
 
 </section>
@@ -378,7 +340,7 @@ footer {
   <div class="pin-grid">
 
 
-    <!-- CLASSIC -->
+    <!-- CLASSIC BLIP -->
 
     <article class="pin-card">
 
@@ -411,7 +373,7 @@ footer {
     </article>
 
 
-    <!-- PIRATE -->
+    <!-- PIRATE BLIP -->
 
     <article class="pin-card pirate">
 
@@ -430,7 +392,7 @@ footer {
         </h2>
 
         <p>
-          Somehow Blip ended up on the high seas.
+          Apparently we're pirates now.
         </p>
 
         <div class="meta">
@@ -438,7 +400,10 @@ footer {
           <span>Adventure Series</span>
         </div>
 
-        <a class="discover-link" href="pirate-blip.html">
+        <a
+          class="discover-link"
+          href="pirate-blip.html"
+        >
           View Release →
         </a>
 
@@ -447,12 +412,12 @@ footer {
     </article>
 
 
-    <!-- SHARK -->
+    <!-- SHARK BLIP -->
 
-    <article class="pin-card">
+    <article class="pin-card shark">
 
-      <div class="pin-image placeholder">
-        Shark Blip artwork
+      <div class="pin-image">
+        <img src="images/shark-blip.png" alt="Shark Blip">
       </div>
 
       <div class="pin-content">
@@ -466,7 +431,7 @@ footer {
         </h2>
 
         <p>
-          Deep water. Questionable decisions. Very Blip.
+          This seemed like a good idea at the time.
         </p>
 
         <div class="meta">
@@ -474,12 +439,19 @@ footer {
           <span>Adventure Series</span>
         </div>
 
+        <a
+          class="discover-link"
+          href="shark-blip.html"
+        >
+          View Release →
+        </a>
+
       </div>
 
     </article>
 
 
-    <!-- OCTOPUS -->
+    <!-- OCTOPUS BLIP -->
 
     <article class="pin-card">
 
@@ -511,7 +483,7 @@ footer {
     </article>
 
 
-    <!-- MERLION -->
+    <!-- MERLION BLIP -->
 
     <article class="pin-card">
 
@@ -544,7 +516,7 @@ footer {
     </article>
 
 
-    <!-- KRAKEN -->
+    <!-- KRAKEN BLIP -->
 
     <article class="pin-card">
 
