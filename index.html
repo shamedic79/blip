@@ -32,6 +32,8 @@
       color: inherit;
     }
 
+    /* HEADER */
+
     header {
       position: sticky;
       top: 0;
@@ -67,6 +69,8 @@
     nav a:hover {
       color: white;
     }
+
+    /* HERO */
 
     .hero {
       position: relative;
@@ -225,6 +229,8 @@
       height: 4px;
     }
 
+    /* GENERAL SECTIONS */
+
     section {
       padding: 90px 6%;
     }
@@ -250,52 +256,107 @@
       font-size: 1.05rem;
     }
 
+    /* ABOUT */
+
     .about {
       background: rgba(255,255,255,0.025);
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .collection-grid {
-      margin-top: 45px;
+    /* BLIP COLLECTION */
+
+    .blip-grid {
+      margin-top: 46px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
     }
 
-    .release-card {
-      position: relative;
-      min-height: 290px;
+    .blip-card {
       overflow: hidden;
       border-radius: 28px;
-      padding: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      background:
-        radial-gradient(circle at top right, rgba(111, 91, 255, 0.18), transparent 38%),
-        rgba(255,255,255,0.035);
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.09);
       transition: 0.25s ease;
     }
 
-    .release-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255,255,255,0.18);
+    .blip-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
     }
 
-    .release-number {
-      font-size: 0.8rem;
-      color: #81899a;
-      margin-bottom: 70px;
+    .blip-image-wrap {
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center,
+          rgba(82, 96, 255, 0.22),
+          transparent 55%);
+      overflow: hidden;
     }
 
-    .release-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
+    .blip-image-wrap img {
+      width: 82%;
+      height: 82%;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 22px rgba(70, 118, 255, 0.35))
+        drop-shadow(0 0 45px rgba(120, 70, 255, 0.18));
+      transition: 0.3s ease;
     }
 
-    .release-card p {
-      color: #aeb5c2;
-      line-height: 1.6;
+    .blip-card:hover .blip-image-wrap img {
+      transform: scale(1.05);
     }
+
+    .placeholder-art {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .blip-card-content {
+      padding: 24px;
+    }
+
+    .blip-type {
+      display: block;
+      color: #8793ff;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    .blip-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 9px;
+    }
+
+    .blip-card p {
+      color: #adb4c2;
+      line-height: 1.55;
+      min-height: 48px;
+    }
+
+    .discover-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .discover-link:hover {
+      text-decoration: underline;
+    }
+
+    /* GALLERY */
 
     .gallery-strip {
       margin-top: 45px;
@@ -317,6 +378,8 @@
       color: rgba(255,255,255,0.7);
     }
 
+    /* FOOTER */
+
     footer {
       padding: 42px 6%;
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -327,7 +390,9 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
+    /* TABLET */
+
+    @media (max-width: 950px) {
       .hero {
         grid-template-columns: 1fr;
         padding-top: 45px;
@@ -355,8 +420,8 @@
         width: min(560px, 95%);
       }
 
-      .collection-grid {
-        grid-template-columns: 1fr;
+      .blip-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .gallery-strip {
@@ -364,7 +429,9 @@
       }
     }
 
-    @media (max-width: 650px) {
+    /* MOBILE */
+
+    @media (max-width: 620px) {
       header {
         padding: 15px 5%;
       }
@@ -386,16 +453,33 @@
         font-size: 2.6rem;
       }
 
+      .hero-character {
+        min-height: 350px;
+      }
+
       section {
         padding: 70px 5%;
+      }
+
+      .blip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blip-image-wrap {
+        height: 290px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
+
+<!-- HEADER -->
+
 <header>
+
   <a class="header-logo" href="#">
     <img src="blip-logo.png" alt="Blip logo">
   </a>
@@ -405,171 +489,345 @@
     <a href="#collection">Collection</a>
     <a href="#gallery">Gallery</a>
   </nav>
+
 </header>
+
 
 <main>
 
-  <section class="hero">
 
-    <div class="hero-copy">
+<!-- HERO -->
 
-      <span class="eyebrow">
-        A Loot in a Boot character
-      </span>
+<section class="hero">
 
-      <img
-        class="hero-logo"
-        src="blip-logo.png"
-        alt="Blip"
-      >
+  <div class="hero-copy">
 
-      <h1>
-        Small creature.<br>
-        Big adventures.
-      </h1>
+    <span class="eyebrow">
+      A Loot in a Boot character
+    </span>
 
-      <p>
-        Blip is curious, quiet and somehow always in the middle of something.
-        From ocean depths to faraway places, strange costumes and unexpected
-        adventures, Blip keeps turning up wherever the story takes him.
-      </p>
+    <img
+      class="hero-logo"
+      src="blip-logo.png"
+      alt="Blip"
+    >
 
-      <div class="buttons">
-        <a class="button button-primary" href="#about">
-          Meet Blip
+    <h1>
+      Small creature.<br>
+      Big adventures.
+    </h1>
+
+    <p>
+      Blip is curious, quiet and somehow always in the middle of something.
+      From ocean depths to faraway places, strange costumes and unexpected
+      adventures, Blip keeps turning up wherever the story takes him.
+    </p>
+
+    <div class="buttons">
+
+      <a class="button button-primary" href="#about">
+        Meet Blip
+      </a>
+
+      <a class="button button-secondary" href="#collection">
+        Explore the Collection
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-character">
+
+    <span class="spark one"></span>
+    <span class="spark two"></span>
+    <span class="spark three"></span>
+
+    <img
+      src="blip.png"
+      alt="Blip character"
+    >
+
+  </div>
+
+</section>
+
+
+<!-- MEET BLIP -->
+
+<section class="about" id="about">
+
+  <div class="section-kicker">
+    The little traveller
+  </div>
+
+  <h2 class="section-title">
+    Meet Blip
+  </h2>
+
+  <p class="section-copy">
+    Nobody really knows exactly where Blip came from — and Blip isn't telling.
+    What started as one little character has become a growing collection of
+    adventures, personalities, places and limited releases.
+  </p>
+
+</section>
+
+
+<!-- COLLECTION -->
+
+<section id="collection">
+
+  <div class="section-kicker">
+    Collect the adventure
+  </div>
+
+  <h2 class="section-title">
+    The Blip Collection
+  </h2>
+
+  <p class="section-copy">
+    Every Blip has its own story. Explore the different forms,
+    adventures, event releases and limited editions from across
+    the Blipverse.
+  </p>
+
+
+  <div class="blip-grid">
+
+
+    <!-- CLASSIC BLIP -->
+
+    <article class="blip-card">
+
+      <div class="blip-image-wrap">
+        <img src="blip.png" alt="Classic Blip">
+      </div>
+
+      <div class="blip-card-content">
+
+        <span class="blip-type">
+          Classic Series
+        </span>
+
+        <h3>
+          Classic Blip
+        </h3>
+
+        <p>
+          The little traveller that started it all.
+        </p>
+
+        <a href="#" class="discover-link">
+          Discover →
         </a>
 
-        <a class="button button-secondary" href="#collection">
-          Explore the Collection
+      </div>
+
+    </article>
+
+
+    <!-- PIRATE BLIP -->
+
+    <article class="blip-card">
+
+      <div class="blip-image-wrap placeholder-art">
+        <span>Artwork coming soon</span>
+      </div>
+
+      <div class="blip-card-content">
+
+        <span class="blip-type">
+          Adventure Series
+        </span>
+
+        <h3>
+          Pirate Blip
+        </h3>
+
+        <p>
+          Blip takes to the high seas.
+        </p>
+
+        <a href="#" class="discover-link">
+          Discover →
         </a>
+
       </div>
 
-    </div>
-
-    <div class="hero-character">
-
-      <span class="spark one"></span>
-      <span class="spark two"></span>
-      <span class="spark three"></span>
-
-      <img
-        src="blip.png"
-        alt="Blip character"
-      >
-
-    </div>
-
-  </section>
+    </article>
 
 
-  <section class="about" id="about">
+    <!-- SHARK BLIP -->
 
-    <div class="section-kicker">
-      The little traveller
-    </div>
+    <article class="blip-card">
 
-    <h2 class="section-title">
-      Meet Blip
-    </h2>
+      <div class="blip-image-wrap placeholder-art">
+        <span>Artwork coming soon</span>
+      </div>
 
-    <p class="section-copy">
-      Nobody really knows exactly where Blip came from — and Blip isn't telling.
-      What started as one little character has become a growing collection of
-      adventures, personalities, places and limited releases.
-    </p>
+      <div class="blip-card-content">
 
-  </section>
+        <span class="blip-type">
+          Adventure Series
+        </span>
 
-
-  <section id="collection">
-
-    <div class="section-kicker">
-      Collect the adventure
-    </div>
-
-    <h2 class="section-title">
-      The Blip Collection
-    </h2>
-
-    <p class="section-copy">
-      Every Blip release tells a slightly different story. Some travel,
-      some transform, some get themselves into trouble, and some are simply
-      very limited.
-    </p>
-
-    <div class="collection-grid">
-
-      <div class="release-card">
-        <div class="release-number">01</div>
-
-        <h3>Classic Blip</h3>
+        <h3>
+          Shark Blip
+        </h3>
 
         <p>
-          The original little traveller and the beginning of the Blip story.
+          Things get a little more dangerous underwater.
         </p>
+
+        <a href="#" class="discover-link">
+          Discover →
+        </a>
+
       </div>
 
-      <div class="release-card">
-        <div class="release-number">02</div>
+    </article>
 
-        <h3>Adventures</h3>
+
+    <!-- OCTOPUS BLIP -->
+
+    <article class="blip-card">
+
+      <div class="blip-image-wrap placeholder-art">
+        <span>Artwork coming soon</span>
+      </div>
+
+      <div class="blip-card-content">
+
+        <span class="blip-type">
+          Adventure Series
+        </span>
+
+        <h3>
+          Octopus Blip
+        </h3>
 
         <p>
-          Pirate Blip, Shark Blip, Octopus Blip and all the strange places
-          Blip ends up next.
+          Eight arms would probably make things easier.
         </p>
+
+        <a href="#" class="discover-link">
+          Discover →
+        </a>
+
       </div>
 
-      <div class="release-card">
-        <div class="release-number">03</div>
+    </article>
 
-        <h3>Special Releases</h3>
+
+    <!-- MERLION BLIP -->
+
+    <article class="blip-card">
+
+      <div class="blip-image-wrap placeholder-art">
+        <span>Artwork coming soon</span>
+      </div>
+
+      <div class="blip-card-content">
+
+        <span class="blip-type">
+          Event Edition
+        </span>
+
+        <h3>
+          Merlion Blip
+        </h3>
 
         <p>
-          Event editions, unusual variants, collaborations and limited Blips.
+          A special Blip created for Singapore.
         </p>
+
+        <a href="#" class="discover-link">
+          Discover →
+        </a>
+
       </div>
 
+    </article>
+
+
+    <!-- KRAKEN BLIP -->
+
+    <article class="blip-card">
+
+      <div class="blip-image-wrap placeholder-art">
+        <span>Artwork coming soon</span>
+      </div>
+
+      <div class="blip-card-content">
+
+        <span class="blip-type">
+          Special Release
+        </span>
+
+        <h3>
+          Kraken Blip
+        </h3>
+
+        <p>
+          Blip may have finally found something bigger than the adventure.
+        </p>
+
+        <a href="#" class="discover-link">
+          Discover →
+        </a>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+  <div class="section-kicker">
+    From the Blipverse
+  </div>
+
+  <h2 class="section-title">
+    Adventures so far
+  </h2>
+
+  <p class="section-copy">
+    The home of Blip's different designs, releases,
+    travels and stories.
+  </p>
+
+  <div class="gallery-strip">
+
+    <div class="gallery-box">
+      Classic Blip
     </div>
 
-  </section>
-
-
-  <section id="gallery">
-
-    <div class="section-kicker">
-      From the Blipverse
+    <div class="gallery-box">
+      Adventures
     </div>
 
-    <h2 class="section-title">
-      Adventures so far
-    </h2>
-
-    <p class="section-copy">
-      This will become the home for Blip's different designs, releases,
-      travels and stories.
-    </p>
-
-    <div class="gallery-strip">
-
-      <div class="gallery-box">
-        Classic Blip
-      </div>
-
-      <div class="gallery-box">
-        Adventures
-      </div>
-
-      <div class="gallery-box">
-        Limited Releases
-      </div>
-
+    <div class="gallery-box">
+      Limited Releases
     </div>
 
-  </section>
+  </div>
+
+</section>
+
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -582,6 +840,7 @@
   </div>
 
 </footer>
+
 
 </body>
 </html>
