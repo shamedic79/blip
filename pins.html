@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blip Enamel Pins | Loot in a Boot</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 80% 15%, rgba(90,75,255,.16), transparent 30%),
+    linear-gradient(180deg,#070910 0%,#0b1020 50%,#05070d 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 6%;
+
+  background: rgba(5,7,13,.78);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.header-logo img {
+  width: 125px;
+  display: block;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 26px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,.72);
+  font-size: .95rem;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  padding: 100px 6% 70px;
+  text-align: center;
+}
+
+.kicker {
+  color: #8793ff;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem,6vw,6rem);
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  color: #b9bfcd;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* FILTER STYLE LABELS */
+
+.filters {
+  margin-top: 34px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-pill {
+  padding: 9px 14px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(255,255,255,.03);
+
+  color: #c6ccda;
+
+  font-size: .8rem;
+}
+
+/* GRID */
+
+.pin-section {
+  padding: 40px 6% 100px;
+}
+
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+
+.pin-card {
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: rgba(255,255,255,.035);
+
+  border: 1px solid rgba(255,255,255,.09);
+
+  transition: .25s ease;
+}
+
+.pin-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(255,255,255,.2);
+
+  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+}
+
+.pin-image {
+  height: 330px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(circle, rgba(82,96,255,.20), transparent 58%);
+}
+
+.pin-image img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 20px rgba(70,118,255,.30))
+    drop-shadow(0 0 45px rgba(120,70,255,.14));
+
+  transition: .3s ease;
+}
+
+.pin-card:hover .pin-image img {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  color: rgba(255,255,255,.30);
+
+  text-transform: uppercase;
+
+  letter-spacing: .13em;
+
+  font-size: .75rem;
+}
+
+.pin-content {
+  padding: 24px;
+}
+
+.pin-type {
+  display: block;
+
+  color: #8793ff;
+
+  font-size: .72rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .14em;
+
+  margin-bottom: 9px;
+}
+
+.pin-content h2 {
+  font-size: 1.55rem;
+  margin-bottom: 10px;
+}
+
+.pin-content p {
+  color: #adb4c2;
+  line-height: 1.55;
+}
+
+.meta {
+  margin-top: 18px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.meta span {
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,.10);
+
+  color: #aeb6c5;
+
+  font-size: .72rem;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 42px 6%;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  color: #7f8796;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+
+  .pin-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:620px) {
+
+  nav {
+    display: none;
+  }
+
+  header {
+    padding: 15px 5%;
+  }
+
+  .header-logo img {
+    width: 105px;
+  }
+
+  .hero {
+    padding: 70px 5% 50px;
+  }
+
+  .pin-section {
+    padding: 25px 5% 70px;
+  }
+
+  .pin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pin-image {
+    height: 300px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Blip">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#adventures">Adventures</a>
+    <a href="index.html#collection">Collection</a>
+    <a href="index.html#gallery">Gallery</a>
+  </nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div class="kicker">
+    The Blip Collection
+  </div>
+
+  <h1>
+    Enamel Pins
+  </h1>
+
+  <p>
+    A growing archive of Blip pin releases, variants, special editions
+    and event exclusives from across the Blipverse.
+  </p>
+
+  <div class="filters">
+
+    <span class="filter-pill">Classic</span>
+    <span class="filter-pill">Adventure</span>
+    <span class="filter-pill">Event</span>
+    <span class="filter-pill">Special Edition</span>
+    <span class="filter-pill">Vaulted</span>
+
+  </div>
+
+</section>
+
+
+<section class="pin-section">
+
+  <div class="pin-grid">
+
+
+    <!-- CLASSIC -->
+
+    <article class="pin-card">
+
+      <div class="pin-image">
+        <img src="blip.png" alt="Classic Blip">
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Classic
+        </span>
+
+        <h2>
+          Classic Blip
+        </h2>
+
+        <p>
+          The original Blip and the starting point of the collection.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Blip</span>
+          <span>Loot in a Boot</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PIRATE -->
+
+    <article class="pin-card">
+
+      <div class="pin-image placeholder">
+        Pirate Blip artwork
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Adventure
+        </span>
+
+        <h2>
+          Pirate Blip
+        </h2>
+
+        <p>
+          Somehow Blip ended up on the high seas.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Adventure Series</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- SHARK -->
+
+    <article class="pin-card">
+
+      <div class="pin-image placeholder">
+        Shark Blip artwork
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Adventure
+        </span>
+
+        <h2>
+          Shark Blip
+        </h2>
+
+        <p>
+          Deep water. Questionable decisions. Very Blip.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Adventure Series</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- OCTOPUS -->
+
+    <article class="pin-card">
+
+      <div class="pin-image placeholder">
+        Octopus Blip artwork
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Adventure
+        </span>
+
+        <h2>
+          Octopus Blip
+        </h2>
+
+        <p>
+          Blip encounters something with considerably more arms.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Adventure Series</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- MERLION -->
+
+    <article class="pin-card">
+
+      <div class="pin-image placeholder">
+        Merlion Blip artwork
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Event Edition
+        </span>
+
+        <h2>
+          Merlion Blip
+        </h2>
+
+        <p>
+          A special Singapore release from Blip's travels.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Singapore</span>
+          <span>Event Release</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- KRAKEN -->
+
+    <article class="pin-card">
+
+      <div class="pin-image placeholder">
+        Kraken Blip artwork
+      </div>
+
+      <div class="pin-content">
+
+        <span class="pin-type">
+          Special Release
+        </span>
+
+        <h2>
+          Kraken Blip
+        </h2>
+
+        <p>
+          This particular adventure may not have gone entirely to plan.
+        </p>
+
+        <div class="meta">
+          <span>Enamel Pin</span>
+          <span>Special Release</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    Pin Archive
+  </div>
+
+</footer>
+
+</body>
+</html>
