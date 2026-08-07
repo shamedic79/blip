@@ -32,10 +32,7 @@ a {
   color: inherit;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 header {
   position: sticky;
@@ -67,14 +64,9 @@ nav {
 
 nav a {
   position: relative;
-
   color: #b7b0a6;
   text-decoration: none;
-
   font-size: .92rem;
-  letter-spacing: .03em;
-
-  transition: .2s ease;
 }
 
 nav a:hover,
@@ -84,73 +76,47 @@ nav a.active {
 
 nav a.active::after {
   content: "";
-
   position: absolute;
-
   left: 10%;
   right: 10%;
   bottom: -11px;
-
   height: 1px;
-
   background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #d09b4f,
-      transparent
-    );
+    linear-gradient(90deg,transparent,#d09b4f,transparent);
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .library-hero {
   position: relative;
-
   padding: 80px 6% 58px;
-
   text-align: center;
 }
 
 .library-hero::before {
   content: "☠";
-
   display: block;
-
   color: #9b713c;
   opacity: .45;
-
   font-size: 1.25rem;
-
   margin-bottom: 12px;
 }
 
 .library-kicker {
   color: #b98a4e;
-
   text-transform: uppercase;
   letter-spacing: .24em;
-
   font-size: .72rem;
   font-weight: 800;
-
   margin-bottom: 14px;
 }
 
 .library-hero h1 {
   font-family: Georgia, "Times New Roman", serif;
-
   font-size: clamp(3.6rem,7vw,7rem);
-
   letter-spacing: .025em;
-
   margin-bottom: 14px;
-
   color: #dfbc82;
-
   text-shadow:
     0 2px 0 #5b3b1d,
     0 10px 40px rgba(0,0,0,.55);
@@ -158,65 +124,38 @@ nav a.active::after {
 
 .hero-rule {
   width: min(650px,80%);
-
   height: 1px;
-
   margin: 18px auto 20px;
-
   background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(204,151,79,.75),
-      transparent
-    );
+    linear-gradient(90deg,transparent,rgba(204,151,79,.75),transparent);
 }
 
 .library-hero .tagline {
   font-family: Georgia, "Times New Roman", serif;
-
   font-style: italic;
-
   font-size: clamp(1.25rem,2.4vw,1.8rem);
-
   color: #f1ede6;
 }
 
 .library-hero .intro {
   margin: 18px auto 0;
-
   max-width: 690px;
-
   color: #8e8c89;
-
   line-height: 1.75;
-
   font-size: .98rem;
 }
 
-
-/* =====================================================
-   LIBRARY WRAP
-===================================================== */
+/* BOOKCASE */
 
 .library-wrap {
   width: min(1500px,95%);
-
   margin: 0 auto 110px;
 }
 
-
-/* =====================================================
-   BOOKCASE FRAME
-===================================================== */
-
 .bookcase {
   position: relative;
-
   padding: 42px 42px 55px;
-
   border-radius: 22px;
-
   border: 14px solid #1c1009;
 
   background:
@@ -235,58 +174,27 @@ nav a.active::after {
     0 0 0 2px rgba(158,102,48,.16);
 }
 
-.bookcase::before {
-  content: "";
-
-  position: absolute;
-  inset: -14px;
-
-  border-radius: 22px;
-
-  pointer-events: none;
-
-  box-shadow:
-    inset 0 0 0 3px rgba(179,123,59,.12),
-    inset 0 0 45px rgba(0,0,0,.70);
-}
-
 .bookcase::after {
   content: "✦   ☠   ✦";
-
   position: absolute;
-
   top: -32px;
   left: 50%;
-
   transform: translateX(-50%);
-
   padding: 0 18px;
-
   background: #060504;
-
   color: #9f713c;
-
   letter-spacing: .6em;
-
   font-size: .8rem;
 }
 
-
-/* =====================================================
-   SHELVES
-===================================================== */
+/* SHELVES */
 
 .shelf {
   position: relative;
-
   min-height: 420px;
-
   padding: 54px 42px 38px;
-
   display: flex;
-
   align-items: flex-end;
-
   gap: 18px;
 
   background:
@@ -295,15 +203,7 @@ nav a.active::after {
       rgba(168,97,36,.10),
       transparent 60%
     ),
-    linear-gradient(
-      180deg,
-      #080504,
-      #120a06 76%,
-      #0a0604
-    );
-
-  border-left: 1px solid rgba(255,255,255,.025);
-  border-right: 1px solid rgba(255,255,255,.025);
+    linear-gradient(180deg,#080504,#120a06 76%,#0a0604);
 
   box-shadow:
     inset 0 16px 25px rgba(0,0,0,.40);
@@ -313,36 +213,13 @@ nav a.active::after {
   margin-top: 38px;
 }
 
-.shelf::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  top: 0;
-
-  height: 24px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(92,53,26,.28),
-      transparent
-    );
-}
-
 .shelf::after {
   content: "";
-
   position: absolute;
-
   left: -24px;
   right: -24px;
   bottom: -34px;
-
   height: 35px;
-
   border-radius: 3px 3px 7px 7px;
 
   background:
@@ -355,32 +232,20 @@ nav a.active::after {
     );
 
   border-top: 2px solid rgba(217,155,79,.26);
-
-  box-shadow:
-    0 14px 24px rgba(0,0,0,.72);
+  box-shadow: 0 14px 24px rgba(0,0,0,.72);
 }
 
-
-/* =====================================================
-   BOOK BASE
-===================================================== */
+/* BOOK */
 
 .book {
   position: relative;
-
   width: 160px;
   height: 315px;
-
   flex: 0 0 auto;
-
   border-radius: 6px 12px 10px 5px;
-
   overflow: hidden;
-
   text-decoration: none;
-
   color: #d9b774;
-
   border: 1px solid rgba(221,175,103,.34);
 
   box-shadow:
@@ -397,10 +262,7 @@ nav a.active::after {
 }
 
 .book:hover {
-  transform:
-    translateY(-18px)
-    scale(1.035);
-
+  transform: translateY(-18px) scale(1.035);
   filter: brightness(1.13);
 
   box-shadow:
@@ -411,18 +273,12 @@ nav a.active::after {
   z-index: 10;
 }
 
-
-/* BOOK RIDGE */
-
 .book::before {
   content: "";
-
   position: absolute;
-
   top: 0;
   bottom: 0;
   left: 11px;
-
   width: 2px;
 
   background:
@@ -437,42 +293,23 @@ nav a.active::after {
     4px 0 8px rgba(0,0,0,.28);
 }
 
-
-/* ORNATE INNER FRAME */
-
 .book::after {
   content: "";
-
   position: absolute;
-
   inset: 12px;
-
   border: 1px solid rgba(218,170,94,.42);
-
   border-radius: 4px 8px 7px 3px;
-
-  box-shadow:
-    inset 0 0 0 2px rgba(0,0,0,.12);
-
   pointer-events: none;
 }
-
-
-/* =====================================================
-   BOOK SPINE CONTENT
-===================================================== */
 
 .book-inner {
   position: relative;
   z-index: 2;
-
   height: 100%;
   width: 100%;
-
   padding: 29px 22px 25px;
 
   display: grid;
-
   grid-template-rows:
     auto
     22px
@@ -481,37 +318,28 @@ nav a.active::after {
     auto;
 
   align-items: center;
-
   text-align: center;
 }
 
 .book-character {
   font-size: .66rem;
-
   font-weight: 800;
-
   letter-spacing: .18em;
-
   text-transform: uppercase;
-
   opacity: .82;
 }
 
 .book-divider {
   position: relative;
-
   height: 22px;
 }
 
 .book-divider::before {
   content: "";
-
   position: absolute;
-
   top: 50%;
   left: 16%;
   right: 16%;
-
   height: 1px;
 
   background:
@@ -525,29 +353,19 @@ nav a.active::after {
 
 .book-divider::after {
   content: "✦";
-
   position: absolute;
-
   left: 50%;
   top: 50%;
-
   transform: translate(-50%,-52%);
-
   padding: 0 6px;
-
-  background: inherit;
-
   font-size: .72rem;
-
   color: #c99a55;
 }
 
 .book-title {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   min-height: 0;
 
   font-family:
@@ -556,39 +374,27 @@ nav a.active::after {
     serif;
 
   font-size: 1.48rem;
-
   font-weight: 700;
-
   line-height: 1.18;
-
   padding: 8px 2px;
 }
 
 .book-symbol {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   font-size: 1.6rem;
-
   color: #d6ae68;
 }
 
 .book-foot {
   font-size: .61rem;
-
   letter-spacing: .13em;
-
   text-transform: uppercase;
-
   opacity: .68;
 }
 
-
-/* =====================================================
-   BOOK SIZES
-===================================================== */
+/* SIZES */
 
 .book-small {
   width: 135px;
@@ -603,118 +409,76 @@ nav a.active::after {
   width: 182px;
 }
 
-
-/* =====================================================
-   BOOK COLOURS
-===================================================== */
+/* COLOURS */
 
 .book-blue {
   background:
-    linear-gradient(
-      90deg,
-      #0e2136,
-      #17466f 38%,
-      #102e4b
-    );
+    linear-gradient(90deg,#0e2136,#17466f 38%,#102e4b);
 }
 
 .book-red {
   background:
-    linear-gradient(
-      90deg,
-      #31100d,
-      #6f261d 42%,
-      #43150f
-    );
+    linear-gradient(90deg,#31100d,#6f261d 42%,#43150f);
 }
 
 .book-green {
   background:
-    linear-gradient(
-      90deg,
-      #122319,
-      #2a4c31 44%,
-      #172d20
-    );
+    linear-gradient(90deg,#122319,#2a4c31 44%,#172d20);
 }
 
 .book-purple {
   background:
-    linear-gradient(
-      90deg,
-      #20112b,
-      #4a285e 44%,
-      #27152f
-    );
+    linear-gradient(90deg,#20112b,#4a285e 44%,#27152f);
 }
 
 .book-brown {
   background:
-    linear-gradient(
-      90deg,
-      #27170d,
-      #51321c 44%,
-      #301b10
-    );
+    linear-gradient(90deg,#27170d,#51321c 44%,#301b10);
 }
 
 .book-black {
   background:
-    linear-gradient(
-      90deg,
-      #080808,
-      #1c1b1c 45%,
-      #0a0a0a
-    );
+    linear-gradient(90deg,#080808,#1c1b1c 45%,#0a0a0a);
 }
 
+/* LOCK STATES */
 
-/* =====================================================
-   LOCKED BOOK
-===================================================== */
-
-.book.locked {
-  cursor: default;
-
-  opacity: .70;
-
-  filter: saturate(.55);
+.book[data-status="early-access"]::before,
+.book[data-status="secret"]::before {
+  box-shadow:
+    4px 0 8px rgba(0,0,0,.28),
+    0 0 20px rgba(202,150,75,.14);
 }
 
-.book.locked:hover {
-  transform: translateY(-7px);
+.lock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 8px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(221,174,99,.25);
+  background: rgba(0,0,0,.22);
+
+  color: #d6b67d;
+
+  font-size: .58rem;
+  letter-spacing: .10em;
+  text-transform: uppercase;
 }
 
-.locked .book-title {
-  font-size: 2.3rem;
-}
-
-.locked .book-foot {
-  color: #c5aa7f;
-}
-
-
-/* =====================================================
-   DECORATIVE OBJECTS
-===================================================== */
+/* DECORATIVE */
 
 .shelf-object {
   flex: 0 0 auto;
 }
 
-
-/* BOTTLE */
-
 .bottle {
-  position: relative;
-
   width: 54px;
   height: 125px;
-
   margin: 0 24px;
-
-  border-radius: 15px 15px 14px 14px;
-
+  border-radius: 15px;
   border: 2px solid rgba(156,203,190,.24);
 
   background:
@@ -724,185 +488,60 @@ nav a.active::after {
       rgba(87,136,123,.16),
       rgba(18,46,43,.72)
     );
-
-  box-shadow:
-    inset 8px 0 12px rgba(255,255,255,.04),
-    0 8px 18px rgba(0,0,0,.45);
 }
-
-.bottle::before {
-  content: "";
-
-  position: absolute;
-
-  width: 28px;
-  height: 25px;
-
-  left: 50%;
-  top: -22px;
-
-  transform: translateX(-50%);
-
-  background: #3b2716;
-
-  border-radius: 4px 4px 2px 2px;
-}
-
-.bottle::after {
-  content: "≋";
-
-  position: absolute;
-
-  left: 50%;
-  top: 49px;
-
-  transform: translateX(-50%) rotate(-8deg);
-
-  width: 32px;
-  height: 42px;
-
-  background: rgba(201,172,118,.72);
-
-  color: rgba(73,48,24,.70);
-
-  font-family: Georgia, serif;
-
-  font-size: 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 2px;
-}
-
-
-/* CHEST */
 
 .treasure-chest {
   width: 150px;
   height: 105px;
-
   margin-left: auto;
-
-  position: relative;
-
   border-radius: 15px 15px 7px 7px;
 
   background:
-    linear-gradient(
-      180deg,
-      #5a371d,
-      #29180d
-    );
+    linear-gradient(180deg,#5a371d,#29180d);
 
   border: 5px solid #17100a;
-
-  box-shadow:
-    0 9px 20px rgba(0,0,0,.58);
 }
-
-.treasure-chest::before {
-  content: "";
-
-  position: absolute;
-
-  left: 9px;
-  right: 9px;
-  top: 43%;
-
-  height: 5px;
-
-  background: #9a682f;
-
-  opacity: .7;
-}
-
-.treasure-chest::after {
-  content: "▣";
-
-  position: absolute;
-
-  left: 50%;
-  top: 48%;
-
-  transform: translate(-50%,-50%);
-
-  color: #c08c41;
-
-  font-size: 1.7rem;
-}
-
-
-/* HOURGLASS */
 
 .hourglass {
   width: 75px;
   height: 115px;
-
-  position: relative;
-
   margin: 0 18px;
-
   border-top: 8px solid #76532b;
   border-bottom: 8px solid #76532b;
+  position: relative;
 }
 
 .hourglass::before {
   content: "⌛";
-
   position: absolute;
-
   inset: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 3.1rem;
-
   color: #c7a365;
 }
 
-
-/* CANDLE */
-
 .candle {
   position: relative;
-
   width: 46px;
   height: 90px;
-
   margin-left: auto;
-
   border-radius: 7px 7px 3px 3px;
 
   background:
-    linear-gradient(
-      90deg,
-      #c8af79,
-      #efe0b2 48%,
-      #b99b66
-    );
-
-  box-shadow:
-    0 0 20px rgba(255,189,90,.12);
+    linear-gradient(90deg,#c8af79,#efe0b2 48%,#b99b66);
 }
 
 .candle::before {
   content: "";
-
   position: absolute;
-
   width: 16px;
   height: 28px;
-
   left: 50%;
   top: -27px;
-
   transform: translateX(-50%);
-
-  border-radius: 50% 50% 45% 45%;
+  border-radius: 50%;
 
   background:
     radial-gradient(
@@ -912,24 +551,15 @@ nav a.active::after {
       #a94912 74%,
       transparent 76%
     );
-
-  filter: drop-shadow(0 0 8px rgba(255,170,60,.65));
 }
 
-
-/* =====================================================
-   MESSAGE PLAQUE
-===================================================== */
+/* MESSAGE */
 
 .shelf-message {
   position: relative;
-
   margin: auto;
-
   padding: 34px 42px;
-
   max-width: 460px;
-
   text-align: center;
 
   border:
@@ -950,67 +580,158 @@ nav a.active::after {
       rgba(21,13,8,.78),
       rgba(10,7,5,.70)
     );
-
-  box-shadow:
-    inset 0 0 18px rgba(0,0,0,.55);
 }
 
-.shelf-message::before {
-  content: "☠";
-
-  position: absolute;
-
-  top: -14px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  padding: 0 10px;
-
-  background: #100a06;
-
-  color: #98703d;
-}
-
-
-/* =====================================================
-   FINAL NOTE
-===================================================== */
+/* FINAL NOTE */
 
 .library-note {
   margin-top: 64px;
-
   text-align: center;
-
   color: #787873;
-
   line-height: 1.75;
-}
-
-.library-note::before {
-  content: "✦  ✦  ✦";
-
-  display: block;
-
-  margin-bottom: 16px;
-
-  color: #805a31;
-
-  letter-spacing: .4em;
 }
 
 .library-note strong {
   color: #c2a77a;
-
   font-family: Georgia, serif;
-
   font-size: 1.15rem;
 }
 
+/* MODAL */
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.unlock-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(8px);
+
+  z-index: 999;
+}
+
+.unlock-overlay.show {
+  display: flex;
+}
+
+.unlock-modal {
+  width: min(500px,100%);
+
+  padding: 34px;
+
+  border-radius: 24px;
+
+  border:
+    1px solid rgba(211,159,86,.35);
+
+  background:
+    linear-gradient(
+      180deg,
+      #16100b,
+      #090706
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.65);
+
+  text-align: center;
+}
+
+.unlock-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.unlock-modal h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: #dfbc82;
+  margin-bottom: 12px;
+}
+
+.unlock-modal p {
+  color: #aaa49c;
+  line-height: 1.65;
+}
+
+.unlock-input {
+  width: 100%;
+
+  margin-top: 24px;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  background:
+    rgba(255,255,255,.04);
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 1rem;
+
+  outline: none;
+}
+
+.unlock-input:focus {
+  border-color:
+    rgba(221,174,99,.55);
+}
+
+.unlock-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.unlock-button {
+  padding: 13px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-weight: 800;
+}
+
+.unlock-primary {
+  background: #dfbc82;
+  color: #120c07;
+}
+
+.unlock-secondary {
+  background: rgba(255,255,255,.05);
+  color: white;
+
+  border:
+    1px solid rgba(255,255,255,.10);
+}
+
+.unlock-error {
+  min-height: 20px;
+
+  margin-top: 12px;
+
+  color: #ff9f9f;
+
+  font-size: .82rem;
+}
+
+/* FOOTER */
 
 footer {
   padding: 42px 6%;
@@ -1021,18 +742,12 @@ footer {
   color: #74716d;
 
   display: flex;
-
   justify-content: space-between;
-
   gap: 20px;
-
   flex-wrap: wrap;
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:800px) {
 
@@ -1048,33 +763,16 @@ footer {
     width: 105px;
   }
 
-  .library-hero {
-    padding: 60px 5% 42px;
-  }
-
-  .library-wrap {
-    width: 96%;
-  }
-
   .bookcase {
     padding: 20px 16px 38px;
-
     border-width: 8px;
   }
 
   .shelf {
     min-height: 355px;
-
-    padding:
-      42px
-      18px
-      30px;
-
+    padding: 42px 18px 30px;
     overflow-x: auto;
-
     align-items: flex-end;
-
-    scrollbar-width: thin;
   }
 
   .book {
@@ -1103,9 +801,8 @@ footer {
     font-size: 1.15rem;
   }
 
-  .treasure-chest {
-    width: 120px;
-    height: 85px;
+  .unlock-actions {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -1113,13 +810,7 @@ footer {
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
 
@@ -1138,11 +829,6 @@ footer {
 
 
 <main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="library-hero">
 
@@ -1169,27 +855,24 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     BOOKCASE
-===================================================== -->
-
 <div class="library-wrap">
 
   <div class="bookcase">
 
 
-    <!-- =================================================
-         SHELF ONE
-    ================================================== -->
+    <!-- SHELF ONE -->
 
     <div class="shelf">
 
 
-      <!-- SHARK BOOK -->
+      <!-- SHARK - EARLY ACCESS -->
 
       <a
         class="book book-blue book-tall book-wide"
         href="shark-adventure.html"
+        data-book-id="shark-adventure"
+        data-status="early-access"
+        data-password="SHARKBAIT"
         aria-label="Read Blip: The Shark Adventure"
       >
 
@@ -1209,7 +892,9 @@ footer {
           <div class="book-divider"></div>
 
           <div class="book-symbol">
-            ◢
+            <span class="lock-badge">
+              🔒 Early Access
+            </span>
           </div>
 
         </div>
@@ -1217,13 +902,13 @@ footer {
       </a>
 
 
-
-      <!-- PIRATE BOOK -->
+      <!-- PIRATE - OPEN -->
 
       <a
         class="book book-red"
         href="pirate-adventure.html"
-        aria-label="Read Blip: Pirates"
+        data-book-id="pirate-adventure"
+        data-status="open"
       >
 
         <div class="book-inner">
@@ -1249,13 +934,9 @@ footer {
       </a>
 
 
+      <!-- DECORATIVE -->
 
-      <!-- DECORATIVE BOOK -->
-
-      <div
-        class="book book-brown book-small"
-        aria-hidden="true"
-      >
+      <div class="book book-brown book-small">
 
         <div class="book-inner">
 
@@ -1281,12 +962,14 @@ footer {
       </div>
 
 
+      <!-- SECRET BOOK -->
 
-      <!-- LOCKED BOOK -->
-
-      <div
-        class="book book-black book-tall locked"
-        title="This story hasn't been discovered yet."
+      <a
+        class="book book-black book-tall"
+        href="secret-story.html"
+        data-book-id="secret-story-one"
+        data-status="secret"
+        data-password="TREASURE"
       >
 
         <div class="book-inner">
@@ -1303,23 +986,20 @@ footer {
 
           <div class="book-divider"></div>
 
-          <div class="book-foot">
-            🔒 Story Undiscovered
+          <div class="book-symbol">
+
+            <span class="lock-badge">
+              🔒 Undiscovered
+            </span>
+
           </div>
 
         </div>
 
-      </div>
+      </a>
 
-
-
-      <!-- BOTTLE -->
 
       <div class="bottle shelf-object"></div>
-
-
-
-      <!-- TREASURE CHEST -->
 
       <div class="treasure-chest shelf-object"></div>
 
@@ -1327,20 +1007,12 @@ footer {
     </div>
 
 
-
-    <!-- =================================================
-         SHELF TWO
-    ================================================== -->
+    <!-- SHELF TWO -->
 
     <div class="shelf">
 
 
-      <!-- FUTURE BOOK -->
-
-      <div
-        class="book book-green book-small locked"
-        title="Another story will find its way here."
-      >
+      <div class="book book-green book-small">
 
         <div class="book-inner">
 
@@ -1365,13 +1037,7 @@ footer {
       </div>
 
 
-
-      <!-- FUTURE BOOK -->
-
-      <div
-        class="book book-purple locked"
-        title="Another story will find its way here."
-      >
+      <div class="book book-purple">
 
         <div class="book-inner">
 
@@ -1395,15 +1061,9 @@ footer {
 
       </div>
 
-
-
-      <!-- HOURGLASS -->
 
       <div class="hourglass shelf-object"></div>
 
-
-
-      <!-- LIBRARY MESSAGE -->
 
       <div class="shelf-message">
 
@@ -1418,9 +1078,6 @@ footer {
 
       </div>
 
-
-
-      <!-- CANDLE -->
 
       <div class="candle shelf-object"></div>
 
@@ -1446,7 +1103,6 @@ footer {
 
 </div>
 
-
 </main>
 
 
@@ -1461,6 +1117,349 @@ footer {
   </div>
 
 </footer>
+
+
+<!-- UNLOCK MODAL -->
+
+<div
+  id="unlockOverlay"
+  class="unlock-overlay"
+>
+
+  <div class="unlock-modal">
+
+    <div class="unlock-icon">
+      🔐
+    </div>
+
+    <h2 id="unlockTitle">
+      This story is locked.
+    </h2>
+
+    <p id="unlockMessage">
+      Enter the secret word to discover this story.
+    </p>
+
+    <input
+      id="unlockInput"
+      class="unlock-input"
+      type="text"
+      autocomplete="off"
+      placeholder="Enter secret word"
+    >
+
+    <div class="unlock-actions">
+
+      <button
+        class="unlock-button unlock-primary"
+        onclick="submitUnlock()"
+      >
+        Unlock Story
+      </button>
+
+      <button
+        class="unlock-button unlock-secondary"
+        onclick="closeUnlock()"
+      >
+        Maybe Later
+      </button>
+
+    </div>
+
+    <div
+      id="unlockError"
+      class="unlock-error"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   LOOT LIBRARY BOOK LOCK SYSTEM
+===================================================== */
+
+let activeBook = null;
+
+
+/* CHECK WHETHER A BOOK HAS ALREADY BEEN UNLOCKED */
+
+function isBookUnlocked(bookId) {
+
+  return localStorage.getItem(
+    "lootLibraryUnlocked_" + bookId
+  ) === "yes";
+
+}
+
+
+/* REMEMBER THAT A BOOK HAS BEEN UNLOCKED */
+
+function saveBookUnlock(bookId) {
+
+  localStorage.setItem(
+    "lootLibraryUnlocked_" + bookId,
+    "yes"
+  );
+
+}
+
+
+/* CLICK HANDLING */
+
+document.querySelectorAll(
+  ".book[data-status]"
+).forEach(book => {
+
+  book.addEventListener(
+    "click",
+    function(event) {
+
+      const status =
+        this.dataset.status;
+
+      const bookId =
+        this.dataset.bookId;
+
+
+      /* NORMAL OPEN BOOK */
+
+      if (status === "open") {
+        return;
+      }
+
+
+      /* ALREADY UNLOCKED */
+
+      if (isBookUnlocked(bookId)) {
+        return;
+      }
+
+
+      /* BLOCK NORMAL LINK */
+
+      event.preventDefault();
+
+
+      activeBook =
+        this;
+
+
+      openUnlock(
+        status
+      );
+
+    }
+  );
+
+});
+
+
+/* OPEN MODAL */
+
+function openUnlock(status) {
+
+  const overlay =
+    document.getElementById(
+      "unlockOverlay"
+    );
+
+  const title =
+    document.getElementById(
+      "unlockTitle"
+    );
+
+  const message =
+    document.getElementById(
+      "unlockMessage"
+    );
+
+
+  document.getElementById(
+    "unlockInput"
+  ).value =
+    "";
+
+
+  document.getElementById(
+    "unlockError"
+  ).textContent =
+    "";
+
+
+  if (status === "early-access") {
+
+    title.textContent =
+      "Early access story";
+
+    message.textContent =
+      "This story hasn't opened to everyone yet. Enter the secret word to read it early.";
+
+  }
+
+  else {
+
+    title.textContent =
+      "A hidden story";
+
+    message.textContent =
+      "This book has not been discovered yet. Somewhere out there is the word that unlocks it.";
+
+  }
+
+
+  overlay.classList.add(
+    "show"
+  );
+
+
+  setTimeout(
+    () => {
+
+      document.getElementById(
+        "unlockInput"
+      ).focus();
+
+    },
+    100
+  );
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeUnlock() {
+
+  document.getElementById(
+    "unlockOverlay"
+  ).classList.remove(
+    "show"
+  );
+
+
+  activeBook =
+    null;
+
+}
+
+
+/* SUBMIT PASSWORD */
+
+function submitUnlock() {
+
+  if (!activeBook) {
+    return;
+  }
+
+
+  const entered =
+    document.getElementById(
+      "unlockInput"
+    )
+    .value
+    .trim()
+    .toUpperCase();
+
+
+  const correct =
+    activeBook.dataset.password
+    .trim()
+    .toUpperCase();
+
+
+  if (entered === correct) {
+
+    const bookId =
+      activeBook.dataset.bookId;
+
+
+    saveBookUnlock(
+      bookId
+    );
+
+
+    const destination =
+      activeBook.href;
+
+
+    document.getElementById(
+      "unlockTitle"
+    ).textContent =
+      "Story discovered!";
+
+
+    document.getElementById(
+      "unlockMessage"
+    ).textContent =
+      "The book is yours to open.";
+
+
+    document.getElementById(
+      "unlockError"
+    ).textContent =
+      "";
+
+
+    setTimeout(
+      () => {
+
+        window.location.href =
+          destination;
+
+      },
+      700
+    );
+
+  }
+
+  else {
+
+    document.getElementById(
+      "unlockError"
+    ).textContent =
+      "That doesn't seem to be the right word.";
+
+  }
+
+}
+
+
+/* ENTER KEY */
+
+document.getElementById(
+  "unlockInput"
+).addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Enter") {
+      submitUnlock();
+    }
+
+  }
+);
+
+
+/* CLICK OUTSIDE MODAL */
+
+document.getElementById(
+  "unlockOverlay"
+).addEventListener(
+  "click",
+  function(event) {
+
+    if (event.target === this) {
+      closeUnlock();
+    }
+
+  }
+);
+
+</script>
 
 
 </body>
