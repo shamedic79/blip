@@ -20,10 +20,12 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
   background:
     radial-gradient(circle at 75% 15%, rgba(89,76,255,.17), transparent 28%),
     radial-gradient(circle at 20% 55%, rgba(0,174,255,.08), transparent 30%),
     linear-gradient(180deg,#070910 0%,#0b1020 50%,#05070d 100%);
+
   color: white;
   overflow-x: hidden;
 }
@@ -32,12 +34,15 @@ a {
   color: inherit;
 }
 
-/* ================= HEADER ================= */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
 
   display: flex;
   justify-content: space-between;
@@ -45,8 +50,8 @@ header {
 
   padding: 18px 6%;
 
-  background: rgba(5,7,13,.76);
-  backdrop-filter: blur(12px);
+  background: rgba(5,7,13,.78);
+  backdrop-filter: blur(14px);
 
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
@@ -63,10 +68,14 @@ nav {
 }
 
 nav a {
+  position: relative;
+
   text-decoration: none;
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.72);
+
   font-size: .95rem;
-  transition: .2s;
+
+  transition: .2s ease;
 }
 
 nav a:hover {
@@ -74,10 +83,13 @@ nav a:hover {
 }
 
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
   min-height: 90vh;
+
   position: relative;
 
   display: grid;
@@ -85,6 +97,7 @@ nav a:hover {
   align-items: center;
 
   gap: 30px;
+
   padding: 70px 6% 50px;
 
   overflow: hidden;
@@ -92,6 +105,7 @@ nav a:hover {
 
 .hero::before {
   content:"";
+
   position:absolute;
 
   width:650px;
@@ -105,10 +119,12 @@ nav a:hover {
   border-radius:50%;
 
   background:
-    radial-gradient(circle,
-    rgba(85,113,255,.24),
-    rgba(98,63,255,.11) 38%,
-    transparent 70%);
+    radial-gradient(
+      circle,
+      rgba(85,113,255,.24),
+      rgba(98,63,255,.11) 38%,
+      transparent 70%
+    );
 
   filter:blur(10px);
 }
@@ -116,6 +132,7 @@ nav a:hover {
 .hero-copy {
   position:relative;
   z-index:2;
+
   max-width:650px;
 }
 
@@ -139,20 +156,26 @@ nav a:hover {
 
 .hero-logo {
   display:block;
+
   width:min(520px,85%);
+
   margin-bottom:25px;
+
   filter:invert(1);
 }
 
 .hero h1 {
   font-size:clamp(2.5rem,4.6vw,5rem);
   line-height:1;
+
   margin-bottom:22px;
 }
 
 .hero p {
   max-width:590px;
+
   color:#c3c8d6;
+
   line-height:1.75;
   font-size:1.08rem;
 }
@@ -160,16 +183,23 @@ nav a:hover {
 .buttons {
   display:flex;
   flex-wrap:wrap;
+
   gap:14px;
+
   margin-top:32px;
 }
 
 .button {
+  display:inline-block;
+
   padding:14px 22px;
+
   border-radius:999px;
+
   text-decoration:none;
   font-weight:700;
-  transition:.2s;
+
+  transition:.2s ease;
 }
 
 .button:hover {
@@ -198,6 +228,7 @@ nav a:hover {
 
 .hero-character img {
   width:min(720px,92%);
+
   display:block;
 
   filter:
@@ -208,12 +239,21 @@ nav a:hover {
 }
 
 @keyframes float {
-  0%,100% { transform:translateY(0); }
-  50% { transform:translateY(-14px); }
+
+  0%,100% {
+    transform:translateY(0);
+  }
+
+  50% {
+    transform:translateY(-14px);
+  }
+
 }
 
 
-/* ================= GENERAL ================= */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section {
   padding:100px 6%;
@@ -224,6 +264,7 @@ section {
 
   font-size:.8rem;
   text-transform:uppercase;
+
   letter-spacing:.18em;
   font-weight:700;
 
@@ -232,6 +273,7 @@ section {
 
 .section-title {
   font-size:clamp(2.3rem,4vw,4rem);
+
   margin-bottom:20px;
 }
 
@@ -239,12 +281,15 @@ section {
   max-width:760px;
 
   color:#b9bfcd;
+
   line-height:1.75;
   font-size:1.05rem;
 }
 
 
-/* ================= MEET BLIP ================= */
+/* =========================================================
+   MEET BLIP
+========================================================= */
 
 .about {
   background:rgba(255,255,255,.025);
@@ -254,7 +299,9 @@ section {
 }
 
 
-/* ================= ADVENTURES ================= */
+/* =========================================================
+   ADVENTURES
+========================================================= */
 
 .adventure-section {
   position:relative;
@@ -304,14 +351,14 @@ section {
   background:
     linear-gradient(
       180deg,
-      transparent 35%,
-      rgba(4,7,14,.15) 55%,
+      transparent 30%,
+      rgba(4,7,14,.08) 50%,
       rgba(4,7,14,.92) 100%
     );
 }
 
 .adventure-text {
-  max-width:620px;
+  max-width:760px;
 }
 
 .adventure-label {
@@ -323,167 +370,297 @@ section {
   border-radius:999px;
 
   background:rgba(0,0,0,.45);
+
   border:1px solid rgba(255,255,255,.18);
 
   backdrop-filter:blur(6px);
 
   font-size:.72rem;
+
   letter-spacing:.15em;
   text-transform:uppercase;
 }
 
 .adventure-text h3 {
-  font-size:clamp(2rem,4vw,3.8rem);
-  margin-bottom:12px;
+  font-size:clamp(2.2rem,4.4vw,4.2rem);
+
+  line-height:1.05;
+
+  margin-bottom:16px;
 }
 
 .adventure-text p {
-  color:#d6d9e2;
+  color:#e0e3eb;
+
   line-height:1.6;
-  font-size:1.05rem;
+
+  font-size:1.08rem;
+  font-weight:600;
 }
 
 
-/* ================= COLLECTION ================= */
+/* =========================================================
+   COLLECTION
+========================================================= */
 
 .collection-section {
-  background:rgba(255,255,255,.02);
+  background:rgba(255,255,255,.018);
 
   border-top:1px solid rgba(255,255,255,.05);
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.blip-grid {
-  margin-top:45px;
+.collection-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  gap:40px;
+}
+
+.collection-note {
+  max-width:400px;
+
+  color:#7f8796;
+
+  font-size:.9rem;
+  line-height:1.6;
+}
+
+.collection-grid {
+  margin-top:50px;
 
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:repeat(2,1fr);
 
   gap:24px;
 }
 
-.blip-card {
+.collection-card {
+  position:relative;
+
+  min-height:390px;
+
   overflow:hidden;
 
-  border-radius:28px;
-
-  background:rgba(255,255,255,.035);
+  border-radius:30px;
 
   border:1px solid rgba(255,255,255,.09);
 
-  transition:.25s;
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(88,76,255,.17),
+      transparent 38%
+    ),
+    rgba(255,255,255,.035);
+
+  padding:34px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  text-decoration:none;
+
+  transition:.3s ease;
 }
 
-.blip-card:hover {
+.collection-card:hover {
   transform:translateY(-7px);
 
   border-color:rgba(255,255,255,.2);
 
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.28);
 }
 
-.blip-image {
-  height:350px;
+.collection-number {
+  color:rgba(255,255,255,.25);
+
+  font-size:.85rem;
+
+  letter-spacing:.15em;
+}
+
+.collection-card-content {
+  position:relative;
+  z-index:2;
+}
+
+.collection-card h3 {
+  font-size:clamp(2rem,3vw,3rem);
+
+  margin-bottom:12px;
+}
+
+.collection-card p {
+  max-width:470px;
+
+  color:#afb6c5;
+
+  line-height:1.65;
+}
+
+.collection-arrow {
+  display:inline-block;
+
+  margin-top:22px;
+
+  font-size:1rem;
+  font-weight:700;
+}
+
+.collection-glow {
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  right:-70px;
+  top:-70px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(94,111,255,.28),
+      transparent 68%
+    );
+
+  filter:blur(4px);
+}
+
+.collection-card.pins {
+  background:
+    radial-gradient(circle at 75% 25%,rgba(108,74,255,.22),transparent 40%),
+    rgba(255,255,255,.035);
+}
+
+.collection-card.figures {
+  background:
+    radial-gradient(circle at 75% 25%,rgba(26,166,255,.17),transparent 40%),
+    rgba(255,255,255,.035);
+}
+
+.collection-card.special {
+  background:
+    radial-gradient(circle at 75% 25%,rgba(180,67,255,.16),transparent 40%),
+    rgba(255,255,255,.035);
+}
+
+.collection-card.archive {
+  background:
+    radial-gradient(circle at 75% 25%,rgba(83,132,255,.14),transparent 40%),
+    rgba(255,255,255,.035);
+}
+
+
+/* =========================================================
+   FEATURED BLIP
+========================================================= */
+
+.featured-blip {
+  margin-top:70px;
+
+  display:grid;
+
+  grid-template-columns:.85fr 1.15fr;
+
+  align-items:center;
+
+  gap:60px;
+
+  padding:55px;
+
+  border-radius:34px;
+
+  border:1px solid rgba(255,255,255,.09);
+
+  background:
+    radial-gradient(circle at 20% 50%,rgba(72,89,255,.18),transparent 35%),
+    rgba(255,255,255,.025);
+}
+
+.featured-image {
+  min-height:420px;
 
   display:flex;
   align-items:center;
   justify-content:center;
-
-  background:
-    radial-gradient(circle,
-    rgba(82,96,255,.22),
-    transparent 58%);
 }
 
-.blip-image img {
-  width:82%;
-  height:82%;
-
-  object-fit:contain;
-
-  transition:.3s;
+.featured-image img {
+  width:min(430px,95%);
 
   filter:
-    drop-shadow(0 0 22px rgba(70,118,255,.35))
-    drop-shadow(0 0 45px rgba(120,70,255,.18));
+    drop-shadow(0 0 24px rgba(66,111,255,.35))
+    drop-shadow(0 0 60px rgba(110,66,255,.20));
 }
 
-.blip-card:hover .blip-image img {
-  transform:scale(1.05);
-}
-
-.blip-content {
-  padding:25px;
-}
-
-.blip-type {
-  display:block;
+.featured-content .mini-label {
+  display:inline-block;
 
   color:#8793ff;
 
-  font-size:.73rem;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-
-  margin-bottom:10px;
-}
-
-.blip-content h3 {
-  font-size:1.55rem;
-  margin-bottom:9px;
-}
-
-.blip-content p {
-  color:#adb4c2;
-  line-height:1.55;
-}
-
-.discover {
-  display:inline-block;
-
-  margin-top:18px;
-
-  color:white;
-
+  font-size:.75rem;
   font-weight:700;
-  text-decoration:none;
+
+  text-transform:uppercase;
+  letter-spacing:.15em;
+
+  margin-bottom:14px;
 }
 
-.discover:hover {
-  text-decoration:underline;
+.featured-content h3 {
+  font-size:clamp(2.4rem,4vw,4rem);
+
+  margin-bottom:16px;
 }
 
-.coming-card {
-  min-height:500px;
+.featured-content p {
+  max-width:600px;
+
+  color:#b9bfcd;
+
+  line-height:1.75;
+}
+
+.details {
+  margin-top:26px;
 
   display:flex;
-  justify-content:center;
-  align-items:center;
+  flex-wrap:wrap;
 
-  text-align:center;
-
-  background:
-    radial-gradient(circle,
-    rgba(89,76,255,.12),
-    transparent 60%);
+  gap:10px;
 }
 
-.coming-card span {
-  color:rgba(255,255,255,.35);
+.detail-pill {
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.12);
+
+  color:#bec4d1;
+
+  background:rgba(255,255,255,.03);
 
   font-size:.8rem;
-
-  letter-spacing:.15em;
-  text-transform:uppercase;
 }
 
 
-/* ================= GALLERY ================= */
+/* =========================================================
+   GALLERY
+========================================================= */
 
 .gallery-grid {
   margin-top:45px;
 
   display:grid;
+
   grid-template-columns:1.4fr .8fr .8fr;
 
   gap:18px;
@@ -497,21 +674,34 @@ section {
   border:1px solid rgba(255,255,255,.09);
 
   background:
-    radial-gradient(circle,
-    rgba(75,104,255,.18),
-    transparent 55%),
+    radial-gradient(
+      circle,
+      rgba(75,104,255,.18),
+      transparent 55%
+    ),
     rgba(255,255,255,.03);
 
   display:flex;
+
   align-items:flex-end;
 
   padding:25px;
 
   color:rgba(255,255,255,.7);
+
+  transition:.25s ease;
+}
+
+.gallery-box:hover {
+  transform:translateY(-5px);
+
+  border-color:rgba(255,255,255,.18);
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   padding:42px 6%;
@@ -521,6 +711,7 @@ footer {
   color:#7f8796;
 
   display:flex;
+
   justify-content:space-between;
 
   gap:20px;
@@ -529,7 +720,9 @@ footer {
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:950px) {
 
@@ -539,6 +732,7 @@ footer {
 
   .hero-copy {
     text-align:center;
+
     margin:auto;
   }
 
@@ -559,11 +753,40 @@ footer {
     width:min(560px,95%);
   }
 
-  .blip-grid {
-    grid-template-columns:repeat(2,1fr);
+  .collection-header {
+    display:block;
+  }
+
+  .collection-note {
+    margin-top:20px;
+  }
+
+  .featured-blip {
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    gap:20px;
+  }
+
+  .featured-content p {
+    margin:auto;
+  }
+
+  .details {
+    justify-content:center;
   }
 
   .gallery-grid {
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:700px) {
+
+  .collection-grid {
     grid-template-columns:1fr;
   }
 
@@ -586,6 +809,7 @@ footer {
 
   .hero {
     min-height:auto;
+
     padding:55px 5% 35px;
   }
 
@@ -603,6 +827,7 @@ footer {
 
   .adventure-feature {
     min-height:500px;
+
     border-radius:24px;
   }
 
@@ -610,8 +835,20 @@ footer {
     padding:25px;
   }
 
-  .blip-grid {
-    grid-template-columns:1fr;
+  .adventure-text h3 {
+    font-size:2.4rem;
+  }
+
+  .collection-card {
+    min-height:330px;
+  }
+
+  .featured-blip {
+    padding:30px 20px;
+  }
+
+  .featured-image {
+    min-height:300px;
   }
 
 }
@@ -622,6 +859,10 @@ footer {
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -642,7 +883,9 @@ footer {
 <main>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -696,7 +939,9 @@ footer {
 </section>
 
 
-<!-- MEET BLIP -->
+<!-- =====================================================
+     MEET BLIP
+===================================================== -->
 
 <section class="about" id="about">
 
@@ -717,7 +962,9 @@ footer {
 </section>
 
 
-<!-- ADVENTURES -->
+<!-- =====================================================
+     ADVENTURES
+===================================================== -->
 
 <section class="adventure-section" id="adventures">
 
@@ -730,9 +977,7 @@ footer {
   </h2>
 
   <p class="section-copy">
-    Blip has a habit of ending up where he probably shouldn't be.
-    Treasure maps, strange creatures and distant shores are only
-    the beginning.
+    Blip has arrived. Where he goes from here is anybody's guess.
   </p>
 
 
@@ -752,12 +997,12 @@ footer {
         </span>
 
         <h3>
-          Somewhere out there is treasure.
+          Blip has landed.<br>
+          Where will the adventure take him?
         </h3>
 
         <p>
-          Blip doesn't know where the map leads.
-          That's never stopped him before.
+          No map. No plan. Just Blip.
         </p>
 
       </div>
@@ -769,86 +1014,220 @@ footer {
 </section>
 
 
-<!-- COLLECTION -->
+<!-- =====================================================
+     COLLECTION
+===================================================== -->
 
 <section class="collection-section" id="collection">
 
-  <div class="section-kicker">
-    From the vault
-  </div>
+  <div class="collection-header">
 
-  <h2 class="section-title">
-    The Blip Collection
-  </h2>
+    <div>
 
-  <p class="section-copy">
-    Pins, figures, special editions and limited releases.
-    This is where every real-world Blip will be recorded.
-  </p>
-
-
-  <div class="blip-grid">
-
-
-    <article class="blip-card">
-
-      <div class="blip-image">
-
-        <img
-          src="blip.png"
-          alt="Classic Blip"
-        >
-
+      <div class="section-kicker">
+        From the vault
       </div>
 
+      <h2 class="section-title">
+        The Blip Collection
+      </h2>
 
-      <div class="blip-content">
+      <p class="section-copy">
+        From enamel pins to figures, special releases and strange little
+        appearances along the way — every collectible Blip belongs here.
+      </p>
 
-        <span class="blip-type">
-          The Original
-        </span>
+    </div>
+
+    <div class="collection-note">
+      The archive will continue to grow as new Blips are discovered,
+      released and occasionally cause trouble.
+    </div>
+
+  </div>
+
+
+  <div class="collection-grid">
+
+
+    <!-- PINS -->
+
+    <a class="collection-card pins" href="#featured">
+
+      <div class="collection-glow"></div>
+
+      <div class="collection-number">
+        01
+      </div>
+
+      <div class="collection-card-content">
 
         <h3>
-          Classic Blip
+          Enamel Pins
         </h3>
 
         <p>
-          Where the Blip collection began.
+          Classic Blip, strange disguises, adventures, event editions,
+          variants and everything in between.
         </p>
 
-        <a class="discover" href="#">
-          Discover →
-        </a>
+        <span class="collection-arrow">
+          Explore Pins →
+        </span>
 
       </div>
 
-    </article>
+    </a>
 
 
-    <article class="blip-card coming-card">
+    <!-- FIGURES -->
 
-      <span>
-        More Blips incoming...
+    <a class="collection-card figures" href="#featured">
+
+      <div class="collection-glow"></div>
+
+      <div class="collection-number">
+        02
+      </div>
+
+      <div class="collection-card-content">
+
+        <h3>
+          Figures & Resin
+        </h3>
+
+        <p>
+          Blip escapes the pin board and enters the third dimension.
+          Figures, resin pieces and special sculptural releases.
+        </p>
+
+        <span class="collection-arrow">
+          Explore Figures →
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- SPECIAL -->
+
+    <a class="collection-card special" href="#featured">
+
+      <div class="collection-glow"></div>
+
+      <div class="collection-number">
+        03
+      </div>
+
+      <div class="collection-card-content">
+
+        <h3>
+          Special Releases
+        </h3>
+
+        <p>
+          Event exclusives, collaborations, unusual variants and
+          Blips that appeared only briefly before disappearing again.
+        </p>
+
+        <span class="collection-arrow">
+          Explore Specials →
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- ARCHIVE -->
+
+    <a class="collection-card archive" href="#featured">
+
+      <div class="collection-glow"></div>
+
+      <div class="collection-number">
+        04
+      </div>
+
+      <div class="collection-card-content">
+
+        <h3>
+          The Archive
+        </h3>
+
+        <p>
+          A growing record of Blip releases, edition information,
+          variants, dates and collector details.
+        </p>
+
+        <span class="collection-arrow">
+          Enter the Archive →
+        </span>
+
+      </div>
+
+    </a>
+
+
+  </div>
+
+
+  <!-- FEATURED CLASSIC BLIP -->
+
+  <div class="featured-blip" id="featured">
+
+    <div class="featured-image">
+
+      <img
+        src="blip.png"
+        alt="Classic Blip"
+      >
+
+    </div>
+
+
+    <div class="featured-content">
+
+      <span class="mini-label">
+        Where it began
       </span>
 
-    </article>
+      <h3>
+        Classic Blip
+      </h3>
 
+      <p>
+        The original little traveller. Before the costumes, strange places,
+        ocean creatures and unexpected adventures, there was simply Blip.
+      </p>
 
-    <article class="blip-card coming-card">
+      <div class="details">
 
-      <span>
-        Something strange is coming...
-      </span>
+        <span class="detail-pill">
+          Original Character
+        </span>
 
-    </article>
+        <span class="detail-pill">
+          Blip
+        </span>
 
+        <span class="detail-pill">
+          Loot in a Boot
+        </span>
+
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- GALLERY -->
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 
 <section id="gallery">
 
@@ -861,7 +1240,8 @@ footer {
   </h2>
 
   <p class="section-copy">
-    Artwork, adventures, releases and moments from the world of Blip.
+    Artwork, adventures, releases and moments from the ever-expanding
+    world of Blip.
   </p>
 
 
@@ -886,6 +1266,10 @@ footer {
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
