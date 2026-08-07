@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Blip Collection</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at 75% 15%, rgba(89,76,255,.17), transparent 30%),
+    linear-gradient(180deg,#070910,#0b1020 55%,#05070d);
+
+  color:white;
+
+  min-height:100vh;
+}
+
+a {
+  color:inherit;
+}
+
+
+/* HEADER */
+
+header {
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 6%;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  background:rgba(5,7,13,.8);
+}
+
+.header-logo img {
+  width:125px;
+
+  filter:invert(1);
+}
+
+nav {
+  display:flex;
+
+  gap:25px;
+}
+
+nav a {
+  color:#aeb5c3;
+
+  text-decoration:none;
+
+  font-size:.95rem;
+}
+
+nav a:hover {
+  color:white;
+}
+
+
+/* HERO */
+
+.hero {
+  padding:90px 6% 50px;
+
+  text-align:center;
+}
+
+.kicker {
+  color:#8793ff;
+
+  font-size:.78rem;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  font-weight:700;
+
+  margin-bottom:12px;
+}
+
+.hero h1 {
+  font-size:clamp(3rem,6vw,6rem);
+
+  margin-bottom:18px;
+}
+
+.hero p {
+  color:#b9bfcd;
+
+  max-width:700px;
+
+  margin:auto;
+
+  line-height:1.7;
+}
+
+
+/* COLLECTION COUNT */
+
+.progress-wrap {
+  max-width:700px;
+
+  margin:38px auto 0;
+}
+
+.progress-info {
+  display:flex;
+
+  justify-content:space-between;
+
+  color:#9da5b5;
+
+  font-size:.85rem;
+
+  margin-bottom:10px;
+}
+
+.progress-bar {
+  height:9px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+
+  overflow:hidden;
+}
+
+.progress-fill {
+  height:100%;
+
+  width:0%;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #536cff,
+      #985fff
+    );
+
+  transition:.5s;
+}
+
+
+/* MAIN */
+
+.collection-section {
+  padding:40px 6% 100px;
+}
+
+.collection-grid {
+  max-width:1100px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:24px;
+}
+
+
+/* CARD */
+
+.collector-card {
+  overflow:hidden;
+
+  border-radius:28px;
+
+  border:1px solid rgba(255,255,255,.10);
+
+  background:rgba(255,255,255,.035);
+}
+
+.collector-image {
+  height:330px;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  background:
+    radial-gradient(circle,
+    rgba(79,95,255,.22),
+    transparent 60%);
+}
+
+.collector-image img {
+  width:85%;
+  height:85%;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(
+      0 0 25px rgba(67,109,255,.30)
+    );
+}
+
+.collector-content {
+  padding:24px;
+}
+
+.collector-type {
+  color:#8793ff;
+
+  text-transform:uppercase;
+
+  letter-spacing:.13em;
+
+  font-size:.72rem;
+}
+
+.collector-content h2 {
+  margin-top:8px;
+
+  font-size:1.6rem;
+}
+
+.collector-content p {
+  color:#aeb5c3;
+
+  line-height:1.5;
+
+  margin-top:10px;
+}
+
+
+/* EMPTY */
+
+.empty {
+  max-width:800px;
+
+  margin:70px auto;
+
+  text-align:center;
+
+  padding:60px 30px;
+
+  border-radius:30px;
+
+  border:1px dashed rgba(255,255,255,.15);
+
+  color:#a7afbd;
+}
+
+.empty h2 {
+  color:white;
+
+  margin-bottom:15px;
+}
+
+
+/* EXPORT */
+
+.export-section {
+  text-align:center;
+
+  padding:0 6% 110px;
+}
+
+.export-section h2 {
+  font-size:clamp(2rem,4vw,3.5rem);
+
+  margin-bottom:12px;
+}
+
+.export-section p {
+  color:#aeb5c3;
+
+  margin-bottom:28px;
+}
+
+.export-button {
+  border:none;
+
+  border-radius:999px;
+
+  padding:15px 25px;
+
+  background:white;
+
+  color:#080b13;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  font-size:.95rem;
+
+  transition:.2s;
+}
+
+.export-button:hover {
+  transform:translateY(-2px);
+}
+
+
+/* PREVIEW */
+
+.card-preview {
+  margin:40px auto 0;
+
+  max-width:720px;
+}
+
+#collectionCanvas {
+  width:100%;
+  height:auto;
+
+  border-radius:24px;
+
+  border:1px solid rgba(255,255,255,.10);
+
+  display:none;
+}
+
+.download-button {
+  display:none;
+
+  margin:20px auto 0;
+
+  border:1px solid rgba(255,255,255,.15);
+
+  border-radius:999px;
+
+  padding:13px 22px;
+
+  background:rgba(255,255,255,.05);
+
+  color:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+
+/* FOOTER */
+
+footer {
+  padding:42px 6%;
+
+  border-top:1px solid rgba(255,255,255,.08);
+
+  color:#7f8796;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  flex-wrap:wrap;
+
+  gap:20px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+  .collection-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:620px) {
+
+  nav {
+    display:none;
+  }
+
+  .collection-grid {
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Blip">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="pins.html">Pins</a>
+    <a href="collection.html">My Collection</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+
+<section class="hero">
+
+  <div class="kicker">
+    Collector Tracker
+  </div>
+
+  <h1>
+    My Blip Collection
+  </h1>
+
+  <p>
+    Keep track of the Blips you've collected and create
+    a card to share your collection.
+  </p>
+
+
+  <div class="progress-wrap">
+
+    <div class="progress-info">
+
+      <span id="collectionCount">
+        0 collected
+      </span>
+
+      <span id="collectionTotal">
+        0 / 0
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        id="progressFill"
+        class="progress-fill"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="collection-section">
+
+  <div
+    id="collectionGrid"
+    class="collection-grid"
+  ></div>
+
+  <div
+    id="emptyCollection"
+    class="empty"
+    style="display:none;"
+  >
+
+    <h2>
+      No Blips yet!
+    </h2>
+
+    <p>
+      Explore the archive and add Blips to your collection.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="export-section">
+
+  <h2>
+    Share your collection
+  </h2>
+
+  <p>
+    Generate a Blip Collection Card from the Blips you own.
+  </p>
+
+  <button
+    class="export-button"
+    onclick="generateCard()"
+  >
+    Generate Collection Card
+  </button>
+
+
+  <div class="card-preview">
+
+    <canvas
+      id="collectionCanvas"
+      width="1200"
+      height="800"
+    ></canvas>
+
+    <button
+      id="downloadButton"
+      class="download-button"
+      onclick="downloadCard()"
+    >
+      Save Collection Card
+    </button>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    My Collection
+  </div>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   BLIP DATABASE
+===================================================== */
+
+const blips = [
+
+  {
+    id: "pirate-blip",
+    name: "Pirate Blip",
+    type: "Adventure Series",
+    image: "images/pirate-blip.png",
+    page: "pirate-blip.html"
+  }
+
+];
+
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+function getCollection() {
+
+  const saved =
+    localStorage.getItem("blipCollection");
+
+  if (!saved) {
+    return [];
+  }
+
+  try {
+    return JSON.parse(saved);
+  } catch {
+    return [];
+  }
+
+}
+
+
+/* =====================================================
+   DISPLAY COLLECTION
+===================================================== */
+
+function loadCollection() {
+
+  const owned =
+    getCollection();
+
+  const grid =
+    document.getElementById("collectionGrid");
+
+  const empty =
+    document.getElementById("emptyCollection");
+
+  grid.innerHTML = "";
+
+
+  const ownedBlips =
+    blips.filter(
+      blip => owned.includes(blip.id)
+    );
+
+
+  document.getElementById(
+    "collectionCount"
+  ).textContent =
+    ownedBlips.length +
+    " collected";
+
+
+  document.getElementById(
+    "collectionTotal"
+  ).textContent =
+    ownedBlips.length +
+    " / " +
+    blips.length;
+
+
+  const percentage =
+    blips.length
+      ? (ownedBlips.length / blips.length) * 100
+      : 0;
+
+
+  document.getElementById(
+    "progressFill"
+  ).style.width =
+    percentage + "%";
+
+
+  if (!ownedBlips.length) {
+
+    empty.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  ownedBlips.forEach(blip => {
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "collector-card";
+
+
+    card.innerHTML = `
+
+      <a
+        href="${blip.page}"
+        style="text-decoration:none;"
+      >
+
+        <div class="collector-image">
+
+          <img
+            src="${blip.image}"
+            alt="${blip.name}"
+          >
+
+        </div>
+
+        <div class="collector-content">
+
+          <span class="collector-type">
+            ${blip.type}
+          </span>
+
+          <h2>
+            ${blip.name}
+          </h2>
+
+          <p>
+            ✓ In your collection
+          </p>
+
+        </div>
+
+      </a>
+
+    `;
+
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+/* =====================================================
+   GENERATE SHARE CARD
+===================================================== */
+
+async function generateCard() {
+
+  const owned =
+    getCollection();
+
+  const ownedBlips =
+    blips.filter(
+      blip => owned.includes(blip.id)
+    );
+
+
+  if (!ownedBlips.length) {
+
+    alert(
+      "Add at least one Blip to your collection first!"
+    );
+
+    return;
+
+  }
+
+
+  const canvas =
+    document.getElementById(
+      "collectionCanvas"
+    );
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  const width =
+    canvas.width;
+
+  const height =
+    canvas.height;
+
+
+  /* BACKGROUND */
+
+  const gradient =
+    ctx.createLinearGradient(
+      0,
+      0,
+      width,
+      height
+    );
+
+  gradient.addColorStop(
+    0,
+    "#080b16"
+  );
+
+  gradient.addColorStop(
+    .55,
+    "#101637"
+  );
+
+  gradient.addColorStop(
+    1,
+    "#080b16"
+  );
+
+
+  ctx.fillStyle =
+    gradient;
+
+  ctx.fillRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+
+  /* TITLE */
+
+  ctx.textAlign =
+    "center";
+
+  ctx.fillStyle =
+    "#ffffff";
+
+  ctx.font =
+    "bold 72px Arial";
+
+  ctx.fillText(
+    "MY BLIP COLLECTION",
+    width / 2,
+    100
+  );
+
+
+  ctx.fillStyle =
+    "#9ca8ff";
+
+  ctx.font =
+    "bold 28px Arial";
+
+  ctx.fillText(
+    ownedBlips.length +
+    " / " +
+    blips.length +
+    " COLLECTED",
+    width / 2,
+    150
+  );
+
+
+  /* BLIP IMAGES */
+
+  const imageSize =
+    330;
+
+  const gap =
+    70;
+
+  const totalWidth =
+    ownedBlips.length *
+    imageSize +
+    (ownedBlips.length - 1) *
+    gap;
+
+
+  let startX =
+    (width - totalWidth) / 2;
+
+
+  for (
+    let i = 0;
+    i < ownedBlips.length;
+    i++
+  ) {
+
+    const blip =
+      ownedBlips[i];
+
+    const image =
+      new Image();
+
+    image.src =
+      blip.image;
+
+
+    await new Promise(
+      resolve => {
+
+        image.onload =
+          resolve;
+
+      }
+    );
+
+
+    const x =
+      startX +
+      i *
+      (imageSize + gap);
+
+
+    ctx.drawImage(
+      image,
+      x,
+      220,
+      imageSize,
+      imageSize
+    );
+
+
+    ctx.fillStyle =
+      "#ffffff";
+
+    ctx.font =
+      "bold 30px Arial";
+
+    ctx.textAlign =
+      "center";
+
+
+    ctx.fillText(
+      blip.name,
+      x +
+      imageSize / 2,
+      600
+    );
+
+  }
+
+
+  /* FOOTER */
+
+  ctx.fillStyle =
+    "#80889b";
+
+  ctx.font =
+    "22px Arial";
+
+  ctx.textAlign =
+    "center";
+
+
+  ctx.fillText(
+    "blip.lootinaboot.com.au",
+    width / 2,
+    740
+  );
+
+
+  canvas.style.display =
+    "block";
+
+
+  document.getElementById(
+    "downloadButton"
+  ).style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   SAVE IMAGE
+===================================================== */
+
+function downloadCard() {
+
+  const canvas =
+    document.getElementById(
+      "collectionCanvas"
+    );
+
+
+  const link =
+    document.createElement("a");
+
+
+  link.download =
+    "my-blip-collection.png";
+
+
+  link.href =
+    canvas.toDataURL("image/png");
+
+
+  link.click();
+
+}
+
+
+loadCollection();
+
+</script>
+
+
+</body>
+</html>
