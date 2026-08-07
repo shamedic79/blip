@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pirate Blip | Blip Archive</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(91,72,255,.18), transparent 30%),
+    radial-gradient(circle at 20% 65%, rgba(0,150,255,.07), transparent 30%),
+    linear-gradient(180deg,#070910 0%,#0b1020 55%,#05070d 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 6%;
+
+  background: rgba(5,7,13,.80);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.header-logo img {
+  width: 125px;
+  display: block;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 26px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,.72);
+  font-size: .95rem;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* BACK */
+
+.back-wrap {
+  padding: 45px 6% 0;
+}
+
+.back {
+  color: #aab1c0;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.back:hover {
+  color: white;
+}
+
+/* MAIN RELEASE */
+
+.release {
+  padding: 55px 6% 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 75px;
+
+  align-items: center;
+}
+
+/* IMAGE */
+
+.release-art {
+  min-height: 650px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  border-radius: 38px;
+
+  border: 1px solid rgba(255,255,255,.09);
+
+  background:
+    radial-gradient(circle at center,
+      rgba(91,78,255,.24),
+      rgba(33,46,100,.08) 45%,
+      transparent 68%);
+}
+
+.release-art::before {
+  content: "";
+
+  position: absolute;
+
+  width: 70%;
+  height: 70%;
+
+  border-radius: 50%;
+
+  background: rgba(80,89,255,.10);
+
+  filter: blur(70px);
+}
+
+.release-art img {
+  position: relative;
+  z-index: 2;
+
+  width: 82%;
+  max-height: 590px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 25px rgba(71,112,255,.30))
+    drop-shadow(0 30px 50px rgba(0,0,0,.35));
+}
+
+/* INFORMATION */
+
+.release-info {
+  max-width: 650px;
+}
+
+.kicker {
+  color: #8793ff;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 15px;
+}
+
+.release-info h1 {
+  font-size: clamp(3.4rem,6vw,6.5rem);
+  line-height: .95;
+
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  margin-bottom: 25px;
+}
+
+.description {
+  color: #b9bfcd;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  max-width: 580px;
+}
+
+/* STATUS */
+
+.status {
+  display: inline-block;
+
+  margin-top: 28px;
+
+  padding: 8px 13px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(135,147,255,.30);
+
+  background: rgba(135,147,255,.08);
+
+  color: #aab4ff;
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* DETAILS */
+
+.details {
+  margin-top: 40px;
+
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+
+  gap: 20px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.detail-label {
+  color: #747d8e;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .10em;
+}
+
+.detail-value {
+  color: #d6dae4;
+}
+
+/* STORY */
+
+.story {
+  padding: 100px 6%;
+
+  border-top: 1px solid rgba(255,255,255,.06);
+
+  background: rgba(255,255,255,.018);
+}
+
+.story-inner {
+  max-width: 900px;
+  margin: auto;
+}
+
+.story-kicker {
+  color: #8793ff;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 15px;
+}
+
+.story h2 {
+  font-size: clamp(2.4rem,4vw,4rem);
+
+  margin-bottom: 25px;
+}
+
+.story p {
+  color: #b9bfcd;
+
+  font-size: 1.08rem;
+  line-height: 1.85;
+
+  margin-bottom: 20px;
+}
+
+/* NEXT */
+
+.next-release {
+  padding: 90px 6%;
+
+  text-align: center;
+}
+
+.next-release span {
+  display: block;
+
+  color: #747d8e;
+
+  font-size: .75rem;
+
+  letter-spacing: .16em;
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.next-release h3 {
+  font-size: clamp(2rem,4vw,3.5rem);
+
+  margin-bottom: 25px;
+}
+
+.archive-button {
+  display: inline-block;
+
+  padding: 14px 22px;
+
+  border-radius: 999px;
+
+  background: white;
+  color: #080b13;
+
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: .2s;
+}
+
+.archive-button:hover {
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 42px 6%;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  color: #7f8796;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/* TABLET */
+
+@media(max-width:950px) {
+
+  .release {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .release-art {
+    min-height: 520px;
+  }
+
+  .release-info {
+    max-width: none;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:620px) {
+
+  header {
+    padding: 15px 5%;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .header-logo img {
+    width: 105px;
+  }
+
+  .back-wrap {
+    padding: 30px 5% 0;
+  }
+
+  .release {
+    padding: 35px 5% 70px;
+  }
+
+  .release-art {
+    min-height: 400px;
+    border-radius: 26px;
+  }
+
+  .release-art img {
+    width: 92%;
+  }
+
+  .release-info h1 {
+    font-size: 3.4rem;
+  }
+
+  .detail-row {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .story {
+    padding: 70px 5%;
+  }
+
+  .next-release {
+    padding: 70px 5%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Blip">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#adventures">Adventures</a>
+    <a href="pins.html">Pins</a>
+    <a href="index.html#gallery">Gallery</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+
+<div class="back-wrap">
+
+  <a class="back" href="pins.html">
+    ← Back to Enamel Pins
+  </a>
+
+</div>
+
+
+<section class="release">
+
+
+  <!-- PIRATE BLIP ART -->
+
+  <div class="release-art">
+
+    <img
+      src="images/pirate-blip.png"
+      alt="Pirate Blip"
+    >
+
+  </div>
+
+
+  <!-- RELEASE INFO -->
+
+  <div class="release-info">
+
+    <div class="kicker">
+      Blip Archive · Adventure
+    </div>
+
+    <h1>
+      Pirate<br>Blip
+    </h1>
+
+    <div class="tagline">
+      Apparently we're pirates now.
+    </div>
+
+    <p class="description">
+      Somewhere along the way, Blip found himself dressed for the high seas.
+      Eyepatch? Check. Pirate hat? Check. Hook? Somehow, also check.
+      Whether Blip actually knows how to sail remains unclear.
+    </p>
+
+    <span class="status">
+      Enamel Pin
+    </span>
+
+
+    <div class="details">
+
+      <div class="detail-row">
+        <div class="detail-label">Character</div>
+        <div class="detail-value">Blip</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Release</div>
+        <div class="detail-value">Pirate Blip</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Type</div>
+        <div class="detail-value">Enamel Pin</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Series</div>
+        <div class="detail-value">Adventure</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Edition</div>
+        <div class="detail-value">To be added</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Released</div>
+        <div class="detail-value">To be added</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Variants</div>
+        <div class="detail-value">To be added</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story">
+
+  <div class="story-inner">
+
+    <div class="story-kicker">
+      The Adventure
+    </div>
+
+    <h2>
+      How did Blip get here?
+    </h2>
+
+    <p>
+      Good question.
+    </p>
+
+    <p>
+      Blip has no map, no plan and seemingly very little concern about
+      either of those things. This time the adventure has taken him to
+      the high seas — or at least dressed him appropriately for them.
+    </p>
+
+    <p>
+      Where he ends up next is anybody's guess.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- RETURN -->
+
+<section class="next-release">
+
+  <span>
+    Blip Archive
+  </span>
+
+  <h3>
+    There are more Blips out there.
+  </h3>
+
+  <a class="archive-button" href="pins.html">
+    Explore the Pin Archive
+  </a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    Pirate Blip
+  </div>
+
+</footer>
+
+
+</body>
+</html>
