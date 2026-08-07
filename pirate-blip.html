@@ -20,10 +20,12 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
   background:
     radial-gradient(circle at 72% 20%, rgba(91,72,255,.18), transparent 30%),
     radial-gradient(circle at 20% 65%, rgba(0,150,255,.07), transparent 30%),
     linear-gradient(180deg,#070910 0%,#0b1020 55%,#05070d 100%);
+
   color: white;
   min-height: 100vh;
 }
@@ -31,6 +33,7 @@ body {
 a {
   color: inherit;
 }
+
 
 /* HEADER */
 
@@ -72,6 +75,7 @@ nav a:hover {
   color: white;
 }
 
+
 /* BACK */
 
 .back-wrap {
@@ -88,7 +92,8 @@ nav a:hover {
   color: white;
 }
 
-/* MAIN RELEASE */
+
+/* RELEASE */
 
 .release {
   padding: 55px 6% 100px;
@@ -100,7 +105,8 @@ nav a:hover {
   align-items: center;
 }
 
-/* IMAGE */
+
+/* ART */
 
 .release-art {
   min-height: 650px;
@@ -151,7 +157,8 @@ nav a:hover {
     drop-shadow(0 30px 50px rgba(0,0,0,.35));
 }
 
-/* INFORMATION */
+
+/* INFO */
 
 .release-info {
   max-width: 650px;
@@ -192,8 +199,6 @@ nav a:hover {
   max-width: 580px;
 }
 
-/* STATUS */
-
 .status {
   display: inline-block;
 
@@ -215,6 +220,88 @@ nav a:hover {
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+
+
+/* COLLECTOR CONTROL */
+
+.collector-box {
+  margin-top: 24px;
+
+  padding: 22px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255,255,255,.10);
+
+  background: rgba(255,255,255,.035);
+}
+
+.collector-label {
+  color: #8d96a8;
+
+  font-size: .72rem;
+
+  text-transform: uppercase;
+  letter-spacing: .14em;
+
+  margin-bottom: 12px;
+}
+
+.collection-button {
+  width: 100%;
+
+  padding: 15px 18px;
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  border-radius: 14px;
+
+  background: white;
+  color: #090c14;
+
+  font-size: .95rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: .2s ease;
+}
+
+.collection-button:hover {
+  transform: translateY(-2px);
+}
+
+.collection-button.owned {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(74,89,255,.9),
+      rgba(121,69,255,.9)
+    );
+
+  border-color: rgba(160,150,255,.5);
+}
+
+.collection-link {
+  display: block;
+
+  margin-top: 12px;
+
+  text-align: center;
+
+  color: #aab4ff;
+
+  text-decoration: none;
+
+  font-size: .85rem;
+}
+
+.collection-link:hover {
+  color: white;
+}
+
 
 /* DETAILS */
 
@@ -248,6 +335,7 @@ nav a:hover {
 .detail-value {
   color: #d6dae4;
 }
+
 
 /* STORY */
 
@@ -291,7 +379,8 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
-/* NEXT */
+
+/* RETURN */
 
 .next-release {
   padding: 90px 6%;
@@ -338,6 +427,7 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
+
 /* FOOTER */
 
 footer {
@@ -355,7 +445,8 @@ footer {
   flex-wrap: wrap;
 }
 
-/* TABLET */
+
+/* RESPONSIVE */
 
 @media(max-width:950px) {
 
@@ -368,13 +459,7 @@ footer {
     min-height: 520px;
   }
 
-  .release-info {
-    max-width: none;
-  }
-
 }
-
-/* MOBILE */
 
 @media(max-width:620px) {
 
@@ -419,10 +504,6 @@ footer {
     padding: 70px 5%;
   }
 
-  .next-release {
-    padding: 70px 5%;
-  }
-
 }
 
 </style>
@@ -442,7 +523,7 @@ footer {
     <a href="index.html">Home</a>
     <a href="index.html#adventures">Adventures</a>
     <a href="pins.html">Pins</a>
-    <a href="index.html#gallery">Gallery</a>
+    <a href="collection.html">My Collection</a>
   </nav>
 
 </header>
@@ -463,8 +544,6 @@ footer {
 <section class="release">
 
 
-  <!-- PIRATE BLIP ART -->
-
   <div class="release-art">
 
     <img
@@ -474,8 +553,6 @@ footer {
 
   </div>
 
-
-  <!-- RELEASE INFO -->
 
   <div class="release-info">
 
@@ -500,6 +577,32 @@ footer {
     <span class="status">
       Enamel Pin
     </span>
+
+
+    <!-- COLLECTOR BUTTON -->
+
+    <div class="collector-box">
+
+      <div class="collector-label">
+        Your Blip Collection
+      </div>
+
+      <button
+        id="collectionButton"
+        class="collection-button"
+        onclick="toggleCollection()"
+      >
+        + Add to my collection
+      </button>
+
+      <a
+        href="collection.html"
+        class="collection-link"
+      >
+        View My Collection →
+      </a>
+
+    </div>
 
 
     <div class="details">
@@ -543,11 +646,8 @@ footer {
 
   </div>
 
-
 </section>
 
-
-<!-- STORY -->
 
 <section class="story">
 
@@ -580,8 +680,6 @@ footer {
 </section>
 
 
-<!-- RETURN -->
-
 <section class="next-release">
 
   <span>
@@ -613,6 +711,99 @@ footer {
   </div>
 
 </footer>
+
+
+<script>
+
+/* =====================================================
+   BLIP COLLECTION STORAGE
+===================================================== */
+
+const BLIP_ID = "pirate-blip";
+
+function getCollection() {
+
+  const saved = localStorage.getItem("blipCollection");
+
+  if (!saved) {
+    return [];
+  }
+
+  try {
+    return JSON.parse(saved);
+  } catch {
+    return [];
+  }
+
+}
+
+
+function saveCollection(collection) {
+
+  localStorage.setItem(
+    "blipCollection",
+    JSON.stringify(collection)
+  );
+
+}
+
+
+function isOwned() {
+
+  const collection = getCollection();
+
+  return collection.includes(BLIP_ID);
+
+}
+
+
+function updateButton() {
+
+  const button = document.getElementById("collectionButton");
+
+  if (isOwned()) {
+
+    button.textContent = "✓ In my collection";
+
+    button.classList.add("owned");
+
+  } else {
+
+    button.textContent = "+ Add to my collection";
+
+    button.classList.remove("owned");
+
+  }
+
+}
+
+
+function toggleCollection() {
+
+  let collection = getCollection();
+
+  if (collection.includes(BLIP_ID)) {
+
+    collection = collection.filter(
+      id => id !== BLIP_ID
+    );
+
+  } else {
+
+    collection.push(BLIP_ID);
+
+  }
+
+  saveCollection(collection);
+
+  updateButton();
+
+}
+
+
+updateButton();
+
+</script>
 
 
 </body>
