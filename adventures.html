@@ -24,8 +24,8 @@ body {
   min-height: 100vh;
 
   background:
-    radial-gradient(circle at 50% 10%, rgba(120,85,40,.10), transparent 28%),
-    linear-gradient(180deg,#05070d,#080a10 55%,#030406);
+    radial-gradient(circle at 50% 8%, rgba(165,110,48,.10), transparent 28%),
+    linear-gradient(180deg,#050505 0%,#090706 55%,#030303 100%);
 }
 
 a {
@@ -33,9 +33,9 @@ a {
 }
 
 
-/* =========================================
+/* =====================================================
    HEADER
-========================================= */
+===================================================== */
 
 header {
   position: sticky;
@@ -48,10 +48,10 @@ header {
 
   padding: 18px 6%;
 
-  background: rgba(4,5,9,.88);
+  background: rgba(4,4,4,.90);
   backdrop-filter: blur(14px);
 
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(198,147,78,.10);
 }
 
 .header-logo img {
@@ -62,158 +62,274 @@ header {
 
 nav {
   display: flex;
-  gap: 26px;
+  gap: 28px;
 }
 
 nav a {
-  color: #aeb5c3;
+  position: relative;
+
+  color: #b7b0a6;
   text-decoration: none;
-  font-size: .95rem;
+
+  font-size: .92rem;
+  letter-spacing: .03em;
+
+  transition: .2s ease;
 }
 
 nav a:hover,
 nav a.active {
-  color: white;
+  color: #e5c38f;
 }
 
+nav a.active::after {
+  content: "";
 
-/* =========================================
-   HERO
-========================================= */
+  position: absolute;
 
-.library-hero {
-  padding: 75px 6% 50px;
-  text-align: center;
-}
+  left: 10%;
+  right: 10%;
+  bottom: -11px;
 
-.library-kicker {
-  color: #b99055;
-  text-transform: uppercase;
-  letter-spacing: .22em;
-  font-size: .75rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.library-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.3rem,7vw,7rem);
-  letter-spacing: .04em;
-  margin-bottom: 15px;
-
-  color: #e1c08b;
-
-  text-shadow:
-    0 3px 0 #654626,
-    0 12px 35px rgba(0,0,0,.55);
-}
-
-.library-hero .tagline {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: clamp(1.25rem,2.5vw,1.8rem);
-  color: #f2eee7;
-}
-
-.library-hero .intro {
-  margin: 18px auto 0;
-  max-width: 650px;
-  color: #9298a5;
-  line-height: 1.7;
-}
-
-
-/* =========================================
-   BOOKCASE
-========================================= */
-
-.library-wrap {
-  width: min(1500px,94%);
-  margin: 10px auto 100px;
-}
-
-.bookcase {
-  position: relative;
-
-  padding:
-    34px
-    34px
-    45px;
-
-  border-radius: 18px;
-
-  border:
-    12px solid #24160e;
+  height: 1px;
 
   background:
     linear-gradient(
       90deg,
-      #130b07,
-      #25150c 20%,
-      #180d08 50%,
-      #28170d 80%,
+      transparent,
+      #d09b4f,
+      transparent
+    );
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.library-hero {
+  position: relative;
+
+  padding: 80px 6% 58px;
+
+  text-align: center;
+}
+
+.library-hero::before {
+  content: "☠";
+
+  display: block;
+
+  color: #9b713c;
+  opacity: .45;
+
+  font-size: 1.25rem;
+
+  margin-bottom: 12px;
+}
+
+.library-kicker {
+  color: #b98a4e;
+
+  text-transform: uppercase;
+  letter-spacing: .24em;
+
+  font-size: .72rem;
+  font-weight: 800;
+
+  margin-bottom: 14px;
+}
+
+.library-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(3.6rem,7vw,7rem);
+
+  letter-spacing: .025em;
+
+  margin-bottom: 14px;
+
+  color: #dfbc82;
+
+  text-shadow:
+    0 2px 0 #5b3b1d,
+    0 10px 40px rgba(0,0,0,.55);
+}
+
+.hero-rule {
+  width: min(650px,80%);
+
+  height: 1px;
+
+  margin: 18px auto 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(204,151,79,.75),
+      transparent
+    );
+}
+
+.library-hero .tagline {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-style: italic;
+
+  font-size: clamp(1.25rem,2.4vw,1.8rem);
+
+  color: #f1ede6;
+}
+
+.library-hero .intro {
+  margin: 18px auto 0;
+
+  max-width: 690px;
+
+  color: #8e8c89;
+
+  line-height: 1.75;
+
+  font-size: .98rem;
+}
+
+
+/* =====================================================
+   LIBRARY WRAP
+===================================================== */
+
+.library-wrap {
+  width: min(1500px,95%);
+
+  margin: 0 auto 110px;
+}
+
+
+/* =====================================================
+   BOOKCASE FRAME
+===================================================== */
+
+.bookcase {
+  position: relative;
+
+  padding: 42px 42px 55px;
+
+  border-radius: 22px;
+
+  border: 14px solid #1c1009;
+
+  background:
+    linear-gradient(
+      90deg,
+      #160d08,
+      #2d1a0e 18%,
+      #170d08 50%,
+      #2b190e 82%,
       #120a06
     );
 
   box-shadow:
-    inset 0 0 50px rgba(0,0,0,.75),
-    0 35px 90px rgba(0,0,0,.55);
+    inset 0 0 70px rgba(0,0,0,.78),
+    0 35px 90px rgba(0,0,0,.60),
+    0 0 0 2px rgba(158,102,48,.16);
 }
 
 .bookcase::before {
   content: "";
 
   position: absolute;
-  inset: -12px;
+  inset: -14px;
+
+  border-radius: 22px;
 
   pointer-events: none;
 
-  border-radius: 18px;
-
   box-shadow:
-    inset 0 0 0 3px rgba(180,125,65,.14),
-    inset 0 0 30px rgba(0,0,0,.75);
+    inset 0 0 0 3px rgba(179,123,59,.12),
+    inset 0 0 45px rgba(0,0,0,.70);
+}
+
+.bookcase::after {
+  content: "✦   ☠   ✦";
+
+  position: absolute;
+
+  top: -32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 18px;
+
+  background: #060504;
+
+  color: #9f713c;
+
+  letter-spacing: .6em;
+
+  font-size: .8rem;
 }
 
 
-/* =========================================
-   SHELF
-========================================= */
+/* =====================================================
+   SHELVES
+===================================================== */
 
 .shelf {
   position: relative;
 
-  min-height: 390px;
+  min-height: 420px;
 
-  padding:
-    45px
-    35px
-    34px;
+  padding: 54px 42px 38px;
 
   display: flex;
 
   align-items: flex-end;
 
-  gap: 16px;
+  gap: 18px;
 
   background:
     radial-gradient(
-      ellipse at center bottom,
-      rgba(140,80,30,.10),
-      transparent 55%
+      ellipse at 50% 100%,
+      rgba(168,97,36,.10),
+      transparent 60%
     ),
     linear-gradient(
       180deg,
-      #090604,
-      #130b07
+      #080504,
+      #120a06 76%,
+      #0a0604
     );
 
-  border-left: 2px solid rgba(255,255,255,.025);
-  border-right: 2px solid rgba(255,255,255,.025);
+  border-left: 1px solid rgba(255,255,255,.025);
+  border-right: 1px solid rgba(255,255,255,.025);
+
+  box-shadow:
+    inset 0 16px 25px rgba(0,0,0,.40);
 }
 
 .shelf + .shelf {
-  margin-top: 31px;
+  margin-top: 38px;
+}
+
+.shelf::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(92,53,26,.28),
+      transparent
+    );
 }
 
 .shelf::after {
@@ -221,67 +337,56 @@ nav a.active {
 
   position: absolute;
 
-  left: -20px;
-  right: -20px;
-  bottom: -30px;
+  left: -24px;
+  right: -24px;
+  bottom: -34px;
 
-  height: 31px;
+  height: 35px;
 
-  border-radius: 2px 2px 6px 6px;
+  border-radius: 3px 3px 7px 7px;
 
   background:
     linear-gradient(
       180deg,
-      #55321b 0%,
-      #321c10 28%,
-      #1b0f09 78%,
-      #0d0704
+      #64391c 0%,
+      #412412 28%,
+      #211108 75%,
+      #0c0603
     );
 
-  border-top:
-    2px solid rgba(202,145,79,.23);
+  border-top: 2px solid rgba(217,155,79,.26);
 
   box-shadow:
-    0 13px 22px rgba(0,0,0,.75);
+    0 14px 24px rgba(0,0,0,.72);
 }
 
 
-/* =========================================
-   BOOK
-========================================= */
+/* =====================================================
+   BOOK BASE
+===================================================== */
 
 .book {
   position: relative;
 
-  width: 155px;
-  height: 300px;
+  width: 160px;
+  height: 315px;
 
   flex: 0 0 auto;
 
-  display: flex;
+  border-radius: 6px 12px 10px 5px;
 
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 28px 15px 22px;
-
-  border-radius: 5px 11px 9px 5px;
-
-  text-align: center;
+  overflow: hidden;
 
   text-decoration: none;
 
-  color: #dfc18c;
+  color: #d9b774;
 
-  border:
-    1px solid rgba(232,197,132,.26);
+  border: 1px solid rgba(221,175,103,.34);
 
   box-shadow:
-    inset 10px 0 15px rgba(0,0,0,.25),
-    inset -4px 0 8px rgba(255,255,255,.025),
-    8px 7px 14px rgba(0,0,0,.55);
+    inset 13px 0 18px rgba(0,0,0,.32),
+    inset -4px 0 9px rgba(255,255,255,.025),
+    9px 8px 16px rgba(0,0,0,.60);
 
   transform-origin: bottom center;
 
@@ -291,98 +396,225 @@ nav a.active {
     box-shadow .25s ease;
 }
 
+.book:hover {
+  transform:
+    translateY(-18px)
+    scale(1.035);
+
+  filter: brightness(1.13);
+
+  box-shadow:
+    inset 13px 0 18px rgba(0,0,0,.26),
+    12px 20px 30px rgba(0,0,0,.68),
+    0 0 32px rgba(195,139,68,.13);
+
+  z-index: 10;
+}
+
+
+/* BOOK RIDGE */
+
 .book::before {
   content: "";
 
   position: absolute;
 
-  inset: 9px;
+  top: 0;
+  bottom: 0;
+  left: 11px;
 
-  border:
-    1px solid rgba(218,177,104,.28);
+  width: 2px;
 
-  border-radius: 3px 7px 6px 3px;
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(224,177,104,.35),
+      transparent
+    );
+
+  box-shadow:
+    4px 0 8px rgba(0,0,0,.28);
+}
+
+
+/* ORNATE INNER FRAME */
+
+.book::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border: 1px solid rgba(218,170,94,.42);
+
+  border-radius: 4px 8px 7px 3px;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,.12);
 
   pointer-events: none;
 }
 
-.book:hover {
-  transform:
-    translateY(-16px)
-    scale(1.035);
 
-  filter: brightness(1.15);
+/* =====================================================
+   BOOK SPINE CONTENT
+===================================================== */
 
-  box-shadow:
-    inset 10px 0 15px rgba(0,0,0,.22),
-    12px 18px 30px rgba(0,0,0,.65),
-    0 0 30px rgba(190,145,75,.12);
+.book-inner {
+  position: relative;
+  z-index: 2;
 
-  z-index: 5;
+  height: 100%;
+  width: 100%;
+
+  padding: 29px 22px 25px;
+
+  display: grid;
+
+  grid-template-rows:
+    auto
+    22px
+    1fr
+    22px
+    auto;
+
+  align-items: center;
+
+  text-align: center;
 }
 
 .book-character {
-  position: relative;
-  z-index: 2;
+  font-size: .66rem;
 
-  font-size: .68rem;
   font-weight: 800;
 
-  letter-spacing: .16em;
+  letter-spacing: .18em;
 
   text-transform: uppercase;
 
-  opacity: .75;
+  opacity: .82;
+}
+
+.book-divider {
+  position: relative;
+
+  height: 22px;
+}
+
+.book-divider::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 16%;
+  right: 16%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(224,176,101,.72),
+      transparent
+    );
+}
+
+.book-divider::after {
+  content: "✦";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%,-52%);
+
+  padding: 0 6px;
+
+  background: inherit;
+
+  font-size: .72rem;
+
+  color: #c99a55;
 }
 
 .book-title {
-  position: relative;
-  z-index: 2;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 0;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size: 1.45rem;
+  font-size: 1.48rem;
 
   font-weight: 700;
 
-  line-height: 1.15;
+  line-height: 1.18;
+
+  padding: 8px 2px;
 }
 
 .book-symbol {
-  position: relative;
-  z-index: 2;
+  display: flex;
 
-  font-size: 1.7rem;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+
+  color: #d6ae68;
 }
 
+.book-foot {
+  font-size: .61rem;
+
+  letter-spacing: .13em;
+
+  text-transform: uppercase;
+
+  opacity: .68;
+}
+
+
+/* =====================================================
+   BOOK SIZES
+===================================================== */
+
 .book-small {
-  width: 130px;
-  height: 265px;
+  width: 135px;
+  height: 280px;
 }
 
 .book-tall {
-  height: 330px;
+  height: 345px;
 }
 
 .book-wide {
-  width: 175px;
+  width: 182px;
 }
 
 
-/* =========================================
+/* =====================================================
    BOOK COLOURS
-========================================= */
+===================================================== */
 
 .book-blue {
   background:
     linear-gradient(
       90deg,
-      #10233a,
-      #183d61 35%,
-      #102b48
+      #0e2136,
+      #17466f 38%,
+      #102e4b
     );
 }
 
@@ -390,9 +622,9 @@ nav a.active {
   background:
     linear-gradient(
       90deg,
-      #32100f,
-      #66231d 40%,
-      #3d1512
+      #31100d,
+      #6f261d 42%,
+      #43150f
     );
 }
 
@@ -400,9 +632,9 @@ nav a.active {
   background:
     linear-gradient(
       90deg,
-      #152719,
-      #29482b 40%,
-      #172d1c
+      #122319,
+      #2a4c31 44%,
+      #172d20
     );
 }
 
@@ -410,9 +642,9 @@ nav a.active {
   background:
     linear-gradient(
       90deg,
-      #21142d,
-      #452758 45%,
-      #261630
+      #20112b,
+      #4a285e 44%,
+      #27152f
     );
 }
 
@@ -420,9 +652,9 @@ nav a.active {
   background:
     linear-gradient(
       90deg,
-      #27180f,
-      #49301d 45%,
-      #2d1c12
+      #27170d,
+      #51321c 44%,
+      #301b10
     );
 }
 
@@ -430,23 +662,23 @@ nav a.active {
   background:
     linear-gradient(
       90deg,
-      #0a0a0b,
-      #1b1c20 45%,
-      #090a0c
+      #080808,
+      #1c1b1c 45%,
+      #0a0a0a
     );
 }
 
 
-/* =========================================
+/* =====================================================
    LOCKED BOOK
-========================================= */
+===================================================== */
 
 .book.locked {
   cursor: default;
 
-  opacity: .72;
+  opacity: .70;
 
-  filter: saturate(.45);
+  filter: saturate(.55);
 }
 
 .book.locked:hover {
@@ -454,94 +686,43 @@ nav a.active {
 }
 
 .locked .book-title {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
 }
 
-.lock-label {
-  position: relative;
-  z-index: 2;
-
-  font-size: .65rem;
-
-  text-transform: uppercase;
-
-  letter-spacing: .13em;
+.locked .book-foot {
+  color: #c5aa7f;
 }
 
 
-/* =========================================
-   DECORATIONS
-========================================= */
+/* =====================================================
+   DECORATIVE OBJECTS
+===================================================== */
 
 .shelf-object {
   flex: 0 0 auto;
 }
 
-.treasure-chest {
-  width: 145px;
-  height: 95px;
 
-  margin-left: auto;
-
-  position: relative;
-
-  border-radius: 12px 12px 7px 7px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #51321c,
-      #25150d
-    );
-
-  border: 5px solid #18100b;
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.55);
-}
-
-.treasure-chest::before {
-  content: "";
-
-  position: absolute;
-
-  width: 24px;
-  height: 30px;
-
-  left: 50%;
-  top: 38px;
-
-  transform: translateX(-50%);
-
-  border-radius: 4px;
-
-  background: #a57431;
-
-  box-shadow:
-    0 0 12px rgba(205,151,70,.15);
-}
+/* BOTTLE */
 
 .bottle {
-  width: 48px;
-  height: 120px;
+  position: relative;
 
-  margin: 0 20px;
+  width: 54px;
+  height: 125px;
 
-  border-radius:
-    15px
-    15px
-    13px
-    13px;
+  margin: 0 24px;
 
-  border:
-    2px solid rgba(160,200,190,.25);
+  border-radius: 15px 15px 14px 14px;
+
+  border: 2px solid rgba(156,203,190,.24);
 
   background:
     linear-gradient(
       90deg,
-      rgba(32,70,65,.55),
-      rgba(90,140,125,.18),
-      rgba(20,55,50,.60)
+      rgba(25,60,57,.70),
+      rgba(87,136,123,.16),
+      rgba(18,46,43,.72)
     );
 
   box-shadow:
@@ -552,28 +733,119 @@ nav a.active {
 .bottle::before {
   content: "";
 
-  display: block;
+  position: absolute;
 
-  width: 24px;
-  height: 27px;
+  width: 28px;
+  height: 25px;
 
-  margin: -24px auto 0;
+  left: 50%;
+  top: -22px;
 
-  background: #3a2515;
+  transform: translateX(-50%);
+
+  background: #3b2716;
 
   border-radius: 4px 4px 2px 2px;
 }
 
-.hourglass {
-  width: 70px;
-  height: 110px;
+.bottle::after {
+  content: "≋";
+
+  position: absolute;
+
+  left: 50%;
+  top: 49px;
+
+  transform: translateX(-50%) rotate(-8deg);
+
+  width: 32px;
+  height: 42px;
+
+  background: rgba(201,172,118,.72);
+
+  color: rgba(73,48,24,.70);
+
+  font-family: Georgia, serif;
+
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 2px;
+}
+
+
+/* CHEST */
+
+.treasure-chest {
+  width: 150px;
+  height: 105px;
+
+  margin-left: auto;
 
   position: relative;
 
-  margin: 0 15px;
+  border-radius: 15px 15px 7px 7px;
 
-  border-top: 8px solid #71512b;
-  border-bottom: 8px solid #71512b;
+  background:
+    linear-gradient(
+      180deg,
+      #5a371d,
+      #29180d
+    );
+
+  border: 5px solid #17100a;
+
+  box-shadow:
+    0 9px 20px rgba(0,0,0,.58);
+}
+
+.treasure-chest::before {
+  content: "";
+
+  position: absolute;
+
+  left: 9px;
+  right: 9px;
+  top: 43%;
+
+  height: 5px;
+
+  background: #9a682f;
+
+  opacity: .7;
+}
+
+.treasure-chest::after {
+  content: "▣";
+
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  transform: translate(-50%,-50%);
+
+  color: #c08c41;
+
+  font-size: 1.7rem;
+}
+
+
+/* HOURGLASS */
+
+.hourglass {
+  width: 75px;
+  height: 115px;
+
+  position: relative;
+
+  margin: 0 18px;
+
+  border-top: 8px solid #76532b;
+  border-bottom: 8px solid #76532b;
 }
 
 .hourglass::before {
@@ -587,64 +859,158 @@ nav a.active {
   justify-content: center;
   align-items: center;
 
-  font-size: 3rem;
+  font-size: 3.1rem;
 
-  color: #c5a266;
+  color: #c7a365;
 }
 
 
-/* =========================================
-   SHELF LABEL
-========================================= */
+/* CANDLE */
+
+.candle {
+  position: relative;
+
+  width: 46px;
+  height: 90px;
+
+  margin-left: auto;
+
+  border-radius: 7px 7px 3px 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c8af79,
+      #efe0b2 48%,
+      #b99b66
+    );
+
+  box-shadow:
+    0 0 20px rgba(255,189,90,.12);
+}
+
+.candle::before {
+  content: "";
+
+  position: absolute;
+
+  width: 16px;
+  height: 28px;
+
+  left: 50%;
+  top: -27px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50% 50% 45% 45%;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 70%,
+      #fff4b0,
+      #ffae32 45%,
+      #a94912 74%,
+      transparent 76%
+    );
+
+  filter: drop-shadow(0 0 8px rgba(255,170,60,.65));
+}
+
+
+/* =====================================================
+   MESSAGE PLAQUE
+===================================================== */
 
 .shelf-message {
+  position: relative;
+
   margin: auto;
 
-  padding: 25px 35px;
+  padding: 34px 42px;
 
-  max-width: 430px;
+  max-width: 460px;
 
   text-align: center;
 
   border:
-    1px solid rgba(205,161,91,.22);
+    1px solid rgba(205,161,91,.34);
 
-  color: #a98b61;
+  color: #b99765;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  line-height: 1.6;
+  line-height: 1.65;
 
   background:
-    rgba(15,9,5,.55);
+    linear-gradient(
+      180deg,
+      rgba(21,13,8,.78),
+      rgba(10,7,5,.70)
+    );
+
+  box-shadow:
+    inset 0 0 18px rgba(0,0,0,.55);
+}
+
+.shelf-message::before {
+  content: "☠";
+
+  position: absolute;
+
+  top: -14px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 10px;
+
+  background: #100a06;
+
+  color: #98703d;
 }
 
 
-/* =========================================
-   FOOTER NOTE
-========================================= */
+/* =====================================================
+   FINAL NOTE
+===================================================== */
 
 .library-note {
+  margin-top: 64px;
+
   text-align: center;
 
-  color: #777f8d;
+  color: #787873;
 
-  margin-top: 50px;
+  line-height: 1.75;
+}
 
-  line-height: 1.7;
+.library-note::before {
+  content: "✦  ✦  ✦";
+
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: #805a31;
+
+  letter-spacing: .4em;
 }
 
 .library-note strong {
-  color: #b8bec9;
+  color: #c2a77a;
+
+  font-family: Georgia, serif;
+
+  font-size: 1.15rem;
 }
 
 
-/* =========================================
+/* =====================================================
    FOOTER
-========================================= */
+===================================================== */
 
 footer {
   padding: 42px 6%;
@@ -652,7 +1018,7 @@ footer {
   border-top:
     1px solid rgba(255,255,255,.08);
 
-  color: #7f8796;
+  color: #74716d;
 
   display: flex;
 
@@ -664,9 +1030,9 @@ footer {
 }
 
 
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media(max-width:800px) {
 
@@ -683,7 +1049,7 @@ footer {
   }
 
   .library-hero {
-    padding: 60px 5% 40px;
+    padding: 60px 5% 42px;
   }
 
   .library-wrap {
@@ -691,18 +1057,18 @@ footer {
   }
 
   .bookcase {
-    padding: 18px 16px 34px;
+    padding: 20px 16px 38px;
 
     border-width: 8px;
   }
 
   .shelf {
-    min-height: 330px;
+    min-height: 355px;
 
     padding:
-      35px
+      42px
       18px
-      28px;
+      30px;
 
     overflow-x: auto;
 
@@ -712,30 +1078,34 @@ footer {
   }
 
   .book {
-    width: 130px;
-    height: 260px;
-
-    padding:
-      25px
-      12px
-      20px;
+    width: 132px;
+    height: 270px;
   }
 
   .book-small {
-    width: 110px;
-    height: 235px;
+    width: 112px;
+    height: 240px;
   }
 
   .book-tall {
-    height: 285px;
+    height: 298px;
   }
 
   .book-wide {
-    width: 145px;
+    width: 150px;
+  }
+
+  .book-inner {
+    padding: 24px 16px 20px;
   }
 
   .book-title {
     font-size: 1.15rem;
+  }
+
+  .treasure-chest {
+    width: 120px;
+    height: 85px;
   }
 
 }
@@ -746,6 +1116,10 @@ footer {
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -766,6 +1140,10 @@ footer {
 <main>
 
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="library-hero">
 
   <div class="library-kicker">
@@ -775,6 +1153,8 @@ footer {
   <h1>
     The Loot Library
   </h1>
+
+  <div class="hero-rule"></div>
 
   <div class="tagline">
     Every treasure has a story.
@@ -789,20 +1169,23 @@ footer {
 </section>
 
 
+<!-- =====================================================
+     BOOKCASE
+===================================================== -->
 
 <div class="library-wrap">
 
   <div class="bookcase">
 
 
-    <!-- =====================================
+    <!-- =================================================
          SHELF ONE
-    ====================================== -->
+    ================================================== -->
 
     <div class="shelf">
 
 
-      <!-- SHARK -->
+      <!-- SHARK BOOK -->
 
       <a
         class="book book-blue book-tall book-wide"
@@ -810,24 +1193,32 @@ footer {
         aria-label="Read Blip: The Shark Adventure"
       >
 
-        <span class="book-character">
-          Blip
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          The Shark<br>
-          Adventure
-        </span>
+          <div class="book-character">
+            Blip
+          </div>
 
-        <span class="book-symbol">
-          ◢
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            The Shark<br>
+            Adventure
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-symbol">
+            ◢
+          </div>
+
+        </div>
 
       </a>
 
 
 
-      <!-- PIRATE -->
+      <!-- PIRATE BOOK -->
 
       <a
         class="book book-red"
@@ -835,41 +1226,57 @@ footer {
         aria-label="Read Blip: Pirates"
       >
 
-        <span class="book-character">
-          Blip
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          Pirates!
-        </span>
+          <div class="book-character">
+            Blip
+          </div>
 
-        <span class="book-symbol">
-          ☠
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            Pirates!
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-symbol">
+            ☠
+          </div>
+
+        </div>
 
       </a>
 
 
 
-      <!-- SMALL DECORATIVE BOOK -->
+      <!-- DECORATIVE BOOK -->
 
       <div
         class="book book-brown book-small"
         aria-hidden="true"
       >
 
-        <span class="book-character">
-          Tales
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          From<br>
-          Somewhere
-        </span>
+          <div class="book-character">
+            Tales
+          </div>
 
-        <span class="book-symbol">
-          ✦
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            From<br>
+            Somewhere
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-symbol">
+            ✦
+          </div>
+
+        </div>
 
       </div>
 
@@ -878,27 +1285,41 @@ footer {
       <!-- LOCKED BOOK -->
 
       <div
-        class="book book-black locked book-tall"
+        class="book book-black book-tall locked"
         title="This story hasn't been discovered yet."
       >
 
-        <span class="book-character">
-          Unknown
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          ???
-        </span>
+          <div class="book-character">
+            Unknown
+          </div>
 
-        <span class="lock-label">
-          🔒 Story Undiscovered
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            ???
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-foot">
+            🔒 Story Undiscovered
+          </div>
+
+        </div>
 
       </div>
 
 
+
+      <!-- BOTTLE -->
+
       <div class="bottle shelf-object"></div>
 
+
+
+      <!-- TREASURE CHEST -->
 
       <div class="treasure-chest shelf-object"></div>
 
@@ -907,56 +1328,82 @@ footer {
 
 
 
-    <!-- =====================================
+    <!-- =================================================
          SHELF TWO
-         Future Loot in a Boot characters
-    ====================================== -->
+    ================================================== -->
 
     <div class="shelf">
 
+
+      <!-- FUTURE BOOK -->
 
       <div
         class="book book-green book-small locked"
         title="Another story will find its way here."
       >
 
-        <span class="book-character">
-          The Loot Library
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          ???
-        </span>
+          <div class="book-character">
+            The Loot Library
+          </div>
 
-        <span class="lock-label">
-          Coming Soon
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            ???
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-foot">
+            Coming Soon
+          </div>
+
+        </div>
 
       </div>
 
+
+
+      <!-- FUTURE BOOK -->
 
       <div
         class="book book-purple locked"
         title="Another story will find its way here."
       >
 
-        <span class="book-character">
-          The Loot Library
-        </span>
+        <div class="book-inner">
 
-        <span class="book-title">
-          ???
-        </span>
+          <div class="book-character">
+            The Loot Library
+          </div>
 
-        <span class="lock-label">
-          Coming Soon
-        </span>
+          <div class="book-divider"></div>
+
+          <div class="book-title">
+            ???
+          </div>
+
+          <div class="book-divider"></div>
+
+          <div class="book-foot">
+            Coming Soon
+          </div>
+
+        </div>
 
       </div>
 
 
+
+      <!-- HOURGLASS -->
+
       <div class="hourglass shelf-object"></div>
 
+
+
+      <!-- LIBRARY MESSAGE -->
 
       <div class="shelf-message">
 
@@ -970,6 +1417,12 @@ footer {
         new books will appear in the Loot Library.
 
       </div>
+
+
+
+      <!-- CANDLE -->
+
+      <div class="candle shelf-object"></div>
 
 
     </div>
