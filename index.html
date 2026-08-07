@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Blip | Loot in a Boot</title>
 
   <style>
@@ -12,197 +13,381 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, #1e2a44 0%, #0b1020 40%, #05070d 100%);
-      color: white;
+        radial-gradient(circle at 75% 20%, rgba(89, 76, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 65% 45%, rgba(0, 174, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, #070910 0%, #0b1020 50%, #05070d 100%);
+      color: #ffffff;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
-      padding: 24px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(5, 7, 13, 0.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .logo {
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 4px;
+    .header-logo img {
+      width: 130px;
+      height: auto;
+      display: block;
+      filter: invert(1);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
     }
 
     nav a {
-      color: white;
       text-decoration: none;
-      margin-left: 24px;
       font-size: 0.95rem;
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.78);
+      transition: 0.2s ease;
     }
 
     nav a:hover {
-      opacity: 1;
+      color: white;
     }
 
     .hero {
-      min-height: 78vh;
+      position: relative;
+      min-height: 90vh;
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 0.9fr 1.1fr;
       align-items: center;
-      gap: 60px;
-      padding: 70px 8%;
+      gap: 30px;
+      padding: 70px 6% 50px;
+      overflow: hidden;
     }
 
-    .hero-text h1 {
-      font-size: clamp(5rem, 12vw, 10rem);
-      line-height: 0.85;
-      letter-spacing: -6px;
-      margin-bottom: 30px;
-      text-shadow:
-        0 0 20px rgba(80, 180, 255, 0.4),
-        0 0 50px rgba(180, 70, 255, 0.25);
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      right: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle,
+          rgba(85, 113, 255, 0.24) 0%,
+          rgba(98, 63, 255, 0.12) 35%,
+          transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
     }
 
-    .hero-text .tagline {
-      font-size: 1.5rem;
-      font-weight: 700;
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: 650px;
+    }
+
+    .hero-logo {
+      width: min(520px, 85%);
+      display: block;
+      margin-bottom: 25px;
+      filter: invert(1);
+    }
+
+    .eyebrow {
+      display: inline-block;
       margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8cffd;
     }
 
-    .hero-text p {
-      max-width: 600px;
-      color: #c6cbd7;
-      font-size: 1.05rem;
-      line-height: 1.7;
+    .hero-copy h1 {
+      font-size: clamp(2.4rem, 4.6vw, 5rem);
+      line-height: 1;
+      margin-bottom: 22px;
+      max-width: 700px;
     }
 
-    .button-row {
-      margin-top: 32px;
+    .hero-copy p {
+      max-width: 590px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: #c3c8d6;
+    }
+
+    .buttons {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
     }
 
     .button {
       display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
       text-decoration: none;
       font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 999px;
       transition: 0.2s ease;
     }
 
     .button-primary {
-      background: white;
-      color: #111;
+      background: #ffffff;
+      color: #0a0d15;
     }
 
     .button-secondary {
       border: 1px solid rgba(255,255,255,0.25);
-      color: white;
+      color: #ffffff;
     }
 
     .button:hover {
       transform: translateY(-2px);
     }
 
-    .hero-art {
-      min-height: 470px;
-      border-radius: 40px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background:
-        radial-gradient(circle at 50% 45%, rgba(141, 84, 255, 0.45), transparent 30%),
-        radial-gradient(circle at 40% 60%, rgba(0, 206, 255, 0.25), transparent 32%),
-        rgba(255,255,255,0.035);
+    .hero-character {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      min-height: 650px;
     }
 
-    .placeholder {
-      text-align: center;
-      color: rgba(255,255,255,0.5);
-      padding: 30px;
-    }
-
-    .placeholder strong {
+    .hero-character img {
+      width: min(720px, 92%);
+      height: auto;
       display: block;
-      color: white;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      filter:
+        drop-shadow(0 0 30px rgba(65, 118, 255, 0.30))
+        drop-shadow(0 0 70px rgba(118, 71, 255, 0.18));
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .spark {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.7;
+      box-shadow: 0 0 14px rgba(130, 174, 255, 0.9);
+    }
+
+    .spark.one {
+      right: 14%;
+      top: 20%;
+    }
+
+    .spark.two {
+      right: 6%;
+      top: 42%;
+      width: 3px;
+      height: 3px;
+    }
+
+    .spark.three {
+      right: 28%;
+      top: 12%;
+      width: 4px;
+      height: 4px;
     }
 
     section {
-      padding: 80px 8%;
+      padding: 90px 6%;
+    }
+
+    .section-kicker {
+      color: #8793ff;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: 2.4rem;
-      margin-bottom: 18px;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      margin-bottom: 20px;
     }
 
     .section-copy {
       max-width: 760px;
-      line-height: 1.7;
-      color: #bfc5d2;
+      color: #b9bfcd;
+      line-height: 1.75;
+      font-size: 1.05rem;
     }
 
-    .cards {
-      margin-top: 40px;
+    .about {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .collection-grid {
+      margin-top: 45px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
+    .release-card {
+      position: relative;
+      min-height: 290px;
+      overflow: hidden;
+      border-radius: 28px;
       padding: 28px;
-      min-height: 180px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background:
+        radial-gradient(circle at top right, rgba(111, 91, 255, 0.18), transparent 38%),
+        rgba(255,255,255,0.035);
+      transition: 0.25s ease;
     }
 
-    .card h3 {
+    .release-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .release-number {
+      font-size: 0.8rem;
+      color: #81899a;
+      margin-bottom: 70px;
+    }
+
+    .release-card h3 {
+      font-size: 1.6rem;
       margin-bottom: 12px;
-      font-size: 1.25rem;
     }
 
-    .card p {
-      color: #bbc1cc;
+    .release-card p {
+      color: #aeb5c2;
       line-height: 1.6;
     }
 
-    footer {
-      padding: 40px 8%;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #838a98;
-      font-size: 0.9rem;
+    .gallery-strip {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 18px;
     }
 
-    @media (max-width: 800px) {
+    .gallery-box {
+      min-height: 320px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background:
+        radial-gradient(circle at center, rgba(75, 104, 255, 0.18), transparent 50%),
+        rgba(255,255,255,0.03);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    footer {
+      padding: 42px 6%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #7f8796;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 45px;
+      }
+
+      .hero-copy {
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .hero-logo {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-character {
+        min-height: 420px;
+      }
+
+      .hero-character img {
+        width: min(560px, 95%);
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 15px 5%;
+      }
+
       nav {
         display: none;
       }
 
+      .header-logo img {
+        width: 105px;
+      }
+
       .hero {
-        grid-template-columns: 1fr;
-        padding-top: 40px;
+        min-height: auto;
+        padding: 55px 5% 40px;
       }
 
-      .hero-text h1 {
-        font-size: 6rem;
+      .hero-copy h1 {
+        font-size: 2.6rem;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-art {
-        min-height: 350px;
+      section {
+        padding: 70px 5%;
       }
     }
   </style>
@@ -211,11 +396,13 @@
 <body>
 
 <header>
-  <div class="logo">BLIP</div>
+  <a class="header-logo" href="#">
+    <img src="blip-logo.png" alt="Blip logo">
+  </a>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#releases">Releases</a>
+    <a href="#about">Meet Blip</a>
+    <a href="#collection">Collection</a>
     <a href="#gallery">Gallery</a>
   </nav>
 </header>
@@ -224,97 +411,176 @@
 
   <section class="hero">
 
-    <div class="hero-text">
-      <h1>BLIP</h1>
+    <div class="hero-copy">
 
-      <div class="tagline">
-        Small creature. Big adventures.
-      </div>
+      <span class="eyebrow">
+        A Loot in a Boot character
+      </span>
+
+      <img
+        class="hero-logo"
+        src="blip-logo.png"
+        alt="Blip"
+      >
+
+      <h1>
+        Small creature.<br>
+        Big adventures.
+      </h1>
 
       <p>
-        Welcome to the official home of Blip — the curious little traveller
-        from Loot in a Boot. Discover releases, adventures, collectibles
-        and everything happening in the world of Blip.
+        Blip is curious, quiet and somehow always in the middle of something.
+        From ocean depths to faraway places, strange costumes and unexpected
+        adventures, Blip keeps turning up wherever the story takes him.
       </p>
 
-      <div class="button-row">
+      <div class="buttons">
         <a class="button button-primary" href="#about">
           Meet Blip
         </a>
 
-        <a class="button button-secondary" href="#releases">
-          Explore Releases
+        <a class="button button-secondary" href="#collection">
+          Explore the Collection
         </a>
       </div>
+
     </div>
 
-    <div class="hero-art">
-      <div class="placeholder">
-        <strong>BLIP GOES HERE</strong>
-        We'll drop your character artwork into this space.
-      </div>
+    <div class="hero-character">
+
+      <span class="spark one"></span>
+      <span class="spark two"></span>
+      <span class="spark three"></span>
+
+      <img
+        src="blip.png"
+        alt="Blip character"
+      >
+
     </div>
 
   </section>
 
-  <section id="about">
 
-    <h2 class="section-title">Meet Blip</h2>
+  <section class="about" id="about">
+
+    <div class="section-kicker">
+      The little traveller
+    </div>
+
+    <h2 class="section-title">
+      Meet Blip
+    </h2>
 
     <p class="section-copy">
-      Nobody is entirely sure where Blip came from. What we do know is that
-      Blip has a habit of turning up in unexpected places, getting into
-      adventures and somehow collecting a growing wardrobe along the way.
+      Nobody really knows exactly where Blip came from — and Blip isn't telling.
+      What started as one little character has become a growing collection of
+      adventures, personalities, places and limited releases.
     </p>
 
   </section>
 
-  <section id="releases">
 
-    <h2 class="section-title">The Blip Collection</h2>
+  <section id="collection">
 
-    <div class="cards">
+    <div class="section-kicker">
+      Collect the adventure
+    </div>
 
-      <div class="card">
-        <h3>Enamel Pins</h3>
+    <h2 class="section-title">
+      The Blip Collection
+    </h2>
+
+    <p class="section-copy">
+      Every Blip release tells a slightly different story. Some travel,
+      some transform, some get themselves into trouble, and some are simply
+      very limited.
+    </p>
+
+    <div class="collection-grid">
+
+      <div class="release-card">
+        <div class="release-number">01</div>
+
+        <h3>Classic Blip</h3>
+
         <p>
-          Explore Blip's different forms, adventures and limited releases.
+          The original little traveller and the beginning of the Blip story.
         </p>
       </div>
 
-      <div class="card">
-        <h3>Special Editions</h3>
+      <div class="release-card">
+        <div class="release-number">02</div>
+
+        <h3>Adventures</h3>
+
         <p>
-          Event exclusives, unusual variants and limited Blip releases.
+          Pirate Blip, Shark Blip, Octopus Blip and all the strange places
+          Blip ends up next.
         </p>
       </div>
 
-      <div class="card">
-        <h3>Blip's Adventures</h3>
+      <div class="release-card">
+        <div class="release-number">03</div>
+
+        <h3>Special Releases</h3>
+
         <p>
-          Follow Blip around the world and discover what the little creature
-          gets up to next.
+          Event editions, unusual variants, collaborations and limited Blips.
         </p>
       </div>
 
     </div>
 
   </section>
+
 
   <section id="gallery">
 
-    <h2 class="section-title">The Blipverse</h2>
+    <div class="section-kicker">
+      From the Blipverse
+    </div>
+
+    <h2 class="section-title">
+      Adventures so far
+    </h2>
 
     <p class="section-copy">
-      More coming soon.
+      This will become the home for Blip's different designs, releases,
+      travels and stories.
     </p>
+
+    <div class="gallery-strip">
+
+      <div class="gallery-box">
+        Classic Blip
+      </div>
+
+      <div class="gallery-box">
+        Adventures
+      </div>
+
+      <div class="gallery-box">
+        Limited Releases
+      </div>
+
+    </div>
 
   </section>
 
 </main>
 
+
 <footer>
-  © Loot in a Boot · Blip
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    Join the Adventure.
+  </div>
+
 </footer>
 
 </body>
