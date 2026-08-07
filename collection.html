@@ -27,7 +27,6 @@ body {
     linear-gradient(180deg,#070910,#0b1020 55%,#05070d);
 
   color:white;
-
   min-height:100vh;
 }
 
@@ -36,9 +35,7 @@ a {
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 header {
   position: sticky;
@@ -46,7 +43,6 @@ header {
   z-index: 50;
 
   display:flex;
-
   justify-content:space-between;
   align-items:center;
 
@@ -60,23 +56,18 @@ header {
 
 .header-logo img {
   width:125px;
-
   display:block;
-
   filter:invert(1);
 }
 
 nav {
   display:flex;
-
   gap:25px;
 }
 
 nav a {
   color:#aeb5c3;
-
   text-decoration:none;
-
   font-size:.95rem;
 }
 
@@ -85,13 +76,10 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero {
   padding:90px 6% 45px;
-
   text-align:center;
 }
 
@@ -101,7 +89,6 @@ nav a:hover {
   font-size:.78rem;
 
   letter-spacing:.18em;
-
   text-transform:uppercase;
 
   font-weight:700;
@@ -111,7 +98,6 @@ nav a:hover {
 
 .hero h1 {
   font-size:clamp(3rem,6vw,6rem);
-
   margin-bottom:18px;
 }
 
@@ -126,19 +112,15 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   PROGRESS
-===================================================== */
+/* PROGRESS */
 
 .progress-wrap {
   max-width:700px;
-
   margin:38px auto 0;
 }
 
 .progress-info {
   display:flex;
-
   justify-content:space-between;
 
   color:#9da5b5;
@@ -176,15 +158,11 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   TABS
-===================================================== */
+/* TABS */
 
 .tabs-wrap {
   padding:15px 6% 0;
-
   display:flex;
-
   justify-content:center;
 }
 
@@ -226,14 +204,11 @@ nav a:hover {
 
 .tab-button.active {
   background:white;
-
   color:#080b13;
 }
 
 
-/* =====================================================
-   MAIN CONTENT
-===================================================== */
+/* MAIN */
 
 .collection-section {
   padding:45px 6% 100px;
@@ -241,26 +216,21 @@ nav a:hover {
 
 .section-heading {
   max-width:1100px;
-
   margin:0 auto 30px;
 }
 
 .section-heading h2 {
   font-size:clamp(2rem,4vw,3.3rem);
-
   margin-bottom:10px;
 }
 
 .section-heading p {
   color:#9ea6b6;
-
   line-height:1.65;
 }
 
 
-/* =====================================================
-   GRID
-===================================================== */
+/* GRID */
 
 .collection-grid {
   max-width:1100px;
@@ -275,9 +245,7 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   CARD
-===================================================== */
+/* CARD */
 
 .collector-card {
   overflow:hidden;
@@ -301,7 +269,6 @@ nav a:hover {
 
 .collector-card a {
   text-decoration:none;
-
   display:block;
 }
 
@@ -314,16 +281,20 @@ nav a:hover {
   align-items:center;
 
   background:
-    radial-gradient(circle,
-    rgba(79,95,255,.22),
-    transparent 60%);
+    radial-gradient(
+      circle,
+      rgba(79,95,255,.22),
+      transparent 60%
+    );
 }
 
 .collector-card.wishlist .collector-image {
   background:
-    radial-gradient(circle,
-    rgba(255,88,167,.13),
-    transparent 60%);
+    radial-gradient(
+      circle,
+      rgba(255,88,167,.13),
+      transparent 60%
+    );
 }
 
 .collector-image img {
@@ -365,15 +336,12 @@ nav a:hover {
 
 .collector-content h2 {
   margin-top:8px;
-
   font-size:1.6rem;
 }
 
 .collector-content p {
   color:#aeb5c3;
-
   line-height:1.5;
-
   margin-top:10px;
 }
 
@@ -410,9 +378,7 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   EMPTY STATES
-===================================================== */
+/* EMPTY */
 
 .empty {
   max-width:800px;
@@ -432,7 +398,6 @@ nav a:hover {
 
 .empty h2 {
   color:white;
-
   margin-bottom:15px;
 }
 
@@ -455,9 +420,7 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   EXPORT
-===================================================== */
+/* EXPORT */
 
 .export-section {
   text-align:center;
@@ -467,13 +430,11 @@ nav a:hover {
 
 .export-section h2 {
   font-size:clamp(2rem,4vw,3.5rem);
-
   margin-bottom:12px;
 }
 
 .export-section p {
   color:#aeb5c3;
-
   margin-bottom:28px;
 }
 
@@ -502,14 +463,11 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   PREVIEW
-===================================================== */
+/* PREVIEW */
 
 .card-preview {
   margin:40px auto 0;
-
-  max-width:720px;
+  max-width:850px;
 }
 
 #collectionCanvas {
@@ -544,9 +502,7 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer {
   padding:42px 6%;
@@ -565,9 +521,7 @@ footer {
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* RESPONSIVE */
 
 @media(max-width:900px) {
 
@@ -629,10 +583,6 @@ footer {
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
   <a class="header-logo" href="index.html">
@@ -651,10 +601,6 @@ footer {
 
 <main>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="hero">
 
@@ -681,7 +627,7 @@ footer {
       </span>
 
       <span id="collectionTotal">
-        0 / 0
+        0 / 2
       </span>
 
     </div>
@@ -700,10 +646,6 @@ footer {
 
 </section>
 
-
-<!-- =====================================================
-     TABS
-===================================================== -->
 
 <div class="tabs-wrap">
 
@@ -730,9 +672,7 @@ footer {
 </div>
 
 
-<!-- =====================================================
-     COLLECTION VIEW
-===================================================== -->
+<!-- COLLECTION -->
 
 <section
   id="collectionView"
@@ -781,9 +721,7 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     WISHLIST VIEW
-===================================================== -->
+<!-- WISHLIST -->
 
 <section
   id="wishlistView"
@@ -833,9 +771,7 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     COLLECTION CARD
-===================================================== -->
+<!-- EXPORT -->
 
 <section
   id="exportSection"
@@ -862,8 +798,8 @@ footer {
 
     <canvas
       id="collectionCanvas"
-      width="1200"
-      height="800"
+      width="1400"
+      height="900"
     ></canvas>
 
     <button
@@ -900,8 +836,6 @@ footer {
 
 /* =====================================================
    BLIP DATABASE
-
-   Every new Blip will eventually get added here.
 ===================================================== */
 
 const blips = [
@@ -912,6 +846,14 @@ const blips = [
     type: "Adventure Series",
     image: "images/pirate-blip.png",
     page: "pirate-blip.html"
+  },
+
+  {
+    id: "shark-blip",
+    name: "Shark Blip",
+    type: "Adventure Series",
+    image: "images/shark-blip.png",
+    page: "shark-blip.html"
   }
 
 ];
@@ -942,7 +884,7 @@ function getSavedArray(key) {
 
 
 /* =====================================================
-   LOAD DATA
+   LOAD TRACKER
 ===================================================== */
 
 function loadTracker() {
@@ -1187,7 +1129,7 @@ function renderWishlist(blipList) {
 
 
 /* =====================================================
-   TAB CONTROLS
+   TABS
 ===================================================== */
 
 function showCollection() {
@@ -1322,19 +1264,19 @@ async function generateCard() {
 
   gradient.addColorStop(
     0,
-    "#080b16"
+    "#070a14"
   );
 
 
   gradient.addColorStop(
-    .55,
-    "#101637"
+    .5,
+    "#11183a"
   );
 
 
   gradient.addColorStop(
     1,
-    "#080b16"
+    "#070a14"
   );
 
 
@@ -1350,28 +1292,28 @@ async function generateCard() {
   );
 
 
-  /* DECORATIVE GLOW */
+  /* GLOW */
 
   const glow =
     ctx.createRadialGradient(
-      600,
-      350,
-      50,
-      600,
-      350,
-      500
+      width / 2,
+      400,
+      70,
+      width / 2,
+      400,
+      600
     );
 
 
   glow.addColorStop(
     0,
-    "rgba(88,100,255,.22)"
+    "rgba(89,95,255,.25)"
   );
 
 
   glow.addColorStop(
     1,
-    "rgba(88,100,255,0)"
+    "rgba(89,95,255,0)"
   );
 
 
@@ -1398,13 +1340,13 @@ async function generateCard() {
 
 
   ctx.font =
-    "bold 70px Arial";
+    "bold 78px Arial";
 
 
   ctx.fillText(
     "MY BLIP COLLECTION",
     width / 2,
-    100
+    105
   );
 
 
@@ -1413,7 +1355,7 @@ async function generateCard() {
 
 
   ctx.font =
-    "bold 27px Arial";
+    "bold 29px Arial";
 
 
   ctx.fillText(
@@ -1422,11 +1364,11 @@ async function generateCard() {
     blips.length +
     " COLLECTED",
     width / 2,
-    150
+    160
   );
 
 
-  /* LAYOUT */
+  /* COLLECTION IMAGES */
 
   const columns =
     Math.min(
@@ -1436,22 +1378,11 @@ async function generateCard() {
 
 
   const imageSize =
-    250;
+    300;
 
 
   const gapX =
-    60;
-
-
-  const gapY =
-    85;
-
-
-  const rows =
-    Math.ceil(
-      ownedBlips.length /
-      columns
-    );
+    80;
 
 
   const totalGridWidth =
@@ -1466,8 +1397,8 @@ async function generateCard() {
     2;
 
 
-  let startY =
-    210;
+  const startY =
+    230;
 
 
   for (
@@ -1475,7 +1406,6 @@ async function generateCard() {
     i < ownedBlips.length;
     i++
   ) {
-
 
     const blip =
       ownedBlips[i];
@@ -1499,8 +1429,7 @@ async function generateCard() {
 
     const y =
       startY +
-      row *
-      (imageSize + gapY);
+      row * 380;
 
 
     const image =
@@ -1535,7 +1464,7 @@ async function generateCard() {
 
 
     ctx.font =
-      "bold 27px Arial";
+      "bold 30px Arial";
 
 
     ctx.textAlign =
@@ -1545,11 +1474,10 @@ async function generateCard() {
     ctx.fillText(
       blip.name,
       x +
-      imageSize /
-      2,
+      imageSize / 2,
       y +
       imageSize +
-      38
+      42
     );
 
   }
@@ -1572,7 +1500,7 @@ async function generateCard() {
   ctx.fillText(
     "blip.lootinaboot.com.au",
     width / 2,
-    height - 42
+    height - 45
   );
 
 
@@ -1589,7 +1517,7 @@ async function generateCard() {
 
 
 /* =====================================================
-   DOWNLOAD COLLECTION CARD
+   DOWNLOAD
 ===================================================== */
 
 function downloadCard() {
@@ -1619,9 +1547,7 @@ function downloadCard() {
 }
 
 
-/* =====================================================
-   INITIAL LOAD
-===================================================== */
+/* INITIAL LOAD */
 
 loadTracker();
 
