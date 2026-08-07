@@ -20,24 +20,27 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #fff;
   min-height: 100vh;
+  color: #fff;
 
   background:
-    radial-gradient(circle at 50% 8%, rgba(165,110,48,.10), transparent 28%),
-    linear-gradient(180deg,#050505 0%,#090706 55%,#030303 100%);
+    radial-gradient(circle at 50% 10%, rgba(40,80,110,.12), transparent 30%),
+    linear-gradient(180deg,#030406 0%,#06070a 60%,#020203 100%);
 }
 
 a {
   color: inherit;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
@@ -45,10 +48,10 @@ header {
 
   padding: 18px 6%;
 
-  background: rgba(4,4,4,.90);
+  background: rgba(3,4,6,.88);
   backdrop-filter: blur(14px);
 
-  border-bottom: 1px solid rgba(198,147,78,.10);
+  border-bottom: 1px solid rgba(216,166,92,.12);
 }
 
 .header-logo img {
@@ -64,555 +67,495 @@ nav {
 
 nav a {
   position: relative;
-  color: #b7b0a6;
+
   text-decoration: none;
-  font-size: .92rem;
+
+  color: rgba(255,255,255,.68);
+
+  font-size: .93rem;
 }
 
 nav a:hover,
 nav a.active {
-  color: #e5c38f;
+  color: #e9c78c;
 }
 
 nav a.active::after {
   content: "";
+
   position: absolute;
-  left: 10%;
-  right: 10%;
+
+  left: 8%;
+  right: 8%;
   bottom: -11px;
+
   height: 1px;
-  background:
-    linear-gradient(90deg,transparent,#d09b4f,transparent);
-}
-
-/* HERO */
-
-.library-hero {
-  position: relative;
-  padding: 80px 6% 58px;
-  text-align: center;
-}
-
-.library-hero::before {
-  content: "☠";
-  display: block;
-  color: #9b713c;
-  opacity: .45;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-}
-
-.library-kicker {
-  color: #b98a4e;
-  text-transform: uppercase;
-  letter-spacing: .24em;
-  font-size: .72rem;
-  font-weight: 800;
-  margin-bottom: 14px;
-}
-
-.library-hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.6rem,7vw,7rem);
-  letter-spacing: .025em;
-  margin-bottom: 14px;
-  color: #dfbc82;
-  text-shadow:
-    0 2px 0 #5b3b1d,
-    0 10px 40px rgba(0,0,0,.55);
-}
-
-.hero-rule {
-  width: min(650px,80%);
-  height: 1px;
-  margin: 18px auto 20px;
-  background:
-    linear-gradient(90deg,transparent,rgba(204,151,79,.75),transparent);
-}
-
-.library-hero .tagline {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: clamp(1.25rem,2.4vw,1.8rem);
-  color: #f1ede6;
-}
-
-.library-hero .intro {
-  margin: 18px auto 0;
-  max-width: 690px;
-  color: #8e8c89;
-  line-height: 1.75;
-  font-size: .98rem;
-}
-
-/* BOOKCASE */
-
-.library-wrap {
-  width: min(1500px,95%);
-  margin: 0 auto 110px;
-}
-
-.bookcase {
-  position: relative;
-  padding: 42px 42px 55px;
-  border-radius: 22px;
-  border: 14px solid #1c1009;
 
   background:
     linear-gradient(
       90deg,
-      #160d08,
-      #2d1a0e 18%,
-      #170d08 50%,
-      #2b190e 82%,
-      #120a06
+      transparent,
+      #d89e4e,
+      transparent
     );
-
-  box-shadow:
-    inset 0 0 70px rgba(0,0,0,.78),
-    0 35px 90px rgba(0,0,0,.60),
-    0 0 0 2px rgba(158,102,48,.16);
 }
 
-.bookcase::after {
-  content: "✦   ☠   ✦";
-  position: absolute;
-  top: -32px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 18px;
-  background: #060504;
-  color: #9f713c;
-  letter-spacing: .6em;
-  font-size: .8rem;
+
+/* =====================================================
+   PAGE INTRO
+===================================================== */
+
+.page-intro {
+  padding: 55px 6% 24px;
+
+  text-align: center;
 }
 
-/* SHELVES */
+.page-intro p {
+  max-width: 680px;
 
-.shelf {
+  margin: auto;
+
+  color: #8d929c;
+
+  font-size: .95rem;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   LIBRARY STAGE
+===================================================== */
+
+.library-stage {
   position: relative;
-  min-height: 420px;
-  padding: 54px 42px 38px;
-  display: flex;
-  align-items: flex-end;
-  gap: 18px;
 
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(168,97,36,.10),
-      transparent 60%
-    ),
-    linear-gradient(180deg,#080504,#120a06 76%,#0a0604);
+  width: min(1024px, 96vw);
 
-  box-shadow:
-    inset 0 16px 25px rgba(0,0,0,.40);
-}
+  aspect-ratio: 1024 / 1536;
 
-.shelf + .shelf {
-  margin-top: 38px;
-}
+  margin: 10px auto 90px;
 
-.shelf::after {
-  content: "";
-  position: absolute;
-  left: -24px;
-  right: -24px;
-  bottom: -34px;
-  height: 35px;
-  border-radius: 3px 3px 7px 7px;
+  background-image:
+    url("images/loot-library-bg.png");
 
-  background:
-    linear-gradient(
-      180deg,
-      #64391c 0%,
-      #412412 28%,
-      #211108 75%,
-      #0c0603
+  background-size: 100% 100%;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+
+  filter:
+    drop-shadow(
+      0 35px 80px rgba(0,0,0,.55)
     );
-
-  border-top: 2px solid rgba(217,155,79,.26);
-  box-shadow: 0 14px 24px rgba(0,0,0,.72);
 }
 
-/* BOOK */
+
+/* =====================================================
+   BOOKS
+===================================================== */
 
 .book {
-  position: relative;
-  width: 160px;
-  height: 315px;
-  flex: 0 0 auto;
-  border-radius: 6px 12px 10px 5px;
-  overflow: hidden;
+  position: absolute;
+
+  display: block;
+
+  width: 9.7%;
+  height: 16.5%;
+
+  min-width: 65px;
+
+  border-radius: 4px 8px 8px 4px;
+
   text-decoration: none;
-  color: #d9b774;
-  border: 1px solid rgba(221,175,103,.34);
+
+  color: #d9b36f;
+
+  border:
+    1px solid rgba(226,177,95,.42);
 
   box-shadow:
-    inset 13px 0 18px rgba(0,0,0,.32),
-    inset -4px 0 9px rgba(255,255,255,.025),
-    9px 8px 16px rgba(0,0,0,.60);
+    inset 8px 0 12px rgba(0,0,0,.30),
+    inset -3px 0 7px rgba(255,255,255,.025),
+    6px 8px 15px rgba(0,0,0,.55);
 
-  transform-origin: bottom center;
+  transform-origin:
+    bottom center;
 
   transition:
     transform .25s ease,
     filter .25s ease,
     box-shadow .25s ease;
-}
-
-.book:hover {
-  transform: translateY(-18px) scale(1.035);
-  filter: brightness(1.13);
-
-  box-shadow:
-    inset 13px 0 18px rgba(0,0,0,.26),
-    12px 20px 30px rgba(0,0,0,.68),
-    0 0 32px rgba(195,139,68,.13);
 
   z-index: 10;
 }
 
-.book::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 11px;
-  width: 2px;
+.book:hover {
+  transform:
+    translateY(-5%)
+    scale(1.04);
 
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(224,177,104,.35),
-      transparent
-    );
+  filter:
+    brightness(1.15);
 
   box-shadow:
-    4px 0 8px rgba(0,0,0,.28);
+    inset 8px 0 12px rgba(0,0,0,.25),
+    8px 16px 24px rgba(0,0,0,.58),
+    0 0 24px rgba(215,157,75,.18);
+
+  z-index: 30;
+}
+
+.book::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5% 7%;
+
+  border:
+    1px solid rgba(223,171,88,.42);
+
+  border-radius: 3px 6px 6px 3px;
+
+  pointer-events: none;
 }
 
 .book::after {
   content: "";
+
   position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(218,170,94,.42);
-  border-radius: 4px 8px 7px 3px;
-  pointer-events: none;
+
+  top: 0;
+  bottom: 0;
+  left: 8%;
+
+  width: 1px;
+
+  background:
+    rgba(219,167,86,.28);
+
+  box-shadow:
+    3px 0 6px rgba(0,0,0,.25);
 }
+
+
+/* =====================================================
+   BOOK CONTENT
+===================================================== */
 
 .book-inner {
   position: relative;
   z-index: 2;
-  height: 100%;
+
   width: 100%;
-  padding: 29px 22px 25px;
+  height: 100%;
+
+  padding:
+    12%
+    12%
+    10%;
 
   display: grid;
+
   grid-template-rows:
     auto
-    22px
+    8%
     1fr
-    22px
+    8%
     auto;
 
   align-items: center;
+
   text-align: center;
 }
 
 .book-character {
-  font-size: .66rem;
+  font-size: clamp(.36rem,.65vw,.58rem);
+
   font-weight: 800;
-  letter-spacing: .18em;
+
   text-transform: uppercase;
+
+  letter-spacing: .15em;
+
   opacity: .82;
 }
 
 .book-divider {
   position: relative;
-  height: 22px;
+
+  width: 100%;
+  height: 100%;
 }
 
 .book-divider::before {
   content: "";
+
   position: absolute;
+
+  left: 17%;
+  right: 17%;
   top: 50%;
-  left: 16%;
-  right: 16%;
+
   height: 1px;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(224,176,101,.72),
+      rgba(226,174,88,.72),
       transparent
     );
 }
 
 .book-divider::after {
   content: "✦";
+
   position: absolute;
+
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-52%);
-  padding: 0 6px;
-  font-size: .72rem;
-  color: #c99a55;
+
+  transform:
+    translate(-50%,-50%);
+
+  padding: 0 4px;
+
+  font-size: clamp(.35rem,.55vw,.5rem);
+
+  color: #d2a258;
 }
 
 .book-title {
   display: flex;
-  align-items: center;
+
   justify-content: center;
-  min-height: 0;
+  align-items: center;
+
+  min-width: 0;
+
+  overflow-wrap: anywhere;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size: 1.48rem;
+  font-size: clamp(.55rem,1.05vw,1.02rem);
+
   font-weight: 700;
-  line-height: 1.18;
-  padding: 8px 2px;
+
+  line-height: 1.05;
+
+  padding: 3px;
 }
 
 .book-symbol {
   display: flex;
-  align-items: center;
+
   justify-content: center;
-  font-size: 1.6rem;
-  color: #d6ae68;
+  align-items: center;
+
+  font-size: clamp(.7rem,1.25vw,1.2rem);
 }
 
-.book-foot {
-  font-size: .61rem;
-  letter-spacing: .13em;
+.lock-badge {
+  display: block;
+
+  max-width: 90%;
+
+  margin: auto;
+
+  padding: 4px 5px;
+
+  border-radius: 999px;
+
+  border:
+    1px solid rgba(224,176,96,.30);
+
+  background:
+    rgba(0,0,0,.23);
+
+  color: #dab97e;
+
+  font-size: clamp(.25rem,.42vw,.38rem);
+
+  line-height: 1.2;
+
+  letter-spacing: .05em;
+
   text-transform: uppercase;
-  opacity: .68;
 }
 
-/* SIZES */
 
-.book-small {
-  width: 135px;
-  height: 280px;
-}
-
-.book-tall {
-  height: 345px;
-}
-
-.book-wide {
-  width: 182px;
-}
-
-/* COLOURS */
+/* =====================================================
+   BOOK COLOURS
+===================================================== */
 
 .book-blue {
   background:
-    linear-gradient(90deg,#0e2136,#17466f 38%,#102e4b);
+    linear-gradient(
+      90deg,
+      #102239,
+      #174b76 42%,
+      #102d49
+    );
 }
 
 .book-red {
   background:
-    linear-gradient(90deg,#31100d,#6f261d 42%,#43150f);
-}
-
-.book-green {
-  background:
-    linear-gradient(90deg,#122319,#2a4c31 44%,#172d20);
-}
-
-.book-purple {
-  background:
-    linear-gradient(90deg,#20112b,#4a285e 44%,#27152f);
+    linear-gradient(
+      90deg,
+      #35100e,
+      #74291f 43%,
+      #451610
+    );
 }
 
 .book-brown {
   background:
-    linear-gradient(90deg,#27170d,#51321c 44%,#301b10);
+    linear-gradient(
+      90deg,
+      #27170d,
+      #54331b 43%,
+      #321b0e
+    );
 }
 
 .book-black {
   background:
-    linear-gradient(90deg,#080808,#1c1b1c 45%,#0a0a0a);
+    linear-gradient(
+      90deg,
+      #08090a,
+      #1b1b1e 45%,
+      #09090b
+    );
 }
 
-/* LOCK STATES */
-
-.book[data-status="early-access"]::before,
-.book[data-status="secret"]::before {
-  box-shadow:
-    4px 0 8px rgba(0,0,0,.28),
-    0 0 20px rgba(202,150,75,.14);
-}
-
-.lock-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 6px 8px;
-  border-radius: 999px;
-
-  border: 1px solid rgba(221,174,99,.25);
-  background: rgba(0,0,0,.22);
-
-  color: #d6b67d;
-
-  font-size: .58rem;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-}
-
-/* DECORATIVE */
-
-.shelf-object {
-  flex: 0 0 auto;
-}
-
-.bottle {
-  width: 54px;
-  height: 125px;
-  margin: 0 24px;
-  border-radius: 15px;
-  border: 2px solid rgba(156,203,190,.24);
-
+.book-green {
   background:
     linear-gradient(
       90deg,
-      rgba(25,60,57,.70),
-      rgba(87,136,123,.16),
-      rgba(18,46,43,.72)
+      #11241a,
+      #284d31 45%,
+      #162d20
     );
 }
 
-.treasure-chest {
-  width: 150px;
-  height: 105px;
-  margin-left: auto;
-  border-radius: 15px 15px 7px 7px;
-
-  background:
-    linear-gradient(180deg,#5a371d,#29180d);
-
-  border: 5px solid #17100a;
-}
-
-.hourglass {
-  width: 75px;
-  height: 115px;
-  margin: 0 18px;
-  border-top: 8px solid #76532b;
-  border-bottom: 8px solid #76532b;
-  position: relative;
-}
-
-.hourglass::before {
-  content: "⌛";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3.1rem;
-  color: #c7a365;
-}
-
-.candle {
-  position: relative;
-  width: 46px;
-  height: 90px;
-  margin-left: auto;
-  border-radius: 7px 7px 3px 3px;
-
-  background:
-    linear-gradient(90deg,#c8af79,#efe0b2 48%,#b99b66);
-}
-
-.candle::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 28px;
-  left: 50%;
-  top: -27px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 70%,
-      #fff4b0,
-      #ffae32 45%,
-      #a94912 74%,
-      transparent 76%
-    );
-}
-
-/* MESSAGE */
-
-.shelf-message {
-  position: relative;
-  margin: auto;
-  padding: 34px 42px;
-  max-width: 460px;
-  text-align: center;
-
-  border:
-    1px solid rgba(205,161,91,.34);
-
-  color: #b99765;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  line-height: 1.65;
-
+.book-purple {
   background:
     linear-gradient(
-      180deg,
-      rgba(21,13,8,.78),
-      rgba(10,7,5,.70)
+      90deg,
+      #20122c,
+      #4d2b61 45%,
+      #281730
     );
 }
 
-/* FINAL NOTE */
 
-.library-note {
-  margin-top: 64px;
-  text-align: center;
-  color: #787873;
-  line-height: 1.75;
+/* =====================================================
+   INDIVIDUAL BOOK POSITIONS
+   tuned for the uploaded cabinet image
+===================================================== */
+
+/* TOP SHELF */
+
+.book-shark {
+  left: 23%;
+  top: 35.8%;
+
+  width: 11.6%;
+  height: 18.2%;
 }
 
-.library-note strong {
-  color: #c2a77a;
-  font-family: Georgia, serif;
-  font-size: 1.15rem;
+.book-pirate {
+  left: 35.6%;
+  top: 37%;
+
+  width: 10.3%;
+  height: 17%;
 }
 
-/* MODAL */
+.book-tales {
+  left: 46.8%;
+  top: 38.2%;
+
+  width: 9.3%;
+  height: 15.8%;
+}
+
+.book-secret {
+  left: 57.4%;
+  top: 36%;
+
+  width: 10%;
+  height: 18%;
+}
+
+
+/* SECOND SHELF */
+
+.book-future-one {
+  left: 28.2%;
+  top: 58.2%;
+
+  width: 9.6%;
+  height: 15.6%;
+}
+
+.book-future-two {
+  left: 39.4%;
+  top: 57.6%;
+
+  width: 10%;
+  height: 16.2%;
+}
+
+
+/* =====================================================
+   SPECIAL STATES
+===================================================== */
+
+.book[data-status="early-access"] {
+  box-shadow:
+    inset 8px 0 12px rgba(0,0,0,.30),
+    6px 8px 15px rgba(0,0,0,.55),
+    0 0 18px rgba(64,126,255,.12);
+}
+
+.book[data-status="secret"] {
+  filter: brightness(.78);
+}
+
+
+/* =====================================================
+   UNLOCK MODAL
+===================================================== */
 
 .unlock-overlay {
   position: fixed;
+
   inset: 0;
 
+  z-index: 9999;
+
   display: none;
+
   align-items: center;
   justify-content: center;
 
   padding: 20px;
 
-  background: rgba(0,0,0,.78);
-  backdrop-filter: blur(8px);
+  background:
+    rgba(0,0,0,.80);
 
-  z-index: 999;
+  backdrop-filter:
+    blur(8px);
 }
 
 .unlock-overlay.show {
@@ -622,40 +565,48 @@ nav a.active::after {
 .unlock-modal {
   width: min(500px,100%);
 
-  padding: 34px;
+  padding: 36px;
 
   border-radius: 24px;
 
   border:
-    1px solid rgba(211,159,86,.35);
+    1px solid rgba(221,168,87,.35);
 
   background:
     linear-gradient(
       180deg,
-      #16100b,
-      #090706
+      #18100a,
+      #080605
     );
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,.65);
+    0 35px 90px rgba(0,0,0,.70);
 
   text-align: center;
 }
 
 .unlock-icon {
-  font-size: 2rem;
+  font-size: 2.1rem;
+
   margin-bottom: 12px;
 }
 
 .unlock-modal h2 {
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color: #dfbb7c;
+
   font-size: 2rem;
-  color: #dfbc82;
+
   margin-bottom: 12px;
 }
 
 .unlock-modal p {
-  color: #aaa49c;
+  color: #aaa39a;
+
   line-height: 1.65;
 }
 
@@ -690,7 +641,11 @@ nav a.active::after {
 
 .unlock-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
   gap: 10px;
 
   margin-top: 16px;
@@ -710,11 +665,14 @@ nav a.active::after {
 
 .unlock-primary {
   background: #dfbc82;
+
   color: #120c07;
 }
 
 .unlock-secondary {
-  background: rgba(255,255,255,.05);
+  background:
+    rgba(255,255,255,.05);
+
   color: white;
 
   border:
@@ -731,25 +689,34 @@ nav a.active::after {
   font-size: .82rem;
 }
 
-/* FOOTER */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
-  padding: 42px 6%;
+  padding: 40px 6%;
 
   border-top:
-    1px solid rgba(255,255,255,.08);
+    1px solid rgba(255,255,255,.07);
 
-  color: #74716d;
+  color: #737782;
 
   display: flex;
+
   justify-content: space-between;
-  gap: 20px;
+
   flex-wrap: wrap;
+
+  gap: 20px;
 }
 
-/* MOBILE */
 
-@media(max-width:800px) {
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px) {
 
   nav {
     display: none;
@@ -763,42 +730,32 @@ footer {
     width: 105px;
   }
 
-  .bookcase {
-    padding: 20px 16px 38px;
-    border-width: 8px;
+  .page-intro {
+    padding:
+      35px
+      5%
+      18px;
   }
 
-  .shelf {
-    min-height: 355px;
-    padding: 42px 18px 30px;
-    overflow-x: auto;
-    align-items: flex-end;
-  }
+  .library-stage {
+    width: 100vw;
 
-  .book {
-    width: 132px;
-    height: 270px;
-  }
-
-  .book-small {
-    width: 112px;
-    height: 240px;
-  }
-
-  .book-tall {
-    height: 298px;
-  }
-
-  .book-wide {
-    width: 150px;
-  }
-
-  .book-inner {
-    padding: 24px 16px 20px;
+    margin-bottom: 45px;
   }
 
   .book-title {
-    font-size: 1.15rem;
+    font-size:
+      clamp(.42rem,2.3vw,.8rem);
+  }
+
+  .book-character {
+    font-size:
+      clamp(.28rem,1.45vw,.42rem);
+  }
+
+  .lock-badge {
+    font-size:
+      clamp(.20rem,1vw,.31rem);
   }
 
   .unlock-actions {
@@ -810,19 +767,47 @@ footer {
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
   <a class="header-logo" href="index.html">
-    <img src="blip-logo.png" alt="Loot in a Boot">
+
+    <img
+      src="blip-logo.png"
+      alt="Loot in a Boot"
+    >
+
   </a>
 
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="adventures.html" class="active">Adventures</a>
-    <a href="pins.html">Blipdex</a>
-    <a href="collection.html">My Collection</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a
+      href="adventures.html"
+      class="active"
+    >
+      Adventures
+    </a>
+
+    <a href="pins.html">
+      Blipdex
+    </a>
+
+    <a href="collection.html">
+      My Collection
+    </a>
+
   </nav>
 
 </header>
@@ -830,23 +815,14 @@ footer {
 
 <main>
 
-<section class="library-hero">
 
-  <div class="library-kicker">
-    Stories from the Loot in a Boot universe
-  </div>
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-  <h1>
-    The Loot Library
-  </h1>
+<section class="page-intro">
 
-  <div class="hero-rule"></div>
-
-  <div class="tagline">
-    Every treasure has a story.
-  </div>
-
-  <p class="intro">
+  <p>
     Pull a book from the shelf and discover stories,
     strange places and adventures from across the
     Loot in a Boot universe.
@@ -855,256 +831,253 @@ footer {
 </section>
 
 
-<div class="library-wrap">
+<!-- =====================================================
+     ILLUSTRATED LIBRARY
+===================================================== -->
 
-  <div class="bookcase">
-
-
-    <!-- SHELF ONE -->
-
-    <div class="shelf">
+<div class="library-stage">
 
 
-      <!-- SHARK - EARLY ACCESS -->
+  <!-- =================================================
+       SHARK - EARLY ACCESS
+  ================================================== -->
 
-      <a
-        class="book book-blue book-tall book-wide"
-        href="shark-adventure.html"
-        data-book-id="shark-adventure"
-        data-status="early-access"
-        data-password="SHARKBAIT"
-        aria-label="Read Blip: The Shark Adventure"
-      >
+  <a
+    class="book book-blue book-shark"
+    href="shark-adventure.html"
 
-        <div class="book-inner">
+    data-book-id="shark-adventure"
+    data-status="early-access"
+    data-password="SHARKBAIT"
 
-          <div class="book-character">
-            Blip
-          </div>
+    aria-label="Read Blip: The Shark Adventure"
+  >
 
-          <div class="book-divider"></div>
+    <div class="book-inner">
 
-          <div class="book-title">
-            The Shark<br>
-            Adventure
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-symbol">
-            <span class="lock-badge">
-              🔒 Early Access
-            </span>
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- PIRATE - OPEN -->
-
-      <a
-        class="book book-red"
-        href="pirate-adventure.html"
-        data-book-id="pirate-adventure"
-        data-status="open"
-      >
-
-        <div class="book-inner">
-
-          <div class="book-character">
-            Blip
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-title">
-            Pirates!
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-symbol">
-            ☠
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <!-- DECORATIVE -->
-
-      <div class="book book-brown book-small">
-
-        <div class="book-inner">
-
-          <div class="book-character">
-            Tales
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-title">
-            From<br>
-            Somewhere
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-symbol">
-            ✦
-          </div>
-
-        </div>
-
+      <div class="book-character">
+        Blip
       </div>
 
+      <div class="book-divider"></div>
 
-      <!-- SECRET BOOK -->
+      <div class="book-title">
+        The Shark<br>
+        Adventure
+      </div>
 
-      <a
-        class="book book-black book-tall"
-        href="secret-story.html"
-        data-book-id="secret-story-one"
-        data-status="secret"
-        data-password="TREASURE"
-      >
+      <div class="book-divider"></div>
 
-        <div class="book-inner">
+      <div class="book-symbol">
 
-          <div class="book-character">
-            Unknown
-          </div>
+        <span class="lock-badge">
+          🔒 Early Access
+        </span>
 
-          <div class="book-divider"></div>
-
-          <div class="book-title">
-            ???
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-symbol">
-
-            <span class="lock-badge">
-              🔒 Undiscovered
-            </span>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-      <div class="bottle shelf-object"></div>
-
-      <div class="treasure-chest shelf-object"></div>
-
+      </div>
 
     </div>
 
-
-    <!-- SHELF TWO -->
-
-    <div class="shelf">
+  </a>
 
 
-      <div class="book book-green book-small">
 
-        <div class="book-inner">
+  <!-- =================================================
+       PIRATE - OPEN
+  ================================================== -->
 
-          <div class="book-character">
-            The Loot Library
-          </div>
+  <a
+    class="book book-red book-pirate"
+    href="pirate-adventure.html"
 
-          <div class="book-divider"></div>
+    data-book-id="pirate-adventure"
+    data-status="open"
 
-          <div class="book-title">
-            ???
-          </div>
+    aria-label="Read Blip: Pirates"
+  >
 
-          <div class="book-divider"></div>
+    <div class="book-inner">
 
-          <div class="book-foot">
-            Coming Soon
-          </div>
-
-        </div>
-
+      <div class="book-character">
+        Blip
       </div>
 
+      <div class="book-divider"></div>
 
-      <div class="book book-purple">
-
-        <div class="book-inner">
-
-          <div class="book-character">
-            The Loot Library
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-title">
-            ???
-          </div>
-
-          <div class="book-divider"></div>
-
-          <div class="book-foot">
-            Coming Soon
-          </div>
-
-        </div>
-
+      <div class="book-title">
+        Pirates!
       </div>
 
+      <div class="book-divider"></div>
 
-      <div class="hourglass shelf-object"></div>
-
-
-      <div class="shelf-message">
-
-        <strong>
-          More stories are waiting to be discovered.
-        </strong>
-
-        <br><br>
-
-        As new adventures unfold,
-        new books will appear in the Loot Library.
-
+      <div class="book-symbol">
+        ☠
       </div>
-
-
-      <div class="candle shelf-object"></div>
-
 
     </div>
 
+  </a>
+
+
+
+  <!-- =================================================
+       DECORATIVE BOOK
+  ================================================== -->
+
+  <div
+    class="book book-brown book-tales"
+    aria-hidden="true"
+  >
+
+    <div class="book-inner">
+
+      <div class="book-character">
+        Tales
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-title">
+        From<br>
+        Somewhere
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-symbol">
+        ✦
+      </div>
+
+    </div>
 
   </div>
 
 
-  <div class="library-note">
 
-    <strong>
-      The library is only just beginning.
-    </strong>
+  <!-- =================================================
+       SECRET STORY
+  ================================================== -->
 
-    <br>
+  <a
+    class="book book-black book-secret"
 
-    New characters, stories and adventures will
-    find their way onto the shelves.
+    href="secret-story.html"
+
+    data-book-id="secret-story-one"
+    data-status="secret"
+    data-password="TREASURE"
+
+    aria-label="Discover a secret story"
+  >
+
+    <div class="book-inner">
+
+      <div class="book-character">
+        Unknown
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-title">
+        ???
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-symbol">
+
+        <span class="lock-badge">
+          🔒 Undiscovered
+        </span>
+
+      </div>
+
+    </div>
+
+  </a>
+
+
+
+  <!-- =================================================
+       FUTURE BOOK
+  ================================================== -->
+
+  <div
+    class="book book-green book-future-one"
+  >
+
+    <div class="book-inner">
+
+      <div class="book-character">
+        The Loot Library
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-title">
+        ???
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-symbol">
+
+        <span class="lock-badge">
+          Coming Soon
+        </span>
+
+      </div>
+
+    </div>
 
   </div>
+
+
+
+  <!-- =================================================
+       FUTURE BOOK
+  ================================================== -->
+
+  <div
+    class="book book-purple book-future-two"
+  >
+
+    <div class="book-inner">
+
+      <div class="book-character">
+        The Loot Library
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-title">
+        ???
+      </div>
+
+      <div class="book-divider"></div>
+
+      <div class="book-symbol">
+
+        <span class="lock-badge">
+          Coming Soon
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
 
 </div>
 
+
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1119,7 +1092,10 @@ footer {
 </footer>
 
 
-<!-- UNLOCK MODAL -->
+
+<!-- =====================================================
+     UNLOCK MODAL
+===================================================== -->
 
 <div
   id="unlockOverlay"
@@ -1128,17 +1104,21 @@ footer {
 
   <div class="unlock-modal">
 
+
     <div class="unlock-icon">
       🔐
     </div>
+
 
     <h2 id="unlockTitle">
       This story is locked.
     </h2>
 
+
     <p id="unlockMessage">
       Enter the secret word to discover this story.
     </p>
+
 
     <input
       id="unlockInput"
@@ -1148,7 +1128,9 @@ footer {
       placeholder="Enter secret word"
     >
 
+
     <div class="unlock-actions">
+
 
       <button
         class="unlock-button unlock-primary"
@@ -1157,6 +1139,7 @@ footer {
         Unlock Story
       </button>
 
+
       <button
         class="unlock-button unlock-secondary"
         onclick="closeUnlock()"
@@ -1164,28 +1147,33 @@ footer {
         Maybe Later
       </button>
 
+
     </div>
+
 
     <div
       id="unlockError"
       class="unlock-error"
     ></div>
 
+
   </div>
 
 </div>
 
 
+
 <script>
 
+
 /* =====================================================
-   LOOT LIBRARY BOOK LOCK SYSTEM
+   LOOT LIBRARY LOCK SYSTEM
 ===================================================== */
 
 let activeBook = null;
 
 
-/* CHECK WHETHER A BOOK HAS ALREADY BEEN UNLOCKED */
+/* HAS THIS BOOK BEEN UNLOCKED? */
 
 function isBookUnlocked(bookId) {
 
@@ -1196,7 +1184,7 @@ function isBookUnlocked(bookId) {
 }
 
 
-/* REMEMBER THAT A BOOK HAS BEEN UNLOCKED */
+/* SAVE UNLOCK */
 
 function saveBookUnlock(bookId) {
 
@@ -1208,38 +1196,47 @@ function saveBookUnlock(bookId) {
 }
 
 
-/* CLICK HANDLING */
+/* =====================================================
+   BOOK CLICK HANDLING
+===================================================== */
 
 document.querySelectorAll(
   ".book[data-status]"
 ).forEach(book => {
 
+
   book.addEventListener(
     "click",
     function(event) {
 
+
       const status =
         this.dataset.status;
+
 
       const bookId =
         this.dataset.bookId;
 
 
-      /* NORMAL OPEN BOOK */
+      /* OPEN BOOK */
 
       if (status === "open") {
+
         return;
+
       }
 
 
       /* ALREADY UNLOCKED */
 
-      if (isBookUnlocked(bookId)) {
+      if (
+        isBookUnlocked(bookId)
+      ) {
+
         return;
+
       }
 
-
-      /* BLOCK NORMAL LINK */
 
       event.preventDefault();
 
@@ -1252,25 +1249,32 @@ document.querySelectorAll(
         status
       );
 
+
     }
   );
+
 
 });
 
 
-/* OPEN MODAL */
+/* =====================================================
+   OPEN MODAL
+===================================================== */
 
 function openUnlock(status) {
+
 
   const overlay =
     document.getElementById(
       "unlockOverlay"
     );
 
+
   const title =
     document.getElementById(
       "unlockTitle"
     );
+
 
   const message =
     document.getElementById(
@@ -1278,10 +1282,10 @@ function openUnlock(status) {
     );
 
 
-  document.getElementById(
-    "unlockInput"
-  ).value =
-    "";
+  const input =
+    document.getElementById(
+      "unlockInput"
+    );
 
 
   document.getElementById(
@@ -1290,23 +1294,37 @@ function openUnlock(status) {
     "";
 
 
-  if (status === "early-access") {
+  input.value =
+    "";
+
+
+  if (
+    status ===
+    "early-access"
+  ) {
+
 
     title.textContent =
       "Early access story";
 
+
     message.textContent =
       "This story hasn't opened to everyone yet. Enter the secret word to read it early.";
 
+
   }
 
+
   else {
+
 
     title.textContent =
       "A hidden story";
 
+
     message.textContent =
       "This book has not been discovered yet. Somewhere out there is the word that unlocks it.";
+
 
   }
 
@@ -1319,20 +1337,22 @@ function openUnlock(status) {
   setTimeout(
     () => {
 
-      document.getElementById(
-        "unlockInput"
-      ).focus();
+      input.focus();
 
     },
     100
   );
 
+
 }
 
 
-/* CLOSE MODAL */
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
 function closeUnlock() {
+
 
   document.getElementById(
     "unlockOverlay"
@@ -1344,37 +1364,53 @@ function closeUnlock() {
   activeBook =
     null;
 
+
 }
 
 
-/* SUBMIT PASSWORD */
+/* =====================================================
+   UNLOCK
+===================================================== */
 
 function submitUnlock() {
+
 
   if (!activeBook) {
     return;
   }
 
 
-  const entered =
+  const input =
     document.getElementById(
       "unlockInput"
-    )
+    );
+
+
+  const entered =
+    input
     .value
     .trim()
     .toUpperCase();
 
 
   const correct =
-    activeBook.dataset.password
+    activeBook
+    .dataset
+    .password
     .trim()
     .toUpperCase();
 
 
-  if (entered === correct) {
+  if (
+    entered ===
+    correct
+  ) {
+
 
     const bookId =
-      activeBook.dataset.bookId;
+      activeBook
+      .dataset
+      .bookId;
 
 
     saveBookUnlock(
@@ -1414,16 +1450,21 @@ function submitUnlock() {
       700
     );
 
+
   }
 
+
   else {
+
 
     document.getElementById(
       "unlockError"
     ).textContent =
       "That doesn't seem to be the right word.";
 
+
   }
+
 
 }
 
@@ -1436,15 +1477,22 @@ document.getElementById(
   "keydown",
   function(event) {
 
-    if (event.key === "Enter") {
+
+    if (
+      event.key ===
+      "Enter"
+    ) {
+
       submitUnlock();
+
     }
+
 
   }
 );
 
 
-/* CLICK OUTSIDE MODAL */
+/* CLICK OUTSIDE */
 
 document.getElementById(
   "unlockOverlay"
@@ -1452,12 +1500,20 @@ document.getElementById(
   "click",
   function(event) {
 
-    if (event.target === this) {
+
+    if (
+      event.target ===
+      this
+    ) {
+
       closeUnlock();
+
     }
+
 
   }
 );
+
 
 </script>
 
