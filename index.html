@@ -4,19 +4,318 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blip | Loot in a Boot</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #1e2a44 0%, #0b1020 40%, #05070d 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 70px 8%;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(5rem, 12vw, 10rem);
+      line-height: 0.85;
+      letter-spacing: -6px;
+      margin-bottom: 30px;
+      text-shadow:
+        0 0 20px rgba(80, 180, 255, 0.4),
+        0 0 50px rgba(180, 70, 255, 0.25);
+    }
+
+    .hero-text .tagline {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p {
+      max-width: 600px;
+      color: #c6cbd7;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: white;
+      color: #111;
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-art {
+      min-height: 470px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background:
+        radial-gradient(circle at 50% 45%, rgba(141, 84, 255, 0.45), transparent 30%),
+        radial-gradient(circle at 40% 60%, rgba(0, 206, 255, 0.25), transparent 32%),
+        rgba(255,255,255,0.035);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .placeholder {
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      padding: 30px;
+    }
+
+    .placeholder strong {
+      display: block;
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      line-height: 1.7;
+      color: #bfc5d2;
+    }
+
+    .cards {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 180px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #bbc1cc;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 40px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #838a98;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 6rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 350px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>BLIP</h1>
+<header>
+  <div class="logo">BLIP</div>
 
-  <p>
-    Something strange has landed...
-  </p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#releases">Releases</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+</header>
 
-  <p>
-    The official home of Blip by Loot in a Boot.
-  </p>
+<main>
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>BLIP</h1>
+
+      <div class="tagline">
+        Small creature. Big adventures.
+      </div>
+
+      <p>
+        Welcome to the official home of Blip — the curious little traveller
+        from Loot in a Boot. Discover releases, adventures, collectibles
+        and everything happening in the world of Blip.
+      </p>
+
+      <div class="button-row">
+        <a class="button button-primary" href="#about">
+          Meet Blip
+        </a>
+
+        <a class="button button-secondary" href="#releases">
+          Explore Releases
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="placeholder">
+        <strong>BLIP GOES HERE</strong>
+        We'll drop your character artwork into this space.
+      </div>
+    </div>
+
+  </section>
+
+  <section id="about">
+
+    <h2 class="section-title">Meet Blip</h2>
+
+    <p class="section-copy">
+      Nobody is entirely sure where Blip came from. What we do know is that
+      Blip has a habit of turning up in unexpected places, getting into
+      adventures and somehow collecting a growing wardrobe along the way.
+    </p>
+
+  </section>
+
+  <section id="releases">
+
+    <h2 class="section-title">The Blip Collection</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Enamel Pins</h3>
+        <p>
+          Explore Blip's different forms, adventures and limited releases.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Special Editions</h3>
+        <p>
+          Event exclusives, unusual variants and limited Blip releases.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Blip's Adventures</h3>
+        <p>
+          Follow Blip around the world and discover what the little creature
+          gets up to next.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="gallery">
+
+    <h2 class="section-title">The Blipverse</h2>
+
+    <p class="section-copy">
+      More coming soon.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  © Loot in a Boot · Blip
+</footer>
 
 </body>
 </html>
