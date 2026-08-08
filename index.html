@@ -310,6 +310,8 @@ section {
 .adventure-feature {
   position:relative;
 
+  display:block;
+
   margin-top:45px;
 
   min-height:650px;
@@ -321,6 +323,11 @@ section {
   border:1px solid rgba(255,255,255,.12);
 
   box-shadow:0 35px 90px rgba(0,0,0,.35);
+
+  text-decoration:none;
+  color:inherit;
+
+  cursor:pointer;
 }
 
 .adventure-feature img {
@@ -872,7 +879,7 @@ footer {
 
   <nav>
     <a href="#about">Meet Blip</a>
-    <a href="#adventures">Adventures</a>
+    <a href="adventures.html">Adventures</a>
     <a href="#collection">Collection</a>
     <a href="#gallery">Gallery</a>
   </nav>
@@ -918,7 +925,7 @@ footer {
         Meet Blip
       </a>
 
-      <a class="button button-secondary" href="#adventures">
+      <a class="button button-secondary" href="adventures.html">
         Follow the Adventure
       </a>
 
@@ -981,7 +988,11 @@ footer {
   </p>
 
 
-  <div class="adventure-feature">
+  <a
+    class="adventure-feature"
+    href="adventures.html"
+    aria-label="Enter the Loot Library and explore Blip's Adventures"
+  >
 
     <img
       src="images/adventures.png"
@@ -1009,7 +1020,7 @@ footer {
 
     </div>
 
-  </div>
+  </a>
 
 </section>
 
