@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blip: The Shark Adventure | The Loot Library</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(35,70,110,.18), transparent 30%),
+    linear-gradient(180deg,#040609,#09111c 55%,#030406 100%);
+  color: #f4f1ea;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 17px 6%;
+
+  background: rgba(3,5,8,.88);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.header-logo img {
+  width: 120px;
+  display: block;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: rgba(255,255,255,.66);
+  font-size: .92rem;
+}
+
+nav a:hover {
+  color: white;
+}
+
+
+/* HERO */
+
+.story-hero {
+  min-height: 78vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 6%;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 50% 35%, rgba(61,105,180,.20), transparent 35%);
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.chapter-label {
+  color: #80a9dd;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  text-transform: uppercase;
+  letter-spacing: .22em;
+
+  font-size: .72rem;
+  font-weight: 800;
+
+  margin-bottom: 18px;
+}
+
+.story-hero h1 {
+  font-size: clamp(3.5rem,8vw,7.5rem);
+
+  line-height: .95;
+
+  margin-bottom: 24px;
+}
+
+.story-subtitle {
+  font-size: clamp(1.2rem,2.5vw,1.8rem);
+
+  font-style: italic;
+
+  color: #bec9d8;
+
+  line-height: 1.5;
+}
+
+.scroll-note {
+  margin-top: 45px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #697688;
+
+  font-size: .78rem;
+
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+
+/* STORY SECTIONS */
+
+.story-section {
+  padding: 105px 6%;
+}
+
+.story-section.alt {
+  background: rgba(255,255,255,.018);
+}
+
+.story-copy {
+  max-width: 760px;
+  margin: auto;
+
+  text-align: center;
+}
+
+.story-copy p {
+  font-size: clamp(1.25rem,2vw,1.65rem);
+
+  line-height: 1.8;
+
+  margin-bottom: 28px;
+
+  color: #e1e2e6;
+}
+
+.story-copy .small {
+  font-size: 1rem;
+  color: #8d96a5;
+  font-style: italic;
+}
+
+
+/* IMAGE BREAKS */
+
+.story-image-wrap {
+  padding: 30px 6% 100px;
+}
+
+.story-image {
+  max-width: 1200px;
+  margin: auto;
+
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at center, rgba(63,106,181,.18), transparent 55%),
+    rgba(255,255,255,.025);
+
+  color: #718096;
+
+  text-align: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: .8rem;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* BIG MOMENT */
+
+.big-moment {
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 6%;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 50% 50%, rgba(35,92,165,.22), transparent 40%);
+}
+
+.big-moment h2 {
+  max-width: 900px;
+
+  font-size: clamp(2.8rem,6vw,5.5rem);
+
+  line-height: 1.08;
+}
+
+
+/* ENDING */
+
+.story-ending {
+  padding: 120px 6%;
+
+  text-align: center;
+}
+
+.story-ending .kicker {
+  color: #7f92ae;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: .72rem;
+
+  text-transform: uppercase;
+  letter-spacing: .18em;
+
+  margin-bottom: 15px;
+}
+
+.story-ending h2 {
+  font-size: clamp(2.8rem,6vw,5rem);
+
+  margin-bottom: 18px;
+}
+
+.story-ending p {
+  max-width: 650px;
+  margin: auto;
+
+  color: #9aa4b3;
+
+  line-height: 1.7;
+
+  font-size: 1.05rem;
+}
+
+.end-actions {
+  margin-top: 38px;
+
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.story-button {
+  display: inline-block;
+
+  padding: 14px 22px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-weight: 800;
+
+  font-size: .9rem;
+
+  transition: .2s ease;
+}
+
+.story-button.primary {
+  background: white;
+  color: #080b12;
+}
+
+.story-button.secondary {
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.04);
+  color: white;
+}
+
+.story-button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
+footer {
+  padding: 40px 6%;
+
+  border-top: 1px solid rgba(255,255,255,.07);
+
+  color: #6f7783;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+  nav {
+    display: none;
+  }
+
+  .header-logo img {
+    width: 105px;
+  }
+
+  .story-hero {
+    min-height: 68vh;
+    padding: 65px 5%;
+  }
+
+  .story-section {
+    padding: 80px 5%;
+  }
+
+  .story-image-wrap {
+    padding: 20px 5% 80px;
+  }
+
+  .story-image {
+    min-height: 320px;
+    border-radius: 24px;
+  }
+
+  .big-moment {
+    min-height: 55vh;
+    padding: 80px 5%;
+  }
+
+  .story-ending {
+    padding: 90px 5%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Loot in a Boot">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="adventures.html">The Loot Library</a>
+    <a href="pins.html">Blipdex</a>
+    <a href="collection.html">My Collection</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="story-hero">
+
+  <div class="hero-inner">
+
+    <div class="chapter-label">
+      A Blip Adventure
+    </div>
+
+    <h1>
+      The Shark<br>
+      Adventure
+    </h1>
+
+    <p class="story-subtitle">
+      Blip had landed somewhere new.
+      There was water.
+      A lot of water.
+    </p>
+
+    <div class="scroll-note">
+      Scroll to begin ↓
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- STORY PART 1 -->
+
+<section class="story-section">
+
+  <div class="story-copy">
+
+    <p>
+      Blip looked out across the ocean.
+    </p>
+
+    <p>
+      It was blue.
+      It was enormous.
+      And it appeared to go on forever.
+    </p>
+
+    <p class="small">
+      This did not seem to bother Blip.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- IMAGE 1 -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 01
+
+  </div>
+
+</div>
+
+
+<!-- STORY PART 2 -->
+
+<section class="story-section alt">
+
+  <div class="story-copy">
+
+    <p>
+      There are many sensible ways to explore the sea.
+    </p>
+
+    <p>
+      Boats are one.
+    </p>
+
+    <p>
+      Learning to swim would probably also help.
+    </p>
+
+    <p class="small">
+      Blip had another idea.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- BIG MOMENT -->
+
+<section class="big-moment">
+
+  <h2>
+    It was not necessarily a good idea.
+  </h2>
+
+</section>
+
+
+<!-- IMAGE 2 -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 02
+
+  </div>
+
+</div>
+
+
+<!-- STORY PART 3 -->
+
+<section class="story-section">
+
+  <div class="story-copy">
+
+    <p>
+      Somehow, Blip now looked remarkably like a shark.
+    </p>
+
+    <p>
+      Or at least, Blip seemed convinced of this.
+    </p>
+
+    <p>
+      Whether the actual sharks would agree was another matter entirely.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- IMAGE 3 -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 03
+
+  </div>
+
+</div>
+
+
+<!-- FINAL STORY BEAT -->
+
+<section class="story-section alt">
+
+  <div class="story-copy">
+
+    <p>
+      Blip stared at the water.
+    </p>
+
+    <p>
+      Somewhere beneath the surface,
+      something moved.
+    </p>
+
+    <p class="small">
+      This adventure may have only just begun.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ENDING -->
+
+<section class="story-ending">
+
+  <div class="kicker">
+    End of this adventure
+  </div>
+
+  <h2>
+    Where will Blip land next?
+  </h2>
+
+  <p>
+    More stories are waiting in The Loot Library.
+    And somewhere out there, another Blip is waiting to be discovered.
+  </p>
+
+  <div class="end-actions">
+
+    <a
+      class="story-button secondary"
+      href="adventures.html"
+    >
+      ← Back to The Loot Library
+    </a>
+
+    <a
+      class="story-button primary"
+      href="shark-blip.html"
+    >
+      Explore Shark Blip →
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div>
+    Loot in a Boot
+  </div>
+
+  <div>
+    The Loot Library · The Shark Adventure
+  </div>
+
+</footer>
+
+
+</body>
+</html>
