@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Blip Collection</title>
+<title>My Blip Collection | Loot in a Boot</title>
 
 <!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -78,7 +78,8 @@ nav a {
   font-size:.95rem;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   color:white;
 }
 
@@ -113,7 +114,7 @@ nav a:hover {
 .hero p {
   color:#b9bfcd;
 
-  max-width:700px;
+  max-width:720px;
 
   margin:auto;
 
@@ -166,6 +167,14 @@ nav a:hover {
     );
 
   transition:.5s ease;
+}
+
+.release-note {
+  margin-top:12px;
+
+  color:#727b8d;
+
+  font-size:.76rem;
 }
 
 
@@ -293,11 +302,13 @@ nav a:hover {
 }
 
 .collector-image {
-  height:330px;
+  height:300px;
 
   display:flex;
   justify-content:center;
   align-items:center;
+
+  position:relative;
 
   background:
     radial-gradient(
@@ -317,8 +328,8 @@ nav a:hover {
 }
 
 .collector-image img {
-  width:85%;
-  height:85%;
+  width:84%;
+  height:84%;
 
   object-fit:contain;
 
@@ -333,6 +344,18 @@ nav a:hover {
     drop-shadow(
       0 0 25px rgba(255,95,171,.18)
     );
+}
+
+.image-placeholder {
+  display:none;
+
+  color:#778095;
+
+  font-size:.72rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.12em;
 }
 
 .collector-content {
@@ -355,7 +378,18 @@ nav a:hover {
 
 .collector-content h2 {
   margin-top:8px;
-  font-size:1.6rem;
+  font-size:1.45rem;
+  line-height:1.15;
+}
+
+.collector-meta {
+  margin-top:11px;
+
+  color:#7e8798;
+
+  font-size:.75rem;
+
+  line-height:1.5;
 }
 
 .card-status {
@@ -617,7 +651,7 @@ footer {
   }
 
   .collector-image {
-    height:300px;
+    height:290px;
   }
 
   .export-buttons {
@@ -648,7 +682,7 @@ footer {
     <a href="index.html">Home</a>
     <a href="adventures.html">Adventures</a>
     <a href="pins.html">Blipdex</a>
-    <a href="collection.html">My Collection</a>
+    <a href="collection.html" class="active">My Collection</a>
   </nav>
 
 </header>
@@ -673,7 +707,7 @@ footer {
 
   <p>
     Keep track of the Blips you've found, save the ones you're still
-    hunting for, and create cards or PDFs to share your collection.
+    hunting for, and create cards or print-friendly PDFs to share your collection.
   </p>
 
 
@@ -682,11 +716,11 @@ footer {
     <div class="progress-info">
 
       <span id="collectionCount">
-        0 collected
+        0 Blips collected
       </span>
 
       <span id="collectionTotal">
-        0 / 2
+        0 / 15
       </span>
 
     </div>
@@ -699,6 +733,11 @@ footer {
         class="progress-fill"
       ></div>
 
+    </div>
+
+
+    <div class="release-note">
+      Upcoming Blips are added to the total automatically on release day.
     </div>
 
   </div>
@@ -751,7 +790,7 @@ footer {
     </h2>
 
     <p>
-      Every Blip you've marked as part of your collection.
+      Every released Blip you've marked as part of your collection.
     </p>
 
   </div>
@@ -861,7 +900,7 @@ footer {
     </h2>
 
     <p>
-      The Blips you're still hunting for.
+      The released Blips you're still hunting for.
     </p>
 
   </div>
@@ -884,7 +923,7 @@ footer {
     </h2>
 
     <p>
-      Find a Blip you want and tap “Want this”.
+      Find a Blip you want and tap “Want This” in the Blipdex.
     </p>
 
     <a href="pins.html">
@@ -965,7 +1004,7 @@ footer {
   </div>
 
   <div>
-    Collector Tracker
+    Collector Tracker · Blipdex
   </div>
 
 </footer>
@@ -975,34 +1014,285 @@ footer {
 
 
 /* =====================================================
-   BLIP DATABASE
+   BLIP MASTER DATABASE
+   KEEP IDS MATCHED TO pins.html
 ===================================================== */
 
 const blips = [
 
   {
-    id: "pirate-blip",
-    name: "Pirate Blip",
-    type: "Adventure Series",
-    image: "images/pirate-blip.png",
-    page: "pirate-blip.html",
+    id: "classic-blip",
+    name: "Classic Blip",
+    type: "Original Release",
+    image: "images/classic-blip.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
 
-    releaseDate: "Release details coming soon",
-    edition: "Edition details coming soon"
+  {
+    id: "superhero-blip",
+    name: "Superhero Blip",
+    type: "Original Costume Series",
+    image: "images/superhero-blip.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
   },
 
   {
     id: "shark-blip",
     name: "Shark Blip",
-    type: "Adventure Series",
+    type: "Original Costume Series",
     image: "images/shark-blip.png",
     page: "shark-blip.html",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
 
-    releaseDate: "Release details coming soon",
-    edition: "Edition details coming soon"
+  {
+    id: "goldfish-blip",
+    name: "Goldfish Blip",
+    type: "Original Costume Series",
+    image: "images/goldfish-blip.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
+
+  {
+    id: "kangaroo-blip",
+    name: "Kangaroo Blip",
+    type: "Original Costume Series",
+    image: "images/kangaroo-blip.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
+
+  {
+    id: "koala-blip",
+    name: "Koala Blip",
+    type: "Original Costume Series",
+    image: "images/koala-blip.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
+
+  {
+    id: "occie-blip",
+    name: "Occie Blip",
+    type: "Kickstarter Set",
+    image: "images/occie-blip.png",
+    page: "",
+    size: '2"',
+    edition: "Kickstarter",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Kickstarter Colourway"
+  },
+
+  {
+    id: "pirate-blip-blue",
+    name: "Pirate Blip – Blue",
+    type: "Original Costume Series",
+    image: "images/pirate-blip.png",
+    page: "pirate-blip.html",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Standard"
+  },
+
+  {
+    id: "pirate-blip-blue-mega",
+    name: "Pirate Blip – Blue Mega",
+    type: "Oversized Pirate",
+    image: "images/pirate-blue-mega.png",
+    page: "",
+    size: '4"',
+    edition: "PLV20",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Mega Pin"
+  },
+
+  {
+    id: "pirate-blip-green",
+    name: "Pirate Blip – Green Kickstarter",
+    type: "Kickstarter Colourway",
+    image: "images/pirate-green.png",
+    page: "",
+    size: '2"',
+    edition: "Kickstarter",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Kickstarter Colourway"
+  },
+
+  {
+    id: "pirate-blip-green-mega",
+    name: "Pirate Blip – Green Mega",
+    type: "Kickstarter Mega",
+    image: "images/pirate-green-mega.png",
+    page: "",
+    size: '4"',
+    edition: "OLV10",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Mega Pin"
+  },
+
+  {
+    id: "pirate-blip-jessie",
+    name: "Colours by Jessie – Pirate Blip",
+    type: "Colours by Jessie",
+    image: "images/pirate-jessie.png",
+    page: "",
+    size: '2"',
+    edition: "LE50",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Glow"
+  },
+
+  {
+    id: "pirate-blip-jessie-mega",
+    name: "Colours by Jessie – Pirate Mega",
+    type: "Colours by Jessie",
+    image: "images/pirate-jessie-mega.png",
+    page: "",
+    size: '4"',
+    edition: "OLV10",
+    release: "May 2025",
+    releaseDate: "2025-05-01",
+    enamel: "Enamel Pin",
+    effects: "Mega Pin"
+  },
+
+  {
+    id: "christmas-tree-standard",
+    name: "Christmas Tree Blip – Standard",
+    type: "Christmas 2025",
+    image: "images/christmas-tree-standard.png",
+    page: "",
+    size: '2"',
+    edition: "ULE30 Set",
+    release: "December 2025",
+    releaseDate: "2025-12-01",
+    enamel: "Hard Enamel",
+    effects: "Standard"
+  },
+
+  {
+    id: "christmas-tree-effects",
+    name: "Christmas Tree Blip – Special Effects",
+    type: "Christmas 2025",
+    image: "images/christmas-tree-effects.png",
+    page: "",
+    size: '2"',
+    edition: "ULE30 Set",
+    release: "December 2025",
+    releaseDate: "2025-12-01",
+    enamel: "Hard Enamel",
+    effects: "Pearl · Glitter · Glow"
+  },
+
+  {
+    id: "singapore-merlion-adventure",
+    name: "Singapore Blip – Merlion Adventure",
+    type: "Singapore Special",
+    image: "images/singapore-merlion-adventure.png",
+    page: "",
+    size: "TBC",
+    edition: "LE50",
+    release: "21 August 2026",
+    releaseDate: "2026-08-21",
+    enamel: "Soft Enamel",
+    effects: "Standard"
+  },
+
+  {
+    id: "singapore-merlion-costume",
+    name: "Singapore Blip – Merlion Costume",
+    type: "Singapore Special",
+    image: "images/singapore-merlion-costume.png",
+    page: "",
+    size: "TBC",
+    edition: "LE50",
+    release: "21 August 2026",
+    releaseDate: "2026-08-21",
+    enamel: "Soft Enamel",
+    effects: "Pearl Effect · Translucent Blue Water"
   }
 
 ];
+
+
+/* =====================================================
+   RELEASE CHECK
+===================================================== */
+
+function isReleased(blip) {
+
+  const releaseDate =
+    new Date(
+      blip.releaseDate +
+      "T00:00:00"
+    );
+
+
+  return (
+    new Date() >= releaseDate
+  );
+
+}
+
+
+/* =====================================================
+   RELEASED DATABASE
+===================================================== */
+
+function getReleasedBlips() {
+
+  return blips.filter(
+    blip =>
+      isReleased(blip)
+  );
+
+}
 
 
 /* =====================================================
@@ -1029,36 +1319,101 @@ function getSavedArray(key) {
 }
 
 
+function getNumbers() {
+
+  const saved =
+    localStorage.getItem(
+      "blipNumbers"
+    );
+
+
+  if (!saved) {
+    return {};
+  }
+
+
+  try {
+
+    return JSON.parse(
+      saved
+    );
+
+  }
+
+  catch {
+
+    return {};
+
+  }
+
+}
+
+
 /* =====================================================
    LOAD TRACKER
 ===================================================== */
 
 function loadTracker() {
 
+  const releasedBlips =
+    getReleasedBlips();
+
+
+  const releasedIds =
+    releasedBlips.map(
+      blip =>
+        blip.id
+    );
+
+
   const owned =
-    getSavedArray("blipCollection");
+    getSavedArray(
+      "blipCollection"
+    )
+    .filter(
+      id =>
+        releasedIds.includes(id)
+    );
+
 
   const wanted =
-    getSavedArray("blipWishlist");
+    getSavedArray(
+      "blipWishlist"
+    )
+    .filter(
+      id =>
+        releasedIds.includes(id)
+    );
 
 
   const ownedBlips =
-    blips.filter(
-      blip => owned.includes(blip.id)
+    releasedBlips.filter(
+      blip =>
+        owned.includes(blip.id)
     );
 
 
   const wantedBlips =
-    blips.filter(
-      blip => wanted.includes(blip.id)
+    releasedBlips.filter(
+      blip =>
+        wanted.includes(blip.id)
     );
 
 
-  renderCollection(ownedBlips);
+  renderCollection(
+    ownedBlips
+  );
 
-  renderWishlist(wantedBlips);
 
-  updateProgress(ownedBlips.length);
+  renderWishlist(
+    wantedBlips
+  );
+
+
+  updateProgress(
+    ownedBlips.length,
+    releasedBlips.length
+  );
 
 }
 
@@ -1067,7 +1422,10 @@ function loadTracker() {
    PROGRESS
 ===================================================== */
 
-function updateProgress(ownedCount) {
+function updateProgress(
+  ownedCount,
+  totalCount
+) {
 
   document.getElementById(
     "collectionCount"
@@ -1085,19 +1443,51 @@ function updateProgress(ownedCount) {
   ).textContent =
     ownedCount +
     " / " +
-    blips.length;
+    totalCount;
 
 
   const percentage =
-    blips.length
-      ? (ownedCount / blips.length) * 100
+    totalCount
+      ? (
+          ownedCount /
+          totalCount
+        ) * 100
       : 0;
 
 
   document.getElementById(
     "progressFill"
   ).style.width =
-    percentage + "%";
+    percentage +
+    "%";
+
+}
+
+
+/* =====================================================
+   IMAGE ERROR
+===================================================== */
+
+function imageFailed(image) {
+
+  image.style.display =
+    "none";
+
+
+  const placeholder =
+    image
+      .parentElement
+      .querySelector(
+        ".image-placeholder"
+      );
+
+
+  if (placeholder) {
+
+    placeholder.style.display =
+      "block";
+
+  }
 
 }
 
@@ -1113,10 +1503,15 @@ function renderCollection(blipList) {
       "collectionGrid"
     );
 
+
   const empty =
     document.getElementById(
       "emptyCollection"
     );
+
+
+  const numbers =
+    getNumbers();
 
 
   grid.innerHTML = "";
@@ -1139,23 +1534,48 @@ function renderCollection(blipList) {
   blipList.forEach(blip => {
 
     const card =
-      document.createElement("article");
+      document.createElement(
+        "article"
+      );
 
 
     card.className =
       "collector-card";
 
 
+    const wrapperTag =
+      blip.page
+        ? "a"
+        : "div";
+
+
+    const wrapperHref =
+      blip.page
+        ? `href="${blip.page}"`
+        : "";
+
+
+    const numberText =
+      numbers[blip.id]
+        ? ` · #${numbers[blip.id]}`
+        : "";
+
+
     card.innerHTML = `
 
-      <a href="${blip.page}">
+      <${wrapperTag} ${wrapperHref}>
 
         <div class="collector-image">
 
           <img
             src="${blip.image}"
             alt="${blip.name}"
+            onerror="imageFailed(this)"
           >
+
+          <div class="image-placeholder">
+            Image coming soon
+          </div>
 
         </div>
 
@@ -1169,13 +1589,17 @@ function renderCollection(blipList) {
             ${blip.name}
           </h2>
 
+          <div class="collector-meta">
+            ${blip.edition} · ${blip.size} · ${blip.release}${numberText}
+          </div>
+
           <span class="card-status owned">
             ✓ In my collection
           </span>
 
         </div>
 
-      </a>
+      </${wrapperTag}>
 
     `;
 
@@ -1197,6 +1621,7 @@ function renderWishlist(blipList) {
     document.getElementById(
       "wishlistGrid"
     );
+
 
   const empty =
     document.getElementById(
@@ -1224,23 +1649,42 @@ function renderWishlist(blipList) {
   blipList.forEach(blip => {
 
     const card =
-      document.createElement("article");
+      document.createElement(
+        "article"
+      );
 
 
     card.className =
       "collector-card wishlist";
 
 
+    const wrapperTag =
+      blip.page
+        ? "a"
+        : "div";
+
+
+    const wrapperHref =
+      blip.page
+        ? `href="${blip.page}"`
+        : "";
+
+
     card.innerHTML = `
 
-      <a href="${blip.page}">
+      <${wrapperTag} ${wrapperHref}>
 
         <div class="collector-image">
 
           <img
             src="${blip.image}"
             alt="${blip.name}"
+            onerror="imageFailed(this)"
           >
+
+          <div class="image-placeholder">
+            Image coming soon
+          </div>
 
         </div>
 
@@ -1254,13 +1698,17 @@ function renderWishlist(blipList) {
             ${blip.name}
           </h2>
 
+          <div class="collector-meta">
+            ${blip.edition} · ${blip.size} · ${blip.release}
+          </div>
+
           <span class="card-status wanted">
             ♥ On my wishlist
           </span>
 
         </div>
 
-      </a>
+      </${wrapperTag}>
 
     `;
 
@@ -1391,7 +1839,7 @@ function loadImage(src) {
 
 
 /* =====================================================
-   IMAGE -> DATA URL
+   IMAGE TO DATA URL
 ===================================================== */
 
 async function imageToDataURL(src) {
@@ -1435,7 +1883,7 @@ async function imageToDataURL(src) {
 
 
 /* =====================================================
-   SHARE IMAGE CARD
+   SHARE CARD
 ===================================================== */
 
 async function drawShareCard(
@@ -1452,6 +1900,7 @@ async function drawShareCard(
 
   const width =
     canvas.width;
+
 
   const height =
     canvas.height;
@@ -1525,58 +1974,6 @@ async function drawShareCard(
   );
 
 
-  const glow =
-    ctx.createRadialGradient(
-      width / 2,
-      400,
-      60,
-      width / 2,
-      400,
-      620
-    );
-
-
-  if (mode === "wishlist") {
-
-    glow.addColorStop(
-      0,
-      "rgba(255,83,170,.20)"
-    );
-
-    glow.addColorStop(
-      1,
-      "rgba(255,83,170,0)"
-    );
-
-  }
-
-  else {
-
-    glow.addColorStop(
-      0,
-      "rgba(89,95,255,.25)"
-    );
-
-    glow.addColorStop(
-      1,
-      "rgba(89,95,255,0)"
-    );
-
-  }
-
-
-  ctx.fillStyle =
-    glow;
-
-
-  ctx.fillRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-
   ctx.textAlign =
     "center";
 
@@ -1586,13 +1983,13 @@ async function drawShareCard(
 
 
   ctx.font =
-    "bold 76px Arial";
+    "bold 68px Arial";
 
 
   ctx.fillText(
     title,
     width / 2,
-    105
+    95
   );
 
 
@@ -1603,49 +2000,53 @@ async function drawShareCard(
 
 
   ctx.font =
-    "bold 28px Arial";
+    "bold 26px Arial";
 
 
   ctx.fillText(
     subtitle,
     width / 2,
-    160
+    145
   );
 
 
   const columns =
     Math.min(
       blipList.length,
-      3
+      4
     );
 
 
   const imageSize =
-    300;
+    220;
 
 
   const gapX =
-    80;
+    55;
 
 
   const gapY =
-    370;
+    300;
 
 
   const totalGridWidth =
     columns *
     imageSize +
-    (columns - 1) *
+    (
+      columns - 1
+    ) *
     gapX;
 
 
   const startX =
-    (width - totalGridWidth) /
-    2;
+    (
+      width -
+      totalGridWidth
+    ) / 2;
 
 
   const startY =
-    230;
+    205;
 
 
   for (
@@ -1671,13 +2072,26 @@ async function drawShareCard(
     const x =
       startX +
       column *
-      (imageSize + gapX);
+      (
+        imageSize +
+        gapX
+      );
 
 
     const y =
       startY +
       row *
       gapY;
+
+
+    if (
+      y + imageSize >
+      height - 100
+    ) {
+
+      break;
+
+    }
 
 
     try {
@@ -1719,20 +2133,29 @@ async function drawShareCard(
 
 
     ctx.font =
-      "bold 30px Arial";
+      "bold 23px Arial";
 
 
     ctx.textAlign =
       "center";
 
 
+    const shortName =
+      blip.name.length > 25
+        ? blip.name.substring(
+            0,
+            23
+          ) + "…"
+        : blip.name;
+
+
     ctx.fillText(
-      blip.name,
+      shortName,
       x +
       imageSize / 2,
       y +
       imageSize +
-      42
+      34
     );
 
   }
@@ -1743,7 +2166,7 @@ async function drawShareCard(
 
 
   ctx.font =
-    "22px Arial";
+    "20px Arial";
 
 
   ctx.textAlign =
@@ -1751,29 +2174,28 @@ async function drawShareCard(
 
 
   ctx.fillText(
-    "blip.lootinaboot.com.au",
+    "Blipdex · Loot in a Boot",
     width / 2,
-    height - 45
+    height - 35
   );
 
 }
 
 
 /* =====================================================
-   PDF PAGE HEADER
+   PDF HEADER
 ===================================================== */
 
 function drawPDFHeader(
   pdf,
   mode,
-  blipCount
+  blipCount,
+  totalReleased
 ) {
 
   const pageWidth =
     210;
 
-
-  /* WHITE PAGE */
 
   pdf.setFillColor(
     255,
@@ -1790,8 +2212,6 @@ function drawPDFHeader(
     "F"
   );
 
-
-  /* TITLE */
 
   pdf.setTextColor(
     25,
@@ -1823,8 +2243,6 @@ function drawPDFHeader(
   );
 
 
-  /* SUBTITLE */
-
   pdf.setFont(
     "helvetica",
     "normal"
@@ -1836,9 +2254,7 @@ function drawPDFHeader(
   );
 
 
-  if (
-    mode === "wishlist"
-  ) {
+  if (mode === "wishlist") {
 
     pdf.setTextColor(
       150,
@@ -1875,7 +2291,7 @@ function drawPDFHeader(
     pdf.text(
       blipCount +
       " of " +
-      blips.length +
+      totalReleased +
       " collected",
       pageWidth / 2,
       25,
@@ -1886,8 +2302,6 @@ function drawPDFHeader(
 
   }
 
-
-  /* SMALL SOURCE LINE */
 
   pdf.setTextColor(
     115,
@@ -1902,7 +2316,7 @@ function drawPDFHeader(
 
 
   pdf.text(
-    "Generated from the Blipdex · blip.lootinaboot.com.au",
+    "Generated from the Blipdex",
     pageWidth / 2,
     31,
     {
@@ -1910,8 +2324,6 @@ function drawPDFHeader(
     }
   );
 
-
-  /* DIVIDER */
 
   pdf.setDrawColor(
     220,
@@ -1950,11 +2362,7 @@ async function drawPDFCard(
     52;
 
 
-  /* CARD BACKGROUND */
-
-  if (
-    mode === "wishlist"
-  ) {
+  if (mode === "wishlist") {
 
     pdf.setFillColor(
       249,
@@ -2000,8 +2408,6 @@ async function drawPDFCard(
   );
 
 
-  /* IMAGE AREA */
-
   pdf.setFillColor(
     255,
     255,
@@ -2012,7 +2418,7 @@ async function drawPDFCard(
   pdf.roundedRect(
     x + 4,
     y + 5,
-    38,
+    35,
     42,
     2,
     2,
@@ -2032,9 +2438,9 @@ async function drawPDFCard(
       imageData,
       "PNG",
       x + 6,
-      y + 7,
-      34,
-      34,
+      y + 8,
+      31,
+      31,
       undefined,
       "FAST"
     );
@@ -2052,26 +2458,22 @@ async function drawPDFCard(
 
     pdf.rect(
       x + 6,
-      y + 7,
-      34,
-      34,
+      y + 8,
+      31,
+      31,
       "F"
     );
 
   }
 
 
-  /* TEXT AREA */
-
   const textX =
-    x + 46;
+    x + 43;
 
 
   const textWidth =
-    31;
+    34;
 
-
-  /* NAME */
 
   pdf.setFont(
     "helvetica",
@@ -2080,7 +2482,7 @@ async function drawPDFCard(
 
 
   pdf.setFontSize(
-    10
+    8.5
   );
 
 
@@ -2101,11 +2503,9 @@ async function drawPDFCard(
   pdf.text(
     nameLines,
     textX,
-    y + 10
+    y + 9
   );
 
-
-  /* TYPE */
 
   pdf.setFont(
     "helvetica",
@@ -2114,13 +2514,11 @@ async function drawPDFCard(
 
 
   pdf.setFontSize(
-    6.5
+    5.8
   );
 
 
-  if (
-    mode === "wishlist"
-  ) {
+  if (mode === "wishlist") {
 
     pdf.setTextColor(
       166,
@@ -2141,21 +2539,15 @@ async function drawPDFCard(
   }
 
 
-  const typeLines =
-    pdf.splitTextToSize(
-      blip.type.toUpperCase(),
-      textWidth
-    );
-
-
   pdf.text(
-    typeLines,
+    blip.type.toUpperCase(),
     textX,
-    y + 20
+    y + 19,
+    {
+      maxWidth:textWidth
+    }
   );
 
-
-  /* DETAILS */
 
   pdf.setFont(
     "helvetica",
@@ -2164,78 +2556,64 @@ async function drawPDFCard(
 
 
   pdf.setFontSize(
-    6.5
+    6
   );
 
 
   pdf.setTextColor(
-    75,
-    78,
-    86
+    70,
+    73,
+    80
   );
-
-
-  const releaseLines =
-    pdf.splitTextToSize(
-      blip.releaseDate,
-      textWidth
-    );
 
 
   pdf.text(
-    releaseLines,
+    "Edition: " +
+    blip.edition,
     textX,
-    y + 29
+    y + 27,
+    {
+      maxWidth:textWidth
+    }
   );
-
-
-  const editionLines =
-    pdf.splitTextToSize(
-      blip.edition,
-      textWidth
-    );
 
 
   pdf.text(
-    editionLines,
+    "Size: " +
+    blip.size,
     textX,
-    y + 40
+    y + 32,
+    {
+      maxWidth:textWidth
+    }
   );
 
 
-  /* STATUS */
-
-  pdf.setFont(
-    "helvetica",
-    "bold"
+  pdf.text(
+    "Release: " +
+    blip.release,
+    textX,
+    y + 37,
+    {
+      maxWidth:textWidth
+    }
   );
 
 
-  pdf.setFontSize(
-    6.2
-  );
+  const numbers =
+    getNumbers();
 
 
   if (
-    mode === "wishlist"
+    mode === "collection" &&
+    numbers[blip.id]
   ) {
 
-    pdf.setTextColor(
-      174,
-      59,
-      117
+    pdf.setFont(
+      "helvetica",
+      "bold"
     );
 
-
-    pdf.text(
-      "WISHLIST",
-      textX,
-      y + 48
-    );
-
-  }
-
-  else {
 
     pdf.setTextColor(
       73,
@@ -2245,9 +2623,44 @@ async function drawPDFCard(
 
 
     pdf.text(
-      "IN COLLECTION",
+      "My # " +
+      numbers[blip.id],
       textX,
-      y + 48
+      y + 44,
+      {
+        maxWidth:textWidth
+      }
+    );
+
+  }
+
+  else {
+
+    pdf.setFont(
+      "helvetica",
+      "bold"
+    );
+
+
+    pdf.setTextColor(
+      mode === "wishlist"
+        ? 174
+        : 73,
+      mode === "wishlist"
+        ? 59
+        : 87,
+      mode === "wishlist"
+        ? 117
+        : 170
+    );
+
+
+    pdf.text(
+      mode === "wishlist"
+        ? "WISHLIST"
+        : "IN COLLECTION",
+      textX,
+      y + 44
     );
 
   }
@@ -2256,10 +2669,9 @@ async function drawPDFCard(
 
 
 /* =====================================================
-   GENERIC PDF CREATOR
-
-   8 BLIPS PER A4 PAGE
-   2 COLUMNS x 4 ROWS
+   GENERIC PDF
+   WHITE A4
+   8 ITEMS PER PAGE
 ===================================================== */
 
 async function generateBlipPDF(
@@ -2336,12 +2748,15 @@ async function generateBlipPDF(
     43;
 
 
-  /* FIRST PAGE HEADER */
+  const releasedCount =
+    getReleasedBlips().length;
+
 
   drawPDFHeader(
     pdf,
     mode,
-    blipList.length
+    blipList.length,
+    releasedCount
   );
 
 
@@ -2351,14 +2766,9 @@ async function generateBlipPDF(
     i++
   ) {
 
-
-    /* 8 ITEMS PER PAGE */
-
     const itemOnPage =
       i % 8;
 
-
-    /* START NEW PAGE */
 
     if (
       i > 0 &&
@@ -2371,7 +2781,8 @@ async function generateBlipPDF(
       drawPDFHeader(
         pdf,
         mode,
-        blipList.length
+        blipList.length,
+        releasedCount
       );
 
     }
@@ -2412,10 +2823,6 @@ async function generateBlipPDF(
 
   }
 
-
-  /* =================================================
-     FOOTERS
-  ================================================= */
 
   const totalPages =
     pdf.getNumberOfPages();
@@ -2487,8 +2894,6 @@ async function generateBlipPDF(
   }
 
 
-  /* SAVE PDF */
-
   pdf.save(
     mode === "wishlist"
       ? "my-blip-wishlist.pdf"
@@ -2504,6 +2909,10 @@ async function generateBlipPDF(
 
 async function generateCollectionCard() {
 
+  const released =
+    getReleasedBlips();
+
+
   const owned =
     getSavedArray(
       "blipCollection"
@@ -2511,9 +2920,11 @@ async function generateCollectionCard() {
 
 
   const ownedBlips =
-    blips.filter(
+    released.filter(
       blip =>
-        owned.includes(blip.id)
+        owned.includes(
+          blip.id
+        )
     );
 
 
@@ -2540,7 +2951,7 @@ async function generateCollectionCard() {
     "MY BLIP COLLECTION",
     ownedBlips.length +
       " / " +
-      blips.length +
+      released.length +
       " COLLECTED",
     "collection"
   );
@@ -2564,6 +2975,10 @@ async function generateCollectionCard() {
 
 function generateCollectionPDF() {
 
+  const released =
+    getReleasedBlips();
+
+
   const owned =
     getSavedArray(
       "blipCollection"
@@ -2571,9 +2986,11 @@ function generateCollectionPDF() {
 
 
   const ownedBlips =
-    blips.filter(
+    released.filter(
       blip =>
-        owned.includes(blip.id)
+        owned.includes(
+          blip.id
+        )
     );
 
 
@@ -2591,6 +3008,10 @@ function generateCollectionPDF() {
 
 async function generateWishlistCard() {
 
+  const released =
+    getReleasedBlips();
+
+
   const wanted =
     getSavedArray(
       "blipWishlist"
@@ -2598,9 +3019,11 @@ async function generateWishlistCard() {
 
 
   const wantedBlips =
-    blips.filter(
+    released.filter(
       blip =>
-        wanted.includes(blip.id)
+        wanted.includes(
+          blip.id
+        )
     );
 
 
@@ -2653,6 +3076,10 @@ async function generateWishlistCard() {
 
 function generateWishlistPDF() {
 
+  const released =
+    getReleasedBlips();
+
+
   const wanted =
     getSavedArray(
       "blipWishlist"
@@ -2660,9 +3087,11 @@ function generateWishlistPDF() {
 
 
   const wantedBlips =
-    blips.filter(
+    released.filter(
       blip =>
-        wanted.includes(blip.id)
+        wanted.includes(
+          blip.id
+        )
     );
 
 
