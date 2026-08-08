@@ -20,10 +20,13 @@ html {
 
 body {
   font-family: Georgia, "Times New Roman", serif;
+
   background:
     radial-gradient(circle at 50% 10%, rgba(35,70,110,.18), transparent 30%),
-    linear-gradient(180deg,#040609,#09111c 55%,#030406 100%);
+    linear-gradient(180deg,#040609 0%,#09111c 55%,#030406 100%);
+
   color: #f4f1ea;
+
   min-height: 100vh;
 }
 
@@ -32,7 +35,9 @@ a {
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header {
   position: sticky;
@@ -46,9 +51,11 @@ header {
   padding: 17px 6%;
 
   background: rgba(3,5,8,.88);
+
   backdrop-filter: blur(14px);
 
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-bottom:
+    1px solid rgba(255,255,255,.07);
 }
 
 .header-logo img {
@@ -63,9 +70,16 @@ nav {
 }
 
 nav a {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   text-decoration: none;
-  color: rgba(255,255,255,.66);
+
+  color:
+    rgba(255,255,255,.66);
+
   font-size: .92rem;
 }
 
@@ -74,7 +88,9 @@ nav a:hover {
 }
 
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .story-hero {
   min-height: 78vh;
@@ -88,7 +104,11 @@ nav a:hover {
   text-align: center;
 
   background:
-    radial-gradient(circle at 50% 35%, rgba(61,105,180,.20), transparent 35%);
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(61,105,180,.20),
+      transparent 35%
+    );
 }
 
 .hero-inner {
@@ -98,19 +118,25 @@ nav a:hover {
 .chapter-label {
   color: #80a9dd;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   text-transform: uppercase;
+
   letter-spacing: .22em;
 
   font-size: .72rem;
+
   font-weight: 800;
 
   margin-bottom: 18px;
 }
 
 .story-hero h1 {
-  font-size: clamp(3.5rem,8vw,7.5rem);
+  font-size:
+    clamp(3.5rem,8vw,7.5rem);
 
   line-height: .95;
 
@@ -118,7 +144,8 @@ nav a:hover {
 }
 
 .story-subtitle {
-  font-size: clamp(1.2rem,2.5vw,1.8rem);
+  font-size:
+    clamp(1.2rem,2.5vw,1.8rem);
 
   font-style: italic;
 
@@ -130,25 +157,32 @@ nav a:hover {
 .scroll-note {
   margin-top: 45px;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   color: #697688;
 
   font-size: .78rem;
 
   text-transform: uppercase;
+
   letter-spacing: .15em;
 }
 
 
-/* STORY SECTIONS */
+/* =====================================================
+   STORY SECTIONS
+===================================================== */
 
 .story-section {
   padding: 105px 6%;
 }
 
 .story-section.alt {
-  background: rgba(255,255,255,.018);
+  background:
+    rgba(255,255,255,.018);
 }
 
 .story-copy {
@@ -159,7 +193,8 @@ nav a:hover {
 }
 
 .story-copy p {
-  font-size: clamp(1.25rem,2vw,1.65rem);
+  font-size:
+    clamp(1.25rem,2vw,1.65rem);
 
   line-height: 1.8;
 
@@ -170,15 +205,21 @@ nav a:hover {
 
 .story-copy .small {
   font-size: 1rem;
+
   color: #8d96a5;
+
   font-style: italic;
 }
 
 
-/* IMAGE BREAKS */
+/* =====================================================
+   IMAGE BREAKS
+===================================================== */
 
 .story-image-wrap {
-  padding: 30px 6% 100px;
+  padding:
+    30px 6%
+    100px;
 }
 
 .story-image {
@@ -193,19 +234,27 @@ nav a:hover {
 
   border-radius: 32px;
 
-  border: 1px solid rgba(255,255,255,.08);
+  border:
+    1px solid rgba(255,255,255,.08);
 
   overflow: hidden;
 
   background:
-    radial-gradient(circle at center, rgba(63,106,181,.18), transparent 55%),
+    radial-gradient(
+      circle at center,
+      rgba(63,106,181,.18),
+      transparent 55%
+    ),
     rgba(255,255,255,.025);
 
   color: #718096;
 
   text-align: center;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: .8rem;
 
@@ -217,17 +266,22 @@ nav a:hover {
 .story-image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   display: block;
 }
 
 
-/* BIG MOMENT */
+/* =====================================================
+   BIG MOMENTS
+===================================================== */
 
 .big-moment {
-  min-height: 70vh;
+  min-height: 66vh;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -236,19 +290,70 @@ nav a:hover {
   text-align: center;
 
   background:
-    radial-gradient(circle at 50% 50%, rgba(35,92,165,.22), transparent 40%);
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(35,92,165,.22),
+      transparent 40%
+    );
 }
 
 .big-moment h2 {
   max-width: 900px;
 
-  font-size: clamp(2.8rem,6vw,5.5rem);
+  font-size:
+    clamp(2.8rem,6vw,5.5rem);
 
   line-height: 1.08;
 }
 
 
-/* ENDING */
+/* =====================================================
+   FINAL HOOK
+===================================================== */
+
+.final-hook {
+  padding: 120px 6%;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(40,80,140,.20),
+      transparent 40%
+    );
+}
+
+.final-hook p {
+  max-width: 780px;
+
+  margin: auto;
+
+  font-size:
+    clamp(1.45rem,2.6vw,2.1rem);
+
+  line-height: 1.7;
+
+  color: #e2e5ea;
+}
+
+.final-hook strong {
+  display: block;
+
+  margin-top: 30px;
+
+  font-size:
+    clamp(1.8rem,3.6vw,3rem);
+
+  line-height: 1.35;
+
+  color: white;
+}
+
+
+/* =====================================================
+   ENDING
+===================================================== */
 
 .story-ending {
   padding: 120px 6%;
@@ -259,18 +364,23 @@ nav a:hover {
 .story-ending .kicker {
   color: #7f92ae;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: .72rem;
 
   text-transform: uppercase;
+
   letter-spacing: .18em;
 
   margin-bottom: 15px;
 }
 
 .story-ending h2 {
-  font-size: clamp(2.8rem,6vw,5rem);
+  font-size:
+    clamp(2.8rem,6vw,5rem);
 
   margin-bottom: 18px;
 }
@@ -291,6 +401,7 @@ nav a:hover {
 
   display: flex;
   justify-content: center;
+
   gap: 12px;
 
   flex-wrap: wrap;
@@ -305,7 +416,10 @@ nav a:hover {
 
   text-decoration: none;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-weight: 800;
 
@@ -320,8 +434,12 @@ nav a:hover {
 }
 
 .story-button.secondary {
-  border: 1px solid rgba(255,255,255,.15);
-  background: rgba(255,255,255,.04);
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  background:
+    rgba(255,255,255,.04);
+
   color: white;
 }
 
@@ -330,16 +448,22 @@ nav a:hover {
 }
 
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
   padding: 40px 6%;
 
-  border-top: 1px solid rgba(255,255,255,.07);
+  border-top:
+    1px solid rgba(255,255,255,.07);
 
   color: #6f7783;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   display: flex;
   justify-content: space-between;
@@ -350,7 +474,9 @@ footer {
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px) {
 
@@ -364,73 +490,120 @@ footer {
 
   .story-hero {
     min-height: 68vh;
-    padding: 65px 5%;
+
+    padding:
+      65px 5%;
   }
 
   .story-section {
-    padding: 80px 5%;
+    padding:
+      80px 5%;
   }
 
   .story-image-wrap {
-    padding: 20px 5% 80px;
+    padding:
+      20px 5%
+      80px;
   }
 
   .story-image {
     min-height: 320px;
+
     border-radius: 24px;
   }
 
   .big-moment {
     min-height: 55vh;
-    padding: 80px 5%;
+
+    padding:
+      80px 5%;
+  }
+
+  .final-hook {
+    padding:
+      90px 5%;
   }
 
   .story-ending {
-    padding: 90px 5%;
+    padding:
+      90px 5%;
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
-  <a class="header-logo" href="index.html">
-    <img src="blip-logo.png" alt="Loot in a Boot">
+  <a
+    class="header-logo"
+    href="index.html"
+  >
+
+    <img
+      src="blip-logo.png"
+      alt="Loot in a Boot"
+    >
+
   </a>
 
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="adventures.html">The Loot Library</a>
-    <a href="pins.html">Blipdex</a>
-    <a href="collection.html">My Collection</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="adventures.html">
+      The Loot Library
+    </a>
+
+    <a href="pins.html">
+      Blipdex
+    </a>
+
+    <a href="collection.html">
+      My Collection
+    </a>
+
   </nav>
 
 </header>
 
 
+
 <main>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="story-hero">
 
   <div class="hero-inner">
 
+
     <div class="chapter-label">
       A Blip Adventure
     </div>
+
 
     <h1>
       The Shark<br>
       Adventure
     </h1>
+
 
     <p class="story-subtitle">
       Blip had landed somewhere new.
@@ -438,33 +611,56 @@ footer {
       A lot of water.
     </p>
 
+
     <div class="scroll-note">
       Scroll to begin ↓
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- STORY PART 1 -->
+
+<!-- =====================================================
+     STORY 1
+===================================================== -->
 
 <section class="story-section">
 
   <div class="story-copy">
 
     <p>
-      Blip looked out across the ocean.
+      Blip stared at the ocean.
     </p>
 
     <p>
-      It was blue.
-      It was enormous.
-      And it appeared to go on forever.
+      The ocean did not appear particularly interested in Blip.
     </p>
 
     <p class="small">
-      This did not seem to bother Blip.
+      This seemed rude.
+    </p>
+
+    <p>
+      Blip shuffled a little closer.
+    </p>
+
+    <p>
+      A wave rolled in.
+    </p>
+
+    <p>
+      Blip shuffled back.
+    </p>
+
+    <p>
+      Another wave rolled in.
+    </p>
+
+    <p>
+      Blip considered this.
     </p>
 
   </div>
@@ -472,39 +668,55 @@ footer {
 </section>
 
 
-<!-- IMAGE 1 -->
+
+<!-- =====================================================
+     IMAGE 1
+===================================================== -->
 
 <div class="story-image-wrap">
 
   <div class="story-image">
 
     STORY IMAGE 01
+    <br><br>
+    Blip arriving at the beach
 
   </div>
 
 </div>
 
 
-<!-- STORY PART 2 -->
+
+<!-- =====================================================
+     STORY 2
+===================================================== -->
 
 <section class="story-section alt">
 
   <div class="story-copy">
 
     <p>
-      There are many sensible ways to explore the sea.
+      There were probably several sensible ways to explore the sea.
     </p>
 
     <p>
-      Boats are one.
+      A boat, for example.
     </p>
 
     <p>
-      Learning to swim would probably also help.
+      Swimming lessons would also have been useful.
+    </p>
+
+    <p>
+      Blip had neither of those things.
     </p>
 
     <p class="small">
-      Blip had another idea.
+      What Blip did have was confidence.
+    </p>
+
+    <p class="small">
+      Possibly too much confidence.
     </p>
 
   </div>
@@ -512,46 +724,33 @@ footer {
 </section>
 
 
-<!-- BIG MOMENT -->
 
-<section class="big-moment">
-
-  <h2>
-    It was not necessarily a good idea.
-  </h2>
-
-</section>
-
-
-<!-- IMAGE 2 -->
-
-<div class="story-image-wrap">
-
-  <div class="story-image">
-
-    STORY IMAGE 02
-
-  </div>
-
-</div>
-
-
-<!-- STORY PART 3 -->
+<!-- =====================================================
+     STORY 3
+===================================================== -->
 
 <section class="story-section">
 
   <div class="story-copy">
 
     <p>
-      Somehow, Blip now looked remarkably like a shark.
+      Then, half buried in the sand, Blip spotted something blue.
     </p>
 
     <p>
-      Or at least, Blip seemed convinced of this.
+      It had a fin.
     </p>
 
     <p>
-      Whether the actual sharks would agree was another matter entirely.
+      It had teeth.
+    </p>
+
+    <p>
+      Lots of teeth.
+    </p>
+
+    <p>
+      Blip picked it up.
     </p>
 
   </div>
@@ -559,36 +758,71 @@ footer {
 </section>
 
 
-<!-- IMAGE 3 -->
+
+<!-- =====================================================
+     BIG MOMENT
+===================================================== -->
+
+<section class="big-moment">
+
+  <h2>
+    This was either a shark costume...
+    <br><br>
+    ...or a very concerning hat.
+  </h2>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMAGE 2
+===================================================== -->
 
 <div class="story-image-wrap">
 
   <div class="story-image">
 
-    STORY IMAGE 03
+    STORY IMAGE 02
+    <br><br>
+    Blip discovers the shark costume
 
   </div>
 
 </div>
 
 
-<!-- FINAL STORY BEAT -->
+
+<!-- =====================================================
+     STORY 4
+===================================================== -->
 
 <section class="story-section alt">
 
   <div class="story-copy">
 
     <p>
-      Blip stared at the water.
-    </p>
-
-    <p>
-      Somewhere beneath the surface,
-      something moved.
+      Blip put it on.
     </p>
 
     <p class="small">
-      This adventure may have only just begun.
+      Naturally.
+    </p>
+
+    <p>
+      The transformation was immediate.
+    </p>
+
+    <p>
+      Blip now had a fin.
+    </p>
+
+    <p>
+      A tail.
+    </p>
+
+    <p>
+      And enough teeth to make several very poor decisions.
     </p>
 
   </div>
@@ -596,45 +830,363 @@ footer {
 </section>
 
 
-<!-- ENDING -->
+
+<!-- =====================================================
+     IMAGE 3
+===================================================== -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 03
+    <br><br>
+    Full Shark Blip reveal
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     STORY 5
+===================================================== -->
+
+<section class="story-section">
+
+  <div class="story-copy">
+
+    <p>
+      Blip looked toward the ocean again.
+    </p>
+
+    <p>
+      The ocean still looked suspiciously large.
+    </p>
+
+    <p>
+      But now?
+    </p>
+
+    <p>
+      Now Blip looked like a shark.
+    </p>
+
+    <p class="small">
+      Sort of.
+    </p>
+
+    <p>
+      Blip waddled toward the water.
+    </p>
+
+    <p>
+      One step.
+    </p>
+
+    <p>
+      Two steps.
+    </p>
+
+    <p>
+      Three—
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIG MOMENT 2
+===================================================== -->
+
+<section class="big-moment">
+
+  <h2>
+    Something moved beneath the surface.
+  </h2>
+
+</section>
+
+
+
+<!-- =====================================================
+     STORY 6
+===================================================== -->
+
+<section class="story-section alt">
+
+  <div class="story-copy">
+
+    <p>
+      Blip froze.
+    </p>
+
+    <p>
+      The water rippled.
+    </p>
+
+    <p>
+      A dark shape passed beneath the waves.
+    </p>
+
+    <p>
+      Blip slowly looked down at the shark costume.
+    </p>
+
+    <p>
+      Then back at the ocean.
+    </p>
+
+    <p>
+      Then back at the shark costume.
+    </p>
+
+    <p class="small">
+      This may not have been the disguise Blip thought it was.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMAGE 4
+===================================================== -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 04
+    <br><br>
+    A fin approaches Blip
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     STORY 7
+===================================================== -->
+
+<section class="story-section">
+
+  <div class="story-copy">
+
+    <p>
+      Another fin broke the surface.
+    </p>
+
+    <p>
+      Blip stood very still.
+    </p>
+
+    <p>
+      The fin came closer.
+    </p>
+
+    <p>
+      And closer.
+    </p>
+
+    <p>
+      And closer.
+    </p>
+
+    <p>
+      Blip raised one tiny arm.
+    </p>
+
+    <p>
+      The fin stopped.
+    </p>
+
+    <p>
+      For one strange moment, everything was quiet.
+    </p>
+
+    <p>
+      Then the fin turned.
+    </p>
+
+    <p>
+      And disappeared.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STORY 8
+===================================================== -->
+
+<section class="story-section alt">
+
+  <div class="story-copy">
+
+    <p>
+      Blip waited.
+    </p>
+
+    <p>
+      Nothing happened.
+    </p>
+
+    <p>
+      Blip looked extremely pleased with this result.
+    </p>
+
+    <p class="small">
+      Apparently, this counted as a successful shark encounter.
+    </p>
+
+    <p>
+      Blip strutted along the beach in the shark suit
+      for the rest of the afternoon.
+    </p>
+
+    <p>
+      No one corrected this version of events.
+    </p>
+
+    <p class="small">
+      Probably for the best.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL IMAGE
+===================================================== -->
+
+<div class="story-image-wrap">
+
+  <div class="story-image">
+
+    STORY IMAGE 05
+    <br><br>
+    Blip watching the ocean at sunset
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FINAL HOOK
+===================================================== -->
+
+<section class="final-hook">
+
+  <p>
+
+    As the sun began to drop,
+    Blip looked back over the water.
+
+    <br><br>
+
+    Far beyond the shore,
+    something moved again.
+
+    <br><br>
+
+    Bigger this time.
+
+    <br><br>
+
+    Much bigger.
+
+    <br><br>
+
+    Blip tilted their head.
+
+    <strong>
+      Somewhere out there...
+      the ocean was keeping secrets.
+    </strong>
+
+    <strong>
+      And Blip had absolutely no intention
+      of leaving them alone.
+    </strong>
+
+  </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENDING
+===================================================== -->
 
 <section class="story-ending">
+
 
   <div class="kicker">
     End of this adventure
   </div>
 
+
   <h2>
     Where will Blip land next?
   </h2>
 
+
   <p>
     More stories are waiting in The Loot Library.
-    And somewhere out there, another Blip is waiting to be discovered.
+    And somewhere out there, another adventure
+    is waiting to be discovered.
   </p>
 
+
   <div class="end-actions">
+
 
     <a
       class="story-button secondary"
       href="adventures.html"
     >
+
       ← Back to The Loot Library
+
     </a>
+
 
     <a
       class="story-button primary"
       href="shark-blip.html"
     >
+
       Explore Shark Blip →
+
     </a>
 
+
   </div>
+
 
 </section>
 
 
 </main>
+
 
 
 <footer>
@@ -651,4 +1203,5 @@ footer {
 
 
 </body>
+
 </html>
