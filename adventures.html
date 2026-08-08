@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Loot Library | Loot in a Boot</title>
 
 <style>
+
+/* =====================================================
+   BASIC PAGE SETUP
+===================================================== */
 
 * {
   box-sizing: border-box;
@@ -20,12 +26,23 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
   min-height: 100vh;
+
   color: #fff;
 
   background:
-    radial-gradient(circle at 50% 10%, rgba(40,80,110,.12), transparent 30%),
-    linear-gradient(180deg,#030406 0%,#06070a 60%,#020203 100%);
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(40,80,110,.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #030406 0%,
+      #06070a 60%,
+      #020203 100%
+    );
 }
 
 a {
@@ -38,51 +55,83 @@ a {
 ===================================================== */
 
 header {
+
   position: sticky;
+
   top: 0;
+
   z-index: 1000;
 
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 
   padding: 18px 6%;
 
-  background: rgba(3,4,6,.88);
-  backdrop-filter: blur(14px);
+  background:
+    rgba(3,4,6,.88);
 
-  border-bottom: 1px solid rgba(216,166,92,.12);
+  backdrop-filter:
+    blur(14px);
+
+  border-bottom:
+    1px solid rgba(216,166,92,.12);
+
 }
+
 
 .header-logo img {
+
   width: 125px;
+
   display: block;
+
   filter: invert(1);
+
 }
+
 
 nav {
+
   display: flex;
+
   gap: 28px;
+
 }
 
+
 nav a {
+
   position: relative;
+
   text-decoration: none;
-  color: rgba(255,255,255,.68);
+
+  color:
+    rgba(255,255,255,.68);
+
   font-size: .93rem;
+
 }
+
 
 nav a:hover,
 nav a.active {
+
   color: #e9c78c;
+
 }
 
+
 nav a.active::after {
+
   content: "";
+
   position: absolute;
 
   left: 8%;
   right: 8%;
+
   bottom: -11px;
 
   height: 1px;
@@ -94,6 +143,7 @@ nav a.active::after {
       #d89e4e,
       transparent
     );
+
 }
 
 
@@ -102,47 +152,69 @@ nav a.active::after {
 ===================================================== */
 
 .page-intro {
-  padding: 42px 6% 22px;
+
+  padding:
+    42px 6%
+    22px;
+
   text-align: center;
+
 }
 
+
 .page-intro p {
+
   max-width: 680px;
+
   margin: auto;
 
   color: #8d929c;
 
   font-size: .95rem;
+
   line-height: 1.7;
+
 }
 
 
 /* =====================================================
-   LIBRARY STAGE
+   LIBRARY BACKGROUND
 ===================================================== */
 
 .library-stage {
+
   position: relative;
 
-  width: min(1536px, 96vw);
+  width:
+    min(1536px, 96vw);
 
-  aspect-ratio: 1536 / 1024;
+  aspect-ratio:
+    1536 / 1024;
 
-  margin: 10px auto 90px;
+  margin:
+    10px auto
+    90px;
 
   background-image:
     url("images/loot-library-bg.png");
 
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size:
+    100% 100%;
+
+  background-position:
+    center;
+
+  background-repeat:
+    no-repeat;
 
   overflow: hidden;
 
   filter:
     drop-shadow(
-      0 35px 80px rgba(0,0,0,.55)
+      0 35px 80px
+      rgba(0,0,0,.55)
     );
+
 }
 
 
@@ -151,38 +223,53 @@ nav a.active::after {
 ===================================================== */
 
 .book {
+
   position: absolute;
 
   display: block;
 
   border-radius:
-    3px
-    6px
-    6px
-    3px;
+    3px 6px 6px 3px;
 
   text-decoration: none;
 
   border:
-    1px solid rgba(221,172,92,.40);
+    1px solid
+    rgba(221,172,92,.40);
 
   box-shadow:
-    inset 5px 0 8px rgba(0,0,0,.34),
-    inset -2px 0 4px rgba(255,255,255,.025),
-    4px 6px 10px rgba(0,0,0,.50);
+
+    inset 5px 0 8px
+    rgba(0,0,0,.34),
+
+    inset -2px 0 4px
+    rgba(255,255,255,.025),
+
+    4px 6px 10px
+    rgba(0,0,0,.50);
 
   transform-origin:
     bottom center;
 
   transition:
+
     transform .22s ease,
+
     filter .22s ease,
+
     box-shadow .22s ease;
 
   z-index: 10;
+
 }
 
+
+/* =====================================================
+   BOOK HOVER
+===================================================== */
+
 .book:hover {
+
   transform:
     translateY(-7%)
     scale(1.06);
@@ -191,45 +278,59 @@ nav a.active::after {
     brightness(1.18);
 
   box-shadow:
-    inset 5px 0 8px rgba(0,0,0,.28),
-    6px 12px 18px rgba(0,0,0,.55),
-    0 0 22px rgba(216,157,74,.18);
+
+    inset 5px 0 8px
+    rgba(0,0,0,.28),
+
+    6px 12px 18px
+    rgba(0,0,0,.55),
+
+    0 0 22px
+    rgba(216,157,74,.18);
 
   z-index: 50;
+
 }
 
 
-/* GOLD INNER BORDER */
+/* =====================================================
+   GOLD INNER BOOK BORDER
+===================================================== */
 
 .book::before {
+
   content: "";
 
   position: absolute;
 
-  inset: 5% 10%;
+  inset:
+    5% 10%;
 
   border:
-    1px solid rgba(225,177,96,.34);
+    1px solid
+    rgba(225,177,96,.34);
 
   border-radius:
-    2px
-    4px
-    4px
-    2px;
+    2px 4px 4px 2px;
 
   pointer-events: none;
+
 }
 
 
-/* SPINE RIDGE */
+/* =====================================================
+   BOOK SPINE RIDGE
+===================================================== */
 
 .book::after {
+
   content: "";
 
   position: absolute;
 
   top: 0;
   bottom: 0;
+
   left: 12%;
 
   width: 1px;
@@ -238,7 +339,9 @@ nav a.active::after {
     rgba(222,169,85,.25);
 
   box-shadow:
-    2px 0 4px rgba(0,0,0,.28);
+    2px 0 4px
+    rgba(0,0,0,.28);
+
 }
 
 
@@ -247,6 +350,7 @@ nav a.active::after {
 ===================================================== */
 
 .spine-symbol {
+
   position: absolute;
 
   left: 50%;
@@ -266,9 +370,11 @@ nav a.active::after {
     clamp(.55rem,1vw,1rem);
 
   text-shadow:
-    0 1px 2px rgba(0,0,0,.70);
+    0 1px 2px
+    rgba(0,0,0,.70);
 
   z-index: 2;
+
 }
 
 
@@ -277,107 +383,164 @@ nav a.active::after {
 ===================================================== */
 
 .book-blue {
+
   background:
+
     linear-gradient(
       90deg,
+
       #0d2035,
+
       #174d78 45%,
+
       #102d49
     );
+
 }
+
 
 .book-red {
+
   background:
+
     linear-gradient(
       90deg,
+
       #31100d,
+
       #75291f 45%,
+
       #451610
     );
+
 }
 
+
 .book-black {
+
   background:
+
     linear-gradient(
       90deg,
+
       #08090a,
+
       #1b1c1f 45%,
+
       #09090b
     );
+
 }
 
 
 /* =====================================================
    BOOK POSITIONS
-   SMALLER BOOKS
+
+   IMPORTANT:
+   Pirate is our reference size.
+
+   ALL THREE BOOKS END AT 54.2%
+   so they sit on the same shelf.
 ===================================================== */
 
-/* SHARK */
+
+/* =====================================================
+   SHARK BOOK
+===================================================== */
 
 .book-shark {
+
   left: 23%;
-  top: 34%;
 
-  width: 5.5%;
-  height: 18.3%;
-}
+  top: 38%;
 
+  width: 5%;
 
-/* PIRATE */
+  height: 16.2%;
 
-.book-pirate {
-  left: 29.3%;
-  top: 36.5%;
-
-  width: 4.8%;
-  height: 15.8%;
-}
-
-
-/* SECRET */
-
-.book-secret {
-  left: 34.8%;
-  top: 35%;
-
-  width: 4.6%;
-  height: 17.3%;
 }
 
 
 /* =====================================================
-   HOVER LABELS
+   PIRATE BOOK
+   REFERENCE SIZE
+===================================================== */
+
+.book-pirate {
+
+  left: 29.3%;
+
+  top: 38.4%;
+
+  width: 4.8%;
+
+  height: 15.8%;
+
+}
+
+
+/* =====================================================
+   SECRET BOOK
+===================================================== */
+
+.book-secret {
+
+  left: 34.8%;
+
+  top: 38.2%;
+
+  width: 4.6%;
+
+  height: 16%;
+
+}
+
+
+/* =====================================================
+   HOVER LABEL
 ===================================================== */
 
 .book-tooltip {
+
   position: absolute;
 
   left: 50%;
-  bottom: calc(100% + 14px);
+
+  bottom:
+    calc(100% + 14px);
 
   transform:
     translateX(-50%)
     translateY(8px);
 
-  width: max-content;
-  max-width: 220px;
+  width:
+    max-content;
 
-  padding: 10px 13px;
+  max-width:
+    220px;
 
-  border-radius: 10px;
+  padding:
+    10px 13px;
+
+  border-radius:
+    10px;
 
   background:
     rgba(8,6,5,.96);
 
   border:
-    1px solid rgba(218,163,83,.35);
+    1px solid
+    rgba(218,163,83,.35);
 
   box-shadow:
-    0 10px 25px rgba(0,0,0,.50);
+    0 10px 25px
+    rgba(0,0,0,.50);
 
-  color: #e4c38d;
+  color:
+    #e4c38d;
 
-  text-align: center;
+  text-align:
+    center;
 
   font-family:
     Georgia,
@@ -387,94 +550,133 @@ nav a.active::after {
   font-size:
     .80rem;
 
-  line-height: 1.35;
+  line-height:
+    1.35;
 
-  opacity: 0;
+  opacity:
+    0;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
   transition:
     opacity .18s ease,
     transform .18s ease;
 
-  z-index: 100;
+  z-index:
+    100;
+
 }
 
+
 .book:hover .book-tooltip {
-  opacity: 1;
+
+  opacity:
+    1;
 
   transform:
     translateX(-50%)
     translateY(0);
+
 }
 
+
 .tooltip-status {
-  display: block;
 
-  margin-top: 4px;
+  display:
+    block;
 
-  color: #928773;
+  margin-top:
+    4px;
+
+  color:
+    #928773;
 
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-  font-size: .58rem;
+  font-size:
+    .58rem;
 
-  text-transform: uppercase;
+  text-transform:
+    uppercase;
 
-  letter-spacing: .10em;
+  letter-spacing:
+    .10em;
+
 }
 
 
 /* =====================================================
-   SPECIAL STATES
+   SPECIAL BOOK STATES
 ===================================================== */
 
 .book[data-status="early-access"] {
+
   box-shadow:
-    inset 5px 0 8px rgba(0,0,0,.34),
-    4px 6px 10px rgba(0,0,0,.50),
-    0 0 14px rgba(72,124,255,.12);
+
+    inset 5px 0 8px
+    rgba(0,0,0,.34),
+
+    4px 6px 10px
+    rgba(0,0,0,.50),
+
+    0 0 14px
+    rgba(72,124,255,.12);
+
 }
+
 
 .book[data-status="secret"] {
-  filter: brightness(.72);
+
+  filter:
+    brightness(.72);
+
 }
 
+
 .book[data-status="secret"]:hover {
-  filter: brightness(.94);
+
+  filter:
+    brightness(.94);
+
 }
 
 
 /* =====================================================
-   SMALL LOCK MARK
+   SMALL LOCK ICON
 ===================================================== */
 
 .book-lock {
+
   position: absolute;
 
   left: 50%;
+
   bottom: 8%;
 
   transform:
     translateX(-50%);
 
-  color: rgba(218,174,102,.72);
+  color:
+    rgba(218,174,102,.72);
 
   font-size:
     clamp(.34rem,.55vw,.55rem);
 
   z-index: 3;
+
 }
 
 
 /* =====================================================
-   UNLOCK MODAL
+   PASSWORD OVERLAY
 ===================================================== */
 
 .unlock-overlay {
+
   position: fixed;
 
   inset: 0;
@@ -493,134 +695,227 @@ nav a.active::after {
 
   backdrop-filter:
     blur(8px);
+
 }
+
 
 .unlock-overlay.show {
-  display: flex;
+
+  display:
+    flex;
+
 }
 
+
+/* =====================================================
+   PASSWORD BOX
+===================================================== */
+
 .unlock-modal {
-  width: min(500px,100%);
 
-  padding: 36px;
+  width:
+    min(500px,100%);
 
-  border-radius: 24px;
+  padding:
+    36px;
+
+  border-radius:
+    24px;
 
   border:
-    1px solid rgba(221,168,87,.35);
+    1px solid
+    rgba(221,168,87,.35);
 
   background:
+
     linear-gradient(
       180deg,
+
       #18100a,
+
       #080605
     );
 
   box-shadow:
-    0 35px 90px rgba(0,0,0,.70);
+    0 35px 90px
+    rgba(0,0,0,.70);
 
-  text-align: center;
+  text-align:
+    center;
+
 }
+
 
 .unlock-icon {
-  font-size: 2.1rem;
-  margin-bottom: 12px;
+
+  font-size:
+    2.1rem;
+
+  margin-bottom:
+    12px;
+
 }
 
+
 .unlock-modal h2 {
+
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color: #dfbb7c;
+  color:
+    #dfbb7c;
 
-  font-size: 2rem;
+  font-size:
+    2rem;
 
-  margin-bottom: 12px;
+  margin-bottom:
+    12px;
+
 }
+
 
 .unlock-modal p {
-  color: #aaa39a;
-  line-height: 1.65;
+
+  color:
+    #aaa39a;
+
+  line-height:
+    1.65;
+
 }
 
+
+/* =====================================================
+   PASSWORD INPUT
+===================================================== */
+
 .unlock-input {
-  width: 100%;
 
-  margin-top: 24px;
+  width:
+    100%;
 
-  padding: 14px 16px;
+  margin-top:
+    24px;
 
-  border-radius: 12px;
+  padding:
+    14px 16px;
+
+  border-radius:
+    12px;
 
   border:
-    1px solid rgba(255,255,255,.13);
+    1px solid
+    rgba(255,255,255,.13);
 
   background:
     rgba(255,255,255,.04);
 
-  color: white;
+  color:
+    white;
 
-  text-align: center;
+  text-align:
+    center;
 
-  font-size: 1rem;
+  font-size:
+    1rem;
 
-  outline: none;
+  outline:
+    none;
+
 }
+
 
 .unlock-input:focus {
+
   border-color:
     rgba(221,174,99,.55);
+
 }
+
+
+/* =====================================================
+   PASSWORD BUTTONS
+===================================================== */
 
 .unlock-actions {
-  display: grid;
+
+  display:
+    grid;
 
   grid-template-columns:
-    1fr
-    1fr;
+    1fr 1fr;
 
-  gap: 10px;
+  gap:
+    10px;
 
-  margin-top: 16px;
+  margin-top:
+    16px;
+
 }
+
 
 .unlock-button {
-  padding: 13px;
 
-  border-radius: 12px;
+  padding:
+    13px;
 
-  border: none;
+  border-radius:
+    12px;
 
-  cursor: pointer;
+  border:
+    none;
 
-  font-weight: 800;
+  cursor:
+    pointer;
+
+  font-weight:
+    800;
+
 }
+
 
 .unlock-primary {
-  background: #dfbc82;
-  color: #120c07;
+
+  background:
+    #dfbc82;
+
+  color:
+    #120c07;
+
 }
 
+
 .unlock-secondary {
+
   background:
     rgba(255,255,255,.05);
 
-  color: white;
+  color:
+    white;
 
   border:
-    1px solid rgba(255,255,255,.10);
+    1px solid
+    rgba(255,255,255,.10);
+
 }
 
+
 .unlock-error {
-  min-height: 20px;
 
-  margin-top: 12px;
+  min-height:
+    20px;
 
-  color: #ff9f9f;
+  margin-top:
+    12px;
 
-  font-size: .82rem;
+  color:
+    #ff9f9f;
+
+  font-size:
+    .82rem;
+
 }
 
 
@@ -629,20 +924,29 @@ nav a.active::after {
 ===================================================== */
 
 footer {
-  padding: 40px 6%;
+
+  padding:
+    40px 6%;
 
   border-top:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 
-  color: #737782;
+  color:
+    #737782;
 
-  display: flex;
+  display:
+    flex;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 
-  flex-wrap: wrap;
+  flex-wrap:
+    wrap;
 
-  gap: 20px;
+  gap:
+    20px;
+
 }
 
 
@@ -652,46 +956,79 @@ footer {
 
 @media(max-width:700px) {
 
+
   nav {
-    display: none;
+
+    display:
+      none;
+
   }
+
 
   header {
-    padding: 15px 5%;
+
+    padding:
+      15px 5%;
+
   }
+
 
   .header-logo img {
-    width: 105px;
+
+    width:
+      105px;
+
   }
+
 
   .page-intro {
+
     padding:
-      30px
-      5%
+      30px 5%
       15px;
+
   }
+
 
   .library-stage {
-    width: 100vw;
-    margin-bottom: 45px;
+
+    width:
+      100vw;
+
+    margin-bottom:
+      45px;
+
   }
+
 
   .book-tooltip {
-    display: none;
+
+    display:
+      none;
+
   }
+
 
   .spine-symbol {
+
     font-size:
       clamp(.38rem,2vw,.7rem);
+
   }
 
+
   .unlock-actions {
-    grid-template-columns: 1fr;
+
+    grid-template-columns:
+      1fr;
+
   }
+
 
 }
 
 </style>
+
 </head>
 
 
@@ -703,6 +1040,7 @@ footer {
 ===================================================== -->
 
 <header>
+
 
   <a
     class="header-logo"
@@ -719,26 +1057,40 @@ footer {
 
   <nav>
 
+
     <a href="index.html">
+
       Home
+
     </a>
+
 
     <a
       href="adventures.html"
       class="active"
     >
+
       Adventures
+
     </a>
+
 
     <a href="pins.html">
+
       Blipdex
+
     </a>
+
 
     <a href="collection.html">
+
       My Collection
+
     </a>
 
+
   </nav>
+
 
 </header>
 
@@ -753,12 +1105,15 @@ footer {
 <section class="page-intro">
 
   <p>
+
     Pull a book from the shelf and discover stories,
     strange places and adventures from across the
     Loot in a Boot universe.
+
   </p>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -768,42 +1123,67 @@ footer {
 <div class="library-stage">
 
 
+
   <!-- =================================================
        SHARK BLIP
        EARLY ACCESS
   ================================================== -->
 
   <a
-    class="book book-blue book-shark"
+
+    class="
+      book
+      book-blue
+      book-shark
+    "
 
     href="shark-adventure.html"
 
-    data-book-id="shark-adventure"
+    data-book-id="
+      shark-adventure
+    "
 
-    data-status="early-access"
+    data-status="
+      early-access
+    "
 
-    data-password="SHARKBAIT"
+    data-password="
+      SHARKBAIT
+    "
 
-    aria-label="Read Blip: The Shark Adventure"
+    aria-label="
+      Read Blip: The Shark Adventure
+    "
+
   >
 
+
     <span class="spine-symbol">
+
       ◢
+
     </span>
 
+
     <span class="book-lock">
+
       🔒
+
     </span>
+
 
     <div class="book-tooltip">
 
       Blip: The Shark Adventure
 
       <span class="tooltip-status">
+
         Early Access
+
       </span>
 
     </div>
+
 
   </a>
 
@@ -815,70 +1195,115 @@ footer {
   ================================================== -->
 
   <a
-    class="book book-red book-pirate"
+
+    class="
+      book
+      book-red
+      book-pirate
+    "
 
     href="pirate-adventure.html"
 
-    data-book-id="pirate-adventure"
+    data-book-id="
+      pirate-adventure
+    "
 
-    data-status="open"
+    data-status="
+      open
+    "
 
-    aria-label="Read Blip: Pirates"
+    aria-label="
+      Read Blip: Pirates
+    "
+
   >
 
+
     <span class="spine-symbol">
+
       ☠
+
     </span>
+
 
     <div class="book-tooltip">
 
       Blip: Pirates!
 
       <span class="tooltip-status">
+
         Read Story
+
       </span>
 
     </div>
+
 
   </a>
 
 
 
   <!-- =================================================
-       SECRET BOOK
+       SECRET STORY
   ================================================== -->
 
   <a
-    class="book book-black book-secret"
 
-    href="secret-story.html"
+    class="
+      book
+      book-black
+      book-secret
+    "
 
-    data-book-id="secret-story-one"
+    href="
+      secret-story.html
+    "
 
-    data-status="secret"
+    data-book-id="
+      secret-story-one
+    "
 
-    data-password="TREASURE"
+    data-status="
+      secret
+    "
 
-    aria-label="Discover a secret story"
+    data-password="
+      TREASURE
+    "
+
+    aria-label="
+      Discover a secret story
+    "
+
   >
 
+
     <span class="spine-symbol">
+
       ?
+
     </span>
 
+
     <span class="book-lock">
+
       🔒
+
     </span>
+
 
     <div class="book-tooltip">
 
       ???
 
       <span class="tooltip-status">
+
         Undiscovered Story
+
       </span>
 
     </div>
+
 
   </a>
 
@@ -889,26 +1314,34 @@ footer {
 </main>
 
 
+
 <!-- =====================================================
      FOOTER
 ===================================================== -->
 
 <footer>
 
-  <div>
-    Loot in a Boot
-  </div>
 
   <div>
-    The Loot Library · Every treasure has a story.
+
+    Loot in a Boot
+
   </div>
+
+
+  <div>
+
+    The Loot Library · Every treasure has a story.
+
+  </div>
+
 
 </footer>
 
 
 
 <!-- =====================================================
-     UNLOCK MODAL
+     PASSWORD MODAL
 ===================================================== -->
 
 <div
@@ -916,30 +1349,45 @@ footer {
   class="unlock-overlay"
 >
 
+
   <div class="unlock-modal">
 
 
     <div class="unlock-icon">
+
       🔐
+
     </div>
 
 
     <h2 id="unlockTitle">
+
       This story is locked.
+
     </h2>
 
 
     <p id="unlockMessage">
+
       Enter the secret word to discover this story.
+
     </p>
 
 
     <input
+
       id="unlockInput"
+
       class="unlock-input"
+
       type="text"
+
       autocomplete="off"
-      placeholder="Enter secret word"
+
+      placeholder="
+        Enter secret word
+      "
+
     >
 
 
@@ -947,18 +1395,38 @@ footer {
 
 
       <button
-        class="unlock-button unlock-primary"
-        onclick="submitUnlock()"
+
+        class="
+          unlock-button
+          unlock-primary
+        "
+
+        onclick="
+          submitUnlock()
+        "
+
       >
+
         Unlock Story
+
       </button>
 
 
       <button
-        class="unlock-button unlock-secondary"
-        onclick="closeUnlock()"
+
+        class="
+          unlock-button
+          unlock-secondary
+        "
+
+        onclick="
+          closeUnlock()
+        "
+
       >
+
         Maybe Later
+
       </button>
 
 
@@ -973,6 +1441,7 @@ footer {
 
   </div>
 
+
 </div>
 
 
@@ -981,13 +1450,15 @@ footer {
 
 
 /* =====================================================
-   LOOT LIBRARY LOCK SYSTEM
+   LOOT LIBRARY PASSWORD SYSTEM
 ===================================================== */
 
 let activeBook = null;
 
 
-/* HAS BOOK BEEN UNLOCKED? */
+/* =====================================================
+   CHECK IF BOOK HAS ALREADY BEEN UNLOCKED
+===================================================== */
 
 function isBookUnlocked(bookId) {
 
@@ -998,7 +1469,9 @@ function isBookUnlocked(bookId) {
 }
 
 
-/* SAVE BOOK UNLOCK */
+/* =====================================================
+   SAVE UNLOCK
+===================================================== */
 
 function saveBookUnlock(bookId) {
 
@@ -1011,67 +1484,74 @@ function saveBookUnlock(bookId) {
 
 
 /* =====================================================
-   CLICK HANDLING
+   BOOK CLICK HANDLING
 ===================================================== */
 
-document.querySelectorAll(
-  ".book[data-status]"
-).forEach(book => {
+document
+  .querySelectorAll(
+    ".book[data-status]"
+  )
+  .forEach(book => {
 
 
-  book.addEventListener(
-    "click",
-    function(event) {
+    book.addEventListener(
+      "click",
+      function(event) {
 
 
-      const status =
-        this.dataset.status;
+        const status =
+          this.dataset.status;
 
 
-      const bookId =
-        this.dataset.bookId;
+        const bookId =
+          this.dataset.bookId;
 
 
-      if (
-        status ===
-        "open"
-      ) {
+        /* NORMAL OPEN STORY */
 
-        return;
+        if (
+          status === "open"
+        ) {
+
+          return;
+
+        }
+
+
+        /* ALREADY UNLOCKED */
+
+        if (
+          isBookUnlocked(bookId)
+        ) {
+
+          return;
+
+        }
+
+
+        /* STOP LINK */
+
+        event.preventDefault();
+
+
+        activeBook =
+          this;
+
+
+        openUnlock(
+          status
+        );
+
 
       }
+    );
 
 
-      if (
-        isBookUnlocked(bookId)
-      ) {
-
-        return;
-
-      }
-
-
-      event.preventDefault();
-
-
-      activeBook =
-        this;
-
-
-      openUnlock(
-        status
-      );
-
-
-    }
-  );
-
-
-});
+  });
 
 
 /* =====================================================
-   OPEN MODAL
+   OPEN PASSWORD BOX
 ===================================================== */
 
 function openUnlock(status) {
@@ -1103,17 +1583,16 @@ function openUnlock(status) {
 
   document.getElementById(
     "unlockError"
-  ).textContent =
-    "";
+  ).textContent = "";
 
 
-  input.value =
-    "";
+  input.value = "";
 
+
+  /* EARLY ACCESS STORY */
 
   if (
-    status ===
-    "early-access"
+    status === "early-access"
   ) {
 
 
@@ -1127,6 +1606,8 @@ function openUnlock(status) {
 
   }
 
+
+  /* SECRET STORY */
 
   else {
 
@@ -1161,17 +1642,19 @@ function openUnlock(status) {
 
 
 /* =====================================================
-   CLOSE MODAL
+   CLOSE PASSWORD BOX
 ===================================================== */
 
 function closeUnlock() {
 
 
-  document.getElementById(
-    "unlockOverlay"
-  ).classList.remove(
-    "show"
-  );
+  document
+    .getElementById(
+      "unlockOverlay"
+    )
+    .classList.remove(
+      "show"
+    );
 
 
   activeBook =
@@ -1182,14 +1665,16 @@ function closeUnlock() {
 
 
 /* =====================================================
-   SUBMIT UNLOCK
+   CHECK PASSWORD
 ===================================================== */
 
 function submitUnlock() {
 
 
   if (!activeBook) {
+
     return;
+
   }
 
 
@@ -1201,18 +1686,20 @@ function submitUnlock() {
 
   const entered =
     input
-    .value
-    .trim()
-    .toUpperCase();
+      .value
+      .trim()
+      .toUpperCase();
 
 
   const correct =
     activeBook
-    .dataset
-    .password
-    .trim()
-    .toUpperCase();
+      .dataset
+      .password
+      .trim()
+      .toUpperCase();
 
+
+  /* CORRECT PASSWORD */
 
   if (
     entered === correct
@@ -1221,8 +1708,8 @@ function submitUnlock() {
 
     const bookId =
       activeBook
-      .dataset
-      .bookId;
+        .dataset
+        .bookId;
 
 
     saveBookUnlock(
@@ -1266,6 +1753,8 @@ function submitUnlock() {
   }
 
 
+  /* WRONG PASSWORD */
+
   else {
 
 
@@ -1281,54 +1770,61 @@ function submitUnlock() {
 }
 
 
-/* ENTER KEY */
+/* =====================================================
+   ENTER KEY SUBMITS PASSWORD
+===================================================== */
 
-document.getElementById(
-  "unlockInput"
-).addEventListener(
-  "keydown",
-  function(event) {
+document
+  .getElementById(
+    "unlockInput"
+  )
+  .addEventListener(
+    "keydown",
+    function(event) {
 
 
-    if (
-      event.key ===
-      "Enter"
-    ) {
+      if (
+        event.key === "Enter"
+      ) {
 
-      submitUnlock();
+        submitUnlock();
+
+      }
+
 
     }
+  );
 
 
-  }
-);
+/* =====================================================
+   CLICK OUTSIDE MODAL TO CLOSE
+===================================================== */
+
+document
+  .getElementById(
+    "unlockOverlay"
+  )
+  .addEventListener(
+    "click",
+    function(event) {
 
 
-/* CLICK OUTSIDE MODAL */
+      if (
+        event.target === this
+      ) {
 
-document.getElementById(
-  "unlockOverlay"
-).addEventListener(
-  "click",
-  function(event) {
+        closeUnlock();
 
+      }
 
-    if (
-      event.target ===
-      this
-    ) {
-
-      closeUnlock();
 
     }
-
-
-  }
-);
+  );
 
 
 </script>
 
 
 </body>
+
 </html>
