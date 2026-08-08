@@ -213,7 +213,7 @@ nav a:hover {
 
 
 /* =====================================================
-   IMAGE BREAKS
+   STORY IMAGES
 ===================================================== */
 
 .story-image-wrap {
@@ -226,48 +226,23 @@ nav a:hover {
   max-width: 1200px;
   margin: auto;
 
-  min-height: 520px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   border-radius: 32px;
+
+  overflow: hidden;
 
   border:
     1px solid rgba(255,255,255,.08);
 
-  overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at center,
-      rgba(63,106,181,.18),
-      transparent 55%
-    ),
     rgba(255,255,255,.025);
 
-  color: #718096;
-
-  text-align: center;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: .8rem;
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.35);
 }
 
 .story-image img {
   width: 100%;
-  height: 100%;
-
-  object-fit: cover;
+  height: auto;
 
   display: block;
 }
@@ -507,9 +482,7 @@ footer {
   }
 
   .story-image {
-    min-height: 320px;
-
-    border-radius: 24px;
+    border-radius: 22px;
   }
 
   .big-moment {
@@ -538,10 +511,6 @@ footer {
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
 
@@ -593,17 +562,14 @@ footer {
 
   <div class="hero-inner">
 
-
     <div class="chapter-label">
       A Blip Adventure
     </div>
-
 
     <h1>
       The Shark<br>
       Adventure
     </h1>
-
 
     <p class="story-subtitle">
       Blip had landed somewhere new.
@@ -611,11 +577,9 @@ footer {
       A lot of water.
     </p>
 
-
     <div class="scroll-note">
       Scroll to begin ↓
     </div>
-
 
   </div>
 
@@ -677,9 +641,10 @@ footer {
 
   <div class="story-image">
 
-    STORY IMAGE 01
-    <br><br>
-    Blip arriving at the beach
+    <img
+      src="images/shark-story-01.png"
+      alt="Blip arriving at the beach"
+    >
 
   </div>
 
@@ -783,9 +748,10 @@ footer {
 
   <div class="story-image">
 
-    STORY IMAGE 02
-    <br><br>
-    Blip discovers the shark costume
+    <img
+      src="images/shark-story-02.png"
+      alt="Blip discovers the shark costume"
+    >
 
   </div>
 
@@ -839,9 +805,10 @@ footer {
 
   <div class="story-image">
 
-    STORY IMAGE 03
-    <br><br>
-    Full Shark Blip reveal
+    <img
+      src="images/shark-story-03.png"
+      alt="Shark Blip reveal"
+    >
 
   </div>
 
@@ -878,19 +845,15 @@ footer {
     </p>
 
     <p>
-      Blip waddled toward the water.
+      Blip floated toward the water.
     </p>
 
     <p>
-      One step.
+      A little closer.
     </p>
 
     <p>
-      Two steps.
-    </p>
-
-    <p>
-      Three—
+      Then a little closer again.
     </p>
 
   </div>
@@ -963,9 +926,10 @@ footer {
 
   <div class="story-image">
 
-    STORY IMAGE 04
-    <br><br>
-    A fin approaches Blip
+    <img
+      src="images/shark-story-04.png"
+      alt="A shark fin approaches Blip"
+    >
 
   </div>
 
@@ -986,7 +950,7 @@ footer {
     </p>
 
     <p>
-      Blip stood very still.
+      Blip hovered very still.
     </p>
 
     <p>
@@ -1052,8 +1016,8 @@ footer {
     </p>
 
     <p>
-      Blip strutted along the beach in the shark suit
-      for the rest of the afternoon.
+      Blip spent the rest of the afternoon floating along the beach
+      in the shark suit.
     </p>
 
     <p>
@@ -1071,16 +1035,17 @@ footer {
 
 
 <!-- =====================================================
-     FINAL IMAGE
+     IMAGE 5
 ===================================================== -->
 
 <div class="story-image-wrap">
 
   <div class="story-image">
 
-    STORY IMAGE 05
-    <br><br>
-    Blip watching the ocean at sunset
+    <img
+      src="images/shark-story-05.png"
+      alt="Shark Blip watching the ocean at sunset"
+    >
 
   </div>
 
@@ -1138,16 +1103,13 @@ footer {
 
 <section class="story-ending">
 
-
   <div class="kicker">
     End of this adventure
   </div>
 
-
   <h2>
     Where will Blip land next?
   </h2>
-
 
   <p>
     More stories are waiting in The Loot Library.
@@ -1155,32 +1117,23 @@ footer {
     is waiting to be discovered.
   </p>
 
-
   <div class="end-actions">
-
 
     <a
       class="story-button secondary"
       href="adventures.html"
     >
-
       ← Back to The Loot Library
-
     </a>
-
 
     <a
       class="story-button primary"
       href="shark-blip.html"
     >
-
       Explore Shark Blip →
-
     </a>
 
-
   </div>
-
 
 </section>
 
@@ -1203,5 +1156,4 @@ footer {
 
 
 </body>
-
 </html>
