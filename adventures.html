@@ -67,10 +67,8 @@ nav {
 
 nav a {
   position: relative;
-
   text-decoration: none;
   color: rgba(255,255,255,.68);
-
   font-size: .93rem;
 }
 
@@ -81,7 +79,6 @@ nav a.active {
 
 nav a.active::after {
   content: "";
-
   position: absolute;
 
   left: 8%;
@@ -158,61 +155,73 @@ nav a.active::after {
 
   display: block;
 
-  min-width: 54px;
-
-  border-radius: 4px 8px 8px 4px;
+  border-radius:
+    3px
+    6px
+    6px
+    3px;
 
   text-decoration: none;
 
-  color: #d9b36f;
-
   border:
-    1px solid rgba(226,177,95,.42);
+    1px solid rgba(221,172,92,.40);
 
   box-shadow:
-    inset 8px 0 12px rgba(0,0,0,.30),
-    inset -3px 0 7px rgba(255,255,255,.025),
-    6px 8px 15px rgba(0,0,0,.55);
+    inset 5px 0 8px rgba(0,0,0,.34),
+    inset -2px 0 4px rgba(255,255,255,.025),
+    4px 6px 10px rgba(0,0,0,.50);
 
-  transform-origin: bottom center;
+  transform-origin:
+    bottom center;
 
   transition:
-    transform .25s ease,
-    filter .25s ease,
-    box-shadow .25s ease;
+    transform .22s ease,
+    filter .22s ease,
+    box-shadow .22s ease;
 
   z-index: 10;
 }
 
 .book:hover {
   transform:
-    translateY(-5%)
-    scale(1.04);
+    translateY(-7%)
+    scale(1.06);
 
-  filter: brightness(1.15);
+  filter:
+    brightness(1.18);
 
   box-shadow:
-    inset 8px 0 12px rgba(0,0,0,.25),
-    8px 16px 24px rgba(0,0,0,.58),
-    0 0 24px rgba(215,157,75,.18);
+    inset 5px 0 8px rgba(0,0,0,.28),
+    6px 12px 18px rgba(0,0,0,.55),
+    0 0 22px rgba(216,157,74,.18);
 
-  z-index: 30;
+  z-index: 50;
 }
+
+
+/* GOLD INNER BORDER */
 
 .book::before {
   content: "";
 
   position: absolute;
 
-  inset: 5% 7%;
+  inset: 5% 10%;
 
   border:
-    1px solid rgba(223,171,88,.42);
+    1px solid rgba(225,177,96,.34);
 
-  border-radius: 3px 6px 6px 3px;
+  border-radius:
+    2px
+    4px
+    4px
+    2px;
 
   pointer-events: none;
 }
+
+
+/* SPINE RIDGE */
 
 .book::after {
   content: "";
@@ -221,91 +230,23 @@ nav a.active::after {
 
   top: 0;
   bottom: 0;
-  left: 8%;
+  left: 12%;
 
   width: 1px;
 
   background:
-    rgba(219,167,86,.28);
+    rgba(222,169,85,.25);
 
   box-shadow:
-    3px 0 6px rgba(0,0,0,.25);
+    2px 0 4px rgba(0,0,0,.28);
 }
 
 
 /* =====================================================
-   BOOK CONTENT
+   BOOK SYMBOL
 ===================================================== */
 
-.book-inner {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-  height: 100%;
-
-  padding:
-    12%
-    12%
-    10%;
-
-  display: grid;
-
-  grid-template-rows:
-    auto
-    8%
-    1fr
-    8%
-    auto;
-
-  align-items: center;
-
-  text-align: center;
-}
-
-.book-character {
-  font-size:
-    clamp(.34rem,.58vw,.52rem);
-
-  font-weight: 800;
-
-  text-transform: uppercase;
-
-  letter-spacing: .15em;
-
-  opacity: .82;
-}
-
-.book-divider {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-}
-
-.book-divider::before {
-  content: "";
-
-  position: absolute;
-
-  left: 17%;
-  right: 17%;
-  top: 50%;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(226,174,88,.72),
-      transparent
-    );
-}
-
-.book-divider::after {
-  content: "✦";
-
+.spine-symbol {
   position: absolute;
 
   left: 50%;
@@ -314,24 +255,7 @@ nav a.active::after {
   transform:
     translate(-50%,-50%);
 
-  padding: 0 4px;
-
-  font-size:
-    clamp(.32rem,.48vw,.45rem);
-
-  color: #d2a258;
-}
-
-.book-title {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  min-width: 0;
-
-  overflow-wrap: normal;
-  word-break: normal;
+  color: #d8ad67;
 
   font-family:
     Georgia,
@@ -339,52 +263,12 @@ nav a.active::after {
     serif;
 
   font-size:
-    clamp(.50rem,.78vw,.88rem);
+    clamp(.55rem,1vw,1rem);
 
-  font-weight: 700;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.70);
 
-  line-height: 1.12;
-
-  padding: 3px;
-}
-
-.book-symbol {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  font-size:
-    clamp(.65rem,1vw,1rem);
-}
-
-.lock-badge {
-  display: block;
-
-  max-width: 92%;
-
-  margin: auto;
-
-  padding: 3px 5px;
-
-  border-radius: 999px;
-
-  border:
-    1px solid rgba(224,176,96,.30);
-
-  background:
-    rgba(0,0,0,.23);
-
-  color: #dab97e;
-
-  font-size:
-    clamp(.22rem,.30vw,.30rem);
-
-  line-height: 1.15;
-
-  letter-spacing: .04em;
-
-  text-transform: uppercase;
+  z-index: 2;
 }
 
 
@@ -396,8 +280,8 @@ nav a.active::after {
   background:
     linear-gradient(
       90deg,
-      #102239,
-      #174b76 42%,
+      #0d2035,
+      #174d78 45%,
       #102d49
     );
 }
@@ -406,8 +290,8 @@ nav a.active::after {
   background:
     linear-gradient(
       90deg,
-      #35100e,
-      #74291f 43%,
+      #31100d,
+      #75291f 45%,
       #451610
     );
 }
@@ -417,7 +301,7 @@ nav a.active::after {
     linear-gradient(
       90deg,
       #08090a,
-      #1b1b1e 45%,
+      #1b1c1f 45%,
       #09090b
     );
 }
@@ -425,33 +309,122 @@ nav a.active::after {
 
 /* =====================================================
    BOOK POSITIONS
-   LANDSCAPE LIBRARY
+   SMALLER BOOKS
 ===================================================== */
 
-/* TOP SHELF */
+/* SHARK */
 
 .book-shark {
-  left: 20.5%;
-  top: 21.7%;
+  left: 23%;
+  top: 34%;
 
-  width: 10.6%;
-  height: 28.3%;
+  width: 5.5%;
+  height: 18.3%;
 }
+
+
+/* PIRATE */
 
 .book-pirate {
-  left: 31.8%;
-  top: 24.8%;
+  left: 29.3%;
+  top: 36.5%;
 
-  width: 8.8%;
-  height: 25.2%;
+  width: 4.8%;
+  height: 15.8%;
 }
 
-.book-secret {
-  left: 41.5%;
-  top: 23%;
 
-  width: 8.8%;
-  height: 27%;
+/* SECRET */
+
+.book-secret {
+  left: 34.8%;
+  top: 35%;
+
+  width: 4.6%;
+  height: 17.3%;
+}
+
+
+/* =====================================================
+   HOVER LABELS
+===================================================== */
+
+.book-tooltip {
+  position: absolute;
+
+  left: 50%;
+  bottom: calc(100% + 14px);
+
+  transform:
+    translateX(-50%)
+    translateY(8px);
+
+  width: max-content;
+  max-width: 220px;
+
+  padding: 10px 13px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(8,6,5,.96);
+
+  border:
+    1px solid rgba(218,163,83,.35);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.50);
+
+  color: #e4c38d;
+
+  text-align: center;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    .80rem;
+
+  line-height: 1.35;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+
+  z-index: 100;
+}
+
+.book:hover .book-tooltip {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+.tooltip-status {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #928773;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: .58rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .10em;
 }
 
 
@@ -461,13 +434,39 @@ nav a.active::after {
 
 .book[data-status="early-access"] {
   box-shadow:
-    inset 8px 0 12px rgba(0,0,0,.30),
-    6px 8px 15px rgba(0,0,0,.55),
-    0 0 18px rgba(64,126,255,.12);
+    inset 5px 0 8px rgba(0,0,0,.34),
+    4px 6px 10px rgba(0,0,0,.50),
+    0 0 14px rgba(72,124,255,.12);
 }
 
 .book[data-status="secret"] {
-  filter: brightness(.78);
+  filter: brightness(.72);
+}
+
+.book[data-status="secret"]:hover {
+  filter: brightness(.94);
+}
+
+
+/* =====================================================
+   SMALL LOCK MARK
+===================================================== */
+
+.book-lock {
+  position: absolute;
+
+  left: 50%;
+  bottom: 8%;
+
+  transform:
+    translateX(-50%);
+
+  color: rgba(218,174,102,.72);
+
+  font-size:
+    clamp(.34rem,.55vw,.55rem);
+
+  z-index: 3;
 }
 
 
@@ -677,19 +676,13 @@ footer {
     margin-bottom: 45px;
   }
 
-  .book-title {
-    font-size:
-      clamp(.34rem,1.5vw,.62rem);
+  .book-tooltip {
+    display: none;
   }
 
-  .book-character {
+  .spine-symbol {
     font-size:
-      clamp(.22rem,1vw,.34rem);
-  }
-
-  .lock-badge {
-    font-size:
-      clamp(.16rem,.70vw,.24rem);
+      clamp(.38rem,2vw,.7rem);
   }
 
   .unlock-actions {
@@ -794,28 +787,21 @@ footer {
     aria-label="Read Blip: The Shark Adventure"
   >
 
-    <div class="book-inner">
+    <span class="spine-symbol">
+      ◢
+    </span>
 
-      <div class="book-character">
-        Blip
-      </div>
+    <span class="book-lock">
+      🔒
+    </span>
 
-      <div class="book-divider"></div>
+    <div class="book-tooltip">
 
-      <div class="book-title">
-        The Shark<br>
-        Adventure
-      </div>
+      Blip: The Shark Adventure
 
-      <div class="book-divider"></div>
-
-      <div class="book-symbol">
-
-        <span class="lock-badge">
-          🔒 Early Access
-        </span>
-
-      </div>
+      <span class="tooltip-status">
+        Early Access
+      </span>
 
     </div>
 
@@ -840,23 +826,17 @@ footer {
     aria-label="Read Blip: Pirates"
   >
 
-    <div class="book-inner">
+    <span class="spine-symbol">
+      ☠
+    </span>
 
-      <div class="book-character">
-        Blip
-      </div>
+    <div class="book-tooltip">
 
-      <div class="book-divider"></div>
+      Blip: Pirates!
 
-      <div class="book-title">
-        Pirates!
-      </div>
-
-      <div class="book-divider"></div>
-
-      <div class="book-symbol">
-        ☠
-      </div>
+      <span class="tooltip-status">
+        Read Story
+      </span>
 
     </div>
 
@@ -882,27 +862,21 @@ footer {
     aria-label="Discover a secret story"
   >
 
-    <div class="book-inner">
+    <span class="spine-symbol">
+      ?
+    </span>
 
-      <div class="book-character">
-        Unknown
-      </div>
+    <span class="book-lock">
+      🔒
+    </span>
 
-      <div class="book-divider"></div>
+    <div class="book-tooltip">
 
-      <div class="book-title">
-        ???
-      </div>
+      ???
 
-      <div class="book-divider"></div>
-
-      <div class="book-symbol">
-
-        <span class="lock-badge">
-          🔒 Undiscovered
-        </span>
-
-      </div>
+      <span class="tooltip-status">
+        Undiscovered Story
+      </span>
 
     </div>
 
@@ -1058,8 +1032,6 @@ document.querySelectorAll(
         this.dataset.bookId;
 
 
-      /* NORMAL OPEN BOOK */
-
       if (
         status ===
         "open"
@@ -1069,8 +1041,6 @@ document.querySelectorAll(
 
       }
 
-
-      /* ALREADY UNLOCKED */
 
       if (
         isBookUnlocked(bookId)
@@ -1101,7 +1071,7 @@ document.querySelectorAll(
 
 
 /* =====================================================
-   OPEN UNLOCK MODAL
+   OPEN MODAL
 ===================================================== */
 
 function openUnlock(status) {
