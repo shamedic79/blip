@@ -67,8 +67,10 @@ nav {
 
 nav a {
   position: relative;
+
   text-decoration: none;
   color: rgba(255,255,255,.68);
+
   font-size: .93rem;
 }
 
@@ -79,6 +81,7 @@ nav a.active {
 
 nav a.active::after {
   content: "";
+
   position: absolute;
 
   left: 8%;
@@ -98,11 +101,11 @@ nav a.active::after {
 
 
 /* =====================================================
-   PAGE INTRO
+   INTRO
 ===================================================== */
 
 .page-intro {
-  padding: 55px 6% 24px;
+  padding: 42px 6% 22px;
   text-align: center;
 }
 
@@ -124,9 +127,9 @@ nav a.active::after {
 .library-stage {
   position: relative;
 
-  width: min(1024px, 96vw);
+  width: min(1536px, 96vw);
 
-  aspect-ratio: 1024 / 1536;
+  aspect-ratio: 1536 / 1024;
 
   margin: 10px auto 90px;
 
@@ -155,7 +158,7 @@ nav a.active::after {
 
   display: block;
 
-  min-width: 55px;
+  min-width: 54px;
 
   border-radius: 4px 8px 8px 4px;
 
@@ -186,8 +189,7 @@ nav a.active::after {
     translateY(-5%)
     scale(1.04);
 
-  filter:
-    brightness(1.15);
+  filter: brightness(1.15);
 
   box-shadow:
     inset 8px 0 12px rgba(0,0,0,.25),
@@ -337,7 +339,7 @@ nav a.active::after {
     serif;
 
   font-size:
-    clamp(.48rem,.90vw,.92rem);
+    clamp(.50rem,.78vw,.88rem);
 
   font-weight: 700;
 
@@ -376,7 +378,7 @@ nav a.active::after {
   color: #dab97e;
 
   font-size:
-    clamp(.22rem,.34vw,.32rem);
+    clamp(.22rem,.30vw,.30rem);
 
   line-height: 1.15;
 
@@ -420,74 +422,36 @@ nav a.active::after {
     );
 }
 
-.book-green {
-  background:
-    linear-gradient(
-      90deg,
-      #11241a,
-      #284d31 45%,
-      #162d20
-    );
-}
-
-.book-purple {
-  background:
-    linear-gradient(
-      90deg,
-      #20122c,
-      #4d2b61 45%,
-      #281730
-    );
-}
-
 
 /* =====================================================
-   INDIVIDUAL BOOK POSITIONS
+   BOOK POSITIONS
+   LANDSCAPE LIBRARY
 ===================================================== */
 
 /* TOP SHELF */
 
 .book-shark {
-  left: 18.5%;
-  top: 27.7%;
+  left: 20.5%;
+  top: 21.7%;
 
-  width: 12.5%;
-  height: 16.2%;
+  width: 10.6%;
+  height: 28.3%;
 }
 
 .book-pirate {
-  left: 32%;
-  top: 29%;
+  left: 31.8%;
+  top: 24.8%;
 
-  width: 11%;
-  height: 14.9%;
+  width: 8.8%;
+  height: 25.2%;
 }
 
 .book-secret {
-  left: 44.6%;
-  top: 28.3%;
+  left: 41.5%;
+  top: 23%;
 
-  width: 10.5%;
-  height: 15.7%;
-}
-
-
-/* SECOND SHELF */
-
-.book-future-one {
-  left: 24%;
-  top: 52.2%;
-
-  width: 10.5%;
-  height: 13.5%;
-}
-
-.book-future-two {
-  left: 36%;
-  top: 51.4%;
-
-  width: 11%;
-  height: 14.3%;
+  width: 8.8%;
+  height: 27%;
 }
 
 
@@ -703,30 +667,29 @@ footer {
 
   .page-intro {
     padding:
-      35px
+      30px
       5%
-      18px;
+      15px;
   }
 
   .library-stage {
     width: 100vw;
-
     margin-bottom: 45px;
   }
 
   .book-title {
     font-size:
-      clamp(.38rem,2vw,.72rem);
+      clamp(.34rem,1.5vw,.62rem);
   }
 
   .book-character {
     font-size:
-      clamp(.24rem,1.2vw,.38rem);
+      clamp(.22rem,1vw,.34rem);
   }
 
   .lock-badge {
     font-size:
-      clamp(.18rem,.85vw,.28rem);
+      clamp(.16rem,.70vw,.24rem);
   }
 
   .unlock-actions {
@@ -748,7 +711,10 @@ footer {
 
 <header>
 
-  <a class="header-logo" href="index.html">
+  <a
+    class="header-logo"
+    href="index.html"
+  >
 
     <img
       src="blip-logo.png"
@@ -803,22 +769,26 @@ footer {
 
 
 <!-- =====================================================
-     ILLUSTRATED LIBRARY
+     LIBRARY
 ===================================================== -->
 
 <div class="library-stage">
 
 
   <!-- =================================================
-       SHARK - EARLY ACCESS
+       SHARK BLIP
+       EARLY ACCESS
   ================================================== -->
 
   <a
     class="book book-blue book-shark"
+
     href="shark-adventure.html"
 
     data-book-id="shark-adventure"
+
     data-status="early-access"
+
     data-password="SHARKBAIT"
 
     aria-label="Read Blip: The Shark Adventure"
@@ -854,14 +824,17 @@ footer {
 
 
   <!-- =================================================
-       PIRATE - OPEN
+       PIRATE BLIP
+       OPEN
   ================================================== -->
 
   <a
     class="book book-red book-pirate"
+
     href="pirate-adventure.html"
 
     data-book-id="pirate-adventure"
+
     data-status="open"
 
     aria-label="Read Blip: Pirates"
@@ -892,7 +865,7 @@ footer {
 
 
   <!-- =================================================
-       SECRET STORY
+       SECRET BOOK
   ================================================== -->
 
   <a
@@ -901,7 +874,9 @@ footer {
     href="secret-story.html"
 
     data-book-id="secret-story-one"
+
     data-status="secret"
+
     data-password="TREASURE"
 
     aria-label="Discover a secret story"
@@ -932,78 +907,6 @@ footer {
     </div>
 
   </a>
-
-
-
-  <!-- =================================================
-       FUTURE BOOK
-  ================================================== -->
-
-  <div
-    class="book book-green book-future-one"
-  >
-
-    <div class="book-inner">
-
-      <div class="book-character">
-        The Loot Library
-      </div>
-
-      <div class="book-divider"></div>
-
-      <div class="book-title">
-        ???
-      </div>
-
-      <div class="book-divider"></div>
-
-      <div class="book-symbol">
-
-        <span class="lock-badge">
-          Coming Soon
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- =================================================
-       FUTURE BOOK
-  ================================================== -->
-
-  <div
-    class="book book-purple book-future-two"
-  >
-
-    <div class="book-inner">
-
-      <div class="book-character">
-        The Loot Library
-      </div>
-
-      <div class="book-divider"></div>
-
-      <div class="book-title">
-        ???
-      </div>
-
-      <div class="book-divider"></div>
-
-      <div class="book-symbol">
-
-        <span class="lock-badge">
-          Coming Soon
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
 
 
 </div>
@@ -1110,7 +1013,7 @@ footer {
 let activeBook = null;
 
 
-/* HAS THIS BOOK BEEN UNLOCKED? */
+/* HAS BOOK BEEN UNLOCKED? */
 
 function isBookUnlocked(bookId) {
 
@@ -1121,7 +1024,7 @@ function isBookUnlocked(bookId) {
 }
 
 
-/* SAVE UNLOCK */
+/* SAVE BOOK UNLOCK */
 
 function saveBookUnlock(bookId) {
 
@@ -1134,7 +1037,7 @@ function saveBookUnlock(bookId) {
 
 
 /* =====================================================
-   BOOK CLICK HANDLING
+   CLICK HANDLING
 ===================================================== */
 
 document.querySelectorAll(
@@ -1155,9 +1058,12 @@ document.querySelectorAll(
         this.dataset.bookId;
 
 
-      /* OPEN BOOK */
+      /* NORMAL OPEN BOOK */
 
-      if (status === "open") {
+      if (
+        status ===
+        "open"
+      ) {
 
         return;
 
@@ -1195,7 +1101,7 @@ document.querySelectorAll(
 
 
 /* =====================================================
-   OPEN MODAL
+   OPEN UNLOCK MODAL
 ===================================================== */
 
 function openUnlock(status) {
@@ -1306,7 +1212,7 @@ function closeUnlock() {
 
 
 /* =====================================================
-   UNLOCK
+   SUBMIT UNLOCK
 ===================================================== */
 
 function submitUnlock() {
@@ -1339,8 +1245,7 @@ function submitUnlock() {
 
 
   if (
-    entered ===
-    correct
+    entered === correct
   ) {
 
 
@@ -1429,7 +1334,7 @@ document.getElementById(
 );
 
 
-/* CLICK OUTSIDE */
+/* CLICK OUTSIDE MODAL */
 
 document.getElementById(
   "unlockOverlay"
