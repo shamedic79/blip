@@ -6,6 +6,9 @@
 
 <title>My Blip Collection</title>
 
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
 
 * {
@@ -454,6 +457,16 @@ nav a:hover {
   margin-bottom:28px;
 }
 
+.export-buttons {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+}
+
 .export-button {
   border:none;
 
@@ -476,6 +489,16 @@ nav a:hover {
 
 .export-button:hover {
   transform:translateY(-2px);
+}
+
+.export-button.pdf {
+  background:
+    rgba(255,255,255,.06);
+
+  color:white;
+
+  border:
+    1px solid rgba(255,255,255,.16);
 }
 
 
@@ -597,6 +620,15 @@ footer {
     height:300px;
   }
 
+  .export-buttons {
+    flex-direction:column;
+  }
+
+  .export-button {
+    width:100%;
+    max-width:320px;
+  }
+
 }
 
 </style>
@@ -641,7 +673,7 @@ footer {
 
   <p>
     Keep track of the Blips you've found, save the ones you're still
-    hunting for, and create cards to share your collection or wishlist.
+    hunting for, and create cards or PDFs to share your collection.
   </p>
 
 
@@ -768,15 +800,26 @@ footer {
   </h2>
 
   <p>
-    Generate a Blip Collection Card from the Blips you own.
+    Create a shareable image or generate a printable PDF.
   </p>
 
-  <button
-    class="export-button"
-    onclick="generateCollectionCard()"
-  >
-    Generate Collection Card
-  </button>
+  <div class="export-buttons">
+
+    <button
+      class="export-button"
+      onclick="generateCollectionCard()"
+    >
+      Generate Collection Card
+    </button>
+
+    <button
+      class="export-button pdf"
+      onclick="generateCollectionPDF()"
+    >
+      Generate Collection PDF
+    </button>
+
+  </div>
 
 
   <div class="card-preview">
@@ -868,15 +911,26 @@ footer {
   </h2>
 
   <p>
-    Generate a Blip Wishlist Card showing the Blips you're hunting for.
+    Create a shareable wishlist image or generate a printable PDF.
   </p>
 
-  <button
-    class="export-button"
-    onclick="generateWishlistCard()"
-  >
-    Generate Wishlist Card
-  </button>
+  <div class="export-buttons">
+
+    <button
+      class="export-button"
+      onclick="generateWishlistCard()"
+    >
+      Generate Wishlist Card
+    </button>
+
+    <button
+      class="export-button pdf"
+      onclick="generateWishlistPDF()"
+    >
+      Generate Wishlist PDF
+    </button>
+
+  </div>
 
 
   <div class="card-preview">
@@ -931,7 +985,10 @@ const blips = [
     name: "Pirate Blip",
     type: "Adventure Series",
     image: "images/pirate-blip.png",
-    page: "pirate-blip.html"
+    page: "pirate-blip.html",
+
+    releaseDate: "Release details coming soon",
+    edition: "Edition details coming soon"
   },
 
   {
@@ -939,7 +996,10 @@ const blips = [
     name: "Shark Blip",
     type: "Adventure Series",
     image: "images/shark-blip.png",
-    page: "shark-blip.html"
+    page: "shark-blip.html",
+
+    releaseDate: "Release details coming soon",
+    edition: "Edition details coming soon"
   }
 
 ];
@@ -1301,7 +1361,7 @@ function showWishlist() {
 
 
 /* =====================================================
-   LOAD IMAGE
+   IMAGE LOADER
 ===================================================== */
 
 function loadImage(src) {
@@ -1331,7 +1391,52 @@ function loadImage(src) {
 
 
 /* =====================================================
-   DRAW SHARED CARD
+   IMAGE -> DATA URL
+   USED FOR PDF
+===================================================== */
+
+async function imageToDataURL(src) {
+
+  const image =
+    await loadImage(src);
+
+
+  const canvas =
+    document.createElement(
+      "canvas"
+    );
+
+
+  canvas.width =
+    image.naturalWidth ||
+    image.width;
+
+
+  canvas.height =
+    image.naturalHeight ||
+    image.height;
+
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  ctx.drawImage(
+    image,
+    0,
+    0
+  );
+
+
+  return canvas.toDataURL(
+    "image/png"
+  );
+
+}
+
+
+/* =====================================================
+   DRAW SHARE CARD
 ===================================================== */
 
 async function drawShareCard(
@@ -1360,8 +1465,6 @@ async function drawShareCard(
     height
   );
 
-
-  /* BACKGROUND */
 
   const gradient =
     ctx.createLinearGradient(
@@ -1423,8 +1526,6 @@ async function drawShareCard(
   );
 
 
-  /* GLOW */
-
   const glow =
     ctx.createRadialGradient(
       width / 2,
@@ -1477,8 +1578,6 @@ async function drawShareCard(
   );
 
 
-  /* TITLE */
-
   ctx.textAlign =
     "center";
 
@@ -1514,8 +1613,6 @@ async function drawShareCard(
     160
   );
 
-
-  /* GRID */
 
   const columns =
     Math.min(
@@ -1642,8 +1739,6 @@ async function drawShareCard(
   }
 
 
-  /* FOOTER */
-
   ctx.fillStyle =
     "#7f8796";
 
@@ -1666,7 +1761,531 @@ async function drawShareCard(
 
 
 /* =====================================================
-   COLLECTION EXPORT
+   GENERIC PDF CREATOR
+===================================================== */
+
+async function generateBlipPDF(
+  blipList,
+  mode
+) {
+
+  if (!blipList.length) {
+
+    alert(
+      mode === "wishlist"
+        ? "Add at least one Blip to your wishlist first!"
+        : "Add at least one Blip to your collection first!"
+    );
+
+    return;
+
+  }
+
+
+  const {
+    jsPDF
+  } =
+    window.jspdf;
+
+
+  const pdf =
+    new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: "a4"
+    });
+
+
+  const pageWidth =
+    210;
+
+
+  const pageHeight =
+    297;
+
+
+  const margin =
+    16;
+
+
+  const cardWidth =
+    82;
+
+
+  const cardHeight =
+    108;
+
+
+  const gap =
+    12;
+
+
+  const startX =
+    margin;
+
+
+  const secondX =
+    margin +
+    cardWidth +
+    gap;
+
+
+  const startY =
+    60;
+
+
+  const secondY =
+    startY +
+    cardHeight +
+    10;
+
+
+  /* COVER / HEADER */
+
+  pdf.setFillColor(
+    8,
+    11,
+    22
+  );
+
+
+  pdf.rect(
+    0,
+    0,
+    pageWidth,
+    pageHeight,
+    "F"
+  );
+
+
+  pdf.setTextColor(
+    255,
+    255,
+    255
+  );
+
+
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    28
+  );
+
+
+  pdf.text(
+    mode === "wishlist"
+      ? "MY BLIP WISHLIST"
+      : "MY BLIP COLLECTION",
+    pageWidth / 2,
+    25,
+    {
+      align: "center"
+    }
+  );
+
+
+  pdf.setFont(
+    "helvetica",
+    "normal"
+  );
+
+
+  pdf.setFontSize(
+    12
+  );
+
+
+  pdf.setTextColor(
+    160,
+    170,
+    205
+  );
+
+
+  const subtitle =
+    mode === "wishlist"
+      ? (
+          blipList.length +
+          (
+            blipList.length === 1
+              ? " Blip I'm hunting"
+              : " Blips I'm hunting"
+          )
+        )
+      : (
+          blipList.length +
+          " of " +
+          blips.length +
+          " collected"
+        );
+
+
+  pdf.text(
+    subtitle,
+    pageWidth / 2,
+    34,
+    {
+      align: "center"
+    }
+  );
+
+
+  pdf.setFontSize(
+    9
+  );
+
+
+  pdf.setTextColor(
+    115,
+    125,
+    150
+  );
+
+
+  pdf.text(
+    "Generated from the Blipdex · blip.lootinaboot.com.au",
+    pageWidth / 2,
+    42,
+    {
+      align: "center"
+    }
+  );
+
+
+  /* CARDS */
+
+  for (
+    let i = 0;
+    i < blipList.length;
+    i++
+  ) {
+
+    const itemOnPage =
+      i % 4;
+
+
+    if (
+      i > 0 &&
+      itemOnPage === 0
+    ) {
+
+      pdf.addPage();
+
+
+      pdf.setFillColor(
+        8,
+        11,
+        22
+      );
+
+
+      pdf.rect(
+        0,
+        0,
+        pageWidth,
+        pageHeight,
+        "F"
+      );
+
+    }
+
+
+    const x =
+      itemOnPage % 2 === 0
+        ? startX
+        : secondX;
+
+
+    const y =
+      itemOnPage < 2
+        ? startY
+        : secondY;
+
+
+    const blip =
+      blipList[i];
+
+
+    /* CARD BACKGROUND */
+
+    if (
+      mode === "wishlist"
+    ) {
+
+      pdf.setFillColor(
+        38,
+        17,
+        38
+      );
+
+    }
+
+    else {
+
+      pdf.setFillColor(
+        18,
+        24,
+        48
+      );
+
+    }
+
+
+    pdf.roundedRect(
+      x,
+      y,
+      cardWidth,
+      cardHeight,
+      4,
+      4,
+      "F"
+    );
+
+
+    pdf.setDrawColor(
+      65,
+      72,
+      100
+    );
+
+
+    pdf.roundedRect(
+      x,
+      y,
+      cardWidth,
+      cardHeight,
+      4,
+      4
+    );
+
+
+    /* IMAGE */
+
+    try {
+
+      const imageData =
+        await imageToDataURL(
+          blip.image
+        );
+
+
+      pdf.addImage(
+        imageData,
+        "PNG",
+        x + 10,
+        y + 7,
+        62,
+        62,
+        undefined,
+        "FAST"
+      );
+
+    }
+
+    catch {
+
+      pdf.setFillColor(
+        35,
+        40,
+        60
+      );
+
+
+      pdf.roundedRect(
+        x + 10,
+        y + 7,
+        62,
+        62,
+        3,
+        3,
+        "F"
+      );
+
+    }
+
+
+    /* NAME */
+
+    pdf.setTextColor(
+      255,
+      255,
+      255
+    );
+
+
+    pdf.setFont(
+      "helvetica",
+      "bold"
+    );
+
+
+    pdf.setFontSize(
+      13
+    );
+
+
+    pdf.text(
+      blip.name,
+      x + cardWidth / 2,
+      y + 78,
+      {
+        align: "center",
+        maxWidth:
+          cardWidth - 10
+      }
+    );
+
+
+    /* TYPE */
+
+    pdf.setFont(
+      "helvetica",
+      "normal"
+    );
+
+
+    pdf.setFontSize(
+      8
+    );
+
+
+    if (
+      mode === "wishlist"
+    ) {
+
+      pdf.setTextColor(
+        255,
+        175,
+        214
+      );
+
+    }
+
+    else {
+
+      pdf.setTextColor(
+        170,
+        180,
+        255
+      );
+
+    }
+
+
+    pdf.text(
+      blip.type.toUpperCase(),
+      x + cardWidth / 2,
+      y + 85,
+      {
+        align: "center"
+      }
+    );
+
+
+    /* DETAILS */
+
+    pdf.setFontSize(
+      7.5
+    );
+
+
+    pdf.setTextColor(
+      175,
+      182,
+      200
+    );
+
+
+    pdf.text(
+      blip.releaseDate,
+      x + 6,
+      y + 94,
+      {
+        maxWidth:
+          cardWidth - 12
+      }
+    );
+
+
+    pdf.text(
+      blip.edition,
+      x + 6,
+      y + 101,
+      {
+        maxWidth:
+          cardWidth - 12
+      }
+    );
+
+  }
+
+
+  /* FOOTER ON EVERY PAGE */
+
+  const totalPages =
+    pdf.getNumberOfPages();
+
+
+  for (
+    let page = 1;
+    page <= totalPages;
+    page++
+  ) {
+
+    pdf.setPage(
+      page
+    );
+
+
+    pdf.setFontSize(
+      8
+    );
+
+
+    pdf.setTextColor(
+      100,
+      108,
+      130
+    );
+
+
+    pdf.text(
+      "Loot in a Boot · Blipdex",
+      margin,
+      pageHeight - 9
+    );
+
+
+    pdf.text(
+      "Page " +
+      page +
+      " of " +
+      totalPages,
+      pageWidth - margin,
+      pageHeight - 9,
+      {
+        align: "right"
+      }
+    );
+
+  }
+
+
+  pdf.save(
+    mode === "wishlist"
+      ? "my-blip-wishlist.pdf"
+      : "my-blip-collection.pdf"
+  );
+
+}
+
+
+/* =====================================================
+   COLLECTION CARD
 ===================================================== */
 
 async function generateCollectionCard() {
@@ -1726,7 +2345,34 @@ async function generateCollectionCard() {
 
 
 /* =====================================================
-   WISHLIST EXPORT
+   COLLECTION PDF
+===================================================== */
+
+function generateCollectionPDF() {
+
+  const owned =
+    getSavedArray(
+      "blipCollection"
+    );
+
+
+  const ownedBlips =
+    blips.filter(
+      blip =>
+        owned.includes(blip.id)
+    );
+
+
+  generateBlipPDF(
+    ownedBlips,
+    "collection"
+  );
+
+}
+
+
+/* =====================================================
+   WISHLIST CARD
 ===================================================== */
 
 async function generateWishlistCard() {
@@ -1783,6 +2429,33 @@ async function generateWishlistCard() {
     "wishlistDownloadButton"
   ).style.display =
     "block";
+
+}
+
+
+/* =====================================================
+   WISHLIST PDF
+===================================================== */
+
+function generateWishlistPDF() {
+
+  const wanted =
+    getSavedArray(
+      "blipWishlist"
+    );
+
+
+  const wantedBlips =
+    blips.filter(
+      blip =>
+        wanted.includes(blip.id)
+    );
+
+
+  generateBlipPDF(
+    wantedBlips,
+    "wishlist"
+  );
 
 }
 
