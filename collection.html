@@ -800,7 +800,7 @@ footer {
   </h2>
 
   <p>
-    Create a shareable image or generate a printable PDF.
+    Create a shareable image or generate a print-friendly PDF.
   </p>
 
   <div class="export-buttons">
@@ -911,7 +911,7 @@ footer {
   </h2>
 
   <p>
-    Create a shareable wishlist image or generate a printable PDF.
+    Create a shareable wishlist image or generate a print-friendly PDF.
   </p>
 
   <div class="export-buttons">
@@ -1392,7 +1392,6 @@ function loadImage(src) {
 
 /* =====================================================
    IMAGE -> DATA URL
-   USED FOR PDF
 ===================================================== */
 
 async function imageToDataURL(src) {
@@ -1436,7 +1435,7 @@ async function imageToDataURL(src) {
 
 
 /* =====================================================
-   DRAW SHARE CARD
+   SHARE IMAGE CARD
 ===================================================== */
 
 async function drawShareCard(
@@ -1761,7 +1760,506 @@ async function drawShareCard(
 
 
 /* =====================================================
+   PDF PAGE HEADER
+===================================================== */
+
+function drawPDFHeader(
+  pdf,
+  mode,
+  blipCount
+) {
+
+  const pageWidth =
+    210;
+
+
+  /* WHITE PAGE */
+
+  pdf.setFillColor(
+    255,
+    255,
+    255
+  );
+
+
+  pdf.rect(
+    0,
+    0,
+    210,
+    297,
+    "F"
+  );
+
+
+  /* TITLE */
+
+  pdf.setTextColor(
+    25,
+    27,
+    33
+  );
+
+
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    22
+  );
+
+
+  pdf.text(
+    mode === "wishlist"
+      ? "MY BLIP WISHLIST"
+      : "MY BLIP COLLECTION",
+    pageWidth / 2,
+    17,
+    {
+      align: "center"
+    }
+  );
+
+
+  /* SUBTITLE */
+
+  pdf.setFont(
+    "helvetica",
+    "normal"
+  );
+
+
+  pdf.setFontSize(
+    10
+  );
+
+
+  if (
+    mode === "wishlist"
+  ) {
+
+    pdf.setTextColor(
+      150,
+      68,
+      112
+    );
+
+
+    pdf.text(
+      blipCount +
+      (
+        blipCount === 1
+          ? " Blip I'm hunting"
+          : " Blips I'm hunting"
+      ),
+      pageWidth / 2,
+      25,
+      {
+        align: "center"
+      }
+    );
+
+  }
+
+  else {
+
+    pdf.setTextColor(
+      73,
+      83,
+      150
+    );
+
+
+    pdf.text(
+      blipCount +
+      " of " +
+      blips.length +
+      " collected",
+      pageWidth / 2,
+      25,
+      {
+        align: "center"
+      }
+    );
+
+  }
+
+
+  /* SMALL SOURCE LINE */
+
+  pdf.setTextColor(
+    115,
+    118,
+    125
+  );
+
+
+  pdf.setFontSize(
+    7.5
+  );
+
+
+  pdf.text(
+    "Generated from the Blipdex · blip.lootinaboot.com.au",
+    pageWidth / 2,
+    31,
+    {
+      align: "center"
+    }
+  );
+
+
+  /* DIVIDER */
+
+  pdf.setDrawColor(
+    220,
+    222,
+    228
+  );
+
+
+  pdf.line(
+    16,
+    36,
+    194,
+    36
+  );
+
+}
+
+
+/* =====================================================
+   PDF CARD
+===================================================== */
+
+async function drawPDFCard(
+  pdf,
+  blip,
+  x,
+  y,
+  mode
+) {
+
+  const cardWidth =
+    82;
+
+
+  const cardHeight =
+    52;
+
+
+  /* CARD BACKGROUND */
+
+  if (
+    mode === "wishlist"
+  ) {
+
+    pdf.setFillColor(
+      249,
+      231,
+      241
+    );
+
+
+    pdf.setDrawColor(
+      225,
+      166,
+      198
+    );
+
+  }
+
+  else {
+
+    pdf.setFillColor(
+      231,
+      235,
+      255
+    );
+
+
+    pdf.setDrawColor(
+      167,
+      177,
+      230
+    );
+
+  }
+
+
+  pdf.roundedRect(
+    x,
+    y,
+    cardWidth,
+    cardHeight,
+    3,
+    3,
+    "FD"
+  );
+
+
+  /* IMAGE AREA */
+
+  pdf.setFillColor(
+    255,
+    255,
+    255
+  );
+
+
+  pdf.roundedRect(
+    x + 4,
+    y + 5,
+    38,
+    42,
+    2,
+    2,
+    "F"
+  );
+
+
+  try {
+
+    const imageData =
+      await imageToDataURL(
+        blip.image
+      );
+
+
+    pdf.addImage(
+      imageData,
+      "PNG",
+      x + 6,
+      y + 7,
+      34,
+      34,
+      undefined,
+      "FAST"
+    );
+
+  }
+
+  catch {
+
+    pdf.setFillColor(
+      240,
+      240,
+      243
+    );
+
+
+    pdf.rect(
+      x + 6,
+      y + 7,
+      34,
+      34,
+      "F"
+    );
+
+  }
+
+
+  /* TEXT AREA */
+
+  const textX =
+    x + 46;
+
+
+  const textWidth =
+    31;
+
+
+  /* NAME */
+
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    10
+  );
+
+
+  pdf.setTextColor(
+    30,
+    32,
+    38
+  );
+
+
+  const nameLines =
+    pdf.splitTextToSize(
+      blip.name,
+      textWidth
+    );
+
+
+  pdf.text(
+    nameLines,
+    textX,
+    y + 10
+  );
+
+
+  /* TYPE */
+
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    6.5
+  );
+
+
+  if (
+    mode === "wishlist"
+  ) {
+
+    pdf.setTextColor(
+      166,
+      65,
+      116
+    );
+
+  }
+
+  else {
+
+    pdf.setTextColor(
+      77,
+      88,
+      165
+    );
+
+  }
+
+
+  const typeLines =
+    pdf.splitTextToSize(
+      blip.type.toUpperCase(),
+      textWidth
+    );
+
+
+  pdf.text(
+    typeLines,
+    textX,
+    y + 20
+  );
+
+
+  /* DETAILS */
+
+  pdf.setFont(
+    "helvetica",
+    "normal"
+  );
+
+
+  pdf.setFontSize(
+    6.5
+  );
+
+
+  pdf.setTextColor(
+    75,
+    78,
+    86
+  );
+
+
+  const releaseLines =
+    pdf.splitTextToSize(
+      blip.releaseDate,
+      textWidth
+    );
+
+
+  pdf.text(
+    releaseLines,
+    textX,
+    y + 29
+  );
+
+
+  const editionLines =
+    pdf.splitTextToSize(
+      blip.edition,
+      textWidth
+    );
+
+
+  pdf.text(
+    editionLines,
+    textX,
+    y + 40
+  );
+
+
+  /* STATUS */
+
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    6.2
+  );
+
+
+  if (
+    mode === "wishlist"
+  ) {
+
+    pdf.setTextColor(
+      174,
+      59,
+      117
+    );
+
+
+    pdf.text(
+      "WISHLIST",
+      textX,
+      y + 48
+    );
+
+  }
+
+  else {
+
+    pdf.setTextColor(
+      73,
+      87,
+      170
+    );
+
+
+    pdf.text(
+      "IN COLLECTION",
+      textX,
+      y + 48
+    );
+
+  }
+
+}
+
+
+/* =====================================================
    GENERIC PDF CREATOR
+
+   8 BLIPS PER A4 PAGE
+   2 COLUMNS x 4 ROWS
 ===================================================== */
 
 async function generateBlipPDF(
@@ -1813,150 +2311,39 @@ async function generateBlipPDF(
 
 
   const cardHeight =
-    108;
+    52;
 
 
-  const gap =
-    12;
+  const gapX =
+    14;
 
 
-  const startX =
+  const gapY =
+    7;
+
+
+  const firstColumnX =
     margin;
 
 
-  const secondX =
+  const secondColumnX =
     margin +
     cardWidth +
-    gap;
+    gapX;
 
 
   const startY =
-    60;
+    43;
 
 
-  const secondY =
-    startY +
-    cardHeight +
-    10;
+  /* FIRST PAGE HEADER */
 
-
-  /* COVER / HEADER */
-
-  pdf.setFillColor(
-    8,
-    11,
-    22
+  drawPDFHeader(
+    pdf,
+    mode,
+    blipList.length
   );
 
-
-  pdf.rect(
-    0,
-    0,
-    pageWidth,
-    pageHeight,
-    "F"
-  );
-
-
-  pdf.setTextColor(
-    255,
-    255,
-    255
-  );
-
-
-  pdf.setFont(
-    "helvetica",
-    "bold"
-  );
-
-
-  pdf.setFontSize(
-    28
-  );
-
-
-  pdf.text(
-    mode === "wishlist"
-      ? "MY BLIP WISHLIST"
-      : "MY BLIP COLLECTION",
-    pageWidth / 2,
-    25,
-    {
-      align: "center"
-    }
-  );
-
-
-  pdf.setFont(
-    "helvetica",
-    "normal"
-  );
-
-
-  pdf.setFontSize(
-    12
-  );
-
-
-  pdf.setTextColor(
-    160,
-    170,
-    205
-  );
-
-
-  const subtitle =
-    mode === "wishlist"
-      ? (
-          blipList.length +
-          (
-            blipList.length === 1
-              ? " Blip I'm hunting"
-              : " Blips I'm hunting"
-          )
-        )
-      : (
-          blipList.length +
-          " of " +
-          blips.length +
-          " collected"
-        );
-
-
-  pdf.text(
-    subtitle,
-    pageWidth / 2,
-    34,
-    {
-      align: "center"
-    }
-  );
-
-
-  pdf.setFontSize(
-    9
-  );
-
-
-  pdf.setTextColor(
-    115,
-    125,
-    150
-  );
-
-
-  pdf.text(
-    "Generated from the Blipdex · blip.lootinaboot.com.au",
-    pageWidth / 2,
-    42,
-    {
-      align: "center"
-    }
-  );
-
-
-  /* CARDS */
 
   for (
     let i = 0;
@@ -1964,9 +2351,14 @@ async function generateBlipPDF(
     i++
   ) {
 
-    const itemOnPage =
-      i % 4;
 
+    /* 8 ITEMS PER PAGE */
+
+    const itemOnPage =
+      i % 8;
+
+
+    /* START NEW PAGE */
 
     if (
       i > 0 &&
@@ -1976,255 +2368,54 @@ async function generateBlipPDF(
       pdf.addPage();
 
 
-      pdf.setFillColor(
-        8,
-        11,
-        22
-      );
-
-
-      pdf.rect(
-        0,
-        0,
-        pageWidth,
-        pageHeight,
-        "F"
+      drawPDFHeader(
+        pdf,
+        mode,
+        blipList.length
       );
 
     }
+
+
+    const column =
+      itemOnPage % 2;
+
+
+    const row =
+      Math.floor(
+        itemOnPage / 2
+      );
 
 
     const x =
-      itemOnPage % 2 === 0
-        ? startX
-        : secondX;
+      column === 0
+        ? firstColumnX
+        : secondColumnX;
 
 
     const y =
-      itemOnPage < 2
-        ? startY
-        : secondY;
-
-
-    const blip =
-      blipList[i];
-
-
-    /* CARD BACKGROUND */
-
-    if (
-      mode === "wishlist"
-    ) {
-
-      pdf.setFillColor(
-        38,
-        17,
-        38
+      startY +
+      row *
+      (
+        cardHeight +
+        gapY
       );
 
-    }
 
-    else {
-
-      pdf.setFillColor(
-        18,
-        24,
-        48
-      );
-
-    }
-
-
-    pdf.roundedRect(
+    await drawPDFCard(
+      pdf,
+      blipList[i],
       x,
       y,
-      cardWidth,
-      cardHeight,
-      4,
-      4,
-      "F"
-    );
-
-
-    pdf.setDrawColor(
-      65,
-      72,
-      100
-    );
-
-
-    pdf.roundedRect(
-      x,
-      y,
-      cardWidth,
-      cardHeight,
-      4,
-      4
-    );
-
-
-    /* IMAGE */
-
-    try {
-
-      const imageData =
-        await imageToDataURL(
-          blip.image
-        );
-
-
-      pdf.addImage(
-        imageData,
-        "PNG",
-        x + 10,
-        y + 7,
-        62,
-        62,
-        undefined,
-        "FAST"
-      );
-
-    }
-
-    catch {
-
-      pdf.setFillColor(
-        35,
-        40,
-        60
-      );
-
-
-      pdf.roundedRect(
-        x + 10,
-        y + 7,
-        62,
-        62,
-        3,
-        3,
-        "F"
-      );
-
-    }
-
-
-    /* NAME */
-
-    pdf.setTextColor(
-      255,
-      255,
-      255
-    );
-
-
-    pdf.setFont(
-      "helvetica",
-      "bold"
-    );
-
-
-    pdf.setFontSize(
-      13
-    );
-
-
-    pdf.text(
-      blip.name,
-      x + cardWidth / 2,
-      y + 78,
-      {
-        align: "center",
-        maxWidth:
-          cardWidth - 10
-      }
-    );
-
-
-    /* TYPE */
-
-    pdf.setFont(
-      "helvetica",
-      "normal"
-    );
-
-
-    pdf.setFontSize(
-      8
-    );
-
-
-    if (
-      mode === "wishlist"
-    ) {
-
-      pdf.setTextColor(
-        255,
-        175,
-        214
-      );
-
-    }
-
-    else {
-
-      pdf.setTextColor(
-        170,
-        180,
-        255
-      );
-
-    }
-
-
-    pdf.text(
-      blip.type.toUpperCase(),
-      x + cardWidth / 2,
-      y + 85,
-      {
-        align: "center"
-      }
-    );
-
-
-    /* DETAILS */
-
-    pdf.setFontSize(
-      7.5
-    );
-
-
-    pdf.setTextColor(
-      175,
-      182,
-      200
-    );
-
-
-    pdf.text(
-      blip.releaseDate,
-      x + 6,
-      y + 94,
-      {
-        maxWidth:
-          cardWidth - 12
-      }
-    );
-
-
-    pdf.text(
-      blip.edition,
-      x + 6,
-      y + 101,
-      {
-        maxWidth:
-          cardWidth - 12
-      }
+      mode
     );
 
   }
 
 
-  /* FOOTER ON EVERY PAGE */
+  /* =================================================
+     FOOTERS
+  ================================================= */
 
   const totalPages =
     pdf.getNumberOfPages();
@@ -2241,22 +2432,43 @@ async function generateBlipPDF(
     );
 
 
-    pdf.setFontSize(
-      8
+    pdf.setDrawColor(
+      220,
+      222,
+      228
+    );
+
+
+    pdf.line(
+      margin,
+      pageHeight - 14,
+      pageWidth - margin,
+      pageHeight - 14
     );
 
 
     pdf.setTextColor(
-      100,
-      108,
-      130
+      115,
+      118,
+      125
+    );
+
+
+    pdf.setFont(
+      "helvetica",
+      "normal"
+    );
+
+
+    pdf.setFontSize(
+      7
     );
 
 
     pdf.text(
       "Loot in a Boot · Blipdex",
       margin,
-      pageHeight - 9
+      pageHeight - 8
     );
 
 
@@ -2266,7 +2478,7 @@ async function generateBlipPDF(
       " of " +
       totalPages,
       pageWidth - margin,
-      pageHeight - 9,
+      pageHeight - 8,
       {
         align: "right"
       }
@@ -2274,6 +2486,8 @@ async function generateBlipPDF(
 
   }
 
+
+  /* SAVE PDF */
 
   pdf.save(
     mode === "wishlist"
