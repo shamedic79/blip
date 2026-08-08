@@ -55,7 +55,6 @@ a {
 ===================================================== */
 
 header {
-
   position: sticky;
 
   top: 0;
@@ -77,32 +76,23 @@ header {
 
   border-bottom:
     1px solid rgba(216,166,92,.12);
-
 }
 
-
 .header-logo img {
-
   width: 125px;
 
   display: block;
 
   filter: invert(1);
-
 }
 
-
 nav {
-
   display: flex;
 
   gap: 28px;
-
 }
 
-
 nav a {
-
   position: relative;
 
   text-decoration: none;
@@ -111,20 +101,14 @@ nav a {
     rgba(255,255,255,.68);
 
   font-size: .93rem;
-
 }
-
 
 nav a:hover,
 nav a.active {
-
   color: #e9c78c;
-
 }
 
-
 nav a.active::after {
-
   content: "";
 
   position: absolute;
@@ -143,7 +127,6 @@ nav a.active::after {
       #d89e4e,
       transparent
     );
-
 }
 
 
@@ -152,18 +135,14 @@ nav a.active::after {
 ===================================================== */
 
 .page-intro {
-
   padding:
     42px 6%
     22px;
 
   text-align: center;
-
 }
 
-
 .page-intro p {
-
   max-width: 680px;
 
   margin: auto;
@@ -173,7 +152,6 @@ nav a.active::after {
   font-size: .95rem;
 
   line-height: 1.7;
-
 }
 
 
@@ -182,7 +160,6 @@ nav a.active::after {
 ===================================================== */
 
 .library-stage {
-
   position: relative;
 
   width:
@@ -214,7 +191,6 @@ nav a.active::after {
       0 35px 80px
       rgba(0,0,0,.55)
     );
-
 }
 
 
@@ -223,7 +199,6 @@ nav a.active::after {
 ===================================================== */
 
 .book {
-
   position: absolute;
 
   display: block;
@@ -238,7 +213,6 @@ nav a.active::after {
     rgba(221,172,92,.40);
 
   box-shadow:
-
     inset 5px 0 8px
     rgba(0,0,0,.34),
 
@@ -252,15 +226,11 @@ nav a.active::after {
     bottom center;
 
   transition:
-
     transform .22s ease,
-
     filter .22s ease,
-
     box-shadow .22s ease;
 
   z-index: 10;
-
 }
 
 
@@ -268,8 +238,7 @@ nav a.active::after {
    BOOK HOVER
 ===================================================== */
 
-.book:hover {
-
+.book-link:hover {
   transform:
     translateY(-7%)
     scale(1.06);
@@ -278,7 +247,6 @@ nav a.active::after {
     brightness(1.18);
 
   box-shadow:
-
     inset 5px 0 8px
     rgba(0,0,0,.28),
 
@@ -289,7 +257,6 @@ nav a.active::after {
     rgba(216,157,74,.18);
 
   z-index: 50;
-
 }
 
 
@@ -298,7 +265,6 @@ nav a.active::after {
 ===================================================== */
 
 .book::before {
-
   content: "";
 
   position: absolute;
@@ -314,7 +280,6 @@ nav a.active::after {
     2px 4px 4px 2px;
 
   pointer-events: none;
-
 }
 
 
@@ -323,7 +288,6 @@ nav a.active::after {
 ===================================================== */
 
 .book::after {
-
   content: "";
 
   position: absolute;
@@ -341,7 +305,6 @@ nav a.active::after {
   box-shadow:
     2px 0 4px
     rgba(0,0,0,.28);
-
 }
 
 
@@ -350,7 +313,6 @@ nav a.active::after {
 ===================================================== */
 
 .spine-symbol {
-
   position: absolute;
 
   left: 50%;
@@ -374,7 +336,6 @@ nav a.active::after {
     rgba(0,0,0,.70);
 
   z-index: 2;
-
 }
 
 
@@ -383,68 +344,41 @@ nav a.active::after {
 ===================================================== */
 
 .book-blue {
-
   background:
-
     linear-gradient(
       90deg,
-
       #0d2035,
-
       #174d78 45%,
-
       #102d49
     );
-
 }
-
 
 .book-red {
-
   background:
-
     linear-gradient(
       90deg,
-
       #31100d,
-
       #75291f 45%,
-
       #451610
     );
-
 }
 
-
 .book-black {
-
   background:
-
     linear-gradient(
       90deg,
-
       #08090a,
-
       #1b1c1f 45%,
-
       #09090b
     );
-
 }
 
 
 /* =====================================================
    BOOK POSITIONS
-
-   KEEP THESE POSITIONS.
-   THESE MATCH THE LIBRARY SHELF.
 ===================================================== */
 
-
-/* SHARK */
-
 .book-shark {
-
   left: 24%;
 
   top: 35.6%;
@@ -452,14 +386,9 @@ nav a.active::after {
   width: 5%;
 
   height: 16.2%;
-
 }
 
-
-/* PIRATE */
-
 .book-pirate {
-
   left: 30.3%;
 
   top: 36%;
@@ -467,14 +396,9 @@ nav a.active::after {
   width: 4.8%;
 
   height: 15.8%;
-
 }
 
-
-/* SECRET */
-
 .book-secret {
-
   left: 35.8%;
 
   top: 35.8%;
@@ -482,7 +406,6 @@ nav a.active::after {
   width: 4.6%;
 
   height: 16%;
-
 }
 
 
@@ -491,7 +414,6 @@ nav a.active::after {
 ===================================================== */
 
 .book-tooltip {
-
   position: absolute;
 
   left: 50%;
@@ -555,24 +477,18 @@ nav a.active::after {
 
   z-index:
     100;
-
 }
 
-
-.book:hover .book-tooltip {
-
+.book-link:hover .book-tooltip {
   opacity:
     1;
 
   transform:
     translateX(-50%)
     translateY(0);
-
 }
 
-
 .tooltip-status {
-
   display:
     block;
 
@@ -595,301 +511,24 @@ nav a.active::after {
 
   letter-spacing:
     .10em;
-
 }
 
 
 /* =====================================================
-   SECRET BOOK STATE
+   MYSTERY BOOK
 ===================================================== */
 
-.book[data-status="secret"] {
+.book-mystery {
+  cursor:
+    default;
 
   filter:
     brightness(.72);
-
 }
 
-
-.book[data-status="secret"]:hover {
-
-  filter:
-    brightness(.94);
-
-}
-
-
-/* =====================================================
-   SMALL LOCK ICON
-===================================================== */
-
-.book-lock {
-
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 8%;
-
-  transform:
-    translateX(-50%);
-
-  color:
-    rgba(218,174,102,.72);
-
-  font-size:
-    clamp(.34rem,.55vw,.55rem);
-
-  z-index: 3;
-
-}
-
-
-/* =====================================================
-   PASSWORD OVERLAY
-===================================================== */
-
-.unlock-overlay {
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 9999;
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-
-  background:
-    rgba(0,0,0,.80);
-
-  backdrop-filter:
-    blur(8px);
-
-}
-
-
-.unlock-overlay.show {
-
-  display:
-    flex;
-
-}
-
-
-/* =====================================================
-   PASSWORD BOX
-===================================================== */
-
-.unlock-modal {
-
-  width:
-    min(500px,100%);
-
-  padding:
-    36px;
-
-  border-radius:
-    24px;
-
-  border:
-    1px solid
-    rgba(221,168,87,.35);
-
-  background:
-
-    linear-gradient(
-      180deg,
-
-      #18100a,
-
-      #080605
-    );
-
-  box-shadow:
-    0 35px 90px
-    rgba(0,0,0,.70);
-
-  text-align:
-    center;
-
-}
-
-
-.unlock-icon {
-
-  font-size:
-    2.1rem;
-
-  margin-bottom:
-    12px;
-
-}
-
-
-.unlock-modal h2 {
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:
-    #dfbb7c;
-
-  font-size:
-    2rem;
-
-  margin-bottom:
-    12px;
-
-}
-
-
-.unlock-modal p {
-
-  color:
-    #aaa39a;
-
-  line-height:
-    1.65;
-
-}
-
-
-/* =====================================================
-   PASSWORD INPUT
-===================================================== */
-
-.unlock-input {
-
-  width:
-    100%;
-
-  margin-top:
-    24px;
-
-  padding:
-    14px 16px;
-
-  border-radius:
-    12px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.13);
-
-  background:
-    rgba(255,255,255,.04);
-
-  color:
-    white;
-
-  text-align:
-    center;
-
-  font-size:
-    1rem;
-
-  outline:
-    none;
-
-}
-
-
-.unlock-input:focus {
-
-  border-color:
-    rgba(221,174,99,.55);
-
-}
-
-
-/* =====================================================
-   PASSWORD BUTTONS
-===================================================== */
-
-.unlock-actions {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:
-    10px;
-
-  margin-top:
-    16px;
-
-}
-
-
-.unlock-button {
-
-  padding:
-    13px;
-
-  border-radius:
-    12px;
-
-  border:
-    none;
-
-  cursor:
-    pointer;
-
-  font-weight:
-    800;
-
-}
-
-
-.unlock-primary {
-
-  background:
-    #dfbc82;
-
-  color:
-    #120c07;
-
-}
-
-
-.unlock-secondary {
-
-  background:
-    rgba(255,255,255,.05);
-
-  color:
-    white;
-
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
-}
-
-
-.unlock-error {
-
-  min-height:
-    20px;
-
-  margin-top:
-    12px;
-
-  color:
-    #ff9f9f;
-
-  font-size:
-    .82rem;
-
+.book-mystery .spine-symbol {
+  opacity:
+    .75;
 }
 
 
@@ -898,7 +537,6 @@ nav a.active::after {
 ===================================================== */
 
 footer {
-
   padding:
     40px 6%;
 
@@ -920,7 +558,6 @@ footer {
 
   gap:
     20px;
-
 }
 
 
@@ -930,74 +567,44 @@ footer {
 
 @media(max-width:700px) {
 
-
   nav {
-
     display:
       none;
-
   }
-
 
   header {
-
     padding:
       15px 5%;
-
   }
-
 
   .header-logo img {
-
     width:
       105px;
-
   }
 
-
   .page-intro {
-
     padding:
       30px 5%
       15px;
-
   }
 
-
   .library-stage {
-
     width:
       100vw;
 
     margin-bottom:
       45px;
-
   }
-
 
   .book-tooltip {
-
     display:
       none;
-
   }
-
 
   .spine-symbol {
-
     font-size:
       clamp(.38rem,2vw,.7rem);
-
   }
-
-
-  .unlock-actions {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
 
 }
 
@@ -1015,7 +622,6 @@ footer {
 
 <header>
 
-
   <a
     class="header-logo"
     href="index.html"
@@ -1031,40 +637,26 @@ footer {
 
   <nav>
 
-
     <a href="index.html">
-
       Home
-
     </a>
-
 
     <a
       href="adventures.html"
       class="active"
     >
-
       Adventures
-
     </a>
-
 
     <a href="pins.html">
-
       Blipdex
-
     </a>
-
 
     <a href="collection.html">
-
       My Collection
-
     </a>
 
-
   </nav>
-
 
 </header>
 
@@ -1079,11 +671,9 @@ footer {
 <section class="page-intro">
 
   <p>
-
     Pull a book from the shelf and discover stories,
     strange places and adventures from across the
     Loot in a Boot universe.
-
   </p>
 
 </section>
@@ -1097,56 +687,36 @@ footer {
 <div class="library-stage">
 
 
-
   <!-- =================================================
        SHARK BLIP
-       OPEN - NO PASSWORD
   ================================================== -->
 
   <a
-
     class="
       book
+      book-link
       book-blue
       book-shark
     "
 
     href="shark-adventure.html"
 
-    data-book-id="
-      shark-adventure
-    "
-
-    data-status="
-      open
-    "
-
-    aria-label="
-      Read Blip: The Shark Adventure
-    "
-
+    aria-label="Read Blip: The Shark Adventure"
   >
 
-
     <span class="spine-symbol">
-
       ◢
-
     </span>
-
 
     <div class="book-tooltip">
 
       Blip: The Shark Adventure
 
       <span class="tooltip-status">
-
         Read Story
-
       </span>
 
     </div>
-
 
   </a>
 
@@ -1154,122 +724,59 @@ footer {
 
   <!-- =================================================
        PIRATE BLIP
-       OPEN
   ================================================== -->
 
   <a
-
     class="
       book
+      book-link
       book-red
       book-pirate
     "
 
     href="pirate-adventure.html"
 
-    data-book-id="
-      pirate-adventure
-    "
-
-    data-status="
-      open
-    "
-
-    aria-label="
-      Read Blip: Pirates
-    "
-
+    aria-label="Read Blip: Pirates"
   >
 
-
     <span class="spine-symbol">
-
       ☠
-
     </span>
-
 
     <div class="book-tooltip">
 
       Blip: Pirates!
 
       <span class="tooltip-status">
-
         Read Story
-
       </span>
 
     </div>
-
 
   </a>
 
 
 
   <!-- =================================================
-       SECRET STORY
-       PASSWORD PROTECTED
+       MYSTERY / FUTURE BOOK
   ================================================== -->
 
-  <a
-
+  <div
     class="
       book
       book-black
       book-secret
+      book-mystery
     "
 
-    href="
-      secret-story.html
-    "
-
-    data-book-id="
-      secret-story-one
-    "
-
-    data-status="
-      secret
-    "
-
-    data-password="
-      TREASURE
-    "
-
-    aria-label="
-      Discover a secret story
-    "
-
+    aria-label="Undiscovered story"
   >
 
-
     <span class="spine-symbol">
-
       ?
-
     </span>
 
-
-    <span class="book-lock">
-
-      🔒
-
-    </span>
-
-
-    <div class="book-tooltip">
-
-      ???
-
-      <span class="tooltip-status">
-
-        Undiscovered Story
-
-      </span>
-
-    </div>
-
-
-  </a>
+  </div>
 
 
 </div>
@@ -1285,484 +792,15 @@ footer {
 
 <footer>
 
-
   <div>
-
     Loot in a Boot
-
   </div>
-
 
   <div>
-
     The Loot Library · Every treasure has a story.
-
   </div>
-
 
 </footer>
-
-
-
-<!-- =====================================================
-     PASSWORD MODAL
-     STILL USED FOR FUTURE SECRET BOOKS
-===================================================== -->
-
-<div
-  id="unlockOverlay"
-  class="unlock-overlay"
->
-
-
-  <div class="unlock-modal">
-
-
-    <div class="unlock-icon">
-
-      🔐
-
-    </div>
-
-
-    <h2 id="unlockTitle">
-
-      This story is locked.
-
-    </h2>
-
-
-    <p id="unlockMessage">
-
-      Enter the secret word to discover this story.
-
-    </p>
-
-
-    <input
-
-      id="unlockInput"
-
-      class="unlock-input"
-
-      type="text"
-
-      autocomplete="off"
-
-      placeholder="
-        Enter secret word
-      "
-
-    >
-
-
-    <div class="unlock-actions">
-
-
-      <button
-
-        class="
-          unlock-button
-          unlock-primary
-        "
-
-        onclick="
-          submitUnlock()
-        "
-
-      >
-
-        Unlock Story
-
-      </button>
-
-
-      <button
-
-        class="
-          unlock-button
-          unlock-secondary
-        "
-
-        onclick="
-          closeUnlock()
-        "
-
-      >
-
-        Maybe Later
-
-      </button>
-
-
-    </div>
-
-
-    <div
-      id="unlockError"
-      class="unlock-error"
-    ></div>
-
-
-  </div>
-
-
-</div>
-
-
-
-<script>
-
-
-/* =====================================================
-   LOOT LIBRARY PASSWORD SYSTEM
-
-   OPEN books go straight to their story.
-   SECRET books require their password.
-===================================================== */
-
-let activeBook = null;
-
-
-/* =====================================================
-   CHECK IF BOOK HAS ALREADY BEEN UNLOCKED
-===================================================== */
-
-function isBookUnlocked(bookId) {
-
-  return localStorage.getItem(
-    "lootLibraryUnlocked_" + bookId
-  ) === "yes";
-
-}
-
-
-/* =====================================================
-   SAVE UNLOCK
-===================================================== */
-
-function saveBookUnlock(bookId) {
-
-  localStorage.setItem(
-    "lootLibraryUnlocked_" + bookId,
-    "yes"
-  );
-
-}
-
-
-/* =====================================================
-   BOOK CLICK HANDLING
-===================================================== */
-
-document
-  .querySelectorAll(
-    ".book[data-status]"
-  )
-  .forEach(book => {
-
-
-    book.addEventListener(
-      "click",
-      function(event) {
-
-
-        const status =
-          this.dataset.status;
-
-
-        const bookId =
-          this.dataset.bookId;
-
-
-        /* OPEN BOOKS GO STRAIGHT THROUGH */
-
-        if (
-          status === "open"
-        ) {
-
-          return;
-
-        }
-
-
-        /* ALREADY UNLOCKED SECRET BOOK */
-
-        if (
-          isBookUnlocked(bookId)
-        ) {
-
-          return;
-
-        }
-
-
-        /* LOCKED BOOK */
-
-        event.preventDefault();
-
-
-        activeBook =
-          this;
-
-
-        openUnlock();
-
-
-      }
-    );
-
-
-  });
-
-
-/* =====================================================
-   OPEN PASSWORD BOX
-===================================================== */
-
-function openUnlock() {
-
-
-  const overlay =
-    document.getElementById(
-      "unlockOverlay"
-    );
-
-
-  const title =
-    document.getElementById(
-      "unlockTitle"
-    );
-
-
-  const message =
-    document.getElementById(
-      "unlockMessage"
-    );
-
-
-  const input =
-    document.getElementById(
-      "unlockInput"
-    );
-
-
-  document.getElementById(
-    "unlockError"
-  ).textContent = "";
-
-
-  input.value = "";
-
-
-  title.textContent =
-    "A hidden story";
-
-
-  message.textContent =
-    "This book has not been discovered yet. Somewhere out there is the word that unlocks it.";
-
-
-  overlay.classList.add(
-    "show"
-  );
-
-
-  setTimeout(
-    () => {
-
-      input.focus();
-
-    },
-    100
-  );
-
-
-}
-
-
-/* =====================================================
-   CLOSE PASSWORD BOX
-===================================================== */
-
-function closeUnlock() {
-
-
-  document
-    .getElementById(
-      "unlockOverlay"
-    )
-    .classList.remove(
-      "show"
-    );
-
-
-  activeBook =
-    null;
-
-
-}
-
-
-/* =====================================================
-   CHECK PASSWORD
-===================================================== */
-
-function submitUnlock() {
-
-
-  if (!activeBook) {
-
-    return;
-
-  }
-
-
-  const input =
-    document.getElementById(
-      "unlockInput"
-    );
-
-
-  const entered =
-    input
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const correct =
-    activeBook
-      .dataset
-      .password
-      .trim()
-      .toUpperCase();
-
-
-  /* CORRECT PASSWORD */
-
-  if (
-    entered === correct
-  ) {
-
-
-    const bookId =
-      activeBook
-        .dataset
-        .bookId;
-
-
-    saveBookUnlock(
-      bookId
-    );
-
-
-    const destination =
-      activeBook.href;
-
-
-    document.getElementById(
-      "unlockTitle"
-    ).textContent =
-      "Story discovered!";
-
-
-    document.getElementById(
-      "unlockMessage"
-    ).textContent =
-      "The book is yours to open.";
-
-
-    document.getElementById(
-      "unlockError"
-    ).textContent =
-      "";
-
-
-    setTimeout(
-      () => {
-
-        window.location.href =
-          destination;
-
-      },
-      700
-    );
-
-
-  }
-
-
-  /* WRONG PASSWORD */
-
-  else {
-
-
-    document.getElementById(
-      "unlockError"
-    ).textContent =
-      "That doesn't seem to be the right word.";
-
-
-  }
-
-
-}
-
-
-/* =====================================================
-   ENTER KEY SUBMITS PASSWORD
-===================================================== */
-
-document
-  .getElementById(
-    "unlockInput"
-  )
-  .addEventListener(
-    "keydown",
-    function(event) {
-
-
-      if (
-        event.key === "Enter"
-      ) {
-
-        submitUnlock();
-
-      }
-
-
-    }
-  );
-
-
-/* =====================================================
-   CLICK OUTSIDE MODAL TO CLOSE
-===================================================== */
-
-document
-  .getElementById(
-    "unlockOverlay"
-  )
-  .addEventListener(
-    "click",
-    function(event) {
-
-
-      if (
-        event.target === this
-      ) {
-
-        closeUnlock();
-
-      }
-
-
-    }
-  );
-
-
-</script>
 
 
 </body>
