@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blip Figures & Resin | Loot in a Boot</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at 70% 25%, rgba(89,76,255,.16), transparent 30%),
+    radial-gradient(circle at 20% 70%, rgba(0,174,255,.07), transparent 30%),
+    linear-gradient(180deg,#070910 0%,#0b1020 55%,#05070d 100%);
+
+  color: white;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 6%;
+
+  background: rgba(5,7,13,.78);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.header-logo img {
+  width: 125px;
+  display: block;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,.72);
+
+  font-size: .95rem;
+
+  transition: .2s ease;
+}
+
+nav a:hover {
+  color: white;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: calc(100vh - 82px);
+
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+
+  align-items: center;
+
+  gap: 60px;
+
+  padding: 70px 6% 80px;
+
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -80px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(76,93,255,.20),
+      rgba(96,61,255,.08) 42%,
+      transparent 70%
+    );
+
+  filter: blur(10px);
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 8px 14px;
+  margin-bottom: 22px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.05);
+
+  color: #c8cffd;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem,6vw,6.2rem);
+
+  line-height: .97;
+
+  margin-bottom: 26px;
+}
+
+.hero h1 span {
+  display: block;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7182ff,
+      #8568ff
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.intro {
+  max-width: 590px;
+
+  color: #bcc3d1;
+
+  line-height: 1.8;
+  font-size: 1.08rem;
+}
+
+.expected {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 32px;
+
+  padding: 13px 18px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(124,111,255,.35);
+
+  background:
+    rgba(104,83,255,.08);
+
+  color: #aeb7ff;
+
+  font-size: .82rem;
+  font-weight: 700;
+
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.expected-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #8793ff;
+
+  box-shadow:
+    0 0 12px rgba(135,147,255,.8);
+}
+
+.back-link {
+  display: block;
+
+  width: fit-content;
+
+  margin-top: 25px;
+
+  color: #8f97a8;
+
+  text-decoration: none;
+
+  font-size: .9rem;
+
+  transition: .2s ease;
+}
+
+.back-link:hover {
+  color: white;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+
+  min-height: 680px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  display: block;
+
+  width: min(720px,100%);
+  max-height: 720px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 30px 45px rgba(0,0,0,.40))
+    drop-shadow(0 0 45px rgba(70,88,255,.16));
+
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+
+/* =========================================================
+   LITTLE TEASER
+========================================================= */
+
+.teaser {
+  position: relative;
+
+  padding: 90px 6%;
+
+  text-align: center;
+
+  background:
+    rgba(255,255,255,.018);
+
+  border-top:
+    1px solid rgba(255,255,255,.06);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.06);
+}
+
+.teaser-inner {
+  max-width: 800px;
+
+  margin: auto;
+}
+
+.teaser-label {
+  color: #8793ff;
+
+  font-size: .76rem;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  margin-bottom: 16px;
+}
+
+.teaser h2 {
+  font-size: clamp(2rem,4vw,3.6rem);
+
+  margin-bottom: 18px;
+}
+
+.teaser p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #aeb5c4;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding: 42px 6%;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  color: #7f8796;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    text-align: center;
+
+    padding-top: 70px;
+  }
+
+  .hero-copy {
+    margin: auto;
+  }
+
+  .intro {
+    margin: auto;
+  }
+
+  .expected {
+    justify-content: center;
+  }
+
+  .back-link {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-image {
+    min-height: 500px;
+  }
+
+  .hero-image img {
+    width: min(650px,95%);
+  }
+
+}
+
+
+@media(max-width:620px) {
+
+  header {
+    padding: 15px 5%;
+  }
+
+  .header-logo img {
+    width: 105px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      60px 5%
+      55px;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero-image {
+    min-height: 400px;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+
+  .teaser {
+    padding:
+      70px 5%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Blip">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="adventures.html">Adventures</a>
+    <a href="pins.html">Blipdex</a>
+    <a href="collection.html">My Collection</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+  <!-- COPY -->
+
+  <div class="hero-copy">
+
+    <span class="eyebrow">
+      Blip Figures & Resin
+    </span>
+
+    <h1>
+      Escaping the<br>
+      <span>pin board.</span>
+    </h1>
+
+    <p class="intro">
+      Blip has spent long enough being flat.
+      The little traveller is making the leap into three dimensions,
+      with figures and resin pieces currently being explored for the
+      next chapter of Blip's journey.
+    </p>
+
+
+    <div class="expected">
+
+      <span class="expected-dot"></span>
+
+      Expected in 2027
+
+    </div>
+
+
+    <a class="back-link" href="index.html">
+      ← Back to Blip
+    </a>
+
+  </div>
+
+
+  <!-- IMAGE -->
+
+  <div class="hero-image">
+
+    <img
+      src="images/blip-field-guide.png"
+      alt="Blip escaping from the Blip Field Guide"
+    >
+
+  </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     TEASER
+===================================================== -->
+
+<section class="teaser">
+
+  <div class="teaser-inner">
+
+    <div class="teaser-label">
+      The next dimension
+    </div>
+
+    <h2>
+      Something is trying to get out.
+    </h2>
+
+    <p>
+      Blip's world is getting a little less flat.
+      More will be revealed as the first figures and resin releases
+      get closer to escaping into the wild.
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    Small creature. Big adventures.
+  </div>
+
+</footer>
+
+
+</body>
+</html>
