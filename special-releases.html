@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blip Special Releases | Loot in a Boot</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at 78% 12%, rgba(106,72,255,.16), transparent 28%),
+    radial-gradient(circle at 18% 62%, rgba(0,174,255,.08), transparent 30%),
+    linear-gradient(180deg,#070910 0%,#0b1020 50%,#05070d 100%);
+
+  color: white;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 6%;
+
+  background: rgba(5,7,13,.78);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.header-logo img {
+  width: 125px;
+  display: block;
+  filter: invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,.72);
+  font-size: .95rem;
+  transition: .2s ease;
+}
+
+nav a:hover {
+  color: white;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  padding: 100px 6% 80px;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.hero::after {
+  content:"";
+
+  position:absolute;
+
+  width:520px;
+  height:520px;
+
+  right:-100px;
+  top:-120px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(118,71,255,.22),
+      transparent 68%
+    );
+
+  filter:blur(12px);
+}
+
+.eyebrow {
+  display:inline-block;
+
+  padding:8px 14px;
+  margin-bottom:20px;
+
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.04);
+
+  color:#c8cffd;
+
+  font-size:.78rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.hero h1 {
+  position:relative;
+  z-index:2;
+
+  max-width:900px;
+
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.98;
+
+  margin-bottom:24px;
+}
+
+.hero p {
+  position:relative;
+  z-index:2;
+
+  max-width:780px;
+
+  color:#bcc3d1;
+
+  line-height:1.75;
+  font-size:1.08rem;
+}
+
+.back-link {
+  display:inline-block;
+
+  margin-top:30px;
+
+  padding:12px 18px;
+
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.16);
+
+  text-decoration:none;
+
+  color:#d8dbea;
+
+  transition:.2s ease;
+}
+
+.back-link:hover {
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.3);
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+main {
+  width:100%;
+}
+
+.release-section {
+  padding:110px 6%;
+}
+
+.release-section.alt {
+  background:rgba(255,255,255,.018);
+
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.release-wrap {
+  max-width:1400px;
+  margin:auto;
+}
+
+.release-header {
+  display:grid;
+
+  grid-template-columns:.45fr 1fr;
+
+  gap:60px;
+
+  align-items:start;
+
+  margin-bottom:55px;
+}
+
+.release-date {
+  color:#8793ff;
+
+  font-size:.82rem;
+  font-weight:700;
+
+  letter-spacing:.16em;
+  text-transform:uppercase;
+
+  margin-bottom:12px;
+}
+
+.release-title {
+  font-size:clamp(2.6rem,5vw,5rem);
+
+  line-height:1;
+
+  margin-bottom:14px;
+}
+
+.release-subtitle {
+  color:white;
+
+  font-size:1.25rem;
+  font-weight:700;
+}
+
+.release-copy {
+  max-width:760px;
+
+  color:#b9bfcd;
+
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+.release-copy p + p {
+  margin-top:18px;
+}
+
+
+/* =========================================================
+   PIN CARDS
+========================================================= */
+
+.pin-grid {
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:22px;
+}
+
+.pin-card {
+  position:relative;
+
+  min-height:440px;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  border:1px solid rgba(255,255,255,.09);
+
+  background:
+    radial-gradient(
+      circle at 65% 20%,
+      rgba(99,83,255,.18),
+      transparent 42%
+    ),
+    rgba(255,255,255,.03);
+
+  padding:24px;
+
+  display:flex;
+  flex-direction:column;
+
+  transition:.25s ease;
+}
+
+.pin-card:hover {
+  transform:translateY(-6px);
+
+  border-color:rgba(255,255,255,.18);
+
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+
+.pin-image {
+  min-height:270px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pin-image img {
+  width:min(250px,90%);
+  max-height:250px;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 24px rgba(71,103,255,.26))
+    drop-shadow(0 16px 26px rgba(0,0,0,.35));
+}
+
+.pin-info {
+  margin-top:auto;
+}
+
+.pin-label {
+  color:#8793ff;
+
+  font-size:.72rem;
+  font-weight:700;
+
+  letter-spacing:.13em;
+  text-transform:uppercase;
+
+  margin-bottom:8px;
+}
+
+.pin-card h3 {
+  font-size:1.45rem;
+
+  line-height:1.15;
+
+  margin-bottom:8px;
+}
+
+.pin-card p {
+  color:#9fa7b7;
+
+  line-height:1.55;
+  font-size:.9rem;
+}
+
+
+/* =========================================================
+   SINGAPORE SECTION
+========================================================= */
+
+.singapore-grid {
+  grid-template-columns:repeat(2,1fr);
+
+  max-width:800px;
+}
+
+.singapore-grid .pin-card {
+  min-height:500px;
+}
+
+.singapore-grid .pin-image {
+  min-height:330px;
+}
+
+.singapore-grid .pin-image img {
+  width:min(330px,92%);
+  max-height:325px;
+}
+
+
+/* =========================================================
+   TIMELINE NOTE
+========================================================= */
+
+.timeline-note {
+  margin-top:65px;
+
+  padding:28px 30px;
+
+  border-radius:24px;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  background:rgba(255,255,255,.025);
+
+  color:#aeb5c4;
+
+  line-height:1.7;
+}
+
+.timeline-note strong {
+  color:white;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding:42px 6%;
+
+  border-top:1px solid rgba(255,255,255,.08);
+
+  color:#7f8796;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px) {
+
+  .pin-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+@media(max-width:850px) {
+
+  .release-header {
+    grid-template-columns:1fr;
+
+    gap:25px;
+  }
+
+}
+
+
+@media(max-width:650px) {
+
+  header {
+    padding:15px 5%;
+  }
+
+  .header-logo img {
+    width:105px;
+  }
+
+  nav {
+    display:none;
+  }
+
+  .hero {
+    padding:70px 5% 60px;
+  }
+
+  .release-section {
+    padding:80px 5%;
+  }
+
+  .pin-grid,
+  .singapore-grid {
+    grid-template-columns:1fr;
+  }
+
+  .pin-card {
+    min-height:400px;
+  }
+
+  .pin-image {
+    min-height:250px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <a class="header-logo" href="index.html">
+    <img src="blip-logo.png" alt="Blip">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="adventures.html">Adventures</a>
+    <a href="pins.html">Blipdex</a>
+    <a href="collection.html">My Collection</a>
+  </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <span class="eyebrow">
+    Blip history
+  </span>
+
+  <h1>
+    Special Releases
+  </h1>
+
+  <p>
+    Some Blips are more than another release. They mark a moment —
+    the beginning of the journey, a new place, a convention, a collaboration
+    or another milestone in Blip's story.
+  </p>
+
+  <a class="back-link" href="index.html">
+    ← Back to Blip
+  </a>
+
+</section>
+
+
+<!-- =====================================================
+     KICKSTARTER
+===================================================== -->
+
+<section class="release-section">
+
+  <div class="release-wrap">
+
+    <div class="release-header">
+
+      <div>
+
+        <div class="release-date">
+          May 2025
+        </div>
+
+        <h2 class="release-title">
+          Kickstarter
+        </h2>
+
+        <div class="release-subtitle">
+          Where Blip began.
+        </div>
+
+      </div>
+
+
+      <div class="release-copy">
+
+        <p>
+          Blip's first big adventure was Kickstarter.
+        </p>
+
+        <p>
+          The campaign was created to help kick Blip's existence off and
+          bring the first collection of enamel pins into the real world.
+          Alongside the original releases came special green Kickstarter
+          colourways made to mark the very beginning of the journey.
+        </p>
+
+        <p>
+          These releases represent the starting point — the moment Blip
+          went from an idea to something collectors could actually hold.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="pin-grid">
+
+
+      <!-- GREEN SUPERHERO -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/superhero-green.png"
+            alt="Green Superhero Blip Kickstarter pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            Kickstarter Release
+          </div>
+
+          <h3>
+            Green Superhero Blip
+          </h3>
+
+          <p>
+            Special Kickstarter colourway from Blip's original launch.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GREEN OCCIE -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/occie-green.png"
+            alt="Green Occie Blip Kickstarter pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            Kickstarter Release
+          </div>
+
+          <h3>
+            Green Occie Blip
+          </h3>
+
+          <p>
+            The Kickstarter green edition of Blip's tentacled disguise.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GREEN PIRATE -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/pirate-green.png"
+            alt="Green Pirate Blip Kickstarter pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            Kickstarter Release
+          </div>
+
+          <h3>
+            Green Pirate Blip
+          </h3>
+
+          <p>
+            A special green pirate colourway released through the original campaign.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GREEN PIRATE MEGA -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/pirate-green.png"
+            alt="Green Pirate Blip Mega Kickstarter pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            Kickstarter · 4&quot; · OLV10
+          </div>
+
+          <h3>
+            Green Pirate Mega
+          </h3>
+
+          <p>
+            The oversized 4-inch Kickstarter Pirate Blip, limited to only ten.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="timeline-note">
+      <strong>The beginning.</strong>
+      Kickstarter wasn't simply another release — it was the campaign that
+      helped bring Blip into existence.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SINGAPORE
+===================================================== -->
+
+<section class="release-section alt">
+
+  <div class="release-wrap">
+
+    <div class="release-header">
+
+      <div>
+
+        <div class="release-date">
+          21–23 August 2026
+        </div>
+
+        <h2 class="release-title">
+          Singapore
+        </h2>
+
+        <div class="release-subtitle">
+          Blip goes international.
+        </div>
+
+      </div>
+
+
+      <div class="release-copy">
+
+        <p>
+          In August 2026, Blip packed his bags for Singapore as Loot in a Boot
+          made its Singapore debut at POP TOY SHOW Singapore.
+        </p>
+
+        <p>
+          To celebrate the occasion, two Blip pins were created especially
+          around the Singapore adventure: Blipion, with Blip dressed in his
+          own Merlion-inspired disguise, and Blip in Singapore, capturing
+          the little traveller surrounded by some unmistakably Singaporean sights.
+        </p>
+
+        <p>
+          The release celebrated Loot in a Boot launching in Singapore
+          alongside our friends at Otakaraya, who hosted Blip and R.K.
+          at their POP TOY SHOW 2026 booth.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="pin-grid singapore-grid">
+
+
+      <!-- BLIPION -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/singapore-merlion-costume.png"
+            alt="Blipion Singapore Merlion pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            POP TOY SHOW Singapore 2026 · LE50
+          </div>
+
+          <h3>
+            Blipion
+          </h3>
+
+          <p>
+            Blip's Merlion-inspired Singapore disguise, featuring a pearlescent
+            finish and translucent blue water.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- BLIP IN SINGAPORE -->
+
+      <div class="pin-card">
+
+        <div class="pin-image">
+          <img
+            src="images/singapore-merlion-adventure.png"
+            alt="Blip in Singapore pin"
+          >
+        </div>
+
+        <div class="pin-info">
+
+          <div class="pin-label">
+            POP TOY SHOW Singapore 2026 · LE50
+          </div>
+
+          <h3>
+            Blip in Singapore
+          </h3>
+
+          <p>
+            A celebration of Blip's Singapore adventure and Loot in a Boot's
+            debut at POP TOY SHOW Singapore.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="timeline-note">
+      <strong>A new country, another chapter.</strong>
+      Singapore marked Blip's first dedicated international launch moment,
+      celebrated with Otakaraya at POP TOY SHOW Singapore 2026.
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div>
+    BLIP · Loot in a Boot
+  </div>
+
+  <div>
+    Small creature. Big adventures.
+  </div>
+
+</footer>
+
+
+</body>
+</html>
