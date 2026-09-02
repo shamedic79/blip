@@ -566,147 +566,6 @@ section {
 
 
 /* =========================================================
-   FEATURED BLIP
-========================================================= */
-
-.featured-blip {
-  margin-top:70px;
-
-  display:grid;
-
-  grid-template-columns:.85fr 1.15fr;
-
-  align-items:center;
-
-  gap:60px;
-
-  padding:55px;
-
-  border-radius:34px;
-
-  border:1px solid rgba(255,255,255,.09);
-
-  background:
-    radial-gradient(circle at 20% 50%,rgba(72,89,255,.18),transparent 35%),
-    rgba(255,255,255,.025);
-}
-
-.featured-image {
-  min-height:420px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.featured-image img {
-  width:min(430px,95%);
-
-  filter:
-    drop-shadow(0 0 24px rgba(66,111,255,.35))
-    drop-shadow(0 0 60px rgba(110,66,255,.20));
-}
-
-.featured-content .mini-label {
-  display:inline-block;
-
-  color:#8793ff;
-
-  font-size:.75rem;
-  font-weight:700;
-
-  text-transform:uppercase;
-  letter-spacing:.15em;
-
-  margin-bottom:14px;
-}
-
-.featured-content h3 {
-  font-size:clamp(2.4rem,4vw,4rem);
-
-  margin-bottom:16px;
-}
-
-.featured-content p {
-  max-width:600px;
-
-  color:#b9bfcd;
-
-  line-height:1.75;
-}
-
-.details {
-  margin-top:26px;
-
-  display:flex;
-  flex-wrap:wrap;
-
-  gap:10px;
-}
-
-.detail-pill {
-  padding:8px 12px;
-
-  border-radius:999px;
-
-  border:1px solid rgba(255,255,255,.12);
-
-  color:#bec4d1;
-
-  background:rgba(255,255,255,.03);
-
-  font-size:.8rem;
-}
-
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery-grid {
-  margin-top:45px;
-
-  display:grid;
-
-  grid-template-columns:1.4fr .8fr .8fr;
-
-  gap:18px;
-}
-
-.gallery-box {
-  min-height:320px;
-
-  border-radius:26px;
-
-  border:1px solid rgba(255,255,255,.09);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(75,104,255,.18),
-      transparent 55%
-    ),
-    rgba(255,255,255,.03);
-
-  display:flex;
-
-  align-items:flex-end;
-
-  padding:25px;
-
-  color:rgba(255,255,255,.7);
-
-  transition:.25s ease;
-}
-
-.gallery-box:hover {
-  transform:translateY(-5px);
-
-  border-color:rgba(255,255,255,.18);
-}
-
-
-/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -766,26 +625,6 @@ footer {
 
   .collection-note {
     margin-top:20px;
-  }
-
-  .featured-blip {
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-    gap:20px;
-  }
-
-  .featured-content p {
-    margin:auto;
-  }
-
-  .details {
-    justify-content:center;
-  }
-
-  .gallery-grid {
-    grid-template-columns:1fr;
   }
 
 }
@@ -850,14 +689,6 @@ footer {
     min-height:330px;
   }
 
-  .featured-blip {
-    padding:30px 20px;
-  }
-
-  .featured-image {
-    min-height:300px;
-  }
-
 }
 
 </style>
@@ -881,7 +712,6 @@ footer {
     <a href="#about">Meet Blip</a>
     <a href="adventures.html">Adventures</a>
     <a href="#collection">Collection</a>
-    <a href="#gallery">Gallery</a>
   </nav>
 
 </header>
@@ -1093,7 +923,7 @@ footer {
 
     <!-- FIGURES -->
 
-    <a class="collection-card figures" href="#featured">
+    <a class="collection-card figures" href="#">
 
       <div class="collection-glow"></div>
 
@@ -1121,9 +951,9 @@ footer {
     </a>
 
 
-    <!-- SPECIAL -->
+    <!-- SPECIAL RELEASES -->
 
-    <a class="collection-card special" href="#featured">
+    <a class="collection-card special" href="special-releases.html">
 
       <div class="collection-glow"></div>
 
@@ -1138,8 +968,7 @@ footer {
         </h3>
 
         <p>
-          Event exclusives, collaborations, unusual variants and
-          Blips that appeared only briefly before disappearing again.
+          The releases that marked a moment in Blip's story.
         </p>
 
         <span class="collection-arrow">
@@ -1183,95 +1012,6 @@ footer {
 
     </a>
 
-
-  </div>
-
-
-  <!-- FEATURED CLASSIC BLIP -->
-
-  <div class="featured-blip" id="featured">
-
-    <div class="featured-image">
-
-      <img
-        src="blip.png"
-        alt="Classic Blip"
-      >
-
-    </div>
-
-
-    <div class="featured-content">
-
-      <span class="mini-label">
-        Where it began
-      </span>
-
-      <h3>
-        Classic Blip
-      </h3>
-
-      <p>
-        The original little traveller. Before the costumes, strange places,
-        ocean creatures and unexpected adventures, there was simply Blip.
-      </p>
-
-      <div class="details">
-
-        <span class="detail-pill">
-          Original Character
-        </span>
-
-        <span class="detail-pill">
-          Blip
-        </span>
-
-        <span class="detail-pill">
-          Loot in a Boot
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-
-<section id="gallery">
-
-  <div class="section-kicker">
-    From the Blipverse
-  </div>
-
-  <h2 class="section-title">
-    Gallery
-  </h2>
-
-  <p class="section-copy">
-    Artwork, adventures, releases and moments from the ever-expanding
-    world of Blip.
-  </p>
-
-
-  <div class="gallery-grid">
-
-    <div class="gallery-box">
-      Artwork
-    </div>
-
-    <div class="gallery-box">
-      Adventures
-    </div>
-
-    <div class="gallery-box">
-      Releases
-    </div>
 
   </div>
 
