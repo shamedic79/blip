@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Blip Collection | Loot in a Boot</title>
 
-<!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -22,20 +23,34 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: white;
 
   background:
-    radial-gradient(circle at 75% 15%, rgba(89,76,255,.17), transparent 30%),
-    radial-gradient(circle at 20% 65%, rgba(0,150,255,.07), transparent 30%),
-    linear-gradient(180deg,#070910,#0b1020 55%,#05070d);
+    radial-gradient(
+      circle at 75% 15%,
+      rgba(89,76,255,.17),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 65%,
+      rgba(0,150,255,.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #070910,
+      #0b1020 55%,
+      #05070d
+    );
 
-  color:white;
-
-  min-height:100vh;
-}
-
-a {
-  color:inherit;
 }
 
 
@@ -44,43 +59,74 @@ a {
 ===================================================== */
 
 header {
+
   position: sticky;
+
   top: 0;
+
   z-index: 50;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
 
-  padding:18px 6%;
+  justify-content: space-between;
+  align-items: center;
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:
+    18px 6%;
 
-  background:rgba(5,7,13,.82);
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
 
-  backdrop-filter: blur(14px);
+  background:
+    rgba(5,7,13,.82);
+
+  backdrop-filter:
+    blur(14px);
+
 }
+
 
 .header-logo img {
-  width:125px;
-  display:block;
-  filter:invert(1);
+
+  width: 125px;
+
+  display: block;
+
+  filter:
+    invert(1);
+
 }
+
 
 nav {
-  display:flex;
-  gap:25px;
+
+  display: flex;
+
+  gap: 25px;
+
 }
 
+
 nav a {
-  color:#aeb5c3;
-  text-decoration:none;
-  font-size:.95rem;
+
+  color:
+    #aeb5c3;
+
+  text-decoration:
+    none;
+
+  font-size:
+    .95rem;
+
 }
+
 
 nav a:hover,
 nav a.active {
-  color:white;
+
+  color:
+    white;
+
 }
 
 
@@ -89,36 +135,69 @@ nav a.active {
 ===================================================== */
 
 .hero {
-  padding:90px 6% 45px;
-  text-align:center;
+
+  padding:
+    90px 6%
+    45px;
+
+  text-align:
+    center;
+
 }
+
 
 .kicker {
-  color:#8793ff;
 
-  font-size:.78rem;
+  color:
+    #8793ff;
 
-  letter-spacing:.18em;
-  text-transform:uppercase;
+  font-size:
+    .78rem;
 
-  font-weight:700;
+  letter-spacing:
+    .18em;
 
-  margin-bottom:12px;
+  text-transform:
+    uppercase;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    12px;
+
 }
+
 
 .hero h1 {
-  font-size:clamp(3rem,6vw,6rem);
-  margin-bottom:18px;
+
+  font-size:
+    clamp(
+      3rem,
+      6vw,
+      6rem
+    );
+
+  margin-bottom:
+    18px;
+
 }
 
+
 .hero p {
-  color:#b9bfcd;
 
-  max-width:720px;
+  color:
+    #b9bfcd;
 
-  margin:auto;
+  max-width:
+    720px;
 
-  line-height:1.7;
+  margin:
+    auto;
+
+  line-height:
+    1.7;
+
 }
 
 
@@ -127,37 +206,63 @@ nav a.active {
 ===================================================== */
 
 .progress-wrap {
-  max-width:700px;
-  margin:38px auto 0;
+
+  max-width:
+    700px;
+
+  margin:
+    38px auto 0;
+
 }
+
 
 .progress-info {
-  display:flex;
-  justify-content:space-between;
 
-  color:#9da5b5;
+  display:
+    flex;
 
-  font-size:.85rem;
+  justify-content:
+    space-between;
 
-  margin-bottom:10px;
+  color:
+    #9da5b5;
+
+  font-size:
+    .85rem;
+
+  margin-bottom:
+    10px;
+
 }
+
 
 .progress-bar {
-  height:9px;
 
-  border-radius:999px;
+  height:
+    9px;
 
-  background:rgba(255,255,255,.08);
+  border-radius:
+    999px;
 
-  overflow:hidden;
+  background:
+    rgba(255,255,255,.08);
+
+  overflow:
+    hidden;
+
 }
 
+
 .progress-fill {
-  height:100%;
 
-  width:0%;
+  height:
+    100%;
 
-  border-radius:999px;
+  width:
+    0%;
+
+  border-radius:
+    999px;
 
   background:
     linear-gradient(
@@ -166,15 +271,23 @@ nav a.active {
       #985fff
     );
 
-  transition:.5s ease;
+  transition:
+    .5s ease;
+
 }
 
+
 .release-note {
-  margin-top:12px;
 
-  color:#727b8d;
+  margin-top:
+    12px;
 
-  font-size:.76rem;
+  color:
+    #727b8d;
+
+  font-size:
+    .76rem;
+
 }
 
 
@@ -183,356 +296,239 @@ nav a.active {
 ===================================================== */
 
 .tabs-wrap {
-  padding:15px 6% 0;
 
-  display:flex;
-  justify-content:center;
+  padding:
+    15px 6%
+    0;
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
 }
+
 
 .tabs {
-  display:inline-flex;
 
-  gap:6px;
+  display:
+    inline-flex;
 
-  padding:6px;
+  gap:
+    6px;
 
-  border-radius:999px;
+  padding:
+    6px;
 
-  background:rgba(255,255,255,.04);
+  border-radius:
+    999px;
 
-  border:1px solid rgba(255,255,255,.09);
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
 }
+
 
 .tab-button {
-  border:none;
 
-  padding:11px 18px;
+  border:
+    none;
 
-  border-radius:999px;
+  padding:
+    11px 18px;
 
-  background:transparent;
+  border-radius:
+    999px;
 
-  color:#9da5b5;
+  background:
+    transparent;
 
-  font-weight:800;
+  color:
+    #9da5b5;
 
-  cursor:pointer;
+  font-weight:
+    800;
 
-  transition:.2s ease;
+  cursor:
+    pointer;
+
 }
 
-.tab-button:hover {
-  color:white;
-}
 
 .tab-button.active {
-  background:white;
-  color:#080b13;
+
+  background:
+    white;
+
+  color:
+    #080b13;
+
 }
 
 
 /* =====================================================
-   MAIN CONTENT
+   MAIN SECTION
 ===================================================== */
 
 .collection-section {
-  padding:45px 6% 70px;
+
+  padding:
+    45px 6%
+    90px;
+
 }
+
 
 .section-heading {
-  max-width:1100px;
-  margin:0 auto 30px;
+
+  max-width:
+    1100px;
+
+  margin:
+    0 auto 24px;
+
 }
+
 
 .section-heading h2 {
-  font-size:clamp(2rem,4vw,3.3rem);
-  margin-bottom:10px;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.3rem
+    );
+
+  margin-bottom:
+    10px;
+
 }
+
 
 .section-heading p {
-  color:#9ea6b6;
-  line-height:1.65;
+
+  color:
+    #9ea6b6;
+
+  line-height:
+    1.65;
+
 }
 
 
 /* =====================================================
-   GRID
+   EXPORT PANEL
 ===================================================== */
 
-.collection-grid {
-  max-width:1100px;
+.export-panel {
 
-  margin:auto;
+  max-width:
+    1100px;
 
-  display:grid;
+  margin:
+    0 auto 38px;
 
-  grid-template-columns:repeat(3,1fr);
+  padding:
+    24px;
 
-  gap:24px;
-}
-
-
-/* =====================================================
-   CARD
-===================================================== */
-
-.collector-card {
-  overflow:hidden;
-
-  border-radius:28px;
-
-  border:1px solid rgba(255,255,255,.10);
-
-  background:rgba(255,255,255,.035);
-
-  transition:.25s ease;
-}
-
-.collector-card:hover {
-  transform:translateY(-6px);
-
-  border-color:rgba(255,255,255,.20);
-
-  box-shadow:0 20px 50px rgba(0,0,0,.28);
-}
-
-.collector-card a {
-  text-decoration:none;
-  display:block;
-}
-
-.collector-image {
-  height:300px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  position:relative;
+  border-radius:
+    24px;
 
   background:
-    radial-gradient(
-      circle,
-      rgba(79,95,255,.22),
-      transparent 60%
-    );
-}
+    rgba(255,255,255,.035);
 
-.collector-card.wishlist .collector-image {
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,88,167,.13),
-      transparent 60%
-    );
-}
+  border:
+    1px solid rgba(255,255,255,.09);
 
-.collector-image img {
-  width:84%;
-  height:84%;
-
-  object-fit:contain;
-
-  filter:
-    drop-shadow(
-      0 0 25px rgba(67,109,255,.30)
-    );
-}
-
-.collector-card.wishlist img {
-  filter:
-    drop-shadow(
-      0 0 25px rgba(255,95,171,.18)
-    );
-}
-
-.image-placeholder {
-  display:none;
-
-  color:#778095;
-
-  font-size:.72rem;
-
-  text-transform:uppercase;
-
-  letter-spacing:.12em;
-}
-
-.collector-content {
-  padding:24px;
-}
-
-.collector-type {
-  color:#8793ff;
-
-  text-transform:uppercase;
-
-  letter-spacing:.13em;
-
-  font-size:.72rem;
-}
-
-.collector-card.wishlist .collector-type {
-  color:#ff9cc8;
-}
-
-.collector-content h2 {
-  margin-top:8px;
-  font-size:1.45rem;
-  line-height:1.15;
-}
-
-.collector-meta {
-  margin-top:11px;
-
-  color:#7e8798;
-
-  font-size:.75rem;
-
-  line-height:1.5;
-}
-
-.card-status {
-  display:inline-block;
-
-  margin-top:16px;
-
-  padding:7px 10px;
-
-  border-radius:999px;
-
-  border:1px solid rgba(255,255,255,.10);
-
-  font-size:.72rem;
-
-  font-weight:700;
-}
-
-.card-status.owned {
-  color:#b6c0ff;
-
-  border-color:rgba(130,145,255,.25);
-
-  background:rgba(95,108,255,.08);
-}
-
-.card-status.wanted {
-  color:#ffb9d7;
-
-  border-color:rgba(255,119,185,.25);
-
-  background:rgba(255,92,169,.08);
 }
 
 
-/* =====================================================
-   EMPTY
-===================================================== */
+.export-panel h3 {
 
-.empty {
-  max-width:800px;
+  font-size:
+    1.25rem;
 
-  margin:70px auto;
+  margin-bottom:
+    8px;
 
-  text-align:center;
-
-  padding:60px 30px;
-
-  border-radius:30px;
-
-  border:1px dashed rgba(255,255,255,.15);
-
-  color:#a7afbd;
-}
-
-.empty h2 {
-  color:white;
-  margin-bottom:15px;
-}
-
-.empty a {
-  display:inline-block;
-
-  margin-top:22px;
-
-  padding:13px 20px;
-
-  border-radius:999px;
-
-  background:white;
-
-  color:#080b13;
-
-  text-decoration:none;
-
-  font-weight:800;
 }
 
 
-/* =====================================================
-   EXPORT
-===================================================== */
+.export-panel p {
 
-.export-section {
-  text-align:center;
+  color:
+    #9ea6b6;
 
-  padding:10px 6% 110px;
+  font-size:
+    .9rem;
+
+  line-height:
+    1.55;
+
+  margin-bottom:
+    18px;
+
 }
 
-.export-section h2 {
-  font-size:clamp(2rem,4vw,3.5rem);
-
-  margin-bottom:12px;
-}
-
-.export-section p {
-  color:#aeb5c3;
-
-  margin-bottom:28px;
-}
 
 .export-buttons {
-  display:flex;
-  justify-content:center;
-  align-items:center;
 
-  gap:12px;
+  display:
+    flex;
 
-  flex-wrap:wrap;
+  gap:
+    12px;
+
+  flex-wrap:
+    wrap;
+
 }
+
 
 .export-button {
-  border:none;
 
-  border-radius:999px;
+  border:
+    none;
 
-  padding:15px 25px;
+  border-radius:
+    999px;
 
-  background:white;
+  padding:
+    14px 22px;
 
-  color:#080b13;
+  background:
+    white;
 
-  font-weight:800;
+  color:
+    #080b13;
 
-  cursor:pointer;
+  font-weight:
+    800;
 
-  font-size:.95rem;
+  cursor:
+    pointer;
 
-  transition:.2s;
+  font-size:
+    .92rem;
+
 }
 
-.export-button:hover {
-  transform:translateY(-2px);
-}
 
 .export-button.pdf {
+
   background:
     rgba(255,255,255,.06);
 
-  color:white;
+  color:
+    white;
 
   border:
     1px solid rgba(255,255,255,.16);
+
 }
 
 
@@ -541,40 +537,394 @@ nav a.active {
 ===================================================== */
 
 .card-preview {
-  margin:40px auto 0;
 
-  max-width:850px;
+  margin:
+    28px auto 0;
+
+  max-width:
+    850px;
+
 }
+
 
 .share-canvas {
-  width:100%;
-  height:auto;
 
-  border-radius:24px;
+  width:
+    100%;
 
-  border:1px solid rgba(255,255,255,.10);
+  height:
+    auto;
 
-  display:none;
+  border-radius:
+    24px;
+
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  display:
+    none;
+
 }
 
+
 .download-button {
-  display:none;
 
-  margin:20px auto 0;
+  display:
+    none;
 
-  border:1px solid rgba(255,255,255,.15);
+  margin:
+    20px auto 0;
 
-  border-radius:999px;
+  border:
+    1px solid rgba(255,255,255,.15);
 
-  padding:13px 22px;
+  border-radius:
+    999px;
 
-  background:rgba(255,255,255,.05);
+  padding:
+    13px 22px;
 
-  color:white;
+  background:
+    rgba(255,255,255,.05);
 
-  font-weight:700;
+  color:
+    white;
 
-  cursor:pointer;
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.collection-grid {
+
+  max-width:
+    1100px;
+
+  margin:
+    auto;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    24px;
+
+}
+
+
+/* =====================================================
+   COLLECTION CARD
+===================================================== */
+
+.collector-card {
+
+  overflow:
+    hidden;
+
+  border-radius:
+    28px;
+
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  background:
+    rgba(255,255,255,.035);
+
+  transition:
+    .25s ease;
+
+}
+
+
+.collector-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(255,255,255,.20);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.28);
+
+}
+
+
+.collector-image {
+
+  height:
+    300px;
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  align-items:
+    center;
+
+  position:
+    relative;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,95,255,.22),
+      transparent 60%
+    );
+
+}
+
+
+.collector-card.wishlist
+.collector-image {
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,88,167,.13),
+      transparent 60%
+    );
+
+}
+
+
+.collector-image img {
+
+  width:
+    84%;
+
+  height:
+    84%;
+
+  object-fit:
+    contain;
+
+  filter:
+    drop-shadow(
+      0 0 25px
+      rgba(67,109,255,.30)
+    );
+
+}
+
+
+.image-placeholder {
+
+  display:
+    none;
+
+  color:
+    #778095;
+
+  font-size:
+    .72rem;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .12em;
+
+}
+
+
+.collector-content {
+
+  padding:
+    24px;
+
+}
+
+
+.collector-type {
+
+  color:
+    #8793ff;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .13em;
+
+  font-size:
+    .72rem;
+
+}
+
+
+.collector-card.wishlist
+.collector-type {
+
+  color:
+    #ff9cc8;
+
+}
+
+
+.collector-content h2 {
+
+  margin-top:
+    8px;
+
+  font-size:
+    1.45rem;
+
+  line-height:
+    1.15;
+
+}
+
+
+.collector-meta {
+
+  margin-top:
+    11px;
+
+  color:
+    #7e8798;
+
+  font-size:
+    .75rem;
+
+  line-height:
+    1.5;
+
+}
+
+
+.card-status {
+
+  display:
+    inline-block;
+
+  margin-top:
+    16px;
+
+  padding:
+    7px 10px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    .72rem;
+
+  font-weight:
+    700;
+
+}
+
+
+.card-status.owned {
+
+  color:
+    #b6c0ff;
+
+  border:
+    1px solid rgba(130,145,255,.25);
+
+  background:
+    rgba(95,108,255,.08);
+
+}
+
+
+.card-status.wanted {
+
+  color:
+    #ffb9d7;
+
+  border:
+    1px solid rgba(255,119,185,.25);
+
+  background:
+    rgba(255,92,169,.08);
+
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty {
+
+  max-width:
+    800px;
+
+  margin:
+    70px auto;
+
+  text-align:
+    center;
+
+  padding:
+    60px 30px;
+
+  border-radius:
+    30px;
+
+  border:
+    1px dashed rgba(255,255,255,.15);
+
+  color:
+    #a7afbd;
+
+}
+
+
+.empty h2 {
+
+  color:
+    white;
+
+  margin-bottom:
+    15px;
+
+}
+
+
+.empty a {
+
+  display:
+    inline-block;
+
+  margin-top:
+    22px;
+
+  padding:
+    13px 20px;
+
+  border-radius:
+    999px;
+
+  background:
+    white;
+
+  color:
+    #080b13;
+
+  text-decoration:
+    none;
+
+  font-weight:
+    800;
+
 }
 
 
@@ -583,19 +933,28 @@ nav a.active {
 ===================================================== */
 
 footer {
-  padding:42px 6%;
 
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:
+    42px 6%;
 
-  color:#7f8796;
+  border-top:
+    1px solid rgba(255,255,255,.08);
 
-  display:flex;
+  color:
+    #7f8796;
 
-  justify-content:space-between;
+  display:
+    flex;
 
-  flex-wrap:wrap;
+  justify-content:
+    space-between;
 
-  gap:20px;
+  gap:
+    20px;
+
+  flex-wrap:
+    wrap;
+
 }
 
 
@@ -606,66 +965,110 @@ footer {
 @media(max-width:900px) {
 
   .collection-grid {
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+      repeat(2,1fr);
+
   }
 
 }
 
+
 @media(max-width:620px) {
 
   header {
-    padding:15px 5%;
+
+    padding:
+      15px 5%;
+
   }
+
 
   nav {
-    display:none;
+
+    display:
+      none;
+
   }
+
 
   .header-logo img {
-    width:105px;
+
+    width:
+      105px;
+
   }
+
 
   .hero {
-    padding:70px 5% 40px;
+
+    padding:
+      70px 5%
+      40px;
+
   }
 
-  .tabs-wrap {
-    padding-left:5%;
-    padding-right:5%;
-  }
 
   .tabs {
-    width:100%;
+
+    width:
+      100%;
+
   }
+
 
   .tab-button {
-    flex:1;
+
+    flex:
+      1;
+
   }
+
 
   .collection-section {
-    padding:40px 5% 60px;
+
+    padding:
+      40px 5%
+      70px;
+
   }
+
 
   .collection-grid {
-    grid-template-columns:1fr;
+
+    grid-template-columns:
+      1fr;
+
   }
+
 
   .collector-image {
-    height:290px;
+
+    height:
+      290px;
+
   }
+
 
   .export-buttons {
-    flex-direction:column;
+
+    flex-direction:
+      column;
+
   }
 
+
   .export-button {
-    width:100%;
-    max-width:320px;
+
+    width:
+      100%;
+
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -674,18 +1077,44 @@ footer {
 
 <header>
 
-  <a class="header-logo" href="index.html">
-    <img src="blip-logo.png" alt="Blip">
+  <a
+    class="header-logo"
+    href="index.html"
+  >
+
+    <img
+      src="blip-logo.png"
+      alt="Blip"
+    >
+
   </a>
 
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="adventures.html">Adventures</a>
-    <a href="pins.html">Blipdex</a>
-    <a href="collection.html" class="active">My Collection</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="adventures.html">
+      Adventures
+    </a>
+
+    <a href="pins.html">
+      Blipdex
+    </a>
+
+    <a
+      href="collection.html"
+      class="active"
+    >
+      My Collection
+    </a>
+
   </nav>
 
 </header>
+
 
 
 <main>
@@ -698,7 +1127,7 @@ footer {
 <section class="hero">
 
   <div class="kicker">
-    Collector Tracker
+    Blipdex Collector Tracker
   </div>
 
   <h1>
@@ -706,12 +1135,14 @@ footer {
   </h1>
 
   <p>
-    Keep track of the Blips you've found, save the ones you're still
-    hunting for, and create cards or print-friendly PDFs to share your collection.
+    Keep track of every Blip pin you've collected,
+    save the ones you're still hunting for and create
+    shareable images or print-friendly collection PDFs.
   </p>
 
 
   <div class="progress-wrap">
+
 
     <div class="progress-info">
 
@@ -720,7 +1151,7 @@ footer {
       </span>
 
       <span id="collectionTotal">
-        0 / 15
+        0 / 19
       </span>
 
     </div>
@@ -737,12 +1168,17 @@ footer {
 
 
     <div class="release-note">
-      Upcoming Blips are added to the total automatically on release day.
+
+      Blipdex completion tracks confirmed enamel pin releases only.
+      Resin and figure releases will have their own collection.
+
     </div>
+
 
   </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -753,35 +1189,44 @@ footer {
 
   <div class="tabs">
 
+
     <button
       id="collectionTab"
       class="tab-button active"
       onclick="showCollection()"
     >
+
       ✓ My Collection
+
     </button>
+
 
     <button
       id="wishlistTab"
       class="tab-button"
       onclick="showWishlist()"
     >
+
       ♡ My Wishlist
+
     </button>
+
 
   </div>
 
 </div>
 
 
+
 <!-- =====================================================
-     COLLECTION VIEW
+     COLLECTION
 ===================================================== -->
 
 <section
   id="collectionView"
   class="collection-section"
 >
+
 
   <div class="section-heading">
 
@@ -790,8 +1235,72 @@ footer {
     </h2>
 
     <p>
-      Every released Blip you've marked as part of your collection.
+      Every Blip pin you've marked as part of your collection.
     </p>
+
+  </div>
+
+
+  <div class="export-panel">
+
+    <h3>
+      Export My Collection
+    </h3>
+
+    <p>
+      Create a shareable image or generate a white,
+      print-friendly PDF of your collection.
+    </p>
+
+
+    <div class="export-buttons">
+
+
+      <button
+        class="export-button"
+        onclick="generateCollectionImage()"
+      >
+
+        Generate Collection Image
+
+      </button>
+
+
+      <button
+        class="export-button pdf"
+        onclick="generateCollectionPDF()"
+      >
+
+        Generate Collection PDF
+
+      </button>
+
+
+    </div>
+
+
+    <div class="card-preview">
+
+      <canvas
+        id="collectionCanvas"
+        class="share-canvas"
+        width="1400"
+        height="1200"
+      ></canvas>
+
+
+      <button
+        id="collectionDownloadButton"
+        class="download-button"
+        onclick="downloadCollectionImage()"
+      >
+
+        Save Collection Image
+
+      </button>
+
+    </div>
+
 
   </div>
 
@@ -813,7 +1322,7 @@ footer {
     </h2>
 
     <p>
-      Explore the Blipdex and add a Blip to your collection.
+      Explore the Blipdex and start adding pins to your collection.
     </p>
 
     <a href="pins.html">
@@ -822,69 +1331,13 @@ footer {
 
   </div>
 
-</section>
-
-
-<!-- =====================================================
-     COLLECTION EXPORT
-===================================================== -->
-
-<section
-  id="collectionExport"
-  class="export-section"
->
-
-  <h2>
-    Share your collection
-  </h2>
-
-  <p>
-    Create a shareable image or generate a print-friendly PDF.
-  </p>
-
-  <div class="export-buttons">
-
-    <button
-      class="export-button"
-      onclick="generateCollectionCard()"
-    >
-      Generate Collection Card
-    </button>
-
-    <button
-      class="export-button pdf"
-      onclick="generateCollectionPDF()"
-    >
-      Generate Collection PDF
-    </button>
-
-  </div>
-
-
-  <div class="card-preview">
-
-    <canvas
-      id="collectionCanvas"
-      class="share-canvas"
-      width="1400"
-      height="900"
-    ></canvas>
-
-    <button
-      id="collectionDownloadButton"
-      class="download-button"
-      onclick="downloadCollectionCard()"
-    >
-      Save Collection Card
-    </button>
-
-  </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     WISHLIST VIEW
+     WISHLIST
 ===================================================== -->
 
 <section
@@ -893,6 +1346,7 @@ footer {
   style="display:none;"
 >
 
+
   <div class="section-heading">
 
     <h2>
@@ -900,8 +1354,71 @@ footer {
     </h2>
 
     <p>
-      The released Blips you're still hunting for.
+      The Blip pins you're still hunting for.
     </p>
+
+  </div>
+
+
+  <div class="export-panel">
+
+    <h3>
+      Export My Wishlist
+    </h3>
+
+    <p>
+      Create a wishlist image or a print-friendly PDF.
+    </p>
+
+
+    <div class="export-buttons">
+
+
+      <button
+        class="export-button"
+        onclick="generateWishlistImage()"
+      >
+
+        Generate Wishlist Image
+
+      </button>
+
+
+      <button
+        class="export-button pdf"
+        onclick="generateWishlistPDF()"
+      >
+
+        Generate Wishlist PDF
+
+      </button>
+
+
+    </div>
+
+
+    <div class="card-preview">
+
+      <canvas
+        id="wishlistCanvas"
+        class="share-canvas"
+        width="1400"
+        height="1200"
+      ></canvas>
+
+
+      <button
+        id="wishlistDownloadButton"
+        class="download-button"
+        onclick="downloadWishlistImage()"
+      >
+
+        Save Wishlist Image
+
+      </button>
+
+    </div>
+
 
   </div>
 
@@ -919,7 +1436,7 @@ footer {
   >
 
     <h2>
-      Wishlist looking suspiciously empty.
+      Nothing on the wishlist yet.
     </h2>
 
     <p>
@@ -932,69 +1449,12 @@ footer {
 
   </div>
 
-</section>
-
-
-<!-- =====================================================
-     WISHLIST EXPORT
-===================================================== -->
-
-<section
-  id="wishlistExport"
-  class="export-section"
-  style="display:none;"
->
-
-  <h2>
-    Share your wishlist
-  </h2>
-
-  <p>
-    Create a shareable wishlist image or generate a print-friendly PDF.
-  </p>
-
-  <div class="export-buttons">
-
-    <button
-      class="export-button"
-      onclick="generateWishlistCard()"
-    >
-      Generate Wishlist Card
-    </button>
-
-    <button
-      class="export-button pdf"
-      onclick="generateWishlistPDF()"
-    >
-      Generate Wishlist PDF
-    </button>
-
-  </div>
-
-
-  <div class="card-preview">
-
-    <canvas
-      id="wishlistCanvas"
-      class="share-canvas"
-      width="1400"
-      height="900"
-    ></canvas>
-
-    <button
-      id="wishlistDownloadButton"
-      class="download-button"
-      onclick="downloadWishlistCard()"
-    >
-      Save Wishlist Card
-    </button>
-
-  </div>
 
 </section>
 
 
 </main>
+
 
 
 <footer>
@@ -1004,295 +1464,273 @@ footer {
   </div>
 
   <div>
-    Collector Tracker · Blipdex
+    Blipdex Collector Tracker
   </div>
 
 </footer>
+
 
 
 <script>
 
 
 /* =====================================================
-   BLIP MASTER DATABASE
-   KEEP IDS MATCHED TO pins.html
+   MASTER DATABASE
+
+   IMPORTANT:
+   IDs MATCH pins.html
+
 ===================================================== */
 
 const blips = [
 
-  {
-    id: "classic-blip",
-    name: "Classic Blip",
-    type: "Original Release",
-    image: "images/classic-blip.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
 
-  {
-    id: "superhero-blip",
-    name: "Superhero Blip",
-    type: "Original Costume Series",
-    image: "images/superhero-blip.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
+/* ORIGINALS */
 
-  {
-    id: "shark-blip",
-    name: "Shark Blip",
-    type: "Original Costume Series",
-    image: "images/shark-blip.png",
-    page: "shark-blip.html",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
+{
+  id: "classic-blip",
+  name: "Classic Blip",
+  type: "Original Release",
+  image: "images/classic-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "goldfish-blip",
-    name: "Goldfish Blip",
-    type: "Original Costume Series",
-    image: "images/goldfish-blip.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
 
-  {
-    id: "kangaroo-blip",
-    name: "Kangaroo Blip",
-    type: "Original Costume Series",
-    image: "images/kangaroo-blip.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
+{
+  id: "superhero-blip",
+  name: "Superhero Blip",
+  type: "Original Costume Series",
+  image: "images/superhero-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "koala-blip",
-    name: "Koala Blip",
-    type: "Original Costume Series",
-    image: "images/koala-blip.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
 
-  {
-    id: "occie-blip",
-    name: "Occie Blip",
-    type: "Kickstarter Set",
-    image: "images/occie-blip.png",
-    page: "",
-    size: '2"',
-    edition: "Kickstarter",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Kickstarter Colourway"
-  },
+{
+  id: "shark-blip",
+  name: "Shark Blip",
+  type: "Original Costume Series",
+  image: "images/shark-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "pirate-blip-blue",
-    name: "Pirate Blip – Blue",
-    type: "Original Costume Series",
-    image: "images/pirate-blip.png",
-    page: "pirate-blip.html",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Standard"
-  },
 
-  {
-    id: "pirate-blip-blue-mega",
-    name: "Pirate Blip – Blue Mega",
-    type: "Oversized Pirate",
-    image: "images/pirate-blue-mega.png",
-    page: "",
-    size: '4"',
-    edition: "PLV20",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Mega Pin"
-  },
+{
+  id: "goldfish-blip",
+  name: "Goldfish Blip",
+  type: "Original Costume Series",
+  image: "images/goldfish-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "pirate-blip-green",
-    name: "Pirate Blip – Green Kickstarter",
-    type: "Kickstarter Colourway",
-    image: "images/pirate-green.png",
-    page: "",
-    size: '2"',
-    edition: "Kickstarter",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Kickstarter Colourway"
-  },
 
-  {
-    id: "pirate-blip-green-mega",
-    name: "Pirate Blip – Green Mega",
-    type: "Kickstarter Mega",
-    image: "images/pirate-green-mega.png",
-    page: "",
-    size: '4"',
-    edition: "OLV10",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Mega Pin"
-  },
+{
+  id: "kangaroo-blip",
+  name: "Kangaroo Blip",
+  type: "Original Costume Series",
+  image: "images/kangaroo-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "pirate-blip-jessie",
-    name: "Colours by Jessie – Pirate Blip",
-    type: "Colours by Jessie",
-    image: "images/pirate-jessie.png",
-    page: "",
-    size: '2"',
-    edition: "LE50",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Glow"
-  },
 
-  {
-    id: "pirate-blip-jessie-mega",
-    name: "Colours by Jessie – Pirate Mega",
-    type: "Colours by Jessie",
-    image: "images/pirate-jessie-mega.png",
-    page: "",
-    size: '4"',
-    edition: "OLV10",
-    release: "May 2025",
-    releaseDate: "2025-05-01",
-    enamel: "Enamel Pin",
-    effects: "Mega Pin"
-  },
+{
+  id: "koala-blip",
+  name: "Koala Blip",
+  type: "Original Costume Series",
+  image: "images/koala-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "christmas-tree-standard",
-    name: "Christmas Tree Blip – Standard",
-    type: "Christmas 2025",
-    image: "images/christmas-tree-standard.png",
-    page: "",
-    size: '2"',
-    edition: "ULE30 Set",
-    release: "December 2025",
-    releaseDate: "2025-12-01",
-    enamel: "Hard Enamel",
-    effects: "Standard"
-  },
 
-  {
-    id: "christmas-tree-effects",
-    name: "Christmas Tree Blip – Special Effects",
-    type: "Christmas 2025",
-    image: "images/christmas-tree-effects.png",
-    page: "",
-    size: '2"',
-    edition: "ULE30 Set",
-    release: "December 2025",
-    releaseDate: "2025-12-01",
-    enamel: "Hard Enamel",
-    effects: "Pearl · Glitter · Glow"
-  },
+{
+  id: "occie-blip",
+  name: "Occie Blip",
+  type: "Original Costume Series",
+  image: "images/occie-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
 
-  {
-    id: "singapore-merlion-adventure",
-    name: "Singapore Blip – Merlion Adventure",
-    type: "Singapore Special",
-    image: "images/singapore-merlion-adventure.png",
-    page: "",
-    size: "TBC",
-    edition: "LE50",
-    release: "21 August 2026",
-    releaseDate: "2026-08-21",
-    enamel: "Soft Enamel",
-    effects: "Standard"
-  },
 
-  {
-    id: "singapore-merlion-costume",
-    name: "Singapore Blip – Merlion Costume",
-    type: "Singapore Special",
-    image: "images/singapore-merlion-costume.png",
-    page: "",
-    size: "TBC",
-    edition: "LE50",
-    release: "21 August 2026",
-    releaseDate: "2026-08-21",
-    enamel: "Soft Enamel",
-    effects: "Pearl Effect · Translucent Blue Water"
-  }
+
+/* BLUE PIRATE */
+
+{
+  id: "pirate-blip-blue",
+  name: "Pirate Blip – Blue",
+  type: "Original Pirate",
+  image: "images/pirate-blip.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Standard"
+},
+
+
+{
+  id: "pirate-blip-blue-mega",
+  name: "Pirate Blip – Blue Mega",
+  type: "Mega Pirate",
+  image: "images/pirate-blip.png",
+  size: '4"',
+  edition: "PLV20",
+  release: "May 2025",
+  effects: "Mega Pin"
+},
+
+
+
+/* KICKSTARTER GREEN TRIO */
+
+{
+  id: "superhero-blip-green",
+  name: "Green Superhero Blip",
+  type: "Kickstarter Colourway",
+  image: "images/superhero-green.png",
+  size: '2"',
+  edition: "Kickstarter",
+  release: "May 2025",
+  effects: "Green Kickstarter Colourway"
+},
+
+
+{
+  id: "occie-blip-green",
+  name: "Green Occie Blip",
+  type: "Kickstarter Colourway",
+  image: "images/occie-green.png",
+  size: '2"',
+  edition: "Kickstarter",
+  release: "May 2025",
+  effects: "Green Kickstarter Colourway"
+},
+
+
+{
+  id: "pirate-blip-green",
+  name: "Green Pirate Blip",
+  type: "Kickstarter Colourway",
+  image: "images/pirate-green.png",
+  size: '2"',
+  edition: "Kickstarter",
+  release: "May 2025",
+  effects: "Green Kickstarter Colourway"
+},
+
+
+{
+  id: "pirate-blip-green-mega",
+  name: "Pirate Blip – Green Mega",
+  type: "Kickstarter Mega",
+  image: "images/pirate-green.png",
+  size: '4"',
+  edition: "OLV10",
+  release: "May 2025",
+  effects: "Mega Pin"
+},
+
+
+
+/* COLOURS BY JESSIE */
+
+{
+  id: "pirate-blip-jessie",
+  name: "Colours by Jessie – Pirate Blip",
+  type: "Colours by Jessie",
+  image: "images/pirate-jessie.png",
+  size: '2"',
+  edition: "LE50",
+  release: "May 2025",
+  effects: "Glow in the Dark"
+},
+
+
+{
+  id: "pirate-blip-jessie-mega",
+  name: "Colours by Jessie – Pirate Mega",
+  type: "Colours by Jessie",
+  image: "images/pirate-jessie.png",
+  size: '4"',
+  edition: "OLV10",
+  release: "May 2025",
+  effects: "Mega Pin"
+},
+
+
+
+/* CHRISTMAS */
+
+{
+  id: "christmas-tree-standard",
+  name: "Christmas Tree Blip – Standard",
+  type: "Christmas 2025",
+  image: "images/christmas-tree-standard.png",
+  size: '2"',
+  edition: "ULE30 Set",
+  release: "December 2025",
+  effects: "Standard"
+},
+
+
+{
+  id: "christmas-tree-effects",
+  name: "Christmas Tree Blip – Special Effects",
+  type: "Christmas 2025",
+  image: "images/christmas-tree-effects.png",
+  size: '2"',
+  edition: "ULE30 Set",
+  release: "December 2025",
+  effects: "Glitter Tree · Pearl · Glow"
+},
+
+
+
+/* SINGAPORE */
+
+{
+  id: "blipion",
+  name: "Blipion",
+  type: "Singapore Special",
+  image: "images/singapore-merlion-costume.png",
+  size: '1.75"',
+  edition: "LE50",
+  release: "21 August 2026",
+  effects: "Pearl Effect · Translucent Blue Water"
+},
+
+
+{
+  id: "blip-in-singapore",
+  name: "Blip in Singapore",
+  type: "Singapore Special",
+  image: "images/singapore-merlion-adventure.png",
+  size: '1.75"',
+  edition: "LE50",
+  release: "21 August 2026",
+  effects: "Singapore Adventure Scene"
+}
+
 
 ];
-
-
-/* =====================================================
-   RELEASE CHECK
-===================================================== */
-
-function isReleased(blip) {
-
-  const releaseDate =
-    new Date(
-      blip.releaseDate +
-      "T00:00:00"
-    );
-
-
-  return (
-    new Date() >= releaseDate
-  );
-
-}
-
-
-/* =====================================================
-   RELEASED DATABASE
-===================================================== */
-
-function getReleasedBlips() {
-
-  return blips.filter(
-    blip =>
-      isReleased(blip)
-  );
-
-}
 
 
 /* =====================================================
@@ -1304,16 +1742,24 @@ function getSavedArray(key) {
   const saved =
     localStorage.getItem(key);
 
+
   if (!saved) {
+
     return [];
+
   }
 
+
   try {
+
     return JSON.parse(saved);
+
   }
 
   catch {
+
     return [];
+
   }
 
 }
@@ -1328,15 +1774,15 @@ function getNumbers() {
 
 
   if (!saved) {
+
     return {};
+
   }
 
 
   try {
 
-    return JSON.parse(
-      saved
-    );
+    return JSON.parse(saved);
 
   }
 
@@ -1350,53 +1796,38 @@ function getNumbers() {
 
 
 /* =====================================================
-   LOAD TRACKER
+   LOAD
 ===================================================== */
 
 function loadTracker() {
 
-  const releasedBlips =
-    getReleasedBlips();
-
-
-  const releasedIds =
-    releasedBlips.map(
-      blip =>
-        blip.id
-    );
-
-
   const owned =
     getSavedArray(
       "blipCollection"
-    )
-    .filter(
-      id =>
-        releasedIds.includes(id)
     );
 
 
-  const wanted =
+  const wishlist =
     getSavedArray(
       "blipWishlist"
-    )
-    .filter(
-      id =>
-        releasedIds.includes(id)
     );
 
 
   const ownedBlips =
-    releasedBlips.filter(
+    blips.filter(
       blip =>
-        owned.includes(blip.id)
+        owned.includes(
+          blip.id
+        )
     );
 
 
-  const wantedBlips =
-    releasedBlips.filter(
+  const wishlistBlips =
+    blips.filter(
       blip =>
-        wanted.includes(blip.id)
+        wishlist.includes(
+          blip.id
+        )
     );
 
 
@@ -1406,13 +1837,12 @@ function loadTracker() {
 
 
   renderWishlist(
-    wantedBlips
+    wishlistBlips
   );
 
 
   updateProgress(
-    ownedBlips.length,
-    releasedBlips.length
+    ownedBlips.length
   );
 
 }
@@ -1423,9 +1853,12 @@ function loadTracker() {
 ===================================================== */
 
 function updateProgress(
-  ownedCount,
-  totalCount
+  ownedCount
 ) {
+
+  const total =
+    blips.length;
+
 
   document.getElementById(
     "collectionCount"
@@ -1443,14 +1876,14 @@ function updateProgress(
   ).textContent =
     ownedCount +
     " / " +
-    totalCount;
+    total;
 
 
   const percentage =
-    totalCount
+    total
       ? (
           ownedCount /
-          totalCount
+          total
         ) * 100
       : 0;
 
@@ -1465,10 +1898,12 @@ function updateProgress(
 
 
 /* =====================================================
-   IMAGE ERROR
+   IMAGE FALLBACK
 ===================================================== */
 
-function imageFailed(image) {
+function imageFailed(
+  image
+) {
 
   image.style.display =
     "none";
@@ -1493,10 +1928,12 @@ function imageFailed(image) {
 
 
 /* =====================================================
-   COLLECTION CARDS
+   COLLECTION GRID
 ===================================================== */
 
-function renderCollection(blipList) {
+function renderCollection(
+  blipList
+) {
 
   const grid =
     document.getElementById(
@@ -1514,7 +1951,8 @@ function renderCollection(blipList) {
     getNumbers();
 
 
-  grid.innerHTML = "";
+  grid.innerHTML =
+    "";
 
 
   if (!blipList.length) {
@@ -1531,41 +1969,32 @@ function renderCollection(blipList) {
     "none";
 
 
-  blipList.forEach(blip => {
-
-    const card =
-      document.createElement(
-        "article"
-      );
+  blipList.forEach(
+    blip => {
 
 
-    card.className =
-      "collector-card";
+      const card =
+        document.createElement(
+          "article"
+        );
 
 
-    const wrapperTag =
-      blip.page
-        ? "a"
-        : "div";
+      card.className =
+        "collector-card";
 
 
-    const wrapperHref =
-      blip.page
-        ? `href="${blip.page}"`
-        : "";
+      const number =
+        numbers[blip.id]
+          ? " · #" +
+            numbers[blip.id]
+          : "";
 
 
-    const numberText =
-      numbers[blip.id]
-        ? ` · #${numbers[blip.id]}`
-        : "";
+      card.innerHTML = `
 
-
-    card.innerHTML = `
-
-      <${wrapperTag} ${wrapperHref}>
 
         <div class="collector-image">
+
 
           <img
             src="${blip.image}"
@@ -1573,49 +2002,69 @@ function renderCollection(blipList) {
             onerror="imageFailed(this)"
           >
 
+
           <div class="image-placeholder">
             Image coming soon
           </div>
 
+
         </div>
 
+
         <div class="collector-content">
+
 
           <span class="collector-type">
             ${blip.type}
           </span>
 
+
           <h2>
             ${blip.name}
           </h2>
 
+
           <div class="collector-meta">
-            ${blip.edition} · ${blip.size} · ${blip.release}${numberText}
+
+            ${blip.edition}
+            ·
+            ${blip.size}
+            ·
+            ${blip.release}
+            ${number}
+
           </div>
 
+
           <span class="card-status owned">
+
             ✓ In my collection
+
           </span>
+
 
         </div>
 
-      </${wrapperTag}>
-
-    `;
+      `;
 
 
-    grid.appendChild(card);
+      grid.appendChild(
+        card
+      );
 
-  });
+    }
+  );
 
 }
 
 
 /* =====================================================
-   WISHLIST CARDS
+   WISHLIST GRID
 ===================================================== */
 
-function renderWishlist(blipList) {
+function renderWishlist(
+  blipList
+) {
 
   const grid =
     document.getElementById(
@@ -1629,7 +2078,8 @@ function renderWishlist(blipList) {
     );
 
 
-  grid.innerHTML = "";
+  grid.innerHTML =
+    "";
 
 
   if (!blipList.length) {
@@ -1646,35 +2096,25 @@ function renderWishlist(blipList) {
     "none";
 
 
-  blipList.forEach(blip => {
-
-    const card =
-      document.createElement(
-        "article"
-      );
+  blipList.forEach(
+    blip => {
 
 
-    card.className =
-      "collector-card wishlist";
+      const card =
+        document.createElement(
+          "article"
+        );
 
 
-    const wrapperTag =
-      blip.page
-        ? "a"
-        : "div";
+      card.className =
+        "collector-card wishlist";
 
 
-    const wrapperHref =
-      blip.page
-        ? `href="${blip.page}"`
-        : "";
+      card.innerHTML = `
 
-
-    card.innerHTML = `
-
-      <${wrapperTag} ${wrapperHref}>
 
         <div class="collector-image">
+
 
           <img
             src="${blip.image}"
@@ -1682,46 +2122,63 @@ function renderWishlist(blipList) {
             onerror="imageFailed(this)"
           >
 
+
           <div class="image-placeholder">
             Image coming soon
           </div>
 
+
         </div>
 
+
         <div class="collector-content">
+
 
           <span class="collector-type">
             ${blip.type}
           </span>
 
+
           <h2>
             ${blip.name}
           </h2>
 
+
           <div class="collector-meta">
-            ${blip.edition} · ${blip.size} · ${blip.release}
+
+            ${blip.edition}
+            ·
+            ${blip.size}
+            ·
+            ${blip.release}
+
           </div>
 
+
           <span class="card-status wanted">
+
             ♥ On my wishlist
+
           </span>
+
 
         </div>
 
-      </${wrapperTag}>
-
-    `;
+      `;
 
 
-    grid.appendChild(card);
+      grid.appendChild(
+        card
+      );
 
-  });
+    }
+  );
 
 }
 
 
 /* =====================================================
-   TAB CONTROLS
+   TABS
 ===================================================== */
 
 function showCollection() {
@@ -1734,18 +2191,6 @@ function showCollection() {
 
   document.getElementById(
     "wishlistView"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "collectionExport"
-  ).style.display =
-    "block";
-
-
-  document.getElementById(
-    "wishlistExport"
   ).style.display =
     "none";
 
@@ -1781,18 +2226,6 @@ function showWishlist() {
 
 
   document.getElementById(
-    "collectionExport"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "wishlistExport"
-  ).style.display =
-    "block";
-
-
-  document.getElementById(
     "wishlistTab"
   ).classList.add(
     "active"
@@ -1812,17 +2245,24 @@ function showWishlist() {
    IMAGE LOADER
 ===================================================== */
 
-function loadImage(src) {
+function loadImage(
+  src
+) {
 
   return new Promise(
-    (resolve, reject) => {
+    (
+      resolve,
+      reject
+    ) => {
+
 
       const image =
         new Image();
 
 
       image.onload =
-        () => resolve(image);
+        () =>
+          resolve(image);
 
 
       image.onerror =
@@ -1832,6 +2272,7 @@ function loadImage(src) {
       image.src =
         src;
 
+
     }
   );
 
@@ -1839,54 +2280,12 @@ function loadImage(src) {
 
 
 /* =====================================================
-   IMAGE TO DATA URL
+   SHARE IMAGE
+
+   Dynamically grows based on collection size.
 ===================================================== */
 
-async function imageToDataURL(src) {
-
-  const image =
-    await loadImage(src);
-
-
-  const canvas =
-    document.createElement(
-      "canvas"
-    );
-
-
-  canvas.width =
-    image.naturalWidth ||
-    image.width;
-
-
-  canvas.height =
-    image.naturalHeight ||
-    image.height;
-
-
-  const ctx =
-    canvas.getContext("2d");
-
-
-  ctx.drawImage(
-    image,
-    0,
-    0
-  );
-
-
-  return canvas.toDataURL(
-    "image/png"
-  );
-
-}
-
-
-/* =====================================================
-   SHARE CARD
-===================================================== */
-
-async function drawShareCard(
+async function drawShareImage(
   canvas,
   blipList,
   title,
@@ -1894,8 +2293,52 @@ async function drawShareCard(
   mode
 ) {
 
+  const columns =
+    4;
+
+
+  const imageSize =
+    220;
+
+
+  const gapX =
+    55;
+
+
+  const gapY =
+    305;
+
+
+  const rows =
+    Math.ceil(
+      blipList.length /
+      columns
+    );
+
+
+  const calculatedHeight =
+    Math.max(
+      900,
+      240 +
+      (
+        rows *
+        gapY
+      )
+    );
+
+
+  canvas.width =
+    1400;
+
+
+  canvas.height =
+    calculatedHeight;
+
+
   const ctx =
-    canvas.getContext("2d");
+    canvas.getContext(
+      "2d"
+    );
 
 
   const width =
@@ -1904,14 +2347,6 @@ async function drawShareCard(
 
   const height =
     canvas.height;
-
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
 
 
   const gradient =
@@ -1923,17 +2358,22 @@ async function drawShareCard(
     );
 
 
-  if (mode === "wishlist") {
+  if (
+    mode ===
+    "wishlist"
+  ) {
 
     gradient.addColorStop(
       0,
       "#160a16"
     );
 
+
     gradient.addColorStop(
       .5,
       "#31122d"
     );
+
 
     gradient.addColorStop(
       1,
@@ -1949,10 +2389,12 @@ async function drawShareCard(
       "#070a14"
     );
 
+
     gradient.addColorStop(
       .5,
       "#11183a"
     );
+
 
     gradient.addColorStop(
       1,
@@ -1994,7 +2436,8 @@ async function drawShareCard(
 
 
   ctx.fillStyle =
-    mode === "wishlist"
+    mode ===
+    "wishlist"
       ? "#ffaad0"
       : "#9ca8ff";
 
@@ -2008,25 +2451,6 @@ async function drawShareCard(
     width / 2,
     145
   );
-
-
-  const columns =
-    Math.min(
-      blipList.length,
-      4
-    );
-
-
-  const imageSize =
-    220;
-
-
-  const gapX =
-    55;
-
-
-  const gapY =
-    300;
 
 
   const totalGridWidth =
@@ -2046,7 +2470,7 @@ async function drawShareCard(
 
 
   const startY =
-    205;
+    195;
 
 
   for (
@@ -2065,7 +2489,8 @@ async function drawShareCard(
 
     const row =
       Math.floor(
-        i / columns
+        i /
+        columns
       );
 
 
@@ -2084,16 +2509,6 @@ async function drawShareCard(
       gapY;
 
 
-    if (
-      y + imageSize >
-      height - 100
-    ) {
-
-      break;
-
-    }
-
-
     try {
 
       const image =
@@ -2102,12 +2517,46 @@ async function drawShareCard(
         );
 
 
+      const ratio =
+        Math.min(
+          imageSize /
+          image.width,
+
+          imageSize /
+          image.height
+        );
+
+
+      const drawWidth =
+        image.width *
+        ratio;
+
+
+      const drawHeight =
+        image.height *
+        ratio;
+
+
       ctx.drawImage(
+
         image,
-        x,
-        y,
-        imageSize,
-        imageSize
+
+        x +
+        (
+          imageSize -
+          drawWidth
+        ) / 2,
+
+        y +
+        (
+          imageSize -
+          drawHeight
+        ) / 2,
+
+        drawWidth,
+
+        drawHeight
+
       );
 
     }
@@ -2133,29 +2582,56 @@ async function drawShareCard(
 
 
     ctx.font =
-      "bold 23px Arial";
-
-
-    ctx.textAlign =
-      "center";
+      "bold 22px Arial";
 
 
     const shortName =
-      blip.name.length > 25
+      blip.name.length > 29
         ? blip.name.substring(
             0,
-            23
-          ) + "…"
+            27
+          ) +
+          "…"
         : blip.name;
 
 
     ctx.fillText(
+
       shortName,
+
       x +
-      imageSize / 2,
+      imageSize /
+      2,
+
       y +
       imageSize +
-      34
+      32
+
+    );
+
+
+    ctx.fillStyle =
+      "#9aa2b4";
+
+
+    ctx.font =
+      "17px Arial";
+
+
+    ctx.fillText(
+
+      blip.edition +
+      " · " +
+      blip.size,
+
+      x +
+      imageSize /
+      2,
+
+      y +
+      imageSize +
+      59
+
     );
 
   }
@@ -2169,14 +2645,266 @@ async function drawShareCard(
     "20px Arial";
 
 
-  ctx.textAlign =
-    "center";
-
-
   ctx.fillText(
+
     "Blipdex · Loot in a Boot",
-    width / 2,
-    height - 35
+
+    width /
+    2,
+
+    height -
+    35
+
+  );
+
+}
+
+
+/* =====================================================
+   COLLECTION IMAGE
+===================================================== */
+
+async function generateCollectionImage() {
+
+  const owned =
+    getSavedArray(
+      "blipCollection"
+    );
+
+
+  const ownedBlips =
+    blips.filter(
+      blip =>
+        owned.includes(
+          blip.id
+        )
+    );
+
+
+  if (!ownedBlips.length) {
+
+    alert(
+      "Add at least one Blip to your collection first!"
+    );
+
+    return;
+
+  }
+
+
+  const canvas =
+    document.getElementById(
+      "collectionCanvas"
+    );
+
+
+  await drawShareImage(
+
+    canvas,
+
+    ownedBlips,
+
+    "MY BLIP COLLECTION",
+
+    ownedBlips.length +
+    " / " +
+    blips.length +
+    " COLLECTED",
+
+    "collection"
+
+  );
+
+
+  canvas.style.display =
+    "block";
+
+
+  document.getElementById(
+    "collectionDownloadButton"
+  ).style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   WISHLIST IMAGE
+===================================================== */
+
+async function generateWishlistImage() {
+
+  const wishlist =
+    getSavedArray(
+      "blipWishlist"
+    );
+
+
+  const wishlistBlips =
+    blips.filter(
+      blip =>
+        wishlist.includes(
+          blip.id
+        )
+    );
+
+
+  if (!wishlistBlips.length) {
+
+    alert(
+      "Add at least one Blip to your wishlist first!"
+    );
+
+    return;
+
+  }
+
+
+  const canvas =
+    document.getElementById(
+      "wishlistCanvas"
+    );
+
+
+  await drawShareImage(
+
+    canvas,
+
+    wishlistBlips,
+
+    "MY BLIP WISHLIST",
+
+    wishlistBlips.length +
+    (
+      wishlistBlips.length === 1
+        ? " BLIP I'M HUNTING"
+        : " BLIPS I'M HUNTING"
+    ),
+
+    "wishlist"
+
+  );
+
+
+  canvas.style.display =
+    "block";
+
+
+  document.getElementById(
+    "wishlistDownloadButton"
+  ).style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   DOWNLOAD IMAGES
+===================================================== */
+
+function downloadCollectionImage() {
+
+  const canvas =
+    document.getElementById(
+      "collectionCanvas"
+    );
+
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+
+  link.download =
+    "my-blip-collection.png";
+
+
+  link.href =
+    canvas.toDataURL(
+      "image/png"
+    );
+
+
+  link.click();
+
+}
+
+
+function downloadWishlistImage() {
+
+  const canvas =
+    document.getElementById(
+      "wishlistCanvas"
+    );
+
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+
+  link.download =
+    "my-blip-wishlist.png";
+
+
+  link.href =
+    canvas.toDataURL(
+      "image/png"
+    );
+
+
+  link.click();
+
+}
+
+
+/* =====================================================
+   IMAGE TO PDF DATA
+===================================================== */
+
+async function imageToDataURL(
+  src
+) {
+
+  const image =
+    await loadImage(
+      src
+    );
+
+
+  const canvas =
+    document.createElement(
+      "canvas"
+    );
+
+
+  canvas.width =
+    image.naturalWidth ||
+    image.width;
+
+
+  canvas.height =
+    image.naturalHeight ||
+    image.height;
+
+
+  const ctx =
+    canvas.getContext(
+      "2d"
+    );
+
+
+  ctx.drawImage(
+    image,
+    0,
+    0
+  );
+
+
+  return canvas.toDataURL(
+    "image/png"
   );
 
 }
@@ -2189,13 +2917,8 @@ async function drawShareCard(
 function drawPDFHeader(
   pdf,
   mode,
-  blipCount,
-  totalReleased
+  count
 ) {
-
-  const pageWidth =
-    210;
-
 
   pdf.setFillColor(
     255,
@@ -2232,14 +2955,21 @@ function drawPDFHeader(
 
 
   pdf.text(
-    mode === "wishlist"
+
+    mode ===
+    "wishlist"
       ? "MY BLIP WISHLIST"
       : "MY BLIP COLLECTION",
-    pageWidth / 2,
+
+    105,
+
     17,
+
     {
-      align: "center"
+      align:
+        "center"
     }
+
   );
 
 
@@ -2254,7 +2984,10 @@ function drawPDFHeader(
   );
 
 
-  if (mode === "wishlist") {
+  if (
+    mode ===
+    "wishlist"
+  ) {
 
     pdf.setTextColor(
       150,
@@ -2264,17 +2997,23 @@ function drawPDFHeader(
 
 
     pdf.text(
-      blipCount +
+
+      count +
       (
-        blipCount === 1
+        count === 1
           ? " Blip I'm hunting"
           : " Blips I'm hunting"
       ),
-      pageWidth / 2,
+
+      105,
+
       25,
+
       {
-        align: "center"
+        align:
+          "center"
       }
+
     );
 
   }
@@ -2289,15 +3028,21 @@ function drawPDFHeader(
 
 
     pdf.text(
-      blipCount +
+
+      count +
       " of " +
-      totalReleased +
+      blips.length +
       " collected",
-      pageWidth / 2,
+
+      105,
+
       25,
+
       {
-        align: "center"
+        align:
+          "center"
       }
+
     );
 
   }
@@ -2316,12 +3061,18 @@ function drawPDFHeader(
 
 
   pdf.text(
+
     "Generated from the Blipdex",
-    pageWidth / 2,
+
+    105,
+
     31,
+
     {
-      align: "center"
+      align:
+        "center"
     }
+
   );
 
 
@@ -2362,7 +3113,10 @@ async function drawPDFCard(
     52;
 
 
-  if (mode === "wishlist") {
+  if (
+    mode ===
+    "wishlist"
+  ) {
 
     pdf.setFillColor(
       249,
@@ -2398,13 +3152,18 @@ async function drawPDFCard(
 
 
   pdf.roundedRect(
+
     x,
     y,
+
     cardWidth,
     cardHeight,
+
     3,
     3,
+
     "FD"
+
   );
 
 
@@ -2416,13 +3175,18 @@ async function drawPDFCard(
 
 
   pdf.roundedRect(
+
     x + 4,
     y + 5,
+
     35,
     42,
+
     2,
     2,
+
     "F"
+
   );
 
 
@@ -2435,14 +3199,21 @@ async function drawPDFCard(
 
 
     pdf.addImage(
+
       imageData,
+
       "PNG",
+
       x + 6,
       y + 8,
+
       31,
       31,
+
       undefined,
+
       "FAST"
+
     );
 
   }
@@ -2482,7 +3253,7 @@ async function drawPDFCard(
 
 
   pdf.setFontSize(
-    8.5
+    8.2
   );
 
 
@@ -2507,45 +3278,44 @@ async function drawPDFCard(
   );
 
 
-  pdf.setFont(
-    "helvetica",
-    "bold"
-  );
-
-
   pdf.setFontSize(
-    5.8
+    5.7
   );
 
 
-  if (mode === "wishlist") {
+  pdf.setTextColor(
 
-    pdf.setTextColor(
-      166,
-      65,
-      116
-    );
+    mode ===
+    "wishlist"
+      ? 166
+      : 77,
 
-  }
+    mode ===
+    "wishlist"
+      ? 65
+      : 88,
 
-  else {
+    mode ===
+    "wishlist"
+      ? 116
+      : 165
 
-    pdf.setTextColor(
-      77,
-      88,
-      165
-    );
-
-  }
+  );
 
 
   pdf.text(
+
     blip.type.toUpperCase(),
+
     textX,
+
     y + 19,
+
     {
-      maxWidth:textWidth
+      maxWidth:
+        textWidth
     }
+
   );
 
 
@@ -2568,35 +3338,43 @@ async function drawPDFCard(
 
 
   pdf.text(
+
     "Edition: " +
     blip.edition,
+
     textX,
-    y + 27,
-    {
-      maxWidth:textWidth
-    }
+
+    y + 27
+
   );
 
 
   pdf.text(
+
     "Size: " +
     blip.size,
+
     textX,
-    y + 32,
-    {
-      maxWidth:textWidth
-    }
+
+    y + 32
+
   );
 
 
   pdf.text(
+
     "Release: " +
     blip.release,
+
     textX,
+
     y + 37,
+
     {
-      maxWidth:textWidth
+      maxWidth:
+        textWidth
     }
+
   );
 
 
@@ -2604,16 +3382,22 @@ async function drawPDFCard(
     getNumbers();
 
 
+  pdf.setFont(
+    "helvetica",
+    "bold"
+  );
+
+
+  pdf.setFontSize(
+    6
+  );
+
+
   if (
-    mode === "collection" &&
+    mode ===
+    "collection" &&
     numbers[blip.id]
   ) {
-
-    pdf.setFont(
-      "helvetica",
-      "bold"
-    );
-
 
     pdf.setTextColor(
       73,
@@ -2623,44 +3407,51 @@ async function drawPDFCard(
 
 
     pdf.text(
+
       "My # " +
       numbers[blip.id],
+
       textX,
-      y + 44,
-      {
-        maxWidth:textWidth
-      }
+
+      y + 44
+
     );
 
   }
 
   else {
 
-    pdf.setFont(
-      "helvetica",
-      "bold"
-    );
-
-
     pdf.setTextColor(
-      mode === "wishlist"
+
+      mode ===
+      "wishlist"
         ? 174
         : 73,
-      mode === "wishlist"
+
+      mode ===
+      "wishlist"
         ? 59
         : 87,
-      mode === "wishlist"
+
+      mode ===
+      "wishlist"
         ? 117
         : 170
+
     );
 
 
     pdf.text(
-      mode === "wishlist"
+
+      mode ===
+      "wishlist"
         ? "WISHLIST"
         : "IN COLLECTION",
+
       textX,
+
       y + 44
+
     );
 
   }
@@ -2669,12 +3460,11 @@ async function drawPDFCard(
 
 
 /* =====================================================
-   GENERIC PDF
-   WHITE A4
-   8 ITEMS PER PAGE
+   PDF GENERATOR
+   8 PINS PER PAGE
 ===================================================== */
 
-async function generateBlipPDF(
+async function generatePDF(
   blipList,
   mode
 ) {
@@ -2682,9 +3472,14 @@ async function generateBlipPDF(
   if (!blipList.length) {
 
     alert(
-      mode === "wishlist"
+
+      mode ===
+      "wishlist"
+
         ? "Add at least one Blip to your wishlist first!"
+
         : "Add at least one Blip to your collection first!"
+
     );
 
     return;
@@ -2700,18 +3495,17 @@ async function generateBlipPDF(
 
   const pdf =
     new jsPDF({
-      orientation: "portrait",
-      unit: "mm",
-      format: "a4"
+
+      orientation:
+        "portrait",
+
+      unit:
+        "mm",
+
+      format:
+        "a4"
+
     });
-
-
-  const pageWidth =
-    210;
-
-
-  const pageHeight =
-    297;
 
 
   const margin =
@@ -2748,15 +3542,14 @@ async function generateBlipPDF(
     43;
 
 
-  const releasedCount =
-    getReleasedBlips().length;
-
-
   drawPDFHeader(
+
     pdf,
+
     mode,
-    blipList.length,
-    releasedCount
+
+    blipList.length
+
   );
 
 
@@ -2765,6 +3558,7 @@ async function generateBlipPDF(
     i < blipList.length;
     i++
   ) {
+
 
     const itemOnPage =
       i % 8;
@@ -2779,10 +3573,13 @@ async function generateBlipPDF(
 
 
       drawPDFHeader(
+
         pdf,
+
         mode,
-        blipList.length,
-        releasedCount
+
+        blipList.length
+
       );
 
     }
@@ -2794,7 +3591,8 @@ async function generateBlipPDF(
 
     const row =
       Math.floor(
-        itemOnPage / 2
+        itemOnPage /
+        2
       );
 
 
@@ -2814,11 +3612,16 @@ async function generateBlipPDF(
 
 
     await drawPDFCard(
+
       pdf,
+
       blipList[i],
+
       x,
       y,
+
       mode
+
     );
 
   }
@@ -2847,10 +3650,10 @@ async function generateBlipPDF(
 
 
     pdf.line(
-      margin,
-      pageHeight - 14,
-      pageWidth - margin,
-      pageHeight - 14
+      16,
+      283,
+      194,
+      283
     );
 
 
@@ -2861,12 +3664,6 @@ async function generateBlipPDF(
     );
 
 
-    pdf.setFont(
-      "helvetica",
-      "normal"
-    );
-
-
     pdf.setFontSize(
       7
     );
@@ -2874,97 +3671,42 @@ async function generateBlipPDF(
 
     pdf.text(
       "Loot in a Boot · Blipdex",
-      margin,
-      pageHeight - 8
+      16,
+      289
     );
 
 
     pdf.text(
+
       "Page " +
       page +
       " of " +
       totalPages,
-      pageWidth - margin,
-      pageHeight - 8,
+
+      194,
+
+      289,
+
       {
-        align: "right"
+        align:
+          "right"
       }
+
     );
 
   }
 
 
   pdf.save(
-    mode === "wishlist"
+
+    mode ===
+    "wishlist"
+
       ? "my-blip-wishlist.pdf"
+
       : "my-blip-collection.pdf"
+
   );
-
-}
-
-
-/* =====================================================
-   COLLECTION CARD
-===================================================== */
-
-async function generateCollectionCard() {
-
-  const released =
-    getReleasedBlips();
-
-
-  const owned =
-    getSavedArray(
-      "blipCollection"
-    );
-
-
-  const ownedBlips =
-    released.filter(
-      blip =>
-        owned.includes(
-          blip.id
-        )
-    );
-
-
-  if (!ownedBlips.length) {
-
-    alert(
-      "Add at least one Blip to your collection first!"
-    );
-
-    return;
-
-  }
-
-
-  const canvas =
-    document.getElementById(
-      "collectionCanvas"
-    );
-
-
-  await drawShareCard(
-    canvas,
-    ownedBlips,
-    "MY BLIP COLLECTION",
-    ownedBlips.length +
-      " / " +
-      released.length +
-      " COLLECTED",
-    "collection"
-  );
-
-
-  canvas.style.display =
-    "block";
-
-
-  document.getElementById(
-    "collectionDownloadButton"
-  ).style.display =
-    "block";
 
 }
 
@@ -2975,10 +3717,6 @@ async function generateCollectionCard() {
 
 function generateCollectionPDF() {
 
-  const released =
-    getReleasedBlips();
-
-
   const owned =
     getSavedArray(
       "blipCollection"
@@ -2986,7 +3724,7 @@ function generateCollectionPDF() {
 
 
   const ownedBlips =
-    released.filter(
+    blips.filter(
       blip =>
         owned.includes(
           blip.id
@@ -2994,78 +3732,10 @@ function generateCollectionPDF() {
     );
 
 
-  generateBlipPDF(
+  generatePDF(
     ownedBlips,
     "collection"
   );
-
-}
-
-
-/* =====================================================
-   WISHLIST CARD
-===================================================== */
-
-async function generateWishlistCard() {
-
-  const released =
-    getReleasedBlips();
-
-
-  const wanted =
-    getSavedArray(
-      "blipWishlist"
-    );
-
-
-  const wantedBlips =
-    released.filter(
-      blip =>
-        wanted.includes(
-          blip.id
-        )
-    );
-
-
-  if (!wantedBlips.length) {
-
-    alert(
-      "Add at least one Blip to your wishlist first!"
-    );
-
-    return;
-
-  }
-
-
-  const canvas =
-    document.getElementById(
-      "wishlistCanvas"
-    );
-
-
-  await drawShareCard(
-    canvas,
-    wantedBlips,
-    "MY BLIP WISHLIST",
-    wantedBlips.length +
-      (
-        wantedBlips.length === 1
-          ? " BLIP I'M HUNTING"
-          : " BLIPS I'M HUNTING"
-      ),
-    "wishlist"
-  );
-
-
-  canvas.style.display =
-    "block";
-
-
-  document.getElementById(
-    "wishlistDownloadButton"
-  ).style.display =
-    "block";
 
 }
 
@@ -3076,91 +3746,25 @@ async function generateWishlistCard() {
 
 function generateWishlistPDF() {
 
-  const released =
-    getReleasedBlips();
-
-
-  const wanted =
+  const wishlist =
     getSavedArray(
       "blipWishlist"
     );
 
 
-  const wantedBlips =
-    released.filter(
+  const wishlistBlips =
+    blips.filter(
       blip =>
-        wanted.includes(
+        wishlist.includes(
           blip.id
         )
     );
 
 
-  generateBlipPDF(
-    wantedBlips,
+  generatePDF(
+    wishlistBlips,
     "wishlist"
   );
-
-}
-
-
-/* =====================================================
-   DOWNLOAD COLLECTION CARD
-===================================================== */
-
-function downloadCollectionCard() {
-
-  const canvas =
-    document.getElementById(
-      "collectionCanvas"
-    );
-
-
-  const link =
-    document.createElement("a");
-
-
-  link.download =
-    "my-blip-collection.png";
-
-
-  link.href =
-    canvas.toDataURL(
-      "image/png"
-    );
-
-
-  link.click();
-
-}
-
-
-/* =====================================================
-   DOWNLOAD WISHLIST CARD
-===================================================== */
-
-function downloadWishlistCard() {
-
-  const canvas =
-    document.getElementById(
-      "wishlistCanvas"
-    );
-
-
-  const link =
-    document.createElement("a");
-
-
-  link.download =
-    "my-blip-wishlist.png";
-
-
-  link.href =
-    canvas.toDataURL(
-      "image/png"
-    );
-
-
-  link.click();
 
 }
 
