@@ -10,10 +10,6 @@
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,23 +60,18 @@ a {
 
 header {
   position: sticky;
-
   top: 0;
-
   z-index: 100;
 
   display: flex;
-
   justify-content: space-between;
   align-items: center;
 
   padding: 18px 6%;
 
-  background:
-    rgba(5,7,13,.84);
+  background: rgba(5,7,13,.84);
 
-  backdrop-filter:
-    blur(14px);
+  backdrop-filter: blur(14px);
 
   border-bottom:
     1px solid rgba(255,255,255,.08);
@@ -88,15 +79,12 @@ header {
 
 .header-logo img {
   width: 125px;
-
   display: block;
-
   filter: invert(1);
 }
 
 nav {
   display: flex;
-
   gap: 26px;
 }
 
@@ -155,7 +143,7 @@ nav a.active {
 }
 
 .hero p {
-  max-width: 720px;
+  max-width: 760px;
 
   margin: auto;
 
@@ -337,7 +325,7 @@ nav a.active {
 
 
 /* =====================================================
-   BLIPDEX
+   BLIP GRID
 ===================================================== */
 
 .blipdex-section {
@@ -361,7 +349,7 @@ nav a.active {
 
 
 /* =====================================================
-   PIN CARD
+   CARD
 ===================================================== */
 
 .pin-card {
@@ -420,18 +408,9 @@ nav a.active {
     );
 }
 
-.pin-card.upcoming .pin-image {
-  background:
-    radial-gradient(
-      circle,
-      rgba(77,187,255,.18),
-      transparent 60%
-    );
-}
-
 .pin-image img {
-  width: 84%;
-  height: 84%;
+  width: 86%;
+  height: 86%;
 
   object-fit: contain;
 
@@ -471,7 +450,7 @@ nav a.active {
 
 
 /* =====================================================
-   STATUS BADGE
+   STATUS
 ===================================================== */
 
 .status-badge {
@@ -509,19 +488,19 @@ nav a.active {
     1px solid rgba(146,159,255,.22);
 }
 
-.status-upcoming {
+.status-special {
   background:
-    rgba(7,21,31,.78);
+    rgba(39,24,3,.82);
 
-  color: #8fddff;
+  color: #ffd48a;
 
   border:
-    1px solid rgba(76,196,255,.27);
+    1px solid rgba(255,191,84,.26);
 }
 
 
 /* =====================================================
-   CARD CONTENT
+   CONTENT
 ===================================================== */
 
 .pin-content {
@@ -542,9 +521,9 @@ nav a.active {
 }
 
 .pin-content h2 {
-  font-size: 1.55rem;
+  font-size: 1.48rem;
 
-  line-height: 1.12;
+  line-height: 1.14;
 
   margin-bottom: 8px;
 }
@@ -565,7 +544,7 @@ nav a.active {
 
 
 /* =====================================================
-   INFO GRID
+   INFO
 ===================================================== */
 
 .pin-details {
@@ -591,6 +570,11 @@ nav a.active {
     1px solid rgba(255,255,255,.06);
 }
 
+.detail.full {
+  grid-column:
+    1 / -1;
+}
+
 .detail-label {
   display: block;
 
@@ -612,7 +596,7 @@ nav a.active {
 
   font-size: .78rem;
 
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 
@@ -661,9 +645,6 @@ nav a.active {
 
 .tracker-button:hover {
   color: white;
-
-  border-color:
-    rgba(255,255,255,.18);
 }
 
 .tracker-button.owned.active {
@@ -688,7 +669,7 @@ nav a.active {
 
 
 /* =====================================================
-   NUMBER FIELD
+   NUMBER
 ===================================================== */
 
 .number-wrap {
@@ -730,86 +711,38 @@ nav a.active {
   outline: none;
 }
 
-.number-input::placeholder {
-  color: #555e70;
-}
-
 .number-input:disabled {
   opacity: .35;
-
-  cursor: not-allowed;
 }
 
 
 /* =====================================================
-   CARD LINKS
+   SPECIAL NOTE
 ===================================================== */
 
-.card-actions {
-  display: flex;
+.special-note {
+  margin-top: 4px;
 
-  gap: 8px;
+  padding: 13px;
 
-  margin-top: 14px;
-
-  flex-wrap: wrap;
-}
-
-.card-link {
-  flex: 1;
-
-  min-width: 100px;
-
-  padding:
-    10px 11px;
-
-  border-radius: 11px;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  font-size: .72rem;
-
-  font-weight: 800;
-
-  transition:
-    transform .18s ease;
-}
-
-.card-link:hover {
-  transform:
-    translateY(-2px);
-}
-
-.card-link.details-link {
-  background: white;
-
-  color: #090c14;
-}
-
-.card-link.shop-link {
-  border:
-    1px solid rgba(255,255,255,.12);
-
-  color: white;
+  border-radius: 13px;
 
   background:
-    rgba(255,255,255,.04);
+    rgba(255,190,70,.07);
+
+  border:
+    1px solid rgba(255,190,70,.14);
+
+  color: #b9a888;
+
+  font-size: .75rem;
+
+  line-height: 1.5;
 }
 
 
 /* =====================================================
-   UPCOMING TRACKER
-===================================================== */
-
-.pin-card.upcoming .tracker-box {
-  display: none;
-}
-
-
-/* =====================================================
-   EMPTY FILTER
+   EMPTY
 ===================================================== */
 
 .no-results {
@@ -930,22 +863,16 @@ footer {
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
   <a
     class="header-logo"
     href="index.html"
   >
-
     <img
       src="blip-logo.png"
       alt="Blip"
     >
-
   </a>
 
 
@@ -975,18 +902,13 @@ footer {
 </header>
 
 
-
 <main>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="hero">
 
   <div class="kicker">
-    The Collector Archive
+    The Pin Collector Archive
   </div>
 
   <h1>
@@ -994,9 +916,10 @@ footer {
   </h1>
 
   <p>
-    Every Blip. Every colourway. Every strange disguise.
-    Track the Blips in your collection, save the ones you're
-    still hunting for and discover the story behind each release.
+    Every Blip enamel pin release in one place.
+    Track the pins in your collection, save the ones you're
+    still hunting for and explore Blip's increasingly questionable
+    collection of disguises.
   </p>
 
 
@@ -1009,7 +932,7 @@ footer {
       </span>
 
       <span id="progressTotal">
-        0 / 15
+        0 / 19
       </span>
 
     </div>
@@ -1025,11 +948,8 @@ footer {
     </div>
 
 
-    <div
-      id="releaseNote"
-      class="release-note"
-    >
-      Upcoming releases do not count toward completion until release day.
+    <div class="release-note">
+      The Blipdex tracks enamel pins only. Figures and resin releases will have their own collection.
     </div>
 
   </div>
@@ -1038,74 +958,55 @@ footer {
 
 
 
-<!-- =====================================================
-     SEARCH + FILTERS
-===================================================== -->
-
 <section class="controls-section">
 
   <div class="controls">
 
-
     <input
       id="searchInput"
       class="search-box"
-
       type="search"
-
       placeholder="Search the Blipdex..."
-
       oninput="renderBlipdex()"
     >
 
 
     <div class="filter-buttons">
 
-
       <button
         class="filter-button active"
-        data-filter="all"
         onclick="setFilter('all', this)"
       >
         All
       </button>
 
-
       <button
         class="filter-button"
-        data-filter="released"
-        onclick="setFilter('released', this)"
-      >
-        Released
-      </button>
-
-
-      <button
-        class="filter-button"
-        data-filter="upcoming"
-        onclick="setFilter('upcoming', this)"
-      >
-        Coming Soon
-      </button>
-
-
-      <button
-        class="filter-button"
-        data-filter="owned"
         onclick="setFilter('owned', this)"
       >
         My Collection
       </button>
 
-
       <button
         class="filter-button"
-        data-filter="wishlist"
         onclick="setFilter('wishlist', this)"
       >
         Wishlist
       </button>
 
+      <button
+        class="filter-button"
+        onclick="setFilter('kickstarter', this)"
+      >
+        Kickstarter
+      </button>
+
+      <button
+        class="filter-button"
+        onclick="setFilter('special', this)"
+      >
+        Specials
+      </button>
 
     </div>
 
@@ -1114,10 +1015,6 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
-     BLIPDEX GRID
-===================================================== -->
 
 <section class="blipdex-section">
 
@@ -1131,9 +1028,7 @@ footer {
     id="noResults"
     class="no-results"
   >
-
     No Blips found here.
-
   </div>
 
 </section>
@@ -1150,7 +1045,7 @@ footer {
   </div>
 
   <div>
-    The Blipdex
+    The Blipdex · Pins
   </div>
 
 </footer>
@@ -1161,626 +1056,842 @@ footer {
 
 
 /* =====================================================
-   SHOP
-===================================================== */
+   MASTER BLIP PIN DATABASE
 
-const blipShop =
-  "https://lootinaboot.com.au/collections/blip";
+   countsTowardCompletion:
+   true  = counts toward collector completion
+   false = archive/reference only
 
-
-/* =====================================================
-   BLIPDEX MASTER DATABASE
 ===================================================== */
 
 const blips = [
 
 
-  /* ===================================================
-     MAY 2025
-  =================================================== */
+/* =====================================================
+   ORIGINAL SERIES · MAY 2025
+===================================================== */
 
 
-  {
-    id: "classic-blip",
+{
+  id: "classic-blip",
 
-    name: "Classic Blip",
+  name: "Classic Blip",
 
-    subtitle:
-      "Original Release",
+  subtitle:
+    "Original Release",
 
-    image:
-      "images/classic-blip.png",
+  image:
+    "images/classic-blip.png",
 
-    page:
-      "",
+  size:
+    '2"',
 
-    size:
-      '2"',
+  edition:
+    "LE50",
 
-    edition:
-      "LE50",
+  release:
+    "May 2025",
 
-    release:
-      "May 2025",
+  releaseDate:
+    "2025-05-01",
 
-    releaseDate:
-      "2025-05-01",
+  enamel:
+    "Enamel Pin",
 
-    enamel:
-      "Enamel Pin",
+  effects:
+    "Standard",
 
-    effects:
-      "Standard"
-  },
+  group:
+    "original",
 
+  countsTowardCompletion:
+    true
+},
 
-  {
-    id: "superhero-blip",
 
-    name: "Superhero Blip",
+{
+  id: "superhero-blip",
 
-    subtitle:
-      "Original Costume Series",
+  name:
+    "Superhero Blip",
 
-    image:
-      "images/superhero-blip.png",
+  subtitle:
+    "Original Costume Series",
 
-    page:
-      "",
+  image:
+    "images/superhero-blip.png",
 
-    size:
-      '2"',
+  size:
+    '2"',
 
-    edition:
-      "LE50",
+  edition:
+    "LE50",
 
-    release:
-      "May 2025",
+  release:
+    "May 2025",
 
-    releaseDate:
-      "2025-05-01",
+  releaseDate:
+    "2025-05-01",
 
-    enamel:
-      "Enamel Pin",
+  enamel:
+    "Enamel Pin",
 
-    effects:
-      "Standard"
-  },
+  effects:
+    "Standard",
 
+  group:
+    "original",
 
-  {
-    id: "shark-blip",
+  countsTowardCompletion:
+    true
+},
 
-    name: "Shark Blip",
 
-    subtitle:
-      "Original Costume Series",
+{
+  id: "shark-blip",
 
-    image:
-      "images/shark-blip.png",
+  name:
+    "Shark Blip",
 
-    page:
-      "shark-blip.html",
+  subtitle:
+    "Original Costume Series",
 
-    size:
-      '2"',
+  image:
+    "images/shark-blip.png",
 
-    edition:
-      "LE50",
+  size:
+    '2"',
 
-    release:
-      "May 2025",
+  edition:
+    "LE50",
 
-    releaseDate:
-      "2025-05-01",
+  release:
+    "May 2025",
 
-    enamel:
-      "Enamel Pin",
+  releaseDate:
+    "2025-05-01",
 
-    effects:
-      "Standard"
-  },
+  enamel:
+    "Enamel Pin",
 
+  effects:
+    "Standard",
 
-  {
-    id: "goldfish-blip",
+  group:
+    "original",
 
-    name: "Goldfish Blip",
+  countsTowardCompletion:
+    true
+},
 
-    subtitle:
-      "Original Costume Series",
 
-    image:
-      "images/goldfish-blip.png",
+{
+  id: "goldfish-blip",
 
-    page:
-      "",
+  name:
+    "Goldfish Blip",
 
-    size:
-      '2"',
+  subtitle:
+    "Original Costume Series",
 
-    edition:
-      "LE50",
+  image:
+    "images/goldfish-blip.png",
 
-    release:
-      "May 2025",
+  size:
+    '2"',
 
-    releaseDate:
-      "2025-05-01",
+  edition:
+    "LE50",
 
-    enamel:
-      "Enamel Pin",
+  release:
+    "May 2025",
 
-    effects:
-      "Standard"
-  },
+  releaseDate:
+    "2025-05-01",
 
+  enamel:
+    "Enamel Pin",
 
-  {
-    id: "kangaroo-blip",
+  effects:
+    "Standard",
 
-    name: "Kangaroo Blip",
+  group:
+    "original",
 
-    subtitle:
-      "Original Costume Series",
+  countsTowardCompletion:
+    true
+},
 
-    image:
-      "images/kangaroo-blip.png",
 
-    page:
-      "",
+{
+  id: "kangaroo-blip",
 
-    size:
-      '2"',
+  name:
+    "Kangaroo Blip",
 
-    edition:
-      "LE50",
+  subtitle:
+    "Original Costume Series",
 
-    release:
-      "May 2025",
+  image:
+    "images/kangaroo-blip.png",
 
-    releaseDate:
-      "2025-05-01",
+  size:
+    '2"',
 
-    enamel:
-      "Enamel Pin",
+  edition:
+    "LE50",
 
-    effects:
-      "Standard"
-  },
+  release:
+    "May 2025",
 
+  releaseDate:
+    "2025-05-01",
 
-  {
-    id: "koala-blip",
+  enamel:
+    "Enamel Pin",
 
-    name: "Koala Blip",
+  effects:
+    "Standard",
 
-    subtitle:
-      "Original Costume Series",
+  group:
+    "original",
 
-    image:
-      "images/koala-blip.png",
+  countsTowardCompletion:
+    true
+},
 
-    page:
-      "",
 
-    size:
-      '2"',
+{
+  id: "koala-blip",
 
-    edition:
-      "LE50",
+  name:
+    "Koala Blip",
 
-    release:
-      "May 2025",
+  subtitle:
+    "Original Costume Series",
 
-    releaseDate:
-      "2025-05-01",
+  image:
+    "images/koala-blip.png",
 
-    enamel:
-      "Enamel Pin",
+  size:
+    '2"',
 
-    effects:
-      "Standard"
-  },
+  edition:
+    "LE50",
 
+  release:
+    "May 2025",
 
-  {
-    id: "occie-blip",
+  releaseDate:
+    "2025-05-01",
 
-    name: "Occie Blip",
+  enamel:
+    "Enamel Pin",
 
-    subtitle:
-      "Kickstarter Set",
+  effects:
+    "Standard",
 
-    image:
-      "images/occie-blip.png",
+  group:
+    "original",
 
-    page:
-      "",
+  countsTowardCompletion:
+    true
+},
 
-    size:
-      '2"',
 
-    edition:
-      "Kickstarter",
+{
+  id: "occie-blip",
 
-    release:
-      "May 2025",
+  name:
+    "Occie Blip",
 
-    releaseDate:
-      "2025-05-01",
+  subtitle:
+    "Original Costume Series",
 
-    enamel:
-      "Enamel Pin",
+  image:
+    "images/occie-blip.png",
 
-    effects:
-      "Kickstarter Colourway"
-  },
+  size:
+    '2"',
 
+  edition:
+    "LE50",
 
-  /* ===================================================
-     PIRATE FAMILY
-  =================================================== */
+  release:
+    "May 2025",
 
+  releaseDate:
+    "2025-05-01",
 
-  {
-    id: "pirate-blip-blue",
+  enamel:
+    "Enamel Pin",
 
-    name:
-      "Pirate Blip – Blue",
+  effects:
+    "Standard",
 
-    subtitle:
-      "Original Costume Series",
+  group:
+    "original",
 
-    image:
-      "images/pirate-blip.png",
+  countsTowardCompletion:
+    true
+},
 
-    page:
-      "pirate-blip.html",
 
-    size:
-      '2"',
 
-    edition:
-      "LE50",
+/* =====================================================
+   PIRATE BLIP · BLUE
+===================================================== */
 
-    release:
-      "May 2025",
 
-    releaseDate:
-      "2025-05-01",
+{
+  id:
+    "pirate-blip-blue",
 
-    enamel:
-      "Enamel Pin",
+  name:
+    "Pirate Blip – Blue",
 
-    effects:
-      "Standard"
-  },
+  subtitle:
+    "Original Pirate",
 
+  image:
+    "images/pirate-blip.png",
 
-  {
-    id: "pirate-blip-blue-mega",
+  size:
+    '2"',
 
-    name:
-      "Pirate Blip – Blue Mega",
+  edition:
+    "LE50",
 
-    subtitle:
-      "Oversized Pirate",
+  release:
+    "May 2025",
 
-    image:
-      "images/pirate-blue-mega.png",
+  releaseDate:
+    "2025-05-01",
 
-    page:
-      "",
+  enamel:
+    "Enamel Pin",
 
-    size:
-      '4"',
+  effects:
+    "Standard",
 
-    edition:
-      "PLV20",
+  group:
+    "original",
 
-    release:
-      "May 2025",
+  countsTowardCompletion:
+    true
+},
 
-    releaseDate:
-      "2025-05-01",
 
-    enamel:
-      "Enamel Pin",
+{
+  id:
+    "pirate-blip-blue-mega",
 
-    effects:
-      "Mega Pin"
-  },
+  name:
+    "Pirate Blip – Blue Mega",
 
+  subtitle:
+    "Mega Pirate",
 
-  {
-    id: "pirate-blip-green",
+  /* SAME DESIGN AS BLUE PIRATE */
 
-    name:
-      "Pirate Blip – Green Kickstarter",
+  image:
+    "images/pirate-blip.png",
 
-    subtitle:
-      "Kickstarter Colourway",
+  size:
+    '4"',
 
-    image:
-      "images/pirate-green.png",
+  edition:
+    "PLV20",
 
-    page:
-      "",
+  release:
+    "May 2025",
 
-    size:
-      '2"',
+  releaseDate:
+    "2025-05-01",
 
-    edition:
-      "Kickstarter",
+  enamel:
+    "Enamel Pin",
 
-    release:
-      "May 2025",
+  effects:
+    "Mega Pin",
 
-    releaseDate:
-      "2025-05-01",
+  group:
+    "original",
 
-    enamel:
-      "Enamel Pin",
+  countsTowardCompletion:
+    true
+},
 
-    effects:
-      "Kickstarter Colourway"
-  },
 
 
-  {
-    id: "pirate-blip-green-mega",
+/* =====================================================
+   KICKSTARTER GREEN TRIO
+===================================================== */
 
-    name:
-      "Pirate Blip – Green Mega",
 
-    subtitle:
-      "Kickstarter Mega",
+{
+  id:
+    "superhero-blip-green",
 
-    image:
-      "images/pirate-green-mega.png",
+  name:
+    "Green Superhero Blip",
 
-    page:
-      "",
+  subtitle:
+    "Kickstarter Colourway",
 
-    size:
-      '4"',
+  image:
+    "images/superhero-green.png",
 
-    edition:
-      "OLV10",
+  size:
+    '2"',
 
-    release:
-      "May 2025",
+  edition:
+    "Kickstarter",
 
-    releaseDate:
-      "2025-05-01",
+  release:
+    "May 2025",
 
-    enamel:
-      "Enamel Pin",
+  releaseDate:
+    "2025-05-01",
 
-    effects:
-      "Mega Pin"
-  },
+  enamel:
+    "Enamel Pin",
 
+  effects:
+    "Green Kickstarter Colourway",
 
-  {
-    id: "pirate-blip-jessie",
+  group:
+    "kickstarter",
 
-    name:
-      "Colours by Jessie – Pirate Blip",
+  countsTowardCompletion:
+    true
+},
 
-    subtitle:
-      "Colours by Jessie",
 
-    image:
-      "images/pirate-jessie.png",
+{
+  id:
+    "occie-blip-green",
 
-    page:
-      "",
+  name:
+    "Green Occie Blip",
 
-    size:
-      '2"',
+  subtitle:
+    "Kickstarter Colourway",
 
-    edition:
-      "LE50",
+  image:
+    "images/occie-green.png",
 
-    release:
-      "May 2025",
+  size:
+    '2"',
 
-    releaseDate:
-      "2025-05-01",
+  edition:
+    "Kickstarter",
 
-    enamel:
-      "Enamel Pin",
+  release:
+    "May 2025",
 
-    effects:
-      "Glow"
-  },
+  releaseDate:
+    "2025-05-01",
 
+  enamel:
+    "Enamel Pin",
 
-  {
-    id: "pirate-blip-jessie-mega",
+  effects:
+    "Green Kickstarter Colourway",
 
-    name:
-      "Colours by Jessie – Pirate Mega",
+  group:
+    "kickstarter",
 
-    subtitle:
-      "Colours by Jessie",
+  countsTowardCompletion:
+    true
+},
 
-    image:
-      "images/pirate-jessie-mega.png",
 
-    page:
-      "",
+{
+  id:
+    "pirate-blip-green",
 
-    size:
-      '4"',
+  name:
+    "Green Pirate Blip",
 
-    edition:
-      "OLV10",
+  subtitle:
+    "Kickstarter Colourway",
 
-    release:
-      "May 2025",
+  image:
+    "images/pirate-green.png",
 
-    releaseDate:
-      "2025-05-01",
+  size:
+    '2"',
 
-    enamel:
-      "Enamel Pin",
+  edition:
+    "Kickstarter",
 
-    effects:
-      "Mega Pin"
-  },
+  release:
+    "May 2025",
 
+  releaseDate:
+    "2025-05-01",
 
-  /* ===================================================
-     CHRISTMAS 2025
-  =================================================== */
+  enamel:
+    "Enamel Pin",
 
+  effects:
+    "Green Kickstarter Colourway",
 
-  {
-    id: "christmas-tree-standard",
+  group:
+    "kickstarter",
 
-    name:
-      "Christmas Tree Blip – Standard",
+  countsTowardCompletion:
+    true
+},
 
-    subtitle:
-      "Christmas 2025",
 
-    image:
-      "images/christmas-tree-standard.png",
+{
+  id:
+    "pirate-blip-green-mega",
 
-    page:
-      "",
+  name:
+    "Pirate Blip – Green Mega",
 
-    size:
-      '2"',
+  subtitle:
+    "Kickstarter Mega",
 
-    edition:
-      "ULE30 Set",
+  /* SAME DESIGN AS GREEN PIRATE */
 
-    release:
-      "December 2025",
+  image:
+    "images/pirate-green.png",
 
-    releaseDate:
-      "2025-12-01",
+  size:
+    '4"',
 
-    enamel:
-      "Hard Enamel",
+  edition:
+    "OLV10",
 
-    effects:
-      "Standard"
-  },
+  release:
+    "May 2025",
 
+  releaseDate:
+    "2025-05-01",
 
-  {
-    id: "christmas-tree-effects",
+  enamel:
+    "Enamel Pin",
 
-    name:
-      "Christmas Tree Blip – Special Effects",
+  effects:
+    "Mega Pin",
 
-    subtitle:
-      "Christmas 2025",
+  group:
+    "kickstarter",
 
-    image:
-      "images/christmas-tree-effects.png",
+  countsTowardCompletion:
+    true
+},
 
-    page:
-      "",
 
-    size:
-      '2"',
 
-    edition:
-      "ULE30 Set",
+/* =====================================================
+   COLOURS BY JESSIE
+===================================================== */
 
-    release:
-      "December 2025",
 
-    releaseDate:
-      "2025-12-01",
+{
+  id:
+    "pirate-blip-jessie",
 
-    enamel:
-      "Hard Enamel",
+  name:
+    "Colours by Jessie – Pirate Blip",
 
-    effects:
-      "Pearl · Glitter · Glow"
-  },
+  subtitle:
+    "Colours by Jessie",
 
+  image:
+    "images/pirate-jessie.png",
 
-  /* ===================================================
-     SINGAPORE 2026
-  =================================================== */
+  size:
+    '2"',
 
+  edition:
+    "LE50",
 
-  {
-    id: "singapore-merlion-adventure",
+  release:
+    "May 2025",
 
-    name:
-      "Singapore Blip – Merlion Adventure",
+  releaseDate:
+    "2025-05-01",
 
-    subtitle:
-      "Singapore Special",
+  enamel:
+    "Enamel Pin",
 
-    image:
-      "images/singapore-merlion-adventure.png",
+  effects:
+    "Glow in the Dark",
 
-    page:
-      "",
+  group:
+    "special",
 
-    size:
-      "TBC",
+  countsTowardCompletion:
+    true
+},
 
-    edition:
-      "LE50",
 
-    release:
-      "21 August 2026",
+{
+  id:
+    "pirate-blip-jessie-mega",
 
-    releaseDate:
-      "2026-08-21",
+  name:
+    "Colours by Jessie – Pirate Mega",
 
-    enamel:
-      "Soft Enamel",
+  subtitle:
+    "Colours by Jessie",
 
-    effects:
-      "Standard"
-  },
+  /* SAME ARTWORK AS 2-INCH JESSIE PIRATE */
 
+  image:
+    "images/pirate-jessie.png",
 
-  {
-    id: "singapore-merlion-costume",
+  size:
+    '4"',
 
-    name:
-      "Singapore Blip – Merlion Costume",
+  edition:
+    "OLV10",
 
-    subtitle:
-      "Singapore Special",
+  release:
+    "May 2025",
 
-    image:
-      "images/singapore-merlion-costume.png",
+  releaseDate:
+    "2025-05-01",
 
-    page:
-      "",
+  enamel:
+    "Enamel Pin",
 
-    size:
-      "TBC",
+  effects:
+    "Mega Pin",
 
-    edition:
-      "LE50",
+  group:
+    "special",
 
-    release:
-      "21 August 2026",
+  countsTowardCompletion:
+    true
+},
 
-    releaseDate:
-      "2026-08-21",
 
-    enamel:
-      "Soft Enamel",
 
-    effects:
-      "Pearl Effect · Translucent Blue Water"
-  }
+/* =====================================================
+   CHRISTMAS 2025
+===================================================== */
+
+
+{
+  id:
+    "christmas-tree-standard",
+
+  name:
+    "Christmas Tree Blip – Standard",
+
+  subtitle:
+    "Christmas 2025",
+
+  image:
+    "images/christmas-tree-standard.png",
+
+  size:
+    '2"',
+
+  edition:
+    "ULE30 Set",
+
+  release:
+    "December 2025",
+
+  releaseDate:
+    "2025-12-01",
+
+  enamel:
+    "Hard Enamel",
+
+  effects:
+    "Standard",
+
+  group:
+    "special",
+
+  countsTowardCompletion:
+    true
+},
+
+
+{
+  id:
+    "christmas-tree-effects",
+
+  name:
+    "Christmas Tree Blip – Special Effects",
+
+  subtitle:
+    "Christmas 2025",
+
+  image:
+    "images/christmas-tree-effects.png",
+
+  size:
+    '2"',
+
+  edition:
+    "ULE30 Set",
+
+  release:
+    "December 2025",
+
+  releaseDate:
+    "2025-12-01",
+
+  enamel:
+    "Hard Enamel",
+
+  effects:
+    "Glitter Tree · Pearl · Glow in the Dark",
+
+  group:
+    "special",
+
+  countsTowardCompletion:
+    true
+},
+
+
+
+/* =====================================================
+   SINGAPORE 2026
+===================================================== */
+
+
+{
+  id:
+    "blipion",
+
+  name:
+    "Blipion",
+
+  subtitle:
+    "Singapore Special",
+
+  image:
+    "images/singapore-merlion-costume.png",
+
+  size:
+    '1.75"',
+
+  edition:
+    "LE50",
+
+  release:
+    "21 August 2026",
+
+  releaseDate:
+    "2026-08-21",
+
+  enamel:
+    "Soft Enamel",
+
+  effects:
+    "Pearl Effect · Translucent Blue Water",
+
+  group:
+    "special",
+
+  countsTowardCompletion:
+    true
+},
+
+
+{
+  id:
+    "blip-in-singapore",
+
+  name:
+    "Blip in Singapore",
+
+  subtitle:
+    "Singapore Special",
+
+  image:
+    "images/singapore-merlion-adventure.png",
+
+  size:
+    '1.75"',
+
+  edition:
+    "LE50",
+
+  release:
+    "21 August 2026",
+
+  releaseDate:
+    "2026-08-21",
+
+  enamel:
+    "Soft Enamel",
+
+  effects:
+    "Singapore Adventure Scene",
+
+  group:
+    "special",
+
+  countsTowardCompletion:
+    true
+},
+
+
+
+/* =====================================================
+   CAPTAIN BLIP
+
+   We KNOW this is a special Blip design.
+   Edition/release details have not yet been confirmed.
+
+   Therefore:
+   - shown in Blipdex
+   - NOT included in completion percentage yet
+
+===================================================== */
+
+
+{
+  id:
+    "captain-blip",
+
+  name:
+    "Captain Blip",
+
+  subtitle:
+    "Special Pirate Blip",
+
+  image:
+    "images/captain-blip.png",
+
+  size:
+    "TBC",
+
+  edition:
+    "TBC",
+
+  release:
+    "Details TBC",
+
+  releaseDate:
+    "",
+
+  enamel:
+    "Enamel Pin",
+
+  effects:
+    "Special Pirate Design",
+
+  group:
+    "special",
+
+  countsTowardCompletion:
+    false
+}
 
 
 ];
@@ -1826,7 +1937,7 @@ function setFilter(
 
 
 /* =====================================================
-   STORAGE HELPERS
+   STORAGE
 ===================================================== */
 
 function getSavedArray(
@@ -1879,7 +1990,7 @@ function saveArray(
 
 
 /* =====================================================
-   NUMBERS
+   NUMBER STORAGE
 ===================================================== */
 
 function getNumbers() {
@@ -1950,33 +2061,7 @@ function saveNumber(
 
 
 /* =====================================================
-   RELEASE CHECK
-===================================================== */
-
-function isReleased(
-  blip
-) {
-
-  const release =
-    new Date(
-      blip.releaseDate +
-      "T00:00:00"
-    );
-
-
-  const now =
-    new Date();
-
-
-  return (
-    now >= release
-  );
-
-}
-
-
-/* =====================================================
-   TOGGLE COLLECTION
+   OWNED
 ===================================================== */
 
 function toggleOwned(
@@ -2041,7 +2126,7 @@ function toggleOwned(
 
 
 /* =====================================================
-   TOGGLE WISHLIST
+   WISHLIST
 ===================================================== */
 
 function toggleWishlist(
@@ -2106,7 +2191,7 @@ function toggleWishlist(
 
 
 /* =====================================================
-   IMAGE ERROR
+   IMAGE FALLBACK
 ===================================================== */
 
 function imageFailed(
@@ -2186,13 +2271,7 @@ function renderBlipdex() {
       blip => {
 
 
-        const released =
-          isReleased(
-            blip
-          );
-
-
-        const matchesSearch =
+        const searchable =
           (
             blip.name +
             " " +
@@ -2202,16 +2281,17 @@ function renderBlipdex() {
             " " +
             blip.release +
             " " +
-            blip.effects
+            blip.effects +
+            " " +
+            blip.group
           )
-          .toLowerCase()
-          .includes(
-            search
-          );
+          .toLowerCase();
 
 
         if (
-          !matchesSearch
+          !searchable.includes(
+            search
+          )
         ) {
 
           return false;
@@ -2221,34 +2301,11 @@ function renderBlipdex() {
 
         if (
           activeFilter ===
-          "released"
-        ) {
-
-          return released;
-
-        }
-
-
-        if (
-          activeFilter ===
-          "upcoming"
-        ) {
-
-          return !released;
-
-        }
-
-
-        if (
-          activeFilter ===
           "owned"
         ) {
 
-          return (
-            released &&
-            owned.includes(
-              blip.id
-            )
+          return owned.includes(
+            blip.id
           );
 
         }
@@ -2259,11 +2316,34 @@ function renderBlipdex() {
           "wishlist"
         ) {
 
+          return wishlist.includes(
+            blip.id
+          );
+
+        }
+
+
+        if (
+          activeFilter ===
+          "kickstarter"
+        ) {
+
           return (
-            released &&
-            wishlist.includes(
-              blip.id
-            )
+            blip.group ===
+            "kickstarter"
+          );
+
+        }
+
+
+        if (
+          activeFilter ===
+          "special"
+        ) {
+
+          return (
+            blip.group ===
+            "special"
           );
 
         }
@@ -2279,34 +2359,14 @@ function renderBlipdex() {
     "";
 
 
-  if (
-    !filtered.length
-  ) {
-
-    noResults.style.display =
-      "block";
-
-  }
-
-  else {
-
-    noResults.style.display =
-      "none";
-
-  }
+  noResults.style.display =
+    filtered.length
+      ? "none"
+      : "block";
 
 
   filtered.forEach(
-    (
-      blip,
-      index
-    ) => {
-
-
-      const released =
-        isReleased(
-          blip
-        );
+    blip => {
 
 
       const isOwned =
@@ -2321,10 +2381,14 @@ function renderBlipdex() {
         );
 
 
-      const originalNumber =
+      const index =
         blips.indexOf(
           blip
         ) + 1;
+
+
+      const counts =
+        blip.countsTowardCompletion;
 
 
       const card =
@@ -2334,185 +2398,135 @@ function renderBlipdex() {
 
 
       card.className =
-        released
-          ? "pin-card"
-          : "pin-card upcoming";
+        "pin-card";
 
 
-      let detailsLink =
-        "";
-
-
-      if (
-        blip.page
-      ) {
-
-        detailsLink = `
-
-          <a
-            class="card-link details-link"
-            href="${blip.page}"
-          >
-            View Blip
-          </a>
-
-        `;
-
-      }
-
-
-      const tracker =
-        released
-          ? `
-
-            <div class="tracker-box">
-
-              <div class="tracker-buttons">
-
-
-                <button
-
-                  class="
-                    tracker-button
-                    owned
-                    ${
-                      isOwned
-                        ? "active"
-                        : ""
-                    }
-                  "
-
-                  onclick="
-                    toggleOwned(
-                      '${blip.id}'
-                    )
-                  "
-                >
-
-                  ${
-                    isOwned
-                      ? "✓ In Collection"
-                      : "+ Add to Collection"
-                  }
-
-                </button>
-
-
-                <button
-
-                  class="
-                    tracker-button
-                    wanted
-                    ${
-                      isWanted
-                        ? "active"
-                        : ""
-                    }
-                  "
-
-                  onclick="
-                    toggleWishlist(
-                      '${blip.id}'
-                    )
-                  "
-                >
-
-                  ${
-                    isWanted
-                      ? "♥ Wishlist"
-                      : "♡ Want This"
-                  }
-
-                </button>
-
-
-              </div>
-
-
-              <div class="number-wrap">
-
-                <label
-                  class="number-label"
-                >
-                  My Number
-                </label>
-
-                <input
-
-                  class="number-input"
-
-                  type="text"
-
-                  value="${
-                    numbers[blip.id]
-                    || ""
-                  }"
-
-                  placeholder="e.g. 12 / 50"
-
-                  ${
-                    isOwned
-                      ? ""
-                      : "disabled"
-                  }
-
-                  onchange="
-                    saveNumber(
-                      '${blip.id}',
-                      this.value
-                    )
-                  "
-                >
-
-              </div>
-
-
-              <div class="card-actions">
-
-                ${detailsLink}
-
-                <a
-                  class="
-                    card-link
-                    shop-link
-                  "
-
-                  href="${blipShop}"
-
-                  target="_blank"
-
-                  rel="noopener"
-                >
-                  Shop Blip
-                </a>
-
-              </div>
-
-            </div>
-
-          `
+      const specialMessage =
+        counts
+          ? ""
           : `
 
-            <div class="card-actions">
+            <div class="special-note">
 
-              <a
-                class="
-                  card-link
-                  shop-link
-                "
-
-                href="${blipShop}"
-
-                target="_blank"
-
-                rel="noopener"
-              >
-                View Blip Shop
-              </a>
+              This special Blip is recorded in the archive,
+              but is not currently included in the Blipdex
+              completion total while release details are being confirmed.
 
             </div>
 
           `;
+
+
+      const tracker =
+        counts
+          ? `
+
+          <div class="tracker-box">
+
+
+            <div class="tracker-buttons">
+
+
+              <button
+
+                class="
+                  tracker-button
+                  owned
+                  ${
+                    isOwned
+                      ? "active"
+                      : ""
+                  }
+                "
+
+                onclick="
+                  toggleOwned(
+                    '${blip.id}'
+                  )
+                "
+              >
+
+                ${
+                  isOwned
+                    ? "✓ In Collection"
+                    : "+ Add to Collection"
+                }
+
+              </button>
+
+
+              <button
+
+                class="
+                  tracker-button
+                  wanted
+                  ${
+                    isWanted
+                      ? "active"
+                      : ""
+                  }
+                "
+
+                onclick="
+                  toggleWishlist(
+                    '${blip.id}'
+                  )
+                "
+              >
+
+                ${
+                  isWanted
+                    ? "♥ Wishlist"
+                    : "♡ Want This"
+                }
+
+              </button>
+
+
+            </div>
+
+
+            <div class="number-wrap">
+
+              <label
+                class="number-label"
+              >
+                My Number
+              </label>
+
+
+              <input
+
+                class="number-input"
+
+                value="${
+                  numbers[blip.id]
+                  || ""
+                }"
+
+                placeholder="e.g. 12 / 50"
+
+                ${
+                  isOwned
+                    ? ""
+                    : "disabled"
+                }
+
+                onchange="
+                  saveNumber(
+                    '${blip.id}',
+                    this.value
+                  )
+                "
+              >
+
+            </div>
+
+
+          </div>
+
+          `
+          : specialMessage;
 
 
       card.innerHTML = `
@@ -2525,42 +2539,34 @@ function renderBlipdex() {
             class="
               status-badge
               ${
-                released
+                counts
                   ? "status-released"
-                  : "status-upcoming"
+                  : "status-special"
               }
             "
           >
 
             ${
-              released
+              counts
                 ? "Released"
-                : "Coming Soon"
+                : "Archive Special"
             }
 
           </span>
 
 
           <img
-
             src="${blip.image}"
-
             alt="${blip.name}"
-
             loading="lazy"
-
-            onerror="
-              imageFailed(this)
-            "
+            onerror="imageFailed(this)"
           >
 
 
           <div
             class="image-placeholder"
           >
-
             Image coming soon
-
           </div>
 
 
@@ -2573,7 +2579,7 @@ function renderBlipdex() {
           <div class="pin-number">
 
             BLIPDEX · ${String(
-              originalNumber
+              index
             ).padStart(
               3,
               "0"
@@ -2583,16 +2589,12 @@ function renderBlipdex() {
 
 
           <h2>
-
             ${blip.name}
-
           </h2>
 
 
           <div class="pin-subtitle">
-
             ${blip.subtitle}
-
           </div>
 
 
@@ -2641,7 +2643,7 @@ function renderBlipdex() {
             <div class="detail">
 
               <span class="detail-label">
-                Enamel
+                Pin Type
               </span>
 
               <span class="detail-value">
@@ -2651,13 +2653,7 @@ function renderBlipdex() {
             </div>
 
 
-            <div
-              class="detail"
-              style="
-                grid-column:
-                1 / -1;
-              "
-            >
+            <div class="detail full">
 
               <span class="detail-label">
                 Effects / Notes
@@ -2677,7 +2673,6 @@ function renderBlipdex() {
 
 
         </div>
-
 
       `;
 
@@ -2701,17 +2696,15 @@ function renderBlipdex() {
 
 function updateProgress() {
 
-  const released =
+  const countable =
     blips.filter(
       blip =>
-        isReleased(
-          blip
-        )
+        blip.countsTowardCompletion
     );
 
 
-  const releasedIds =
-    released.map(
+  const countableIds =
+    countable.map(
       blip =>
         blip.id
     );
@@ -2723,14 +2716,14 @@ function updateProgress() {
     )
     .filter(
       id =>
-        releasedIds.includes(
+        countableIds.includes(
           id
         )
     );
 
 
   const total =
-    released.length;
+    countable.length;
 
 
   const collected =
@@ -2775,7 +2768,7 @@ function updateProgress() {
 
 
 /* =====================================================
-   INITIAL LOAD
+   LOAD
 ===================================================== */
 
 renderBlipdex();
